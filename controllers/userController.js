@@ -2,7 +2,7 @@ const db = require('../models/db');
 
 
 module.exports.sayHello = function(req, res) {
-    res.send('Hi World');
+    res.render("home");
 };
 
 module.exports.printAll = function(req, res) {
@@ -13,7 +13,7 @@ module.exports.printAll = function(req, res) {
 };
 
 module.exports.printUser = function(req, res) {
-    res.render("home",{
+    res.render("user",{
         name:db.dataBase[req.params.id].name,
         job:db.dataBase[req.params.id].job
     })
