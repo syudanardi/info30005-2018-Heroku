@@ -1,6 +1,7 @@
 <a href="/">Go back</a>
 </br>
 <% for (var x = 0; x < length; x++){ %>
-    <h1><%= db[x].name%> </h1>
+    <h1> Entry Number <%= x %></h1>
+    <h2><%= db[x].name%> </h2>
     <p><%= db[x].job%> </p>
 <% } %>
