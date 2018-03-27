@@ -5,6 +5,10 @@ module.exports.sayHello = function(req, res) {
     res.render("home");
 };
 
+module.exports.homePage = function(req, res) {
+    res.render("homepage");
+};
+
 module.exports.printAll = function(req, res) {
     res.render("all",{
         db:db.dataBase,
@@ -18,3 +22,5 @@ module.exports.printUser = function(req, res) {
         job:db.dataBase[req.params.id].job
     })
 };
+
+
