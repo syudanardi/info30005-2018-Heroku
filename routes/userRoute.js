@@ -4,8 +4,12 @@ const control = require('../controllers/userController');
 
 router.get('/', control.sayHello);
 
+router.get('/home', control.homePage);
+
 router.get('/users', control.printAll);
 
 router.get('/users/:id', control.printUser);
+
+
 
 module.exports = router;

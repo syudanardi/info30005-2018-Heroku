@@ -10,6 +10,8 @@ app.set('view engine','ejs');
 
 app.use('/',router);
 
+app.use(express.static(__dirname + '/public'));
+
 // Start the app at the Port point
 app.listen(PORT,function(){
     console.log(`Express listening on port ${PORT}`);
