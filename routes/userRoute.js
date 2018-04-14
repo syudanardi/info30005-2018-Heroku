@@ -10,6 +10,7 @@ router.get('/users', control.printAll);
 
 router.get('/users/:id', control.printUser);
 
+router.get('/disease_specific', control.diseaseSpecific);
 
 
 module.exports = router;

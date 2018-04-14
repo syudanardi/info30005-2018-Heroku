@@ -9,6 +9,10 @@ module.exports.homePage = function(req, res) {
     res.render("homepage");
 };
 
+module.exports.diseaseSpecific = function(req, res) {
+    res.render("diseasespecific");
+};
+
 module.exports.printAll = function(req, res) {
     res.render("all",{
         db:db.dataBase,
