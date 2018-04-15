@@ -10,6 +10,8 @@ router.get('/users', control.printAll);
 
 router.get('/users/:id', control.printUser);
 
+router.get('/test', control.realHome)
+
 
 
 module.exports = router;
