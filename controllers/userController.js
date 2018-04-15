@@ -17,6 +17,10 @@ module.exports.registrationForm = function(req, res) {
     res.render("registrationform");
 };
 
+module.exports.navbar = function(req, res) {
+    res.render("navbar");
+};
+
 module.exports.printAll = function(req, res) {
     res.render("all",{
         db:db.dataBase,

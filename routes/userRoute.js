@@ -14,4 +14,6 @@ router.get('/disease_specific', control.diseaseSpecific);
 
 router.get('/registration_form', control.registrationForm);
 
+router.get('/navbar', control.navbar);
+
 module.exports = router;
