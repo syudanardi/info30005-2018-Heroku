@@ -12,5 +12,6 @@ router.get('/users/:id', control.printUser);
 
 router.get('/disease_specific', control.diseaseSpecific);
 
+router.get('/registration_form', control.registrationForm);
 
 module.exports = router;
