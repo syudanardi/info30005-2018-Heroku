@@ -1,0 +1,60 @@
+body {
+    margin: 1.5rem;
+}
+
+h1, h2, a {
+    color: #666;
+}
+
+#title {
+    text-align: center;
+}
+
+.search-bar {
+    text-align: center;
+}
+
+.search-bar input {
+    height: 30px;
+    width: 50%;
+}
+
+#search-button {
+    height: 30px;
+    margin-bottom: 0;
+}
+
+.alphabet {
+    margin-left: 2px;
+    margin-right: 5px;
+}
+
+.disc-block-alphabet {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.btn {
+    margin-bottom: 15px;
+}
+
+.btn-info {
+    background-color: #59B2E0;
+}
+
+section nav a {
+    background: cyan;
+    height: 25px;
+    width: 30px;
+    display: inline-block;
+    margin-right: 8px;
+    padding: 1px;
+    text-align: center;
+    line-height: 20px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+li {
+    list-style-type: none;
+}
