@@ -23,9 +23,6 @@ module.exports.printUser = function(req, res) {
     })
 };
 
-<<<<<<< HEAD
-
-=======
 module.exports.diseaseWiki = function(req, res) {
     res.locals.query = req.query;
     res.render("diseasewiki", {alphabet: db.alphabet, diseases: db.diseases
@@ -49,4 +46,3 @@ module.exports.disease = function(req, res) {
 module.exports.profile = function(req, res) {
     res.render("profile", {profile: db.profile, diseases: db.diseases})
 }
->>>>>>> 06c0186c59e1344bc3af3597de793a6d1473f93c
