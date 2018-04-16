@@ -21,6 +21,10 @@ module.exports.navbar = function(req, res) {
     res.render("navbar");
 };
 
+module.exports.footer = function(req, res) {
+    res.render("footer");
+};
+
 module.exports.printAll = function(req, res) {
     res.render("all",{
         db:db.dataBase,

@@ -16,4 +16,6 @@ router.get('/registration_form', control.registrationForm);
 
 router.get('/navbar', control.navbar);
 
+router.get('/footer', control.footer);
+
 module.exports = router;
