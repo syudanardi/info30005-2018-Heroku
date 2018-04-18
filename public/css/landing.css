@@ -1,0 +1,8 @@
+body {
+    background: #f8f9fa;
+}
+.content {
+    max-width: 800px;
+    margin: auto;
+    background: white;
+}

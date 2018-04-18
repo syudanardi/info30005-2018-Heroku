@@ -1,12 +1,12 @@
 /*FOOTER START///////////////////*/
 .footer {
     padding: 50px 0 20px 0;
-    background-color: #090c14;
-    color: #878c94;
+    background-color: #DFF0FD;
+    color: #5B5B5B;
 }
 .footer .title{
     text-align: left;
-    color:#fff;
+    color:;
     font-size:25px;
 }
 .footer .social-icon{
@@ -15,13 +15,13 @@
 }
 .footer .social-icon a{
     display:inline-block;
-    color:#fff;
+    color:#5B5B5B;
     font-size:25px;
     padding:5px;
 }
 .footer .acount-icon a{
     display:block;
-    color:#fff;
+    color:#5B5B5B;
     font-size:18px;
     padding:5px;
     text-decoration:none;
@@ -39,20 +39,4 @@
     margin-top: 6px;
     background-color: black;
     border: solid 1px #fff;
-}
-.footer .payment{
-    margin:0px;
-    padding:0px;
-    list-style-type:none
-}
-.footer .payment li{
-    list-style-type:none
-}
-.footer .payment li a {
-    text-decoration: none;
-    display: inline-block;
-    color: #fff;
-    float: left;
-    font-size: 25px;
-    padding: 10px 10px;
 }

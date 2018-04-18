@@ -18,6 +18,8 @@ router.get('/profile', control.profile);
 
 router.get('/disease_specific', control.diseaseSpecific);
 
+router.get('/test', control.realHome)
+
 router.get('/registration_form', control.registrationForm);
 
 router.get('/navbar', control.navbar);

@@ -6,9 +6,22 @@
     <title>Disease Wiki</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
     <link rel="stylesheet" media="screen" href="/css/diseasewiki.css" />
     <script type="text/javascript" src="/diseasewiki.js"></script>
+    
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+        $(function() {
+            $("#nav-placeholder").load("navbar");
+        });
+    </script> -->
 </head>
+
+<header>
+    <div id="nav-placeholder">
+    </div>
+</header>
 <body>
     <div class="dis-header">
         <h1 id="title">Diseases Wiki</h1>
@@ -47,7 +60,7 @@
                     <% for(var y = 0; y<alphabet.length; y++) { %>
                         <h2><%= alphabet[y]%></h2>
                         <% for(var z = 0; z<4; z++) { %>
-                            <div class="col-md-3 col-sm-3 col-xs-6">
+                            <div id="list-alpha-diseases" class="col-md-3 col-sm-3 col-xs-6">
                                 <ul class="list-disease">
                                     <li><a href=""><%= diseases[y] %></a></li>
                                     <li><a href=""><%= diseases[y] %></a></li>
@@ -89,4 +102,8 @@
         } %>
     </div>
 </body>
+
+<footer>
+    <% include footer.ejs %>
+</footer>
 </html>
