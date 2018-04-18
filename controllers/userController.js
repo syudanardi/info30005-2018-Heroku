@@ -39,4 +39,7 @@ module.exports.printUser = function(req, res) {
     })
 };
 
+module.exports.realHome = function(req, res) {
+    res.render("newHome");
+}
 
