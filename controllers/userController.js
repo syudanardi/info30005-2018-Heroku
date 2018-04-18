@@ -62,6 +62,10 @@ module.exports.profile = function(req, res) {
     res.render("profile", {profile: db.profile, diseases: db.diseases})
 }
 
+module.exports.realHome = function(req, res) {
+    res.render("newHome");
+}
+
 
 
 
