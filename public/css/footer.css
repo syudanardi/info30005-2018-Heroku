@@ -1,0 +1,41 @@
+/*FOOTER START///////////////////*/
+.footer {
+    padding: 50px 0 20px 0;
+    background-color: #DFF0FD;
+    color: #5B5B5B;
+}
+.footer .title{
+    text-align: left;
+    font-size:25px;
+}
+.footer .social-icon{
+    padding:0px;
+    margin:0px;
+}
+.footer .social-icon a{
+    display:inline-block;
+    color:#5B5B5B;
+    font-size:25px;
+    padding:5px;
+}
+.footer .acount-icon a{
+    display:block;
+    color:#5B5B5B;
+    font-size:18px;
+    padding:5px;
+    text-decoration:none;
+}
+.footer .acount-icon .fa{
+    margin-right:25px;
+}
+.footer .category a {
+    text-decoration: none;
+    color: #fff;
+    display: inline-block;
+    padding: 5px 20px;
+    margin: 1px;
+    border-radius:4px;
+    margin-top: 6px;
+    background-color: black;
+    border: solid 1px #fff;
+}

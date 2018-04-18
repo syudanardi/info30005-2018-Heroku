@@ -12,6 +12,12 @@
 </head>
 
 <body>
+
+<!--Navigation bar-->
+<div id="nav-placeholder">
+    <% include navbar.ejs %>
+</div>
+
 <div class="content">
 
     <div id="slideShow" class="row containerBorder">
@@ -38,13 +44,23 @@
                 <div class="col-lg-12 quickFact">
                     Eating fish brains will help your memory processing
                 </div>
+
+            </div>
+            <div class="row" style="border:5px solid brown";>
+                Quick Fact
             </div>
         </div>
+        <div class="col-lg-6" style="border: 10px solid purple;">
+            Last 7 days hotties
+        </div>
+
         <div class="col-lg-6 cell2-2">
             Last 7 days hotties
         </div>
     </div>
     <div class="row containerBorder">
+
+
         <div class="col-lg-12">
             <div class="row" style="border: 10px solid cyan;">
                 <div class="col-lg-12" style="border: 10px aquamarine;">
@@ -61,9 +77,14 @@
             </div>
         </div>
     </div>
+
 </div>
 
 
+<!-- Footer-->
+<div id="footer-placeholder">
+    <% include footer.ejs %>
+</div>
 
 
 </body></html>

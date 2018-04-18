@@ -62,8 +62,7 @@ body{
 }
 
 .cell2-1{
-    padding-left: 5%;
-    padding-right: 5%;
+    padding: 1% 5%;
     background: darksalmon;
 }
 
