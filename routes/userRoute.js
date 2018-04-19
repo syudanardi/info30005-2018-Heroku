@@ -26,4 +26,6 @@ router.get('/navbar', control.navbar);
 
 router.get('/footer', control.footer);
 
+router.get('/profile', control.profile);
+
 module.exports = router;

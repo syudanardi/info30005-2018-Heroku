@@ -65,4 +65,3 @@ module.exports.profile = function(req, res) {
 module.exports.realHome = function(req, res) {
     res.render("newHome");
 }
-

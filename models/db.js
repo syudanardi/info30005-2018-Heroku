@@ -3,6 +3,10 @@ const faker = require('faker');
 
 var dataBase = [];
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4a0bf384ff89295f3f63beac3ec7be43a4640d94
 var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 var diseases = ["Asthma", "Bronchitis", "Calculi", "Deafness", "Encopresis", "Fibromatosis", "Geliphobia", 
 "Headache", "Influenza", "Jones Syndrome", "Katz Syndrome", "Labyrinthitis",
@@ -19,9 +23,15 @@ var profile = {
         from: "Sydney",
         livesIn: "Melbourne",
         mobile: 61424567890,
+<<<<<<< HEAD
         address: "800 Swanston Street, Melbourne VIC 3000, Australia",
         email: "iamastudent@yahoo.com",
         allergies: ["Doxycycline", "Stemetil prochlorperazine", "Amoxycillin"]
+=======
+        address: "800 Swanston Street",
+        email: "iamgreat@yahoo.com",
+        allergies: ["Doxycycline", "Stemetil prochlorperazine"]
+>>>>>>> 4a0bf384ff89295f3f63beac3ec7be43a4640d94
     };
 
 
@@ -40,4 +50,8 @@ module.exports = {
     alphabet: alphabet,
     diseases: diseases,
     profile: profile
+<<<<<<< HEAD
 };
+=======
+};
+>>>>>>> 4a0bf384ff89295f3f63beac3ec7be43a4640d94
