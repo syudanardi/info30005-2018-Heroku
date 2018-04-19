@@ -1,12 +1,6 @@
-body {
-    margin: 1.5rem;
-}
-
-h1, h2, a {
-    color: #666;
-}
-
 #title {
+    color: #666;
+    margin-top: 30px;
     text-align: center;
 }
 
@@ -24,37 +18,54 @@ h1, h2, a {
     margin-bottom: 0;
 }
 
-.alphabet {
-    margin-left: 2px;
-    margin-right: 5px;
-}
-
-.disc-block-alphabet {
+#go-button {
+    background-color:  #59B2E0;
+    border-color:  #59B2E0;
     text-align: center;
-    margin-bottom: 10px;
-}
-
-.btn {
-    margin-bottom: 15px;
-}
-
-.btn-info {
-    background-color: #59B2E0;
-}
-
-section nav a {
-    background: cyan;
-    height: 25px;
-    width: 30px;
     display: inline-block;
-    margin-right: 8px;
-    padding: 1px;
-    text-align: center;
-    line-height: 20px;
-    margin-top: 15px;
-    margin-bottom: 20px;
+    margin: 0 auto;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
-li {
+#browse-disease {
+    color: #666;
+    text-align: center;
+    margin-top: 20px;
+}
+#search-a-z {
+    margin-top: 15px;
+    text-align: center;
+}
+
+#A, #B, #C, #D, #E, #F, #G, #H, #I, #J, #K, #L, #M, #N, #O, #P, #Q, #R, #S, #T, #U, 
+#V, #W, #X, #Y, #Z , #all-diseases {
+    background-color: #59B2E0;
+    margin-bottom: 15px;
+    text-align: center;
+    margin-left: auto;
+}
+
+#first-alphabet-disease {
+    margin-top: 10px;
+    margin-left: 5%;
+    color: #666;
+}
+
+#list-alpha-diseases {
+    margin-left: 20%;
+}
+
+#list-alpha-disease {
+    margin-left: 10%;
+}
+
+#disease {
     list-style-type: none;
+}
+
+#link-disease {
+    color: #666;
 }

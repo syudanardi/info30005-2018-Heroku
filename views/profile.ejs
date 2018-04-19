@@ -2,39 +2,49 @@
 <html>
 <head>
     <title>Profile</title>
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="/css/profile.css" />
     <script type="text/javascript" src="/profile.js"></script>
 </head>
-<body>
 
+<header>
+    <div id="nav-placeholder">
+        <% include navbar.ejs %>
+    </div>
+</header>
+<body>
     <div class="container">
         <div class="row">
-            <h1>Profile</h1>
-            <div class="profile-image">
-                <img src="imgs/sampleprofile.jpeg" class="img-circle" align="middle">
+            <div class="col-12">
+                <h1 id="title">Profile</h1>
             </div>
-            <h2><%= profile.firstName %> <%= profile.lastName %></h2>
+
+            <div id="image-container" class="col-12">
+                <img id="profile-image"src="imgs/sampleprofile.jpeg" alt="Avatar">
+            </div>
+            <div class="col-12">
+                <h2 id="full-name"><%= profile.firstName %> <%= profile.lastName %></h2>
+            </div>
+
         </div>
     </div>
     
     <div id="container-personal-activities" class="container">
-        
         <div class="row">
             <div class="col-sm-6 col-xs-12 personal-info">
-                <h3>Joined Since: <%= profile.joinedMonth %> <%= profile.joinedYear%></h3>
-                <h3>Occupation: <%= profile.occupation %></h3>
-                <h3>From: <%= profile.from %></h3>
-                <h3>Lives in: <%= profile.livesIn %></h3>
+                <h3 id="profile-data">Joined Since: <%= profile.joinedMonth %> <%= profile.joinedYear%></h3>
+                <h3 id="profile-data">Occupation: <%= profile.occupation %></h3>
+                <h3 id="profile-data">From: <%= profile.from %></h3>
+                <h3 id="profile-data">Lives in: <%= profile.livesIn %></h3>
             </div>
 
             <div class="col-sm-6 col-xs-12 forum-activities">
-                <h3>Recent Forum Activities</h3>
-                <ul class="list-forum-activities">
-                    <li><h4>Herbal Tea Benefits?</h4></li>
-                    <li><h4>Flu Prevention Tips</h4></li>
-                    <li><h4>First Aid Competition</h4></li>
-                </ul>
+                <h3 id="title-forum-actv">Recent Forum Activities</h3>
+                <div class="list-forum-activities">
+                    <h4 id="topic-forum">Herbal Tea Benefits?</h4>
+                    <h4 id="topic-forum">Flu Prevention Tips</h4>
+                    <h4 id="topic-forum">First Aid Competition</h4>
+                </div>
             </div>
         </div>
     </div>
@@ -55,13 +65,15 @@
                 <h4 class="basic-allergies-info"><font color="white">Allergies</font></h4>
                 <ul class="list-allergies">
                     <% for (var x = 0; x < profile.allergies.length; x++) { %>
-                        <li><h5><%= profile.allergies[x] %></h5></li>
+                        <li><h5 class="list-allergies"><%= profile.allergies[x] %></h5></li>
                     <% } %>
                 </ul>
             </div>
         </div>
     </div>
-
-    
 </body>
+
+<footer>
+    <% include footer.ejs %>
+</footer>
 </html>

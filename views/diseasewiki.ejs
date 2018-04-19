@@ -1,77 +1,69 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Disease Wiki</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
     <link rel="stylesheet" media="screen" href="/css/diseasewiki.css" />
     <script type="text/javascript" src="/diseasewiki.js"></script>
-    
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script>
-        $(function() {
-            $("#nav-placeholder").load("navbar");
-        });
-    </script> -->
 </head>
 
 <header>
     <div id="nav-placeholder">
+        <% include navbar.ejs %>
     </div>
 </header>
 <body>
+
     <div class="dis-header">
         <h1 id="title">Diseases Wiki</h1>
     </div>
         
     <div class="disc-body">
-                
-                
         <!-- The Search Bar -->
         <div class="search-bar">
             <form>
                 <input name="diseasename" class="search-input" type="text" placeholder="Search Diseases..."></input>
-                <input type="submit" id="search-button" value="Go!!" class="btn btn-info search-button" style="width: auto"></input>
+                <input id="go-button" type="submit" id="search-button" value="Go!!" class="btn btn-info search-button" style="width: auto"></input>
             </form>
         </div>
             
         <!-- Browse the Diseases by Alphabet -->
         <section class="disc-block-alphabet">
-            <h2>Browse Diseases</h2>
-            <nav class="a-z">
-                <% for (var x = 0; x < alphabet.length; x++) {%>
-                    <button id="<%= alphabet[x] %>" type="submit" class="btn btn-info alphabet" onclick="changePage(this.id)"><%= alphabet[x]%></button>
-                <% }%>
-                <button type="button" class="btn btn-info alphabet" onclick="showAll()" class="alphabet">All</button> 
-            </nav>
+            <h2 id="browse-disease">Browse Diseases</h2>
+
+            <div id="search-a-z">
+                <nav class="a-z">
+                    <% for (var x = 0; x < alphabet.length; x++) {%>
+                        <button id="<%= alphabet[x] %>" type="submit" class="btn btn-info alphabet" onclick="changePage(this.id)"><%= alphabet[x]%></button>
+                    <% }%>
+                    <button id="all-diseases" type="button" class="btn btn-info alphabet" onclick="showAll()" class="alphabet">All</button> 
+                </nav>
+            </div>
         </section>
     </div>
-        
+    
     <!-- List of Diseases -->
-
     <!-- The user does not search any disease, so it will show all diseases. -->
     <div class="container">
         <% if(!query.diseasename) { %>
             <div class="row">
-                <div class="alph-disease">
-                    <% for(var y = 0; y<alphabet.length; y++) { %>
-                        <h2><%= alphabet[y]%></h2>
-                        <% for(var z = 0; z<4; z++) { %>
-                            <div id="list-alpha-diseases" class="col-md-3 col-sm-3 col-xs-6">
-                                <ul class="list-disease">
-                                    <li><a href=""><%= diseases[y] %></a></li>
-                                    <li><a href=""><%= diseases[y] %></a></li>
-                                    <li><a href=""><%= diseases[y] %></a></li>
-                                    <li><a href=""><%= diseases[y] %></a></li>
-                                    <li><a href=""><%= diseases[y] %></a></li>
-                                </ul>
-                            </div>
-                        <% }
-                    } %>
-                </div>
+                <% for(var y = 0; y<alphabet.length; y++) { %>
+                    <div class="col-12">
+                        <h2 id="first-alphabet-disease"><%= alphabet[y]%></h2>
+                    </div>
+                    
+                    <% for(var z = 0; z<4; z++) { %>
+                        <div class="col-md-3 col-sm-3 col-xs-6">
+                            <ul id="list-alpha-diseases" class="list-disease">
+                                <li id="disease"><a id="link-disease" href=""><%= diseases[y] %></a></li>
+                                <li id="disease"><a id="link-disease" href=""><%= diseases[y] %></a></li>
+                                <li id="disease"><a id="link-disease" href=""><%= diseases[y] %></a></li>
+                                <li id="disease"><a id="link-disease" href=""><%= diseases[y] %></a></li>
+                                <li id="disease"><a id="link-disease" href=""><%= diseases[y] %></a></li>
+                            </ul>
+                        </div>
+                    <% }
+                } %>
             </div>
         <% } else if (query.diseasename) {
             var found = 0;
@@ -81,23 +73,23 @@
                     if (diseases[y][0] == alphabet[x] && diseases[y].toLowerCase().includes(query.diseasename.toLowerCase())) {
                         if (a == 0) { %>
                             <div class="row">
-                                <div class="alph-disease">
-                                    <h2><%= diseases[y][0].toUpperCase() %></h2>
+                                <div class="col-12 alph-disease">
+                                    <h2 id="first-alphabet-disease"><%= diseases[y][0].toUpperCase() %></h2>
+                                </div>
                         <% } %>
-                                    <div class="col-md-3 col-sm-3 col-xs-6">
-                                        <p><a href=""><%= diseases[y] %></a></p>
-                                    </div>
+                                <div id="list-alpha-disease" class="col-md-3 col-sm-3 col-xs-6">
+                                    <p><a id="link-disease" href=""><%= diseases[y] %></a></p>
+                                </div>
                         <% a = 1;
                         found = 1;
                     }
                 }
                 if (a == 1) { %>
-                            </div>
                         </div>
                 <% }
             }
             if (found == 0) { %>
-                <h2>Search not found..</h2>
+                <h2 id="first-alphabet-disease">Search not found..</h2>
             <% }
         } %>
     </div>

@@ -1,38 +1,22 @@
-h1, h3, h4 {
+#title, #full-name {
     color: #666;
+    text-align: center;
+    margin-top: 15px;
 }
 
-h1 {
+#image-container {
     text-align: center;
 }
 
-h2 {
-    text-align: center;
-    margin-top: 20px;
-}
-
-img {
+#profile-image {
+    border-radius: 50%;
     width: 200px;
     height: 200px;
-    margin: 0 auto;
-}
-
-.profile-image {
-    text-align: center;
 }
 
 #container-personal-activities {
-    margin: 0;
-    padding: 0;
+    margin-top: 20px;
     width: 100%;
-}
-
-.personal-info {
-    padding-left: 50px;
-}
-
-.forum-activities {
-    padding-left: 50px;
 }
 
 .basic-allergies-info {
@@ -43,32 +27,53 @@ img {
     padding: 5px;
 }
 
+#personal-info-activities {
+    text-align: center;
+    padding: 5px;
+}
+
+#profile-data {
+    color: #666;
+    text-align: center;
+}
+
+#title-forum-actv, #topic-forum {
+    color: #666;
+    text-align: center;
+}
+
+.forum-activities {
+    padding-left: 50px;
+}
+
+#topic-item {
+    list-style-type: none;
+}
+
 .basic-info-details {
     margin-top: 0;
     border: 1px solid #029f5b;
-}
+} 
 
 #contact-info-title {
     text-align: left;
-    margin-left: 10px;
+    margin-left: 15px;
+    color: #666;
 }
 
 #mobile-phone {
     margin-top: 10px;
-    margin-left: 20px;
+    margin-left: 15px;
+    color: #666;
 }
 
-#address {
-    margin-left: 20px;
+#address, #email {
+    margin-left: 15px;
+    color: #666;
 }
 
-#email {
-    margin-left: 20px;
-}
-
-.personal-info {
-    text-align: center;
-    padding-left: 12%;
+.list-allergies {
+    color: #666;
 }
 
 @media only screen and (max-width: 768px) {
