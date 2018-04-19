@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Disease Wiki</title>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <link rel="stylesheet" media="screen" href="/css/disease.css" />
+    <script type="text/javascript" src="/disease.js"></script>
+    
+
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+        $(function() {
+            $("#nav-placeholder").load("navbar");
+        });
+    </script> -->
+</head>
+
+<header>
+    <div id="nav-placeholder">
+        <% include navbar.ejs %>
+    </div>
+</header>
+<body>
+    <div class="dis-header">
+        <h1 id="title">Diseases Wiki</h1>
+    </div>
+        
+    <div class="disc-body">
+                
+        <!-- The Search Bar -->
+        <div class="search-bar">
+            <form>
+                <input name="diseasename" class="search-input" type="text" placeholder="Search Diseases..."></input>
+                <input type="submit" id="go-button" value="Go!!" class="btn btn-info search-button" style="width: auto"></input>
+            </form>
+        </div>
+        
+        <!-- Browse the Diseases by Alphabet -->
+        <section class="disc-block-alphabet">
+            <h2 id="browse-disease">Browse Diseases</h2>
+            <div id="search-a-z">
+                <nav class="a-z">
+                    <% for (var x = 0; x < alphabet.length; x++) {%>
+                        <button id="<%= alphabet[x] %>" type="submit" class="btn btn-info alphabet" onclick="changePage(this.id)"><%= alphabet[x]%></button>
+                    <% }%>
+                    <button id="all-diseases" type="button" class="btn btn-info alphabet" onclick="showAll()" class="alphabet">All</button> 
+                </nav>
+            </div>
+        </section>
+    </div>
+    
+    <!-- List of Diseases -->
+    <div class="container">
+
+        <!-- The user does not search any disease, it will show all diseases that starts with specified alphabet. -->
+        <% if(!query.diseasename) { %>
+            <div class="row">
+                <div class="col-12">
+                    <h2 id="first-alphabet-disease"><%= chooseAlphabet%></h2>
+                </div>
+                <% for(var z = 0; z<4; z++) { %>
+                    <div class="col-md-3 col-sm-3 col-xs-6">
+                        <ul id="list-alpha-diseases" class="list-disease">
+                            <li id="disease"><a id="link-disease" href=""><%= disease %></a></li>
+                            <li id="disease"><a id="link-disease" href=""><%= disease %></a></li>
+                            <li id="disease"><a id="link-disease" href=""><%= disease %></a></li>
+                            <li id="disease"><a id="link-disease" href=""><%= disease %></a></li>
+                            <li id="disease"><a id="link-disease" href=""><%= disease %></a></li>
+                        </ul>
+                    </div>
+                <% } %>
+                </div>
+            </div>
+        
+        <!-- The user search for a query.-->
+        <% } else if (query.diseasename) {
+            var found = 0;
+            for(var x = 0; x<alphabet.length; x++) {
+                var a = 0;
+                for (var y = 0; y<diseases.length; y++) {
+                    if (diseases[y][0] == alphabet[x] && diseases[y].toLowerCase().includes(query.diseasename.toLowerCase())) {
+                        if (a == 0) { %>
+                            <div class="row">
+                                <div class="col-12 alph-disease">
+                                    <h2><%= diseases[y][0].toUpperCase() %></h2>
+                                </div>
+                        <% } %>
+                                <div id="list-alpha-disease" class="col-md-3 col-sm-3 col-xs-6">
+                                    <p><a id="link-disease" href=""><%= diseases[y] %></a></p>
+                                </div>
+                        <% a = 1;
+                        found = 1;
+                    }
+                }
+
+                if (a == 1) { %>
+                        </div>
+                <% }
+            }
+
+            <!-- There is no diseases -->
+            if (found == 0) { %>
+                <h2 id="first-alphabet-disease">Search not found..</h2>
+            <% }
+        } %>
+    </div>
+</body>
+<footer>
+    <% include footer.ejs %>
+</footer>
+</html>

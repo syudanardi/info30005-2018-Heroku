@@ -1,0 +1,93 @@
+#title, #full-name {
+    color: #666;
+    text-align: center;
+    margin-top: 15px;
+}
+
+#image-container {
+    text-align: center;
+}
+
+#profile-image {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+}
+
+#container-personal-activities {
+    margin-top: 20px;
+    width: 100%;
+}
+
+#personal-info-activities {
+    text-align: center;
+    padding: 5px;
+}
+
+#profile-data {
+    color: #666;
+    text-align: center;
+}
+
+#title-forum-actv, #topic-forum {
+    color: #666;
+    text-align: center;
+}
+
+.forum-activities {
+    padding-left: 50px;
+}
+
+#container-basic-allergies-info {
+    margin-bottom: 30px;
+} 
+
+.basic-allergies-info {
+    color: white;
+    background: #029f5b;
+    text-align: center;
+    margin-top: 50px;
+    padding: 5px;
+}
+
+#contact-info-title {
+    text-align: left;
+    margin-left: 15px;
+    color: #666;
+}
+
+#mobile-phone {
+    margin-top: 10px;
+    margin-left: 15px;
+    color: #666;
+}
+
+#address, #email {
+    margin-left: 15px;
+    color: #666;
+}
+
+.list-allergies {
+    color: #666;
+}
+
+@media only screen and (max-width: 768px) {
+    .forum-activities {
+        text-align: center;
+    }
+
+    .forum-activities li {
+        list-style-type: none;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .personal-info {
+        text-align: center;
+        padding-left: 12%;
+    }
+    
+    .forum-activities {
+        padding-left: 12%;
+    }
+}

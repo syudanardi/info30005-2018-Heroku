@@ -10,7 +10,9 @@ app.set('view engine','ejs');
 
 app.use('/',router);
 
-app.use(express.static(__dirname + '/public'));
+app.use(express.static('public'));
+
+app.use(express.static('resources'));
 
 // Start the app at the Port point
 app.listen(PORT,function(){
