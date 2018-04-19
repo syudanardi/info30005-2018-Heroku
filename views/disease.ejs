@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<<<<<<< HEAD
     <title>Disease Wiki</title>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
     <link rel="stylesheet" media="screen" href="/css/disease.css" />
@@ -21,16 +20,6 @@
         <% include navbar.ejs %>
     </div>
 </header>
-=======
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Disease Wiki</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" media="screen" href="/css/disease.css" />
-    <script type="text/javascript" src="/disease.js"></script>
-</head>
->>>>>>> 4a0bf384ff89295f3f63beac3ec7be43a4640d94
 <body>
     <div class="dis-header">
         <h1 id="title">Diseases Wiki</h1>
@@ -42,17 +31,12 @@
         <div class="search-bar">
             <form>
                 <input name="diseasename" class="search-input" type="text" placeholder="Search Diseases..."></input>
-<<<<<<< HEAD
                 <input type="submit" id="go-button" value="Go!!" class="btn btn-info search-button" style="width: auto"></input>
-=======
-                <input type="submit" id="search-button" value="Go!!" class="btn btn-info search-button" style="width: auto"></input>
->>>>>>> 4a0bf384ff89295f3f63beac3ec7be43a4640d94
             </form>
         </div>
         
         <!-- Browse the Diseases by Alphabet -->
         <section class="disc-block-alphabet">
-<<<<<<< HEAD
             <h2 id="browse-disease">Browse Diseases</h2>
             <div id="search-a-z">
                 <nav class="a-z">
@@ -124,71 +108,4 @@
 <footer>
     <% include footer.ejs %>
 </footer>
-=======
-            <h2>Browse Diseases</h2>
-            <nav class="a-z">
-                <% for (var x = 0; x < alphabet.length; x++) {%>
-                    <button id="<%= alphabet[x] %>" type="submit" class="btn btn-info alphabet" onclick="changePage(this.id)"><%= alphabet[x]%></button>
-                <% }%>
-                <button type="button" class="btn btn-info alphabet" onclick="showAll()" class="alphabet">All</button> 
-            </nav>
-        </section>
-    </div>
-    
-<!-- List of Diseases -->
-<div class="container">
-
-    <!-- The user does not search any disease, it will show all diseases that starts with specified alphabet. -->
-    <% if(!query.diseasename) { %>
-        <div class="row">
-            <div class="alph-disease">
-                    <h2><%= chooseAlphabet%></h2>
-                    <% for(var z = 0; z<4; z++) { %>
-                        <div class="col-md-3 col-sm-3 col-xs-6">
-                            <ul class="list-disease">
-                                <li><a href=""><%= disease %></a></li>
-                                <li><a href=""><%= disease %></a></li>
-                                <li><a href=""><%= disease %></a></li>
-                                <li><a href=""><%= disease %></a></li>
-                                <li><a href=""><%= disease %></a></li>
-                            </ul>
-                        </div>
-                    <% } %>
-            </div>
-        </div>
-    
-    <!-- The user search for a query.-->
-    <% } else if (query.diseasename) {
-        var found = 0;
-        for(var x = 0; x<alphabet.length; x++) {
-            var a = 0;
-            for (var y = 0; y<diseases.length; y++) {
-                if (diseases[y][0] == alphabet[x] && diseases[y].toLowerCase().includes(query.diseasename.toLowerCase())) {
-                    if (a == 0) { %>
-                        <div class="row">
-                            <div class="alph-disease">
-                                <h2><%= diseases[y][0].toUpperCase() %></h2>
-                    <% } %>
-                                <div class="col-md-3 col-sm-3 col-xs-6">
-                                    <p><a href=""><%= diseases[y] %></a></p>
-                                </div>
-                    <% a = 1;
-                    found = 1;
-                }
-            }
-
-            if (a == 1) { %>
-                        </div>
-                    </div>
-            <% }
-        }
-
-        <!-- There is no diseases -->
-        if (found == 0) { %>
-            <h2>Search not found..</h2>
-        <% }
-    } %>
-</div>
-</body>
->>>>>>> 4a0bf384ff89295f3f63beac3ec7be43a4640d94
 </html>
