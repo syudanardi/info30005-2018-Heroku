@@ -1,3 +1,16 @@
+#navbar-logo {
+    margin: 0 auto;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+#main-navbar {
+    min-height: 75px;
+    margin-bottom: 35px;
+    font-size: 15px;
+}
+
+
 .dropdown-menu {
     width:40%;
     margin-left: 15px;
