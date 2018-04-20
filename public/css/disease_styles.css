@@ -1,21 +1,32 @@
-.card {
+.row {
+    text-align: center;
     margin: 0 auto;
-    float: none;
-    margin-bottom: 10px;
-    max-width:450px;
 }
 
-.card-header {
-    align-content: center;
+#disease-header {
+    justify-content: center;
+}
+
+#disease-img {
+    width: 100%;
+    padding-bottom: 90px;
+}
+
+#down-arrow {
+    margin-left: 5px;
+    width:10px;
+    height: 5px;
 }
 
 .list-group {
-    /* margin-left: 40px; */
-    padding-left: 40px;
+    margin-left: 40px;
     padding-bottom: 20px;
     padding-top: 20px;
-    border: 1px solid grey;
+    border-right: 1px solid #D2D1D2;
+    color: #5B5B5B
 }
+
+
 
 .summary-check {
     background-color: blue;
@@ -25,3 +36,81 @@
     max-width: 500px;
     margin: 0 auto;
 }
+
+#spec-img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+
+}
+
+#spec-container {
+    width: 80%;
+    font-style: italic;
+}
+
+.table {
+    font-size: 13px;
+    text-align: left;
+    color: #5B5B5B;
+}
+
+
+.animate {
+    -webkit-transition: all 0.8s ease-in-out;
+    -moz-transition: all 0.8s ease-in-out;
+    -o-transition: all 0.8s ease-in-out;
+    -ms-transition: all 0.8s ease-in-out;
+    transition: all 0.8s ease-in-out;
+}
+
+
+.info-card {
+    width: 100%;
+    border: 1px solid rgb(215, 215, 215);
+    position: relative;
+    font-family: 'Lato', sans-serif;
+    margin-bottom: 20px;
+    overflow: hidden;
+    color: #5B5B5B;
+}
+
+.info-card .info-card-details,
+.info-card .info-card-details .info-card-header  {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    padding: 0 15px;
+    background: rgb(255, 255, 255);
+    text-align: center;
+}
+
+.info-card .info-card-details .info-card-header {
+    height: auto;
+    bottom: 100%;
+    padding: 10px 5px;
+}
+.info-card:hover .info-card-details {
+    bottom: 0px;
+    overflow: auto;
+    padding-bottom: 25px;
+}
+.info-card:hover .info-card-details .info-card-header {
+    position: relative;
+    bottom: 0px;
+    padding-top: 45px;
+    padding-bottom: 25px;
+}
+
+.info-card-header h1 {
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.info-card-header h3 {
+    font-size: 15px;
+    font-style: italic;
+}
+
