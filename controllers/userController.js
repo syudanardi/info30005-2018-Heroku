@@ -66,3 +66,6 @@ module.exports.realHome = function(req, res) {
     res.render("newHome");
 }
 
+
+
+
