@@ -15,13 +15,14 @@
 }
 
 #container-personal-activities {
-    margin-top: 20px;
+    margin-top: 70px;
     width: 100%;
+    margin-bottom: 30px;
 }
 
-#personal-info-activities {
+#personal-info {
+    margin-top: 100px;
     text-align: center;
-    padding: 5px;
 }
 
 #profile-data {
@@ -29,10 +30,18 @@
     text-align: center;
 }
 
-#title-forum-actv, #topic-forum {
+#topic-forum {
     color: #666;
     text-align: center;
 }
+
+#title-forum-actv {
+    color: white;
+    text-align: center;
+    background: #029f5b;
+    border-radius: 5px;
+}
+
 
 .forum-activities {
     padding-left: 50px;
@@ -48,12 +57,14 @@
     text-align: center;
     margin-top: 50px;
     padding: 5px;
+    border-radius: 5px;
 }
 
 #contact-info-title {
     text-align: left;
     margin-left: 15px;
     color: #666;
+    border-radius: 5px;
 }
 
 #mobile-phone {
@@ -63,6 +74,7 @@
 }
 
 #address, #email {
+    margin-top: 10px;
     margin-left: 15px;
     color: #666;
 }

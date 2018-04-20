@@ -15,35 +15,40 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-12">
-                <h1 id="title">Profile</h1>
+
+            <!-- Profile information -->
+            <div class="col-md-6 col-xs-12">
+                <div class="row">
+                    <div class="col-12">
+                        <h1 id="title">Profile</h1>
+                    </div>
+                    <div id="image-container" class="col-12">
+                        <img id="profile-image"src="imgs/sampleprofile.jpeg" alt="Avatar">
+                    </div>
+                    <div class="col-12">
+                        <h2 id="full-name"><%= profile.firstName %> <%= profile.lastName %></h2>
+                    </div>
+                </div>
             </div>
 
-            <div id="image-container" class="col-12">
-                <img id="profile-image"src="imgs/sampleprofile.jpeg" alt="Avatar">
-            </div>
-            <div class="col-12">
-                <h2 id="full-name"><%= profile.firstName %> <%= profile.lastName %></h2>
-            </div>
-
-        </div>
-    </div>
-    
-    <div id="container-personal-activities" class="container">
-        <div class="row">
-            <div class="col-sm-6 col-xs-12 personal-info">
+            <div id="personal-info" class="col-sm-6 col-xs-12">
                 <h3 id="profile-data">Joined Since: <%= profile.joinedMonth %> <%= profile.joinedYear%></h3>
                 <h3 id="profile-data">Occupation: <%= profile.occupation %></h3>
                 <h3 id="profile-data">From: <%= profile.from %></h3>
                 <h3 id="profile-data">Lives in: <%= profile.livesIn %></h3>
             </div>
-
-            <div class="col-sm-6 col-xs-12 forum-activities">
+        </div>
+    </div>
+    
+    <!-- Personal Activities -->
+    <div id="container-personal-activities" class="container">
+        <div class="row">
+            <div class="col-12 forum-activities">
                 <h3 id="title-forum-actv">Recent Forum Activities</h3>
                 <div class="list-forum-activities">
-                    <h4 id="topic-forum">Herbal Tea Benefits?</h4>
-                    <h4 id="topic-forum">Flu Prevention Tips</h4>
-                    <h4 id="topic-forum">First Aid Competition</h4>
+                    <h5 id="topic-forum">Herbal Tea Benefits?</h5>
+                    <h5 id="topic-forum">Flu Prevention Tips</h5>
+                    <h5 id="topic-forum">First Aid Competition</h5>
                 </div>
             </div>
         </div>
@@ -54,11 +59,10 @@
             <div class="col-md-6 col-xs-12">
                 <h4 class="basic-allergies-info"><font color="white">Basic Info</font></h4>
                 
-                <h4 id="contact-info-title">Contact Information</h4>
+                <h5 id="contact-info-title">Contact Information</h5>
                 <h5 id="mobile-phone">Mobile Phones: <%= profile.mobile %></h5>
                 <h5 id="address">Address: <%= profile.address %></h5>
                 <h5 id="email">Email Address: <%= profile.email %></h5>
-
             </div>
 
             <div class="col-md-6 col-xs-12">
