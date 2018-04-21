@@ -28,63 +28,85 @@
             <% include navbar.ejs %>
         </div>
 
-        <!-- Disease image -->
-        <div class="card" style="width: 18rem;">
-            <div class="card-header text-center">
-                Asthma
-            </div>
-            <img class="card-img-top" src="https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/articles/health_tools/asthma_overview_slideshow/webmd_rm_photo_of_asthma_illustration.jpg" alt="Asthma Picture">
-            <div class="card-body">
-                Lethal <br>
-                <div class="progress">
-                    <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
 
-                Contagious<br>
-                <div class="progress">
-                    <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
 
-                Urgent Care<br>
-                <div class="progress">
-                    <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
+        <div class="container">
+            <div class="row" id="disease-header">
 
-                <hr>
+                <div class="col-sm-6 col-md-4">
+                    <div class="info-card">
+                        <img id="disease-img" src="/resource/asthma.jpg" />
+                        <div class="info-card-details animate">
+                            <div class="info-card-header">
+                                <h1> Asthma </h1>
+                                <h3> (Also called: Bronchial Asthma) </h3>
+                            </div>
+                            <div class="info-card-detail">
+                                <!-- Description -->
+                                <p>
+                                    A condition in which a person's airways become inflamed, narrow and swell and
+                                    produce extra mucus, which makes it difficult to breathe.
+                                </p>
 
-                <!-- MEDICATION -->
-                <div class="input-group mb-2">
-                    <div class="input-group-text">
-                        <input type="checkbox" aria-label="Checkbox for medication">
+                            </div>
+                        </div>
                     </div>
-                    &nbsp Medication
                 </div>
 
-                <!-- TREATABLE -->
-                <div class="input-group mb-2">
-                    <div class="input-group-text">
-                        <input type="checkbox" aria-label="Checkbox for treatable">
+                <div class="col-sm-6 col-md-4">
 
-                    </div>
-                    &nbsp Treatable
+                    <table class="table">
+
+                        <tr>
+                            <th scope="row">
+                                <img id="spec-img" src="/resource/treatable.png">
+                            </th>
+                            <td>Treatable by a medical professional</td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">
+                                <img id="spec-img" src="/resource/diagnosis.png">
+                            </th>
+                            <td>Requires a medical diagnosis</td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">
+                                <img id="spec-img" src="/resource/lab_test.png">
+                            </th>
+                            <td>Lab tests or imaging often required</td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">
+                                <img id="spec-img" src="/resource/chronic.png">
+                            </th>
+                            <td>Chronic: can last for years or be lifelong</td>
+                        </tr>
+
+
+
+                    </table>
                 </div>
 
-                <!-- VACCINATION -->
-                <div class="input-group mb-2">
-                    <div class="input-group-text">
-                        <input type="checkbox" name="my_name_visual_dummy" value="1" checked="checked" disabled="disabled" />
-
-                    </div>
-                    &nbsp Vaccination
-                </div>
             </div>
         </div>
+
+
+
+
+
+
+
+
 
         <div class="details">
 
             <!-- CAUSES -->
             <a href="#causes" class="list-group-item" data-toggle="collapse">
                 <i class="glyphicon glyphicon-chevron-right"></i>Causes
+                <img id="down-arrow" src="resource/down-arrow.png">
             </a>
             <div class="list-group collapse" id="causes">
                 Asthma triggers frequently include:
@@ -100,6 +122,7 @@
             <!-- SYMPTOMS -->
             <a href="#symptoms" class="list-group-item" data-toggle="collapse">
                 <i class="glyphicon glyphicon-chevron-right"></i>Symptoms
+                <img id="down-arrow" src="resource/down-arrow.png">
             </a>
             <div class="list-group collapse" id="symptoms">
                 <li>Breathlessness</li>
@@ -112,6 +135,7 @@
             <!-- TREATMENT -->
             <a href="#treatment" class="list-group-item" data-toggle="collapse">
                 <i class="glyphicon glyphicon-chevron-right"></i>Treatment
+                <img id="down-arrow" src="resource/down-arrow.png">
             </a>
             <div class="list-group collapse list-item" id="treatment">
                 Quick-relief medicines are taken at the first sign of symptoms for immediate relief:
@@ -128,9 +152,15 @@
             <!-- HISTORY -->
             <a href="#history" class="list-group-item" data-toggle="collapse">
                 <i class="glyphicon glyphicon-chevron-right"></i>History
+                <img id="down-arrow" src="resource/down-arrow.png">
             </a>
             <div class="list-group collapse" id="history">
-                Test Item 4
+                Asthma was recognized in ancient Egypt and was treated by drinking an incense mixture known as kyphi.
+                 It was officially named as a specific respiratory problem by Hippocrates circa 450 BC, with the Greek
+                word for "panting" forming the basis of our modern name. In 200 BC it was believed to be at least partly
+                related to the emotions. In the 12th century the Jewish physician-philosopher Maimonides wrote a treatise
+                on asthma in Arabic, based partly on Arabic sources, in which he discussed the symptoms,
+                proposed various dietary and other means of treatment, and emphasized the importance of climate and clean air.
             </div>
         </div>
 
