@@ -6,35 +6,39 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
     <link href="css/navbar.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
 
-    <nav class="navbar navbar-light" id="main-navbar" style="background-color: #e3f2fd;">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar navbar-light" id="main-navbar">
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#menuDetails" aria-controls="menuDetails"
+                aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <!-- Logo -->
         <a class="navbar-brand" id="navbar-logo" href="#">
-            Quick &nbsp
-            <img src="resource/logo_bg.png" width="45" height="45" class="d-inline-block align-top" alt="">
+            Quick
+            <img src="/resource/logo_bg.png" width="55" height="55" class="d-inline-block align-top" alt="">
             <!--https://image.ibb.co/heVTHS/logo_bg.png-->
-            &nbsp Health
+            <!-- ./image/logo_bg.png-->
+            Health
         </a>
 
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b></a>
+
         <ul id="login-dp" class="dropdown-menu">
-            <li>
+            <li id="toggleText">
                 <div class="row">
                     <div class="col-md-12">
                         Login via
-                        <div class="social-buttons">
+                        <div class="social-buttons" id="socialButtonCSS">
                             <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
                             <a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
                         </div>
@@ -67,11 +71,11 @@
         </ul>
 
 
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="collapse navbar-collapse" id="menuDetails">
             <div class="navbar-nav">
-                <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link active" href="/test">Home <span class="sr-only">(current)</span></a>
                 <a class="nav-item nav-link" href="#">Disease Map</a>
-                <a class="nav-item nav-link" href="#">Disease Wiki</a>
+                <a class="nav-item nav-link" href="/diseases">Disease Wiki</a>
                 <a class="nav-item nav-link disabled" href="#">About Us</a>
             </div>
         </div>
