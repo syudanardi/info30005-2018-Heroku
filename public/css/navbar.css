@@ -72,11 +72,6 @@ body{
     }
 }
 
-.collapse.show {
-    display: block;
-    height: auto!important;
-    visibility: visible!important;
-}
 .navbar-collapse.collapse{
     display:block!important;
     height:0px !important;
@@ -94,6 +89,11 @@ body{
     }
 }
 
+.collapse.show {
+    display: block;
+    height: auto!important;
+    visibility: visible!important;
+}
 
 
 
