@@ -118,6 +118,11 @@ body{
     visibility: visible!important;
 }
 
+.dropdown-menu.show {
+    display: block!important;
+}
+
+.open>.dropdown-menu{display:none}
 
 /*@media(max-width:768px){*/
     /*#login-dp{*/
