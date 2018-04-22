@@ -118,6 +118,9 @@ body{
     visibility: visible!important;
 }
 
+.show {
+    display: block;
+}
 
 /*@media(max-width:768px){*/
     /*#login-dp{*/
