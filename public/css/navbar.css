@@ -2,71 +2,71 @@ body{
     font-size: 2rem;
 }
 
-.gavbar #navbar-logo {
+#navbar-logo {
     margin: 0 auto;
     font-size: 25px;
     font-weight: bold;
 }
 
-.gavbar #main-navbar {
+#main-navbar {
     min-height: 75px;
     margin-bottom: 35px;
     font-size: 15px;
 }
 
 
-.gavbar .dropdown-menu {
+.dropdown-menu {
     width:40%;
     margin-left: 15px;
 }
 
-.gavbar #login-dp{
+#login-dp{
     min-width: 250px;
     padding: 14px 14px 0;
     overflow:hidden;
     background-color:rgba(255,255,255,.8);
 }
-.gavbar #login-dp .help-block{
+#login-dp .help-block{
     font-size:12px
 }
-.gavbar #login-dp .bottom{
+#login-dp .bottom{
     background-color:rgba(255,255,255,.8);
     border-top:1px solid #ddd;
     clear:both;
     padding:14px;
 }
-.gavbar #login-dp .social-buttons{
+#login-dp .social-buttons{
     margin:12px 0
 }
-.gavbar #login-dp .social-buttons a{
+#login-dp .social-buttons a{
     width: 49%;
 }
-.gavbar #login-dp .form-group {
+#login-dp .form-group {
     margin-bottom: 10px;
     align-items: right;
 }
-.gavbar .btn-fb{
+.btn-fb{
     color: #fff;
     background-color:#3b5998;
 }
-.gavbar .btn-fb:hover{
+.btn-fb:hover{
     color: #fff;
     background-color:#496ebc
 }
-.gavbar .btn-tw{
+.btn-tw{
     color: #fff;
     background-color:#55acee;
 }
-.gavbar .btn-tw:hover{
+.btn-tw:hover{
     color: #fff;
     background-color:#59b5fa;
 }
 @media(max-width:768px){
-    .gavbar #login-dp{
+    #login-dp{
         background-color: inherit;
         color: #fff;
     }
-    .gavbar #login-dp .bottom{
+    #login-dp .bottom{
         background-color: inherit;
         border-top:0 none;
     }
@@ -79,11 +79,19 @@ body{
 }
 .navbar-collapse.collapse{
     display:block!important;
-    height:0px;
+    height:0px !important;
     padding-bottom:0;
     overflow:visible!important;
     visibility:hidden
 }
+@media (min-width: 768px)
+    .navbar-collapse.collapse {
+        display: block!important;
+        /* height: auto!important; */
+        padding-bottom: 0;
+        overflow: visible!important;
+        /* visibility: visible!important; */
+    }
 
 
 
