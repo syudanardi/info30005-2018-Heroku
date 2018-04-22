@@ -21,6 +21,10 @@ module.exports.navbar = function(req, res) {
     res.render("navbar");
 };
 
+module.exports.diseasemap = function(req, res) {
+    res.render("epiMap");
+};
+
 module.exports.footer = function(req, res) {
     res.render("footer");
 };
