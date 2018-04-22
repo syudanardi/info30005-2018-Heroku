@@ -576,15 +576,3 @@ textarea#message{
 
 }
 
-.collapse.show {
-    display: block;
-    height: auto!important;
-    visibility: visible!important;
-}
-.navbar-collapse.collapse{
-    display:block!important;
-    height:0px;
-    padding-bottom:0;
-    overflow:visible!important;
-    visibility:hidden
-}

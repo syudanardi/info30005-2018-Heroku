@@ -1,3 +1,7 @@
+body{
+    font-size: 2rem;
+}
+
 .gavbar #navbar-logo {
     margin: 0 auto;
     font-size: 25px;
@@ -66,6 +70,19 @@
         background-color: inherit;
         border-top:0 none;
     }
+}
+
+.collapse.show {
+    display: block;
+    height: auto!important;
+    visibility: visible!important;
+}
+.navbar-collapse.collapse{
+    display:block!important;
+    height:0px;
+    padding-bottom:0;
+    overflow:visible!important;
+    visibility:hidden
 }
 
 
