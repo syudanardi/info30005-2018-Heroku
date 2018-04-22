@@ -24,4 +24,6 @@ router.get('/navbar', control.navbar);
 
 router.get('/footer', control.footer);
 
+router.get('/disease_map', control.diseasemap);
+
 module.exports = router;
