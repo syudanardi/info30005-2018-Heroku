@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- Required meta tags -->
@@ -16,12 +16,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-
-
     <title>Epidemic Map</title>
-
-
-
 </head>
 
 
@@ -38,23 +33,25 @@
         <h1 id="title">Diseases Map</h1>
     </div>
 
-
-
-
-    <div class="form-group text-center" id="disease-select">
-        <label for="DiseaseSelection" id="selection-text"><h4>Select Disease</h4></label>
-        <select class="form-control text-center" id="DiseaseSelection">
-            <option>Asthma</option>
-            <option>Bronchitis</option>
-            <option>Calculi</option>
-            <option>Deafness</option>
-            <option>Encopresis</option>
-            <option>etc . . .</option>
-        </select>
-    </div>
+    <div class="form-group text-center">
+		<label id="selection-text"><h4>Select Disease</h4></label>
+		<div id="disease-selection">
+			<select id="options">
+				<option>Asthma</option>
+				<option>Bronchitis</option>
+				<option>Calculi</option>
+				<option>Deafness</option>
+				<option>Encopresis</option>
+				<option>etc . . .</option>
+			</select>
+		</div>
+	</div>
 
     <!-- Main Map -->
-    <div id="googleMap"></div>
+    <div id="map-container">
+        <div id="googleMap"></div>
+    </div>
+
 
     <script>
         function myMap() {
@@ -62,16 +59,12 @@
                 center:new google.maps.LatLng(-37.8136, 144.9631),
                 zoom:12,
             };
-            var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+            var mapPropCenter = mapProp.getCenter();
+            var map=new google.maps.Map(document.getElementById("googleMap"),mapPropCenter.setCenter);
         }
     </script>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmxNGHf4NFO3co4wjACy8vHCY34J6u14s&callback=myMap"></script>
-
-
-
-
-
 
     <!-- Footer-->
     <div id="footer-placeholder">

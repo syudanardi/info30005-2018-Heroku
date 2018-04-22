@@ -14,7 +14,7 @@
     text-align: center;
 }
 
-#disease-select {
+/* #disease-select {
     margin-top: 35px;
 }
 
@@ -24,4 +24,22 @@
 
 #selection-text {
     color: #666;
+} */
+
+#disease-selection {
+	text-align: center;
+}
+
+#selection-text {
+    color: #666;
+    margin-top: 30px;
+}
+
+#options {
+	width: 250px;
+	height: 30px;
+}
+
+#map-container {
+    text-align: center;
 }
