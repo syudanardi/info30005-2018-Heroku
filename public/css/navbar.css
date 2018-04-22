@@ -118,8 +118,8 @@ body{
     visibility: visible!important;
 }
 
-.show {
-    display: block;
+.dropdown-menu.show {
+    display: block!important;
 }
 
 /*@media(max-width:768px){*/
