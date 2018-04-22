@@ -1,3 +1,7 @@
+body{
+    font-size: 2rem;
+}
+
 #navbar-logo {
     margin: 0 auto;
     font-size: 32px;
@@ -78,6 +82,40 @@
     color: #fff;
     background-color:#59b5fa;
     /*background-color:#4FA9DC*/
+}
+
+@media(max-width:768px){
+    #login-dp{
+        background-color: inherit;
+        color: #fff;
+    }
+    #login-dp .bottom{
+        background-color: inherit;
+        border-top:0 none;
+    }
+}
+
+.navbar-collapse.collapse{
+    display:block!important;
+    height:0px !important;
+    padding-bottom:0;
+    overflow:visible!important;
+    visibility:hidden!important;
+}
+@media (min-width: 768px) {
+    .navbar-collapse.collapse {
+        display: block !important;
+        /* height: auto!important; */
+        padding-bottom: 0;
+        overflow: visible !important;
+        /* visibility: visible!important; */
+    }
+}
+
+.collapse.show {
+    display: block;
+    height: auto!important;
+    visibility: visible!important;
 }
 
 
