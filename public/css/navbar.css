@@ -84,14 +84,15 @@ body{
     overflow:visible!important;
     visibility:hidden
 }
-@media (min-width: 768px)
+@media (min-width: 768px) {
     .navbar-collapse.collapse {
-        display: block!important;
+        display: block !important;
         /* height: auto!important; */
         padding-bottom: 0;
-        overflow: visible!important;
+        overflow: visible !important;
         /* visibility: visible!important; */
     }
+}
 
 
 
