@@ -18,7 +18,15 @@ body {
 
 p {
 	font-size:16px;
+    color: rgb(91, 91, 91);
+}
 
+h2 {
+    color: rgb(91, 91, 91);
+}
+
+h1 {
+    color: rgb(91, 91, 91);
 }
 
 .btn-primary {
@@ -381,6 +389,7 @@ p {
 }
 
 #about  {
+    padding: 2%;
 	margin-top:80px;
 	margin-bottom:40px;
     background: rgba(223, 240, 253,0.2);
