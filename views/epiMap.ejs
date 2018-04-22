@@ -19,7 +19,13 @@
 
 
     <title>Epidemic Map</title>
+
+
+
 </head>
+
+
+
 
 <body>
 
@@ -35,6 +41,35 @@
 
 
 
+    <div class="form-group text-center" id="disease-select">
+        <label for="DiseaseSelection" id="selection-text"><h4>Select Disease</h4></label>
+        <select class="form-control text-center" id="DiseaseSelection">
+            <option>Asthma</option>
+            <option>Bronchitis</option>
+            <option>Calculi</option>
+            <option>Deafness</option>
+            <option>Encopresis</option>
+            <option>etc . . .</option>
+        </select>
+    </div>
+
+    <!-- Main Map -->
+    <div id="googleMap"></div>
+
+    <script>
+        function myMap() {
+            var mapProp= {
+                center:new google.maps.LatLng(-37.8136, 144.9631),
+                zoom:12,
+            };
+            var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+        }
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmxNGHf4NFO3co4wjACy8vHCY34J6u14s&callback=myMap"></script>
+
+
+
 
 
 
@@ -44,4 +79,6 @@
     </div>
 
 </body>
+
+
 </html>
