@@ -2,9 +2,7 @@ const express = require('express');
 const router = express.Router();
 const control = require('../controllers/userController');
 
-router.get('/', control.sayHello);
-
-router.get('/home', control.homePage);
+router.get('/home', control.realHome);
 
 router.get('/users', control.printAll);
 
@@ -18,7 +16,7 @@ router.get('/profile', control.profile);
 
 router.get('/disease_specific', control.diseaseSpecific);
 
-router.get('/test', control.realHome)
+router.get('/', control.realHome)
 
 router.get('/registration_form', control.registrationForm);
 
