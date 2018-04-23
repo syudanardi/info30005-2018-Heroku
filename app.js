@@ -18,3 +18,4 @@ app.use(express.static('resources'));
 app.listen(PORT,function(){
     console.log(`Express listening on port ${PORT}`);
 });
+
