@@ -12,12 +12,20 @@ body {
 	font-size: 16px;
     line-height: 1.6em;
 	font-weight: 400;
-    background: rgba(0,0,255,0.1);
+    text-decoration-color: rgb(91, 91, 91);
 }
 
 p {
 	font-size:16px;
+    color: rgb(91, 91, 91)!important;
+}
 
+h2 {
+    color: rgb(91, 91, 91)!important;
+}
+
+h1 {
+    color: rgb(91, 91, 91)!important;
 }
 
 .btn-primary {
@@ -380,9 +388,10 @@ p {
 }
 
 #about  {
+    padding: 2%;
 	margin-top:80px;
 	margin-bottom:40px;
-    background: rgba(50,50,255,0.2);
+    background: rgba(223, 240, 253,0.9);
 }
 
 #about .lead {
