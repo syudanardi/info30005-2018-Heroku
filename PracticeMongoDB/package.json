@@ -14,7 +14,11 @@
     "express": "^4.16.3",
     "faker": "^4.1.0",
     "fuser": "^2.0.0",
+    "mongoose": "^5.0.16",
     "nodemon": "^1.17.3",
-    "npm": "^5.8.0"
+    "npm": "^5.8.0",
+    "wolfram": "^0.3.4",
+    "wolfram-alpha": "^0.6.0",
+    "wolfram-alpha-api": "https://products.wolframalpha.com/api/libraries/javascript/wolfram-alpha-api-1.0.0-rc.1.tgz"
   }
 }

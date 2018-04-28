@@ -14,14 +14,20 @@
     text-align: center;
 }
 
-#disease-select {
-    margin-top: 35px;
-}
-
-#DiseaseSelection {
-    width:250px;
+#disease-selection {
+	text-align: center;
 }
 
 #selection-text {
     color: #666;
+    margin-top: 30px;
+}
+
+#options {
+	width: 250px;
+	height: 30px;
+}
+
+#map-container {
+    text-align: center;
 }
