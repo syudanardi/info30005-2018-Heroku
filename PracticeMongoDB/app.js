@@ -5,12 +5,22 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 
 
+const WolframAlphaAPI = require('wolfram-alpha-api');
+const waApi = WolframAlphaAPI('ET94TQ-559PU4HA5L');
+
+
 // Database Setup
 require('./models/db.js');
 
 // Routes Setup
 var routes = require('./routes/routes.js');
 app.use('/', routes);
+
+
+
+waApi.getFull({
+    input: 'Asthma',
+  }).then(console.log).catch(console.error)
 
 // var cafes = [
 //     {
