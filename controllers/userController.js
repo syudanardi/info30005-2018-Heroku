@@ -1,5 +1,6 @@
 const db = require('../models/db');
-
+const mongoose = require('mongoose');
+const Disease = mongoose.model('diseases');
 
 module.exports.sayHello = function(req, res) {
     res.render("home");
@@ -69,3 +70,52 @@ module.exports.profile = function(req, res) {
 module.exports.realHome = function(req, res) {
     res.render("newHome");
 }
+
+module.exports.createDisease = function(req, res) {
+    const disease = new Disease({
+        name: req.body.name,
+        causes: req.body.causes,
+        symptoms: req.body.symptoms,
+        treatment: req.body.treatment,
+        history: req.body.history,
+    });
+    disease.save(function(err, newDisease){
+        if(!err) {
+            res.send(newDisease);
+            console.log("message sent")
+        } else {
+            res.sendStatus(400);
+        }
+    });
+};
+
+module.exports.findAllDisease = function(req, res) {
+    let buffer = "";
+    Disease.find(function(err,diseases){
+        if(!err) {
+            diseases.forEach(function(member) {
+                buffer = buffer + member + '</br>';
+            });
+            res.send(buffer);
+
+        } else {
+            res.sendStatus(404);
+        }
+    });
+};
+
+module.exports.createForm = function(req, res){
+    res.render("dbPractice");
+
+};
+
+module.exports.displayData = function(req,res){
+    let id = req.params.id;
+    Disease.find(function(err,diseases){
+        if(!err) {
+            res.send(diseases[id]);
+        } else {
+            res.sendStatus(404);
+        }
+    });
+};

@@ -38,5 +38,7 @@ router.get('/healthfact', controller.healthFactPage);
 // // Save Health Fact
 router.post("/addhealthfact", controller.saveHealthFact);
 
+router.get('/api/address/:address', controller.findOneCafe);
+
 module.exports = router;
 
