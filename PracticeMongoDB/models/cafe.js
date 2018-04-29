@@ -1,11 +1,11 @@
 var mongoose = require('mongoose');
-var cafeSchema = mongoose.Schema(
+var diseaseSchema = mongoose.Schema(
     {
         "name": String,
-        "address": String,
-        "distance": String,
-        "rating": String,
-        "photo": String,
+        "causes": String,
+        "symptoms": String,
+        "treatment": String,
+        "history": String,
     }
 );
-mongoose.model('cafes', cafeSchema);
+mongoose.model('cafes', diseaseSchema);
