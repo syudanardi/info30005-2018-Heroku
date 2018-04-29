@@ -90,9 +90,13 @@ module.exports.createDisease = function(req, res) {
 };
 
 module.exports.findAllDisease = function(req, res) {
+    let buffer = "";
     Disease.find(function(err,diseases){
         if(!err) {
-            res.send(diseases);
+            diseases.forEach(function(member) {
+                buffer = buffer + member + '</br>';
+            });
+            res.send(buffer);
         } else {
             res.sendStatus(404);
         }
@@ -101,4 +105,15 @@ module.exports.findAllDisease = function(req, res) {
 
 module.exports.createForm = function(req, res){
     res.render("dbPractice");
+};
+
+module.exports.displayData = function(req,res){
+    let id = req.params.id;
+    Disease.find(function(err,diseases){
+        if(!err) {
+            res.send(diseases[id]);
+        } else {
+            res.sendStatus(404);
+        }
+    });
 };
