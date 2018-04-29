@@ -26,4 +26,10 @@ router.get('/footer', control.footer);
 
 router.get('/disease_map', control.diseasemap);
 
+router.post('/api/submit', control.createDisease);
+
+router.get('/api', control.createForm);
+
+router.get('/getApi', control.findAllDisease);
+
 module.exports = router;
