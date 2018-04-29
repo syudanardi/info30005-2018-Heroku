@@ -8,6 +8,8 @@ app.use(bodyParser.json());
 const WolframAlphaAPI = require('wolfram-alpha-api');
 const waApi = WolframAlphaAPI('ET94TQ-559PU4HA5L');
 
+// Set the app to be able to use ejs.
+app.set('view engine','ejs');
 
 // Database Setup
 require('./models/db.js');
@@ -18,9 +20,9 @@ app.use('/', routes);
 
 
 
-waApi.getFull({
-    input: 'Asthma',
-  }).then(console.log).catch(console.error)
+// waApi.getFull({
+//     input: 'Asthma',
+//   }).then(console.log).catch(console.error)
 
 // var cafes = [
 //     {
