@@ -97,6 +97,7 @@ module.exports.findAllDisease = function(req, res) {
                 buffer = buffer + member + '</br>';
             });
             res.send(buffer);
+
         } else {
             res.sendStatus(404);
         }
@@ -105,6 +106,7 @@ module.exports.findAllDisease = function(req, res) {
 
 module.exports.createForm = function(req, res){
     res.render("dbPractice");
+
 };
 
 module.exports.displayData = function(req,res){
