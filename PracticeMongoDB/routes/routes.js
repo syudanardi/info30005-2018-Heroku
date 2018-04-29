@@ -12,5 +12,7 @@ router.get('/api', controller.findAllCafes);
 // Find one cafe by id
 router.get('/api/id/:id', controller.findOneCafe);
 
+router.get('/api/address/:address', controller.findOneCafe);
+
 module.exports = router;
 
