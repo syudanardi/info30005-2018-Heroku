@@ -32,4 +32,6 @@ router.get('/api', control.createForm);
 
 router.get('/getApi', control.findAllDisease);
 
+router.get('/getApi/:id', control.displayData)
+
 module.exports = router;
