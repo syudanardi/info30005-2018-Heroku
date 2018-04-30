@@ -2,12 +2,16 @@
     border: 10px solid #DFF0FD;
     margin: auto;
     width: 85%;
+}
 
+#img-carousel {
+    width: 948px;
+    height: 498px;
 }
 
 #diseaseRank {
-    border-left: 1px solid #DFF0FD;
-
+    padding-left: 50px !important;
+    margin-bottom: 20px;
 }
 
 #topDiseaseHeader {
@@ -15,6 +19,7 @@
 }
 
 #latestNews {
+    margin-bottom: 20px;
 }
 
 #videoFrame {
