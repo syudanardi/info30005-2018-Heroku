@@ -17,6 +17,29 @@
     margin-bottom: 20px;
 }
 
+#fact{
+    width: 100%;
+    height: inherit;
+    border: 2px solid #5B5B5B;
+    background-color: #DFF0FD;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+#quiz{
+    width: 100%;
+    height: inherit;
+    border: 2px solid #5B5B5B;
+    background-color: #04D2FF;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.factQuiz {
+    padding-top: 25px;
+    padding-bottom: 30px;
+}
+
 #videoFrame {
     border: 5px solid #5B5B5B;
     width: 100%;
@@ -24,5 +47,8 @@
 
 #secondContent {
     color: #5B5B5B;
+}
+
+.container {
     margin-top: 75px;
 }
