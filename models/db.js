@@ -10,4 +10,6 @@ mongoose.connect('mongodb://quickhealthdb:12345678@ds161539.mlab.com:61539/quick
 });
 
 require('./disease.js');
+require('./healthfact.js');
 require('./user.js');
+require('./diseasewiki.js');

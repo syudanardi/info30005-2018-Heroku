@@ -56,6 +56,9 @@
                         <img src="resource/map.png" class="img-responsive" alt="">
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
     <!-- Carousel Slider -->
     <div id="carouselLogo" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -219,7 +222,32 @@
                                     <button class="btn btn-dark">Find Out</button>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
 
+            <div class="row">
+                <div>
+                    <div class="col-sm-6 wow">
+                        <div class="col-md-6 col-md-offset-3" style="text-align:center">
+                            <h2>Daily Readings</h2>
+                        </div>
+                        <div class="col-sm-12">
+                            <p><%= db[0]["fact"]%> </p>
+                        </div>
+                        <div class="col-sm-12">
+                            <a href="<%=db[0]["link"]%>"><button class="btn btn-dark">Read More</button></a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 wow">
+                        <div class="col-md-6 col-md-offset-3" style="text-align:center">
+                            <h2>Daily Quizes</h2>
+                        </div>
+                        <div class="col-sm-12">
+                            <h2 style="text-align:center">What are the main causes of anemic?</h2>
+                        </div>
+                        <div class="col-sm-12 text-center">
+                            <button class="btn btn-dark">Find Out</button>
                         </div>
                     </div>
                 </div>
