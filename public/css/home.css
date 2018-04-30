@@ -57,6 +57,10 @@
     margin-top: 75px;
 }
 
+li {
+    list-style: none;
+}
+
 @media only screen and (max-width: 990px ) {
     #diseaseRank {
         margin-bottom: 20px;
