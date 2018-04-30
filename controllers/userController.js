@@ -1,6 +1,7 @@
 const db = require('../models/db');
 const mongoose = require('mongoose');
 const Disease = mongoose.model('diseases');
+const HealthFact = mongoose.model('healthfacts');
 
 module.exports.sayHello = function(req, res) {
     res.render("home");
