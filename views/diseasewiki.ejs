@@ -32,8 +32,7 @@
             <div id="search-a-z">
                 <nav class="a-z">
                     <% for (var x = 0; x < 25; x++) {%>
-                        <button id="<%= alphabet[x] %>" type="submit" class="btn btn-info alphabet" onclick="showAll()"><%= alphabet[x]%></button>
-                        <!-- <button id="<%= alphabet[x] %>" type="submit" class="btn btn-info alphabet" onclick="changePage(this.id)"><%= alphabet[x]%></button> -->
+                        <button id="<%= alphabet[x] %>" type="submit" class="btn btn-info alphabet" onclick="changePage(this.id)"><%= alphabet[x]%></button>
                     <% }%>
                     <button id="all-diseases" type="button" class="btn btn-info alphabet" onclick="showAll()" class="alphabet">All</button> 
                 </nav>
@@ -43,7 +42,55 @@
     
     <!-- List of Diseases -->
     <!-- The user does not search any disease, so it will show all diseases. -->
-
+    <!-- <div class="container">
+        <% if(!query.diseasename) { %>
+            <div class="row">
+                <% for(var y = 0; y<alphabet.length; y++) { %>
+                    <div class="col-12">
+                        <h2 id="first-alphabet-disease"><%= alphabet[y]%></h2>
+                    </div>
+                    
+                    <% for(var z = 0; z<4; z++) { %>
+                        <div class="col-md-3 col-sm-3 col-xs-6">
+                            <ul id="list-alpha-diseases" class="list-disease">
+                                <li id="disease"><a id="link-disease" href="/disease_specific"><%= diseases[y] %></a></li>
+                                <li id="disease"><a id="link-disease" href="/disease_specific"><%= diseases[y] %></a></li>
+                                <li id="disease"><a id="link-disease" href="/disease_specific"><%= diseases[y] %></a></li>
+                                <li id="disease"><a id="link-disease" href="/disease_specific"><%= diseases[y] %></a></li>
+                                <li id="disease"><a id="link-disease" href="/disease_specific"><%= diseases[y] %></a></li>
+                            </ul>
+                        </div>
+                    <% }
+                } %>
+            </div>
+        <% } else if (query.diseasename) {
+            var found = 0;
+            for(var x = 0; x<alphabet.length; x++) {
+                var a = 0;
+                for (var y = 0; y<diseases.length; y++) {
+                    if (diseases[y][0] == alphabet[x] && diseases[y].toLowerCase().includes(query.diseasename.toLowerCase())) {
+                        if (a == 0) { %>
+                            <div class="row">
+                                <div class="col-12 alph-disease">
+                                    <h2 id="first-alphabet-disease"><%= diseases[y][0].toUpperCase() %></h2>
+                                </div>
+                        <% } %>
+                                <div id="list-alpha-disease" class="col-md-3 col-sm-3 col-xs-6">
+                                    <p><a id="link-disease" href=""><%= diseases[y] %></a></p>
+                                </div>
+                        <% a = 1;
+                        found = 1;
+                    }
+                }
+                if (a == 1) { %>
+                        </div>
+                <% }
+            }
+            if (found == 0) { %>
+                <h2 id="first-alphabet-disease">Search not found..</h2>
+            <% }
+        } %>
+    </div> -->
 </body>
 
 <footer>
