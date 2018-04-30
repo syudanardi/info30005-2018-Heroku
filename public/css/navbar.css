@@ -16,38 +16,26 @@ body{
     background-color: #e3f2fd;
 }
 
-
-/*.dropdown-menu {*/
-    /*position:absolute;*/
-    /*background-color: white;*/
-    /*right:0px;*/
-    /*width: 50%;*/
-/*}*/
-
-
-/*.dropdown-menu {*/
-    /*width:40%;*/
-    /*margin-left: 25px;*/
-/*}*/
-
 #login-pop-up {
     text-align: center;
+}
+
+#login-text {
+    margin-bottom: 10px;
 }
 
 #login-dp{
     min-width: 250px;
     padding: 14px 14px 0;
     overflow:hidden;
-    /*background-color:rgba(255,255,255,.8);*/
     background-color: #DFF0FD;
 }
+
 #login-dp .help-block{
     font-size:14px;
 }
 
 #login-dp .bottom{
-    background-color:rgba(255,255,255,.8);
-    border-top:1px solid #ddd;
     clear:both;
     padding:14px;
 }
@@ -62,10 +50,13 @@ body{
     align-items: right;
 }
 
-
-
 #toggleText {
     color: #5B5B5B;
+}
+
+#register-here {
+    margin: auto;
+    background-size: cover;
 }
 
 /* Social Button */
