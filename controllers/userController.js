@@ -2,6 +2,7 @@ const db = require('../models/db');
 const mongoose = require('mongoose');
 const Disease = mongoose.model('diseases');
 const QF = mongoose.model('healthfacts');
+const QQ = mongoose.model('healthquizzes');
 const Wiki = mongoose.model('mydiseasewikidatas');
 
 module.exports.sayHello = function(req, res) {
@@ -9,7 +10,22 @@ module.exports.sayHello = function(req, res) {
 };
 
 module.exports.home = function(req, res) {
-  res.render("homepage")
+    QF.find(function(err,quickfacts) {
+        if(!err) {
+            QQ.find(function(err,quickquiz) {
+                if(!err) {
+                    res.render("homepage", {
+                        qfdb:quickfacts,
+                        qqdb:quickquiz
+                    });
+                } else {
+                    res.sendStatus(400);
+                }
+            });
+        } else {
+            res.sendStatus(400);
+        }
+    });
 };
 
 module.exports.diseaseSpecific = function(req, res) {
