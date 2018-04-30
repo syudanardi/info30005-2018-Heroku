@@ -18,7 +18,7 @@ router.get('/profile', control.profile);
 
 router.get('/disease_specific', control.diseaseSpecific);
 
-router.get('/', control.realHome)
+router.get('/', control.realHome);
 
 router.get('/registration_form', control.registrationForm);
 

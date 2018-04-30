@@ -13,3 +13,4 @@ require('./disease.js');
 require('./healthfact.js');
 require('./user.js');
 require('./diseasewiki.js');
+require('./healthquiz.js');
