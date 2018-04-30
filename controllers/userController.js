@@ -2,6 +2,7 @@ const db = require('../models/db');
 const mongoose = require('mongoose');
 const Disease = mongoose.model('diseases');
 const QF = mongoose.model('healthfacts');
+const Wiki = mongoose.model('mydiseasewikidatas');
 
 module.exports.sayHello = function(req, res) {
     res.render("home");
@@ -48,27 +49,39 @@ module.exports.printUser = function(req, res) {
 module.exports.diseaseWiki = function(req, res) {
     res.locals.query = req.query;
     var alphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-    res.render("diseasewiki", {alphabet: alphabets, 
-        // diseases: db.diseases
-    })
+    Wiki.find(function(err,mydiseasewikidatas) {
+        if(!err) {
+            res.render("diseasewiki", {alphabet: alphabets,
+                diseases: mydiseasewikidatas[0]["diseases"]
+            });
+        } else {
+            res.sendStatus(400);
+        }
+    });
 };
 
 module.exports.disease = function(req, res) {
     res.locals.query = req.query;
     var alphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-
     // Get the index of the alphabet in the array. 
     var index = alphabets.indexOf(req.params.id);
-    res.render("disease", {alphabet: alphabets 
-        // chooseAlphabet: db.alphabet[index],
-        // disease: db.diseases[index],
-        // diseases: db.diseases
-    })
-}
+    Wiki.find(function(err,mydiseasewikidatas) {
+        if(!err) {
+            res.render("disease", {
+                alphabet: alphabets,
+                chooseAlphabet: alphabets[index],
+                disease:mydiseasewikidatas[0]["diseases"][index],
+                diseases:mydiseasewikidatas[0]["diseases"]
+            })
+        } else {
+            res.sendStatus(400);
+        }
+    });
+};
 
 module.exports.profile = function(req, res) {
     res.render("profile");
-}
+};
 
 module.exports.realHome = function(req, res) {
     QF.find(function(err,quickfacts) {
