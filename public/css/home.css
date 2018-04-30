@@ -1,7 +1,8 @@
 #carouselExampleIndicators {
     border: 10px solid #DFF0FD;
-    margin: 25px;
+    margin: auto;
     width: 85%;
+
 }
 
 #diseaseRank {
@@ -23,4 +24,5 @@
 
 #secondContent {
     color: #5B5B5B;
+    margin-top: 75px;
 }
