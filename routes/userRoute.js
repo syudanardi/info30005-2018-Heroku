@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const control = require('../controllers/userController');
 
+router.get('/homepage', control.home)
+
 router.get('/home', control.realHome);
 
 router.get('/users', control.printAll);
