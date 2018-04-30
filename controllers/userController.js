@@ -6,8 +6,8 @@ module.exports.sayHello = function(req, res) {
     res.render("home");
 };
 
-module.exports.homePage = function(req, res) {
-    res.render("homepage");
+module.exports.home = function(req, res) {
+  res.render("homepage")
 };
 
 module.exports.diseaseSpecific = function(req, res) {
