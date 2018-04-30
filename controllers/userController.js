@@ -1,6 +1,7 @@
 const db = require('../models/db');
 const mongoose = require('mongoose');
 const Disease = mongoose.model('diseases');
+const QF = mongoose.model('healthfacts');
 
 module.exports.sayHello = function(req, res) {
     res.render("home");
@@ -41,7 +42,7 @@ module.exports.printUser = function(req, res) {
     res.render("user",{
         name:db.dataBase[req.params.id].name,
         job:db.dataBase[req.params.id].job
-    })
+    });
 };
 
 module.exports.diseaseWiki = function(req, res) {
@@ -68,8 +69,16 @@ module.exports.profile = function(req, res) {
 }
 
 module.exports.realHome = function(req, res) {
-    res.render("newHome");
-}
+    QF.find(function(err,quickfacts) {
+        if(!err) {
+            res.render("newHome", {
+                db:quickfacts
+            });
+        } else {
+            res.sendStatus(400);
+        }
+    });
+};
 
 module.exports.createDisease = function(req, res) {
     const disease = new Disease({
@@ -106,7 +115,6 @@ module.exports.findAllDisease = function(req, res) {
 
 module.exports.createForm = function(req, res){
     res.render("dbPractice");
-
 };
 
 module.exports.displayData = function(req,res){
