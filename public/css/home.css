@@ -1,0 +1,26 @@
+#carouselExampleIndicators {
+    border: 10px solid #DFF0FD;
+    margin: 25px;
+    width: 85%;
+}
+
+#diseaseRank {
+    border-left: 1px solid #DFF0FD;
+
+}
+
+#topDiseaseHeader {
+    margin-bottom: 15px;
+}
+
+#latestNews {
+}
+
+#videoFrame {
+    border: 5px solid #5B5B5B;
+    width: 100%;
+}
+
+#secondContent {
+    color: #5B5B5B;
+}
