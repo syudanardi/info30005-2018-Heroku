@@ -134,9 +134,7 @@
                 <div class="col-sm-3 factQuiz text-center" id="fact">
                     <h5>Daily Fact</h5>
                     <hr>
-                    <p id="factContent">
-                        Insert Fact Here
-                    </p>
+                    <p id="factContent"><%= qfdb[0]["fact"]%></p>
                 </div>
 
                 <div class="col-sm-6 factQuiz text-center" id="quiz">
@@ -144,12 +142,21 @@
                     <hr>
 
                     <p id="quizContent">
-                        Insert Quiz Question
+                        <%= qqdb[0]["question"]%>
                     </p>
 
                     <div id="answerOption">
-                        1<br>
-                        2<br>
+                        <ul>
+                            <li>
+                                <button><%=qqdb[0]["option"][0]%></button>
+                            </li>
+                            <li>
+                                <button><%=qqdb[0]["option"][1]%></button>
+                            </li>
+                            <li>
+                                <button><%=qqdb[0]["option"][2]%></button>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
