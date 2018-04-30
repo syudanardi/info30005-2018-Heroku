@@ -2,12 +2,11 @@
     border: 10px solid #DFF0FD;
     margin: auto;
     width: 85%;
-
 }
 
 #diseaseRank {
-    border-left: 1px solid #DFF0FD;
-
+    margin-bottom: 20px;
+    padding-left: 50px;
 }
 
 #topDiseaseHeader {
@@ -15,6 +14,11 @@
 }
 
 #latestNews {
+    margin-bottom: 20px;
+}
+
+#news-video {
+    margin-left: 5px;
 }
 
 #fact{
@@ -51,4 +55,15 @@
 
 .container {
     margin-top: 75px;
+}
+
+li {
+    list-style: none;
+}
+
+@media only screen and (max-width: 990px ) {
+    #diseaseRank {
+        margin-bottom: 20px;
+        padding-left: 15px;
+    }
 }
