@@ -44,7 +44,7 @@
     <div class="container">
 
         <!-- The user does not search any disease, it will show all diseases that starts with specified alphabet. -->
-        <% if(!query.diseasename) { %>
+         <% if(!query.diseasename) { %>
             <div class="row">
                 <div class="col-12">
                     <h2 id="first-alphabet-disease"><%= chooseAlphabet%></h2>
@@ -64,7 +64,7 @@
             </div>
         
         <!-- The user search for a query.-->
-        <% } else if (query.diseasename) {
+         <% } else if (query.diseasename) {
             var found = 0;
             for(var x = 0; x<alphabet.length; x++) {
                 var a = 0;
