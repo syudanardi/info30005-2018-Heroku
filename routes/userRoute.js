@@ -20,6 +20,8 @@ router.get('/disease_specific', control.diseaseSpecific);
 
 router.get('/', control.home);
 
+router.get('/homerevised', control.homerevised);
+
 router.get('/registration_form', control.registrationForm);
 
 router.get('/navbar', control.navbar);
@@ -34,6 +36,6 @@ router.get('/api', control.createForm);
 
 router.get('/getApi', control.findAllDisease);
 
-router.get('/getApi/:id', control.displayData)
+router.get('/getApi/:id', control.displayData);
 
 module.exports = router;

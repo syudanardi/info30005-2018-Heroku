@@ -9,6 +9,10 @@ module.exports.sayHello = function(req, res) {
     res.render("home");
 };
 
+module.exports.homerevised = function(req, res) {
+    res.render("homepage_revised");
+};
+
 module.exports.home = function(req, res) {
     QF.find(function(err,quickfacts) {
         if(!err) {
