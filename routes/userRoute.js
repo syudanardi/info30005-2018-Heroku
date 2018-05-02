@@ -4,7 +4,7 @@ const control = require('../controllers/userController');
 
 router.get('/homepage', control.home)
 
-router.get('/home', control.realHome);
+router.get('/home', control.home);
 
 router.get('/users', control.printAll);
 
@@ -18,7 +18,7 @@ router.get('/profile', control.profile);
 
 router.get('/disease_specific', control.diseaseSpecific);
 
-router.get('/', control.realHome);
+router.get('/', control.home);
 
 router.get('/registration_form', control.registrationForm);
 
