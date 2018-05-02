@@ -82,13 +82,18 @@
         <!-- Latest News and Disease Rank -->
         <div class="container">
             <div class="row" id="secondContent">
-                <!-- col-md-6 col-sm-7-->
                 <div class="col-lg-7 col-md-12 col-sm-12" id="latestNews">
                     <h4>Top Demand News</h4>
                     <iframe id="news-video"width="560" height="315" src="https://www.youtube.com/embed/2BxdNA6uxeA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                 </div>
 
-                <div class="col-lg-5 col-md-12 col-sm-12" id="diseaseRank">
+                <div class="col-lg-5 col-md-12 col-sm-12 factQuiz text-center" id="fact">
+                    <h5>Daily Fact</h5>
+                    <hr>
+                    <p id="factContent"><%= qfdb[0]["fact"]%></p>
+                </div>
+
+                <!-- <div class="col-lg-5 col-md-12 col-sm-12" id="diseaseRank">
                     <h4 id="topDiseaseHeader">Top Disease Search</h4>
                     <table class="table table-sm">
                         <thead>
@@ -128,23 +133,60 @@
                         </tr>
                         </tbody>
                     </table>
+                </div> -->
+            </div>
+        </div>
 
+        <div class="container">
+            <div class="row">
+                <div class="col-12" id="diseaseRank">
+                    <h4 id="topDiseaseHeader">Top Disease Search</h4>
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th scope="col">Rank</th>
+                                <th scope="col">Disease</th>
+                                <th scope="col">Votes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">#1</th>
+                                <td>Asthma</td>
+                                <td>259</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">#2</th>
+                                <td>Listeriosis</td>
+                                <td>57</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">#3</th>
+                                <td>Dengue</td>
+                                <td>35</td>
+                            </tr>
 
+                            <tr>
+                                <th scope="row">#4</th>
+                                <td>Chikungunya</td>
+                                <td>28</td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row">#5</th>
+                                <td>Gasthritis</td>
+                                <td>15</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
 
-
         <!-- Fact and Quiz -->
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-sm-3 factQuiz text-center" id="fact">
-                    <h5>Daily Fact</h5>
-                    <hr>
-                    <p id="factContent"><%= qfdb[0]["fact"]%></p>
-                </div>
-
-                <div class="col-sm-6 factQuiz text-center" id="quiz">
+                <div class="col-12 factQuiz text-center" id="quiz">
                     <h5>Daily Quiz</h5>
                     <hr>
 

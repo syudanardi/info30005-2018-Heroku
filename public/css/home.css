@@ -22,12 +22,18 @@
 }
 
 #fact{
+    
     width: 100%;
-    height: inherit;
+    height: 250px;
+    /* height: inherit; */
+    margin-top: 30px;
     border: 2px solid #5B5B5B;
     background-color: #DFF0FD;
-    border-top-left-radius: 30px;
-    border-bottom-left-radius: 30px;
+    /* border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px; */
+    border-radius: 30px;
+    padding-left: 40px;
+    
 }
 
 #quiz{
@@ -35,8 +41,9 @@
     height: inherit;
     border: 2px solid #5B5B5B;
     background-color: #04D2FF;
-    border-top-right-radius: 30px;
-    border-bottom-right-radius: 30px;
+    /* border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px; */
+    border-radius: 30px;
 }
 
 .factQuiz {
