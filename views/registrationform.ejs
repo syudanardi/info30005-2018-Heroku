@@ -31,9 +31,9 @@
     <div class="space-medium">
         <div class="container">
             <div class="row">
-                <div class="col-xl-5 col-lg-12 col-md-12 col-sm-12 col-12">
+                <div id="mottos" class="col-xl-5 col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="feature-description">
-                        <h2>Quick Health<br> Be QUICK, Be HEALTHY</h2>
+                        <h2 id="motto-title">Quick Health<br> Be QUICK, Be HEALTHY</h2>
 
                         <div id="text-motto">
                             <div class="row">
@@ -43,7 +43,7 @@
                                             <img id="motto-icon" src="/resource/lightning-icon.png">
                                         </div>
                                         <div class="col-10">
-                                            <h4>Quick access from anywhere and anytime.</h4>
+                                            <h4 id="motto">Quick access from anywhere and anytime.</h4>
                                         </div>
                                     </div>
                                 </div>
@@ -58,7 +58,7 @@
                                             <img id="motto-icon" src="/resource/document-icon.png">
                                         </div>
                                         <div class="col-10">
-                                            <h4>Provide you with the latest information.</h4>
+                                            <h4 id="motto">Provide you with the latest information.</h4>
                                         </div>
                                     </div>
                                 </div>
@@ -73,7 +73,7 @@
                                             <img id="motto-icon" src="/resource/map-icon.svg">
                                         </div>
                                         <div class="col-10">
-                                            <h4>Help you to be aware about diseases around your area.</h4>
+                                            <h4 id="motto">Help you to be aware about diseases around your area.</h4>
                                         </div>
                                     </div>
                                 </div>
@@ -88,7 +88,7 @@
                                             <img id="motto-icon" src="/resource/clock-icon.png">
                                         </div>
                                         <div class="col-10">
-                                            <h4>Daily update for the quick health and quick quiz.</h4>
+                                            <h4 id="motto">Daily update for the quick health and quick quiz.</h4>
                                         </div>
                                     </div>
                                 </div>
@@ -134,32 +134,45 @@
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 ">
                                     <div class="form-group service-form-group">
                                         <label class="control-label sr-only" for="name"></label>
-                                        <input id="firstName" type="text" placeholder="First Name" class="form-control" required>
+                                        <input id="firstName" type="text" name="firstname" placeholder="First Name" class="form-control" required>
                                         <div class="form-icon"><i class="fa fa-user"></i></div>
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12  ">
                                     <div class="form-group service-form-group">
                                         <label class="control-label sr-only" for="name"></label>
-                                        <input id="lastName" type="text" placeholder="Last Name" class="form-control" required>
+                                        <input id="lastName" type="text" name="lastname" placeholder="Last Name" class="form-control" required>
                                         <div class="form-icon"><i class="fa fa-user"></i></div>
                                     </div>
                                 </div>
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
                                     <div class="form-group service-form-group">
                                         <label class="control-label sr-only" for="email"></label>
-                                        <input id="email" type="email" placeholder="Email" class="form-control" required>
+                                        <input id="email" type="email" name="email" placeholder="Email" class="form-control" required>
                                         <div class="form-icon"><i class="fa fa-envelope"></i></div>
                                     </div>
                                 </div>
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
                                     <div class="form-group service-form-group">
                                         <label class="control-label sr-only" for="phone"></label>
-                                        <input id="phoneNumber" type="text" placeholder="Phone" class="form-control" required>
+                                        <input id="phoneNumber" type="number" name="phone" placeholder="Phone" class="form-control" required>
                                         <div class="form-icon"><i class="fa fa-phone"></i></div>
                                     </div>
                                 </div>
-
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+                                    <div class="form-group service-form-group">
+                                        <label class="control-label sr-only" for="password"></label>
+                                        <input id="password" type="password" name="password" placeholder="Password" class="form-control" required>
+                                        <div class="form-icon"><i class="fa fa-key" aria-hidden="true"></i></div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+                                    <div class="form-group service-form-group">
+                                        <label class="control-label sr-only" for="retype-password"></label>
+                                        <input id="retype-password" type="password" name="retype-password" placeholder="Re-Type Password" class="form-control" required>
+                                        <div class="form-icon"><i class="fa fa-key" aria-hidden="true"></i></div>
+                                    </div>
+                                </div>
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
                                     <div class="form-group">
                                         <label><strong><em>Country of Residence*</em></strong></label>

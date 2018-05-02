@@ -4,6 +4,7 @@ const Disease = mongoose.model('diseases');
 const QF = mongoose.model('healthfacts');
 const QQ = mongoose.model('healthquizzes');
 const Wiki = mongoose.model('mydiseasewikidatas');
+const DiseaseWikis = mongoose.model('diseasewikis');
 
 module.exports.sayHello = function(req, res) {
     res.render("home");
@@ -162,3 +163,57 @@ module.exports.displayData = function(req,res){
         }
     });
 };
+
+// Saving the health fact to the database
+module.exports.addHealthFactPage = function(req, res) {
+    res.render("addhealthfact");
+};
+
+module.exports.saveHealthFact = function(req, res) {
+    var newHealthFact = new QF({
+        "fact": req.body.fact,
+        "link": req.body.link
+    });
+    
+    newHealthFact.save(function (err, newHealthFact){
+        if (!err) {
+            res.render('savehealthfact');
+        } else {
+            res.sendStatus(400);
+        }
+    });
+};
+
+// Saving the disease wiki to the database
+module.exports.addDiseasePage = function(req, res) {
+    res.render("adddisease");
+};
+
+module.exports.saveDisease = function(req, res) {
+
+    var newDisease = new DiseaseWikis({
+        "name": req.body.name,
+        "bioname": req.body.bioname,
+        "fact": req.body.fact,
+        "img": req.body.image,
+        "treat": req.body.treatable,
+        "diagnosis": req.body.diagnosis,
+        "lab": req.body.lab,
+        "time": req.body.time,
+        "causes": req.body.causes,
+        "symptoms": req.body.symptoms,
+        "treatment": req.body.treatment,
+        "history": req.body.history
+    });
+
+    newDisease.save(function (err, newDisease){
+        if (!err) {
+            res.render('savedisease');
+        } else {
+            res.sendStatus(400);
+        }
+    });
+};
+
+
+

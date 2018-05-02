@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const control = require('../controllers/userController');
 
-router.get('/homepage', control.home)
+router.get('/homepage', control.realHome)
 
 router.get('/home', control.home);
 
@@ -37,5 +37,17 @@ router.get('/api', control.createForm);
 router.get('/getApi', control.findAllDisease);
 
 router.get('/getApi/:id', control.displayData);
+
+// Show add health fact page (Admin Page)
+router.get('/addhealthfact', control.addHealthFactPage);
+
+// Save Health Fact (Admin Page)
+router.post("/addhealthfact/submit", control.saveHealthFact);
+
+// Show add disease page (Admin Page)
+router.get('/adddisease', control.addDiseasePage);
+
+// Save Disease (Admin Page)
+router.post('/adddisease/submit', control.saveDisease);
 
 module.exports = router;
