@@ -1,3 +1,4 @@
+//Bukan Yang ini!
 var mongoose = require('mongoose');
 var wikiSchema = mongoose.Schema(
     {
