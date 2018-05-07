@@ -24,17 +24,6 @@
             <% include navbar.ejs %>
         </div>
 
-        <div class="form-group">
-            <label for="user-message" class="col-lg-2 control-label">Message
-            </label>
-            <div class="col-lg-10">
-                <textarea readonly name="user-message" id="user-message" class="form-control" cols="20" rows="10" placeholder="Asthma is fucker"></textarea>
-            </div><!--end col 10-->
-        </div><!--ends from group-->
-
-        <button>Toggler</button>
-
-
         <section class="banner-sec">
             <div class="container">
                 <div class="row">
@@ -196,8 +185,37 @@
 
                         <!-- Tab panes -->
 
-                        <!--Fact-->
+                        <!--Featured-->
                         <div class="tab-content sidebar-tabing" id="nav-tabContent">
+                            <div class="tab-pane" id="messages" role="tabpanel">
+                                <div class="media"> <a href="#"> <img class="d-flex mr-3" src="http://grafreez.com/wp-content/temp_demos/river/img/food.jpg" alt="Generic placeholder image"></a>
+                                    <div class="media-body">
+                                        <div class="news-title">
+                                            <h2 class="title-small"><a href="#">I DON'T</a></h2>
+                                        </div>
+                                        <!--<div class="news-auther"><span class="time">1h ago</span></div>-->
+                                    </div>
+                                </div>
+                                <div class="media"> <a href="#"> <img class="d-flex mr-3" src="http://grafreez.com/wp-content/temp_demos/river/img/business.jpg" alt="Generic placeholder image"></a>
+                                    <div class="media-body">
+                                        <div class="news-title">
+                                            <h2 class="title-small"><a href="#">HAVE ENOUGH</a></h2>
+                                        </div>
+                                        <!--<div class="news-auther"><span class="time">1h ago</span></div>-->
+                                    </div>
+                                </div>
+                                <div class="media"> <a href="#"> <img class="d-flex mr-3" src="http://grafreez.com/wp-content/temp_demos/river/img/sport1.jpg" alt="Generic placeholder image"></a>
+                                    <div class="media-body">
+                                        <div class="news-title">
+                                            <h2 class="title-small"><a href="#">CLUE FOR THIS</a></h2>
+                                        </div>
+                                        <!--<div class="news-auther"><span class="time">1h ago</span></div>-->
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!--Fact-->
                             <div class="tab-pane active" id="home" role="tabpanel">
                                 <div class="media"> <a href="#"> <img class="d-flex mr-3" src="http://grafreez.com/wp-content/temp_demos/river/img/sport2.jpg" alt="Generic placeholder image"></a>
                                     <div class="media-body">
@@ -227,59 +245,21 @@
 
                             <!--Quiz-->
                             <div class="tab-pane" id="profile" role="tabpanel">
-                                <div class="media"> <a href="#"> <img class="d-flex mr-3" src="http://grafreez.com/wp-content/temp_demos/river/img/movie.jpg" alt="Generic placeholder image"></a>
+                                <div class="media">
                                     <div class="media-body">
                                         <div class="news-title">
-                                            <h2 class="title-small"><p><%=qqdb[0]['question']%></p></h2>
-                                            <button><%=qqdb[0]['option'][0]%></button><button><%=qqdb[0]['option'][1]%></button>
-                                        </div>
-                                        <!--<div class="news-auther"><span class="time">1h ago</span></div>-->
-                                    </div>
-                                </div>
-                                <div class="media"> <a href="#"> <img class="d-flex mr-3" src="http://grafreez.com/wp-content/temp_demos/river/img/auto.jpg" alt="Generic placeholder image"></a>
-                                    <div class="media-body">
-                                        <div class="news-title">
-                                            <h2 class="title-small"><p><%=qqdb[1]['question']%></p></h2>
-                                            <button><%=qqdb[1]['option'][0]%></button><button><%=qqdb[1]['option'][1]%></button>
-                                        </div>
-                                        <!--<div class="news-auther"><span class="time">1h ago</span></div>-->
-                                    </div>
-                                </div>
-                                <div class="media"> <a href="#"> <img class="d-flex mr-3" src="http://grafreez.com/wp-content/temp_demos/river/img/business1.jpg" alt="Generic placeholder image"></a>
-                                    <div class="media-body">
-                                        <div class="news-title">
-                                            <h2 class="title-small"><p><%=qqdb[2]['question']%></p></h2>
-                                            <button><%=qqdb[2]['option'][0]%></button><button><%=qqdb[2]['option'][1]%></button>
-                                        </div>
-                                        <!--<div class="news-auther"><span class="time">1h ago</span></div>-->
-                                    </div>
-                                </div>
-                            </div>
+                                            <p class="text-center" id="#question"><%=qqdb[0]['question']%></p>
+                                            <p class="text-center">
+                                                <button type="button" class="btn btn-primary"><%=qqdb[0]['option'][0]%></button>
+                                                <br>
+                                                <br>
+                                                <button type="button" class="btn btn-primary"><%=qqdb[0]['option'][1]%></button>
+                                                <br>
+                                                <!--IF there is any 3rd option-->
+                                                <!--<button type="button" class="btn btn-primary"><%=qqdb[0]['option'][2]%></button>-->
+                                            </p>
 
-                            <!--Featured-->
-                            <div class="tab-pane" id="messages" role="tabpanel">
-                                <div class="media"> <a href="#"> <img class="d-flex mr-3" src="http://grafreez.com/wp-content/temp_demos/river/img/food.jpg" alt="Generic placeholder image"></a>
-                                    <div class="media-body">
-                                        <div class="news-title">
-                                            <h2 class="title-small"><a href="#">I DON'T</a></h2>
                                         </div>
-                                        <!--<div class="news-auther"><span class="time">1h ago</span></div>-->
-                                    </div>
-                                </div>
-                                <div class="media"> <a href="#"> <img class="d-flex mr-3" src="http://grafreez.com/wp-content/temp_demos/river/img/business.jpg" alt="Generic placeholder image"></a>
-                                    <div class="media-body">
-                                        <div class="news-title">
-                                            <h2 class="title-small"><a href="#">HAVE ENOUGH</a></h2>
-                                        </div>
-                                        <!--<div class="news-auther"><span class="time">1h ago</span></div>-->
-                                    </div>
-                                </div>
-                                <div class="media"> <a href="#"> <img class="d-flex mr-3" src="http://grafreez.com/wp-content/temp_demos/river/img/sport1.jpg" alt="Generic placeholder image"></a>
-                                    <div class="media-body">
-                                        <div class="news-title">
-                                            <h2 class="title-small"><a href="#">CLUE FOR THIS</a></h2>
-                                        </div>
-                                        <!--<div class="news-auther"><span class="time">1h ago</span></div>-->
                                     </div>
                                 </div>
                             </div>
