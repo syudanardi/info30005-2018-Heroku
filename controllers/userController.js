@@ -11,7 +11,22 @@ module.exports.sayHello = function(req, res) {
 };
 
 module.exports.homerevised = function(req, res) {
-    res.render("homepage_revised");
+    QF.find(function(err,quickfacts) {
+        if(!err) {
+            QQ.find(function(err,quickquiz) {
+                if(!err) {
+                    res.render("homepage_revised", {
+                        qfdb:quickfacts,
+                        qqdb:quickquiz
+                    });
+                } else {
+                    res.sendStatus(400);
+                }
+            });
+        } else {
+            res.sendStatus(400);
+        }
+    });
 };
 
 module.exports.home = function(req, res) {
