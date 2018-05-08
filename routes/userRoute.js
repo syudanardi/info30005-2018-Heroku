@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const control = require('../controllers/userController');
 
-router.get('/homepage', control.realHome)
+router.get('/homepage', control.realHome);
 
 router.get('/oldhome', control.home);
 
@@ -51,5 +51,9 @@ router.get('/adddisease', control.addDiseasePage);
 router.post('/adddisease/submit', control.saveDisease);
 
 router.get('/listdisease', control.countDisease);
+
+router.post('/registration_form/submit', control.createProfile);
+
+router.post('/profile', control.profile)
 
 module.exports = router;

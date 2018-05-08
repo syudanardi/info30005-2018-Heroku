@@ -4,6 +4,7 @@ const Disease = mongoose.model('diseases');
 const QF = mongoose.model('healthfacts');
 const QQ = mongoose.model('healthquizzes');
 const Wiki = mongoose.model('mydiseasewikidatas');
+const Profile = mongoose.model('profiles');
 const DiseaseWikis = mongoose.model('diseasewikis');
 /*
 let qfact;
@@ -186,7 +187,29 @@ module.exports.disease = function(req, res) {
 };
 
 module.exports.profile = function(req, res) {
-    res.render("profile");
+    Profile.find({"email":req.body.email, "password":req.body.password}, function(err,profiles){
+        if(!err){
+            if (profiles.length > 0){
+                let curr = profiles[0];
+                let day = curr["joinDate"].getDate();
+                let year = curr["joinDate"].getFullYear();
+                let month = curr["joinDate"].getMonth();
+                let joined = '' + day + '/' + month + '/' + year;
+                res.render("profile.ejs", {
+                    profile:curr,
+                    name:curr["name"],
+                    phone:curr["phone"],
+                    email:curr["email"],
+                    joinDate:joined
+                })}
+            else
+            {
+                res.send("profile doesn't exist with the email/password combination");
+            }
+        } else {
+            res.sendStatus(405);
+        }
+    });
 };
 
 module.exports.realHome = function(req, res) {
@@ -213,6 +236,24 @@ module.exports.createDisease = function(req, res) {
         if(!err) {
             res.send(newDisease);
             console.log("message sent")
+        } else {
+            res.sendStatus(400);
+        }
+    });
+};
+
+module.exports.createProfile = function(req, res) {
+    const newProfile = new Profile({
+        name: req.body.firstname + ' ' + req.body.lastname,
+        email: req.body.email,
+        phone: req.body.phone,
+        joinDate: Date.now(),
+        password: req.body.password
+    });
+    newProfile.save(function(err, newProfile){
+        if(!err) {
+            res.send(newProfile);
+            console.log("New Profile Created\n");
         } else {
             res.sendStatus(400);
         }
