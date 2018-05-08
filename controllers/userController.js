@@ -5,6 +5,7 @@ const QF = mongoose.model('healthfacts');
 const QQ = mongoose.model('healthquizzes');
 const Wiki = mongoose.model('mydiseasewikidatas');
 const DiseaseWikis = mongoose.model('diseasewikis');
+const Users = mongoose.model('users')
 
 module.exports.sayHello = function(req, res) {
     res.render("home");
@@ -224,6 +225,28 @@ module.exports.saveDisease = function(req, res) {
     newDisease.save(function (err, newDisease){
         if (!err) {
             res.render('savedisease');
+        } else {
+            res.sendStatus(400);
+        }
+    });
+};
+
+module.exports.saveUser = function(req, res) {
+
+    var newUserData = new Users({
+        _id: req.body.email.toLowerCase(),
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,        
+        email: req.body.email.toLowerCase(),
+        phone: req.body.phone,
+        password: req.body.password,
+        country: req.body.country,
+        address: req.body.address
+    });
+
+    newUserData.save(function (err, newDisease){
+        if (!err) {
+            console.log("User Data is saved");
         } else {
             res.sendStatus(400);
         }
