@@ -20,6 +20,23 @@
     <script type="text/javascript" src="/diseasewiki.js"></script>
 
     <title>Specific Disease</title>
+
+    <script>
+        function togglerequire(myClass){
+            document.getElementsByClassName(myClass).children("textarea").each(function(){
+                var re = $(this).prop('readonly');
+                $(this).prop('readonly', !re);
+            })
+        }
+
+        // Working function
+        function togglerequire(id){
+            $(id).children("textarea").each(function(){
+                var re = $(this).prop('readonly');
+                $(this).prop('readonly', !re);
+            });
+        }
+    </script>
 </head>
 
     <body>
@@ -28,6 +45,18 @@
         <div id="nav-placeholder">
             <% include navbar.ejs %>
         </div>
+
+        <!-- Testing editable disease specific -->
+        <form>
+            <fieldset id="F1">
+                <textarea id="T1" rows="5" cols="50" readonly required>Surviantoro
+                </textarea>
+                <br>
+            </fieldset>
+            <button type="button" id="button" onclick="togglerequire('#F1')">
+                Click Me
+            </button>
+        </form>
 
         <!-- Wolfram Alpha API Testing Ground-->
         <!--<a href="http://api.wolframalpha.com/v1/query?input=asthmas&appid=QXW2KE-2JX8G2RKUA">Disease Check</a>-->
@@ -68,7 +97,6 @@
                                     A condition in which a person's airways become inflamed, narrow and swell and
                                     produce extra mucus, which makes it difficult to breathe.
                                 </p>
-
                             </div>
                         </div>
                     </div>
@@ -122,6 +150,7 @@
 
 
 
+
         <div class="details">
 
             <!-- CAUSES -->
@@ -129,14 +158,23 @@
                 <i class="glyphicon glyphicon-chevron-right"></i>Causes
                 <img id="down-arrow" src="resource/down-arrow.png">
             </a>
+
+
             <div class="list-group collapse" id="causes">
-                Asthma triggers frequently include:
-                <li>Allergens such as pollen, dust mites, cockroaches, molds and animal danders</li>
-                <li>Irritants in the air, such as smoke, air pollution, chemical fumes and strong odors</li>
-                <li>Medications, such as aspirin and acetaminophen</li>
-                <li>Extreme weather conditions</li>
-                <li>Exercise</li>
-                <li>Stress</li>
+                <form>
+                    <fieldset id="F1">
+                        <textarea id="T1" rows="5" cols="50" readonly required>Surviantoro</textarea>
+                    </fieldset>
+
+                    <br>
+                </form>
+                <!--Asthma triggers frequently include:-->
+                <!--<li>Allergens such as pollen, dust mites, cockroaches, molds and animal danders</li>-->
+                <!--<li>Irritants in the air, such as smoke, air pollution, chemical fumes and strong odors</li>-->
+                <!--<li>Medications, such as aspirin and acetaminophen</li>-->
+                <!--<li>Extreme weather conditions</li>-->
+                <!--<li>Exercise</li>-->
+                <!--<li>Stress</li>-->
             </div>
 
 
@@ -146,11 +184,18 @@
                 <img id="down-arrow" src="resource/down-arrow.png">
             </a>
             <div class="list-group collapse" id="symptoms">
-                <li>Breathlessness</li>
-                <li>Wheezing</li>
-                <li>Tight feeling in the chest, and/or</li>
-                <li>Continuing cough</li>
-                If you  have all of these symptoms or only a few, and they may come and go, then you may have asthma.
+                <form>
+                    <fieldset id="F1" class="editable">
+                        <textarea id="1" rows="5" cols="50" readonly required>Gavin
+                        </textarea>
+                    </fieldset>
+                    <br>
+                </form>
+                <!--<li>Breathlessness</li>-->
+                <!--<li>Wheezing</li>-->
+                <!--<li>Tight feeling in the chest, and/or</li>-->
+                <!--<li>Continuing cough</li>-->
+                <!--If you  have all of these symptoms or only a few, and they may come and go, then you may have asthma.-->
             </div>
 
             <!-- TREATMENT -->
@@ -159,15 +204,18 @@
                 <img id="down-arrow" src="resource/down-arrow.png">
             </a>
             <div class="list-group collapse list-item" id="treatment">
-                Quick-relief medicines are taken at the first sign of symptoms for immediate relief:
-                <li>Short-acting inhaled beta2-agonists</li>
-                <li>Anticholinergics</li>
+                <textarea id="T1" rows="5" cols="50" readonly required>William</textarea>
+
                 <br>
-                Both types of drugs are bronchodilators, meaning that they expand the passageways into the lungs (the bronchi), allowing more air in and out and improving breathing. They also help to clear mucus from the lungs by enabling the mucus to move more freely and get coughed out more easily.
+                <!--Quick-relief medicines are taken at the first sign of symptoms for immediate relief:-->
+                <!--<li>Short-acting inhaled beta2-agonists</li>-->
+                <!--<li>Anticholinergics</li>-->
+                <!--<br>-->
+                <!--Both types of drugs are bronchodilators, meaning that they expand the passageways into the lungs (the bronchi), allowing more air in and out and improving breathing. They also help to clear mucus from the lungs by enabling the mucus to move more freely and get coughed out more easily.-->
 
-                If you have exercise-induced bronchoconstriction (EIB), also known as exercise-induced asthma, your allergist may recommend that you use these medicines before exercise or other strenuous physical activity.
+                <!--If you have exercise-induced bronchoconstriction (EIB), also known as exercise-induced asthma, your allergist may recommend that you use these medicines before exercise or other strenuous physical activity.-->
 
-                Quick-relief medicines can stop asthma symptoms, but they do not control the airway inflammation that causes the symptoms. If you find that you need your quick-relief medicine to treat asthma symptoms more than twice a week, or two or more nights a month, then your asthma is not well controlled.
+                <!--Quick-relief medicines can stop asthma symptoms, but they do not control the airway inflammation that causes the symptoms. If you find that you need your quick-relief medicine to treat asthma symptoms more than twice a week, or two or more nights a month, then your asthma is not well controlled.-->
             </div>
 
             <!-- HISTORY -->
@@ -184,6 +232,10 @@
                 proposed various dietary and other means of treatment, and emphasized the importance of climate and clean air.
             </div>
         </div>
+
+        <button type="button" id="button" onclick="togglerequire('editable')">
+            Click Me
+        </button>
 
         <!-- Footer-->
         <div id="footer-placeholder">
