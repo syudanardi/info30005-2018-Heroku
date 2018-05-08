@@ -5,8 +5,10 @@ const QF = mongoose.model('healthfacts');
 const QQ = mongoose.model('healthquizzes');
 const Wiki = mongoose.model('mydiseasewikidatas');
 const DiseaseWikis = mongoose.model('diseasewikis');
+/*
 let qfact;
 let qquiz;
+
 
 QF.find(function(err,quickfacts) {
     if(!err) {
@@ -19,15 +21,28 @@ QQ.find(function(err,quickquiz) {
         qquiz = quickquiz;
     }
 });
+*/
 
 module.exports.sayHello = function(req, res) {
     res.render("home");
 };
 
 module.exports.homerevised = function(req, res) {
-    res.render("homepage_revised", {
-        qfdb:qfact,
-        qqdb:qquiz
+    QF.find(function(err,quickfacts) {
+        if(!err) {
+            QQ.find(function(err,quickquiz) {
+                if(!err) {
+                    res.render("homepage_revised", {
+                        qfdb:quickfacts,
+                        qqdb:quickquiz
+                    });
+                } else {
+                    res.sendStatus(400);
+                }
+            });
+        } else {
+            res.sendStatus(400);
+        }
     });
 };
 
@@ -51,7 +66,17 @@ module.exports.home = function(req, res) {
 };
 
 module.exports.diseaseSpecific = function(req, res) {
-    res.render("diseasespecific");
+    let id = req.params.id;
+    DiseaseWikis.find(function(err,diseasewikis) {
+        if(!err){
+            res.render("diseasespecific2", {
+                disease:diseasewikis,
+                id:id
+            });
+        } else {
+            res.sendStatus(400);
+        }
+    });
 };
 
 module.exports.registrationForm = function(req, res) {
