@@ -19,13 +19,16 @@
 }
 
 .list-group {
-    margin-left: 40px;
+    margin-left: 15px;
     padding-bottom: 20px;
     padding-top: 20px;
-    border-right: 1px solid #D2D1D2;
+    /*border-right: 1px solid #D2D1D2;*/
     color: #5B5B5B
 }
 
+#T1 {
+    border: none;
+}
 
 
 .summary-check {
