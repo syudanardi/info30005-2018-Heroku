@@ -146,12 +146,17 @@ module.exports.disease = function(req, res) {
 module.exports.profile = function(req, res) {
     Profile.find({"email":req.body.email, "password":req.body.password}, function(err,profiles){
         if(!err){
+            let curr = profiles[0];
+            let day = curr["joinDate"].getDate();
+            let year = curr["joinDate"].getFullYear();
+            let month = curr["joinDate"].getMonth();
+            let joined = '' + day + '/' + month + '/' + year;
             res.render("profile.ejs", {
-                profile:profiles[0],
-                name:profiles[0]["name"],
-                email:profiles[0]["email"],
-                phone:profiles[0]["phone"],
-                joinDate:profiles[0]["joinDate"]
+                profile:curr,
+                name:curr["name"],
+                phone:curr["phone"],
+                email:curr["email"],
+                joinDate:joined
             });
         } else {
             res.sendStatus(405);
