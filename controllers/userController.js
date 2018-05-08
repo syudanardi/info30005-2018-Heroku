@@ -258,4 +258,3 @@ module.exports.saveDisease = function(req, res) {
 };
 
 
-
