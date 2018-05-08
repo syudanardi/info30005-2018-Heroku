@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var userSchema = mongoose.Schema(
+var profileSchema = mongoose.Schema(
     {
         name: String,
         email: String,
@@ -8,4 +8,4 @@ var userSchema = mongoose.Schema(
         joinDate: Date
     }
 );
-module.exports = mongoose.model('users', userSchema);
+module.exports = mongoose.model('profiles', profileSchema);

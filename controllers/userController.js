@@ -4,7 +4,7 @@ const Disease = mongoose.model('diseases');
 const QF = mongoose.model('healthfacts');
 const QQ = mongoose.model('healthquizzes');
 const Wiki = mongoose.model('mydiseasewikidatas');
-const Profile = mongoose.model('users');
+const Profile = mongoose.model('profiles');
 const DiseaseWikis = mongoose.model('diseasewikis');
 /*
 let qfact;
@@ -144,9 +144,9 @@ module.exports.disease = function(req, res) {
 };
 
 module.exports.profile = function(req, res) {
-    Profile.find({"email":req.body.email, "password":req.body.password}, function(err,users){
+    Profile.find({"email":req.body.email, "password":req.body.password}, function(err,profiles){
         if(!err){
-            res.send(users);
+            res.send(profiles);
         } else {
             res.sendStatus(405);
         }
@@ -183,18 +183,18 @@ module.exports.createDisease = function(req, res) {
     });
 };
 
-module.exports.createUser = function(req, res) {
-    const newUser = new Profile({
+module.exports.createProfile = function(req, res) {
+    const newProfile = new Profile({
         name: req.body.firstname + ' ' + req.body.lastname,
         email: req.body.email,
         phone: req.body.phone,
         joinDate: Date.now(),
         password: req.body.password
     });
-    newUser.save(function(err, newProfile){
+    newProfile.save(function(err, newProfile){
         if(!err) {
             res.send(newProfile);
-            console.log("New User Created\n");
+            console.log("New Profile Created\n");
         } else {
             res.sendStatus(400);
         }

@@ -50,6 +50,6 @@ router.get('/adddisease', control.addDiseasePage);
 // Save Disease (Admin Page)
 router.post('/adddisease/submit', control.saveDisease);
 
-router.post('/registration_form/submit', control.createUser);
+router.post('/registration_form/submit', control.createProfile);
 
 module.exports = router;
