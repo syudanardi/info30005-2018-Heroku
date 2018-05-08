@@ -52,4 +52,6 @@ router.post('/adddisease/submit', control.saveDisease);
 
 router.post('/registration_form/submit', control.createProfile);
 
+router.post('/profile', control.profile)
+
 module.exports = router;
