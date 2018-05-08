@@ -49,19 +49,19 @@
                 <div class="col-12">
                     <h2 id="first-alphabet-disease"><%= chooseAlphabet%></h2>
                 </div>
-                <% for(var z = 0; z<4; z++) { %>
-                    <div class="col-md-3 col-sm-3 col-xs-6">
-                        <ul id="list-alpha-diseases" class="list-disease">
-                            <li id="disease"><a id="link-disease" href="/disease_specific"><%= disease %></a></li>
-                            <li id="disease"><a id="link-disease" href="/disease_specific"><%= disease %></a></li>
-                            <li id="disease"><a id="link-disease" href="/disease_specific"><%= disease %></a></li>
-                            <li id="disease"><a id="link-disease" href="/disease_specific"><%= disease %></a></li>
-                            <li id="disease"><a id="link-disease" href="/disease_specific"><%= disease %></a></li>
-                        </ul>
-                    </div>
+
+                <div class="col-md-3 col-sm-3 col-xs-6">
+                    <ul id="list-alpha-diseases" class="list-disease">
+                <% for(var z = 0; z<diseases.length; z++) { %>
+                        <% if(chooseAlphabet.toUpperCase() == diseases[z][0].toUpperCase()) { %>
+                            <li id="disease"><a id="link-disease" href="/disease_specific"><%= diseases[z] %></a></li>
+
+                        <% } %>
                 <% } %>
-                </div>
+                    </ul>
+                 </div>
             </div>
+        </div>
         
         <!-- The user search for a query.-->
          <% } else if (query.diseasename) {
