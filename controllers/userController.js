@@ -146,7 +146,13 @@ module.exports.disease = function(req, res) {
 module.exports.profile = function(req, res) {
     Profile.find({"email":req.body.email, "password":req.body.password}, function(err,profiles){
         if(!err){
-            res.send(profiles);
+            res.render("profile.ejs", {
+                profile:profiles[0],
+                name:profiles[0]["name"],
+                email:profiles[0]["email"],
+                phone:profiles[0]["phone"],
+                joinDate:profiles[0]["joinDate"]
+            });
         } else {
             res.sendStatus(405);
         }
