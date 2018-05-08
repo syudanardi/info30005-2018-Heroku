@@ -28,6 +28,14 @@
                 $(this).prop('readonly', !re);
             })
         }
+
+        // Working function
+        function togglerequire(id){
+            $(id).children("textarea").each(function(){
+                var re = $(this).prop('readonly');
+                $(this).prop('readonly', !re);
+            });
+        }
     </script>
 </head>
 
@@ -37,6 +45,18 @@
         <div id="nav-placeholder">
             <% include navbar.ejs %>
         </div>
+
+        <!-- Testing editable disease specific -->
+        <form>
+            <fieldset id="F1">
+                <textarea id="T1" rows="5" cols="50" readonly required>Surviantoro
+                </textarea>
+                <br>
+            </fieldset>
+            <button type="button" id="button" onclick="togglerequire('#F1')">
+                Click Me
+            </button>
+        </form>
 
         <!-- Wolfram Alpha API Testing Ground-->
         <!--<a href="http://api.wolframalpha.com/v1/query?input=asthmas&appid=QXW2KE-2JX8G2RKUA">Disease Check</a>-->
