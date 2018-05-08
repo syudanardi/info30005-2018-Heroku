@@ -11,7 +11,7 @@ mongoose.connect('mongodb://quickhealthdb:12345678@ds161539.mlab.com:61539/quick
 
 require('./disease.js');
 require('./healthfact.js');
-require('./user.js');
+require('./profile.js');
 require('./mydiseasewiki.js');
 require('./healthquiz.js');
 require('./diseasewikis.js');
