@@ -4,6 +4,7 @@ const Disease = mongoose.model('diseases');
 const QF = mongoose.model('healthfacts');
 const QQ = mongoose.model('healthquizzes');
 const Wiki = mongoose.model('mydiseasewikidatas');
+const Profile = mongoose.model('users');
 const DiseaseWikis = mongoose.model('diseasewikis');
 /*
 let qfact;
@@ -143,7 +144,13 @@ module.exports.disease = function(req, res) {
 };
 
 module.exports.profile = function(req, res) {
-    res.render("profile");
+    Profile.find({"email":req.body.email, "password":req.body.password}, function(err,users){
+        if(!err){
+            res.send(users);
+        } else {
+            res.sendStatus(405);
+        }
+    });
 };
 
 module.exports.realHome = function(req, res) {
@@ -170,6 +177,24 @@ module.exports.createDisease = function(req, res) {
         if(!err) {
             res.send(newDisease);
             console.log("message sent")
+        } else {
+            res.sendStatus(400);
+        }
+    });
+};
+
+module.exports.createUser = function(req, res) {
+    const newUser = new Profile({
+        name: req.body.firstname + ' ' + req.body.lastname,
+        email: req.body.email,
+        phone: req.body.phone,
+        joinDate: Date.now(),
+        password: req.body.password
+    });
+    newUser.save(function(err, newProfile){
+        if(!err) {
+            res.send(newProfile);
+            console.log("New User Created\n");
         } else {
             res.sendStatus(400);
         }
