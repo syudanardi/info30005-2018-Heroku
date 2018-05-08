@@ -16,7 +16,7 @@ router.get('/disease/:id', control.disease);
 
 router.get('/profile', control.profile);
 
-router.get('/disease_specific', control.diseaseSpecific);
+router.get('/disease_specific/:id', control.diseaseSpecific);
 
 router.get('/', control.homerevised);
 

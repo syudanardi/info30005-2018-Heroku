@@ -5,7 +5,23 @@ const QF = mongoose.model('healthfacts');
 const QQ = mongoose.model('healthquizzes');
 const Wiki = mongoose.model('mydiseasewikidatas');
 const DiseaseWikis = mongoose.model('diseasewikis');
-const Users = mongoose.model('users')
+/*
+let qfact;
+let qquiz;
+
+
+QF.find(function(err,quickfacts) {
+    if(!err) {
+        qfact = quickfacts;
+    }
+});
+
+QQ.find(function(err,quickquiz) {
+    if(!err) {
+        qquiz = quickquiz;
+    }
+});
+*/
 
 module.exports.sayHello = function(req, res) {
     res.render("home");
@@ -50,7 +66,17 @@ module.exports.home = function(req, res) {
 };
 
 module.exports.diseaseSpecific = function(req, res) {
-    res.render("diseasespecific");
+    let id = req.params.id;
+    DiseaseWikis.find(function(err,diseasewikis) {
+        if(!err){
+            res.render("diseasespecific2", {
+                disease:diseasewikis,
+                id:id
+            });
+        } else {
+            res.sendStatus(400);
+        }
+    });
 };
 
 module.exports.registrationForm = function(req, res) {
