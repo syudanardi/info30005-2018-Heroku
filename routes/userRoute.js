@@ -24,8 +24,6 @@ router.get('/home', control.homerevised);
 
 router.get('/registration_form', control.registrationForm);
 
-router.post('/registration_form/submit', control.saveUser);
-
 router.get('/navbar', control.navbar);
 
 router.get('/footer', control.footer);

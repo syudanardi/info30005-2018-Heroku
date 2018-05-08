@@ -257,26 +257,4 @@ module.exports.saveDisease = function(req, res) {
     });
 };
 
-module.exports.saveUser = function(req, res) {
-
-    var newUserData = new Users({
-        _id: req.body.email.toLowerCase(),
-        firstname: req.body.firstname,
-        lastname: req.body.lastname,        
-        email: req.body.email.toLowerCase(),
-        phone: req.body.phone,
-        password: req.body.password,
-        country: req.body.country,
-        address: req.body.address
-    });
-
-    newUserData.save(function (err, newDisease){
-        if (!err) {
-            console.log("User Data is saved");
-        } else {
-            res.sendStatus(400);
-        }
-    });
-};
-
 
