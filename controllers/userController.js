@@ -146,18 +146,23 @@ module.exports.disease = function(req, res) {
 module.exports.profile = function(req, res) {
     Profile.find({"email":req.body.email, "password":req.body.password}, function(err,profiles){
         if(!err){
-            let curr = profiles[0];
-            let day = curr["joinDate"].getDate();
-            let year = curr["joinDate"].getFullYear();
-            let month = curr["joinDate"].getMonth();
-            let joined = '' + day + '/' + month + '/' + year;
-            res.render("profile.ejs", {
-                profile:curr,
-                name:curr["name"],
-                phone:curr["phone"],
-                email:curr["email"],
-                joinDate:joined
-            });
+            if (profiles.length > 0){
+                let curr = profiles[0];
+                let day = curr["joinDate"].getDate();
+                let year = curr["joinDate"].getFullYear();
+                let month = curr["joinDate"].getMonth();
+                let joined = '' + day + '/' + month + '/' + year;
+                res.render("profile.ejs", {
+                    profile:curr,
+                    name:curr["name"],
+                    phone:curr["phone"],
+                    email:curr["email"],
+                    joinDate:joined
+                })}
+            else
+            {
+                res.send("profile doesn't exist with the email/password combination");
+            }
         } else {
             res.sendStatus(405);
         }
