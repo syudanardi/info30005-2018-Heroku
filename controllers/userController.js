@@ -127,7 +127,6 @@ module.exports.diseaseWiki = function(req, res) {
                 listDiseases[indexListDiseases] = member.name;
                 indexListDiseases++;
             });
-            listDiseases.sort();
 
             res.render("diseasewiki", {alphabet: alphabets,
                 diseases: listDiseases
@@ -137,18 +136,6 @@ module.exports.diseaseWiki = function(req, res) {
             res.sendStatus(404);
         }
     });
-
-
-    // DiseaseWikis.find(function(err,mydiseasewikidatas) {
-    //     if(!err) {
-    //         res.render("diseasewiki", {alphabet: alphabets,
-    //             diseases: mydiseasewikidatas[0]["diseases"],
-    //             listDiseases: listDiseases
-    //         });
-    //     } else {
-    //         res.sendStatus(400);
-    //     }
-    // });
 };
 
 module.exports.disease = function(req, res) {
@@ -165,7 +152,6 @@ module.exports.disease = function(req, res) {
                 listDiseases[indexListDiseases] = member.name;
                 indexListDiseases++;
             });
-            listDiseases.sort();
 
             res.render("disease", {alphabet: alphabets,
                 chooseAlphabet: alphabets[index],
@@ -176,19 +162,6 @@ module.exports.disease = function(req, res) {
             res.sendStatus(404);
         }
     });
-
-    // Wiki.find(function(err,mydiseasewikidatas) {
-    //     if(!err) {
-    //         res.render("disease", {
-    //             alphabet: alphabets,
-    //             chooseAlphabet: alphabets[index],
-    //             disease:mydiseasewikidatas[0]["diseases"][index],
-    //             diseases:mydiseasewikidatas[0]["diseases"]
-    //         })
-    //     } else {
-    //         res.sendStatus(400);
-    //     }
-    // });
 };
 
 module.exports.profile = function(req, res) {
