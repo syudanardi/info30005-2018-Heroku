@@ -114,15 +114,37 @@ module.exports.printUser = function(req, res) {
 module.exports.diseaseWiki = function(req, res) {
     res.locals.query = req.query;
     var alphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-    Wiki.find(function(err,mydiseasewikidatas) {
+
+    var indexListDiseases = 0;
+    var listDiseases = new Array();
+    DiseaseWikis.find(function(err,listdisease){
         if(!err) {
-            res.render("diseasewiki", {alphabet: alphabets,
-                diseases: mydiseasewikidatas[0]["diseases"]
+            listdisease.forEach(function(member) {
+                listDiseases[indexListDiseases] = member.name;
+                indexListDiseases++;
             });
+            listDiseases.sort();
+
+            res.render("diseasewiki", {alphabet: alphabets,
+                diseases: listDiseases
+            });
+
         } else {
-            res.sendStatus(400);
+            res.sendStatus(404);
         }
     });
+
+
+    // DiseaseWikis.find(function(err,mydiseasewikidatas) {
+    //     if(!err) {
+    //         res.render("diseasewiki", {alphabet: alphabets,
+    //             diseases: mydiseasewikidatas[0]["diseases"],
+    //             listDiseases: listDiseases
+    //         });
+    //     } else {
+    //         res.sendStatus(400);
+    //     }
+    // });
 };
 
 module.exports.disease = function(req, res) {
@@ -130,18 +152,39 @@ module.exports.disease = function(req, res) {
     var alphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
     // Get the index of the alphabet in the array. 
     var index = alphabets.indexOf(req.params.id);
-    Wiki.find(function(err,mydiseasewikidatas) {
+
+    var indexListDiseases = 0;
+    var listDiseases = new Array();
+    DiseaseWikis.find(function(err,listdisease){
         if(!err) {
-            res.render("disease", {
-                alphabet: alphabets,
+            listdisease.forEach(function(member) {
+                listDiseases[indexListDiseases] = member.name;
+                indexListDiseases++;
+            });
+            listDiseases.sort();
+
+            res.render("disease", {alphabet: alphabets,
                 chooseAlphabet: alphabets[index],
-                disease:mydiseasewikidatas[0]["diseases"][index],
-                diseases:mydiseasewikidatas[0]["diseases"]
-            })
+                diseases: listDiseases
+            });
+
         } else {
-            res.sendStatus(400);
+            res.sendStatus(404);
         }
     });
+
+    // Wiki.find(function(err,mydiseasewikidatas) {
+    //     if(!err) {
+    //         res.render("disease", {
+    //             alphabet: alphabets,
+    //             chooseAlphabet: alphabets[index],
+    //             disease:mydiseasewikidatas[0]["diseases"][index],
+    //             diseases:mydiseasewikidatas[0]["diseases"]
+    //         })
+    //     } else {
+    //         res.sendStatus(400);
+    //     }
+    // });
 };
 
 module.exports.profile = function(req, res) {
@@ -162,7 +205,8 @@ module.exports.profile = function(req, res) {
                 })}
             else
             {
-                res.send("profile doesn't exist with the email/password combination");
+                res.render("registrationform");
+                // res.send("profile doesn't exist with the email/password combination");
             }
         } else {
             res.sendStatus(400);
@@ -210,7 +254,6 @@ module.exports.createProfile = function(req, res) {
     });
     newProfile.save(function(err, newProfile){
         if(!err) {
-            //res.send(newProfile);
             QF.find(function(err,quickfacts) {
                 if(!err) {
                     QQ.find(function(err,quickquiz) {
@@ -259,7 +302,7 @@ module.exports.displayData = function(req,res){
     let id = req.params.id;
     Disease.find(function(err,diseases){
         if(!err) {
-            res.send(diseases[id]);
+            res.send(diseases[id]["symptoms"]);
         } else {
             res.sendStatus(404);
         }
@@ -316,5 +359,24 @@ module.exports.saveDisease = function(req, res) {
         }
     });
 };
+
+module.exports.countDisease = function(req, res) {
+
+    var indexListDiseases = 0;
+    var listDiseases = new Array();
+    DiseaseWikis.find(function(err,listdisease){
+        if(!err) {
+            listdisease.forEach(function(member) {
+                listDiseases[indexListDiseases] = member.name;
+                index++;
+            });
+            listDiseases.sort();
+            res.send(listDiseases);
+
+        } else {
+            res.sendStatus(404);
+        }
+    });
+}
 
 
