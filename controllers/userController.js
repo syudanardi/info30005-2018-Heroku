@@ -8,6 +8,7 @@ const Profile = mongoose.model('profiles');
 const DiseaseWikis = mongoose.model('diseasewikis');
 const bcrypt = require('bcrypt');
 
+// temporary replacement for session pls don't judge
 let buffer;
 
 /*
@@ -225,8 +226,10 @@ module.exports.profile = function(req, res) {
 module.exports.currProfile = function(req,res) {
     if (!buffer){
         res.send(404);
+        return;
     }
     let curr = buffer;
+    console.log(curr);
     let day = curr["joinDate"].getDate();
     let year = curr["joinDate"].getFullYear();
     let month = curr["joinDate"].getMonth();
