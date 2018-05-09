@@ -161,7 +161,8 @@ module.exports.profile = function(req, res) {
                 })}
             else
             {
-                res.send("profile doesn't exist with the email/password combination");
+                res.render("registrationform");
+                // res.send("profile doesn't exist with the email/password combination");
             }
         } else {
             res.sendStatus(405);
