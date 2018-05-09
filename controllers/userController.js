@@ -6,6 +6,7 @@ const QQ = mongoose.model('healthquizzes');
 const Wiki = mongoose.model('mydiseasewikidatas');
 const Profile = mongoose.model('profiles');
 const DiseaseWikis = mongoose.model('diseasewikis');
+
 /*
 let qfact;
 let qquiz;
@@ -164,7 +165,7 @@ module.exports.profile = function(req, res) {
                 res.send("profile doesn't exist with the email/password combination");
             }
         } else {
-            res.sendStatus(405);
+            res.sendStatus(400);
         }
     });
 };
@@ -210,13 +211,30 @@ module.exports.createProfile = function(req, res) {
     newProfile.save(function(err, newProfile){
         if(!err) {
             //res.send(newProfile);
-            res.render("homepage_revised");
+            QF.find(function(err,quickfacts) {
+                if(!err) {
+                    QQ.find(function(err,quickquiz) {
+                        if(!err) {
+                            res.render("homepage_revised", {
+                                qfdb:quickfacts,
+                                qqdb:quickquiz
+                            });
+                        } else {
+                            res.sendStatus(400);
+                        }
+                    });
+                } else {
+                    res.sendStatus(400);
+                }
+            });
             console.log("New Profile Created\n");
         } else {
             res.sendStatus(400);
         }
     });
 };
+
+
 
 module.exports.findAllDisease = function(req, res) {
     let buffer = "";
