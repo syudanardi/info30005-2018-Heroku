@@ -6,6 +6,7 @@ const QQ = mongoose.model('healthquizzes');
 const Wiki = mongoose.model('mydiseasewikidatas');
 const Profile = mongoose.model('profiles');
 const DiseaseWikis = mongoose.model('diseasewikis');
+const bcrypt = require('bcrypt');
 
 /*
 let qfact;
@@ -188,6 +189,37 @@ module.exports.disease = function(req, res) {
 };
 
 module.exports.profile = function(req, res) {
+
+    Profile.findOne({"email":req.body.email}).exec(function (err, profile) {
+        if (err) {
+            res.sendStatus(404);
+        } else if (!profile) {
+            let err = new Error('User not found.');
+            err.status = 401;
+            res.sendStatus(401);
+        }
+        bcrypt.compare(req.body.password, profile.password, function (err, result) {
+            if (result === true) {
+                let curr = profile;
+                let day = curr["joinDate"].getDate();
+                let year = curr["joinDate"].getFullYear();
+                let month = curr["joinDate"].getMonth();
+                let joined = '' + day + '/' + month + '/' + year;
+                res.render("profile.ejs", {
+                    profile:curr,
+                    name:curr["name"],
+                    phone:curr["phone"],
+                    email:curr["email"],
+                    joinDate:joined
+                });
+            } else {
+                res.sendStatus(401);
+            }
+        })
+    });
+};
+/*
+    };
     Profile.find({"email":req.body.email, "password":req.body.password}, function(err,profiles){
         if(!err){
             if (profiles.length > 0){
@@ -213,6 +245,7 @@ module.exports.profile = function(req, res) {
         }
     });
 };
+*/
 
 module.exports.realHome = function(req, res) {
     QF.find(function(err,quickfacts) {
