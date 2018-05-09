@@ -252,9 +252,21 @@ module.exports.createProfile = function(req, res) {
     });
     newProfile.save(function(err, newProfile){
         if(!err) {
+            QF.find(function(err,quickfacts) {
+                if(!err) {
+                    QQ.find(function(err,quickquiz) {
+                        if(!err) {
+                            res.render("homepage_revised", {
+                                qfdb:quickfacts,
+                                qqdb:quickquiz
+                            });
+                        }
+                    });
+                }
+            });
             //res.send(newProfile);
-            res.render("homepage_revised");
-            console.log("New Profile Created\n");
+            // res.render("homepage_revised");
+            // console.log("New Profile Created\n");
         } else {
             res.sendStatus(400);
         }

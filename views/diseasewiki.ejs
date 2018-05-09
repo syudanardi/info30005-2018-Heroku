@@ -31,7 +31,7 @@
     <section class="disc-block-alphabet">
         <div id="search-a-z">
             <nav class="a-z">
-                <% for (var x = 0; x < 25; x++) {%>
+                <% for (var x = 0; x < alphabet.length; x++) {%>
                 <button id="<%= alphabet[x] %>" type="submit" class="btn btn-info alphabet" onclick="changePage(this.id)"><%= alphabet[x]%></button>
                 <% }%>
                 <button id="all-diseases" type="button" class="btn btn-info alphabet" onclick="showAll()" class="alphabet">All</button>
