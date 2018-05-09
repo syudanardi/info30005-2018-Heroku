@@ -161,7 +161,8 @@ module.exports.profile = function(req, res) {
                 })}
             else
             {
-                res.send("profile doesn't exist with the email/password combination");
+                res.render("registrationform");
+                // res.send("profile doesn't exist with the email/password combination");
             }
         } else {
             res.sendStatus(405);
@@ -209,8 +210,8 @@ module.exports.createProfile = function(req, res) {
     });
     newProfile.save(function(err, newProfile){
         if(!err) {
-            //res.send(newProfile);
-            res.render("homepage_revised");
+            res.send(newProfile);
+            //res.render("homepage_revised");
             console.log("New Profile Created\n");
         } else {
             res.sendStatus(400);
