@@ -209,7 +209,8 @@ module.exports.createProfile = function(req, res) {
     });
     newProfile.save(function(err, newProfile){
         if(!err) {
-            res.send(newProfile);
+            //res.send(newProfile);
+            res.render("homepage_revised");
             console.log("New Profile Created\n");
         } else {
             res.sendStatus(400);
