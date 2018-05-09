@@ -8,6 +8,8 @@ const Profile = mongoose.model('profiles');
 const DiseaseWikis = mongoose.model('diseasewikis');
 const bcrypt = require('bcrypt');
 
+let buffer;
+
 /*
 let qfact;
 let qquiz;
@@ -201,6 +203,7 @@ module.exports.profile = function(req, res) {
         bcrypt.compare(req.body.password, profile.password, function (err, result) {
             if (result === true) {
                 let curr = profile;
+                buffer = curr;
                 let day = curr["joinDate"].getDate();
                 let year = curr["joinDate"].getFullYear();
                 let month = curr["joinDate"].getMonth();
@@ -217,6 +220,43 @@ module.exports.profile = function(req, res) {
             }
         })
     });
+};
+
+module.exports.currProfile = function(req,res) {
+    if (!buffer){
+        res.send(404);
+    }
+    let curr = buffer;
+    let day = curr["joinDate"].getDate();
+    let year = curr["joinDate"].getFullYear();
+    let month = curr["joinDate"].getMonth();
+    let joined = '' + day + '/' + month + '/' + year;
+    res.render("profile.ejs", {
+        profile:curr,
+        name:curr["name"],
+        phone:curr["phone"],
+        email:curr["email"],
+        joinDate:joined
+    });
+};
+
+module.exports.emailSubmit = function(req,res) {
+    buffer["email"] = req.body.email;
+    let curr = buffer;
+    let day = curr["joinDate"].getDate();
+    let year = curr["joinDate"].getFullYear();
+    let month = curr["joinDate"].getMonth();
+    let joined = '' + day + '/' + month + '/' + year;
+    res.render("profile.ejs", {
+        profile:curr,
+        name:curr["name"],
+        phone:curr["phone"],
+        email:curr["email"],
+        joinDate:joined
+    });
+};
+module.exports.emailSetting = function(req,res) {
+    res.render('settings');
 };
 /*
     };

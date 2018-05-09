@@ -54,6 +54,12 @@ router.get('/listdisease', control.countDisease);
 
 router.post('/registration_form/submit', control.createProfile);
 
-router.post('/profile', control.profile)
+router.post('/profile', control.profile);
+
+router.get('/currProfile', control.currProfile);
+
+router.get('/emailSetting', control.emailSetting);
+
+router.post('/emailSubmit', control.emailSubmit);
 
 module.exports = router;
