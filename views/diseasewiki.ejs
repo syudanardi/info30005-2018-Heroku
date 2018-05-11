@@ -50,7 +50,7 @@
         <div class="col-12">
             <h2 id="first-alphabet-disease"><%= alphabet[y]%></h2>
         </div>
-        <div class="col-md-3 col-sm-3 col-xs-6">
+        <div class="col-md-6 col-sm-6 col-xs-12">
             <ul id="list-alpha-diseases" class="list-disease">
 
             <% for(var z = 0; z<diseases.length; z++) { %>
@@ -76,7 +76,7 @@
                         <h2 id="first-alphabet-disease"><%= diseases[y][0].toUpperCase() %></h2>
                     </div>
             <% } %>
-                    <div id="list-alpha-disease" class="col-md-3 col-sm-3 col-xs-6">
+                    <div id="list-alpha-disease" class="col-md-6 col-sm-6 col-xs-12">
                         <p><a id="link-disease" href="/disease_specific/<%=diseases[y]%>"><%= diseases[y] %></a></p>
                     </div>
             <% a = 1;

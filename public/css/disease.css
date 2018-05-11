@@ -41,6 +41,7 @@
     margin-bottom: 15px;
     text-align: center;
     margin-left: auto;
+    width: 40px;
 }
 
 #first-alphabet-disease {
@@ -59,6 +60,7 @@
 
 .disease {
     list-style-type: none;
+    margin-bottom: 10px;
 }
 
 #link-disease {
