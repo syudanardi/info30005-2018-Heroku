@@ -57,33 +57,41 @@
 
                     <table class="table">
 
-                        <tr>
-                            <th scope="row">
-                                <img id="spec-img" src="/resource/treatable.png">
-                            </th>
-                            <td><%=disease["treat"]%></td>
-                        </tr>
+                        <%if (disease["treat"] != '-') {%>
+                            <tr>
+                                <th scope="row">
+                                    <img id="spec-img" src="/resource/treatable.png">
+                                </th>
+                                <td><%=disease["treat"]%></td>
+                            </tr>
+                        <% } %>
 
-                        <tr>
-                            <th scope="row">
-                                <img id="spec-img" src="/resource/diagnosis.png">
-                            </th>
-                            <td><%=disease["diagnosis"]%></td>
-                        </tr>
+                        <%if (disease["diagnosis"] != '-') {%>
+                            <tr>
+                                <th scope="row">
+                                    <img id="spec-img" src="/resource/diagnosis.png">
+                                </th>
+                                <td><%=disease["diagnosis"]%></td>
+                            </tr>
+                        <% } %>
+                        
+                        <%if (disease["lab"] != '-') {%>
+                            <tr>
+                                <th scope="row">
+                                    <img id="spec-img" src="/resource/lab_test.png">
+                                </th>
+                                <td><%=disease["lab"]%></td>
+                            </tr>
+                        <% } %>
 
-                        <tr>
-                            <th scope="row">
-                                <img id="spec-img" src="/resource/lab_test.png">
-                            </th>
-                            <td><%=disease["lab"]%></td>
-                        </tr>
-
-                        <tr>
-                            <th scope="row">
-                                <img id="spec-img" src="/resource/chronic.png">
-                            </th>
-                            <td><%=disease["time"]%></td>
-                        </tr>
+                        <%if (disease["time"] != '-') {%>
+                            <tr>
+                                <th scope="row">
+                                    <img id="spec-img" src="/resource/chronic.png">
+                                </th>
+                                <td><%=disease["time"]%></td>
+                            </tr>
+                        <% } %>
                     </table>
                 </div>
             </div>
