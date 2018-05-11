@@ -16,7 +16,7 @@
 <body>
 
 <div class="dis-header">
-    <h1 id="title">Quick Health - Diseases Wiki</h1>
+    <h1 id="title">Diseases Wiki</h1>
 </div>
 
 <div class="disc-body">
@@ -50,12 +50,12 @@
         <div class="col-12">
             <h2 id="first-alphabet-disease"><%= alphabet[y]%></h2>
         </div>
-        <div class="col-md-3 col-sm-3 col-xs-6">
+        <div class="col-md-6 col-sm-6 col-xs-12">
             <ul id="list-alpha-diseases" class="list-disease">
 
             <% for(var z = 0; z<diseases.length; z++) { %>
                 <% if(diseases[z][0].toUpperCase() == alphabet[y].toUpperCase()) { %>
-                    <li id="disease"><a id="link-disease" href="/disease_specific/<%=z%>"><%= diseases[z] %></a></li>
+                    <li id="<%=diseases[z] %>" class="disease"><a id="link-disease" href="/disease_specific/<%=diseases[z]%>"><%= diseases[z] %></a></li>
                 <% }
             } %>
 
@@ -76,8 +76,8 @@
                         <h2 id="first-alphabet-disease"><%= diseases[y][0].toUpperCase() %></h2>
                     </div>
             <% } %>
-                    <div id="list-alpha-disease" class="col-md-3 col-sm-3 col-xs-6">
-                        <p><a id="link-disease" href="/disease_specific/<%=y%>"><%= diseases[y] %></a></p>
+                    <div id="list-alpha-disease" class="col-md-6 col-sm-6 col-xs-12">
+                        <p><a id="link-disease" href="/disease_specific/<%=diseases[y]%>"><%= diseases[y] %></a></p>
                     </div>
             <% a = 1;
             found = 1;

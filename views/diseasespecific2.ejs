@@ -19,7 +19,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
 
-    <script>
+    <!-- <script>
         function togglerequire(id){
             $(id).children("textarea").each(function(){
                 var re = $(this).prop('readonly');
@@ -27,7 +27,7 @@
             });
         }
     </script>
-
+ -->
 
     <title>Specific Disease</title>
 </head>
@@ -40,7 +40,7 @@
         </div>
 
 
-        <form>
+        <!-- <form>
             <fieldset id="F1">
                 <textarea id="T1" rows="5" cols="50" readonly required></textarea><br>
                 <textarea id="T2" rows="5" cols="50" readonly required></textarea><br>
@@ -49,7 +49,7 @@
             <button type="button" id="button" onclick="togglerequire('#F1')">
                 Click Me
             </button>
-        </form>
+        </form> -->
 
 
 
@@ -62,18 +62,18 @@
 
                 <div class="col-sm-6 col-md-4">
                     <div class="info-card">
-                        <img id="disease-img" src="<%=disease[id]["img"]%>" />
+                        <img id="disease-img" src="<%=disease["img"]%>" />
                         <div class="info-card-details animate">
                             <div class="info-card-header">
-                                <h1> <%=disease[id]["name"]%> </h1>
-                                <%if (disease[id]["bioname"] != '-') {%>
-                                    <h3>(Also called: <%=disease[id]["bioname"]%></h3>
+                                <h1> <%=disease["name"]%> </h1>
+                                <%if (disease["bioname"] != '-') {%>
+                                    <h3>(Also called: <%=disease["bioname"]%>)</h3>
                                 <%}%>
                             </div>
                             <div class="info-card-detail">
                                 <!-- Description -->
                                 <p>
-                                    <%=disease[id]["fact"]%>
+                                    <%=disease["fact"]%>
                                 </p>
 
                             </div>
@@ -85,49 +85,45 @@
 
                     <table class="table">
 
-                        <tr>
-                            <th scope="row">
-                                <img id="spec-img" src="/resource/treatable.png">
-                            </th>
-                            <td><%=disease[id]["treat"]%></td>
-                        </tr>
+                        <%if (disease["treat"] != '-') {%>
+                            <tr>
+                                <th scope="row">
+                                    <img id="spec-img" src="/resource/treatable.png">
+                                </th>
+                                <td><%=disease["treat"]%></td>
+                            </tr>
+                        <% } %>
 
-                        <tr>
-                            <th scope="row">
-                                <img id="spec-img" src="/resource/diagnosis.png">
-                            </th>
-                            <td><%=disease[id]["diagnosis"]%></td>
-                        </tr>
+                        <%if (disease["diagnosis"] != '-') {%>
+                            <tr>
+                                <th scope="row">
+                                    <img id="spec-img" src="/resource/diagnosis.png">
+                                </th>
+                                <td><%=disease["diagnosis"]%></td>
+                            </tr>
+                        <% } %>
+                        
+                        <%if (disease["lab"] != '-') {%>
+                            <tr>
+                                <th scope="row">
+                                    <img id="spec-img" src="/resource/lab_test.png">
+                                </th>
+                                <td><%=disease["lab"]%></td>
+                            </tr>
+                        <% } %>
 
-                        <tr>
-                            <th scope="row">
-                                <img id="spec-img" src="/resource/lab_test.png">
-                            </th>
-                            <td><%=disease[id]["lab"]%></td>
-                        </tr>
-
-                        <tr>
-                            <th scope="row">
-                                <img id="spec-img" src="/resource/chronic.png">
-                            </th>
-                            <td><%=disease[id]["time"]%></td>
-                        </tr>
-
-
-
+                        <%if (disease["time"] != '-') {%>
+                            <tr>
+                                <th scope="row">
+                                    <img id="spec-img" src="/resource/chronic.png">
+                                </th>
+                                <td><%=disease["time"]%></td>
+                            </tr>
+                        <% } %>
                     </table>
                 </div>
-
             </div>
         </div>
-
-
-
-
-
-
-
-
 
         <div class="details">
 
@@ -137,16 +133,16 @@
                 <img id="down-arrow" src="resource/down-arrow.png">
             </a>
             <div class="list-group collapse" id="causes">
+                <%=disease["causes"]%>
 
 
-
-                <fieldset id="F1">
-                    <textarea id="T1" rows="5" cols="50" readonly required><%-disease[id]["causes"]%></textarea><br>
+                <!-- <fieldset id="F1">
+                    <textarea id="T1" rows="5" cols="50" readonly required><%=disease["causes"]%></textarea><br>
                  </fieldset>
 
                 <button type="button" id="button" onclick="togglerequire('#F1')">
                     Edit
-                </button>
+                </button> -->
 
             </div>
 
@@ -157,7 +153,7 @@
                 <img id="down-arrow" src="resource/down-arrow.png">
             </a>
             <div class="list-group collapse" id="symptoms">
-                <%-disease[id]["symptoms"]%>
+                <%-disease["symptoms"]%>
             </div>
 
             <!-- TREATMENT -->
@@ -166,7 +162,7 @@
                 <img id="down-arrow" src="resource/down-arrow.png">
             </a>
             <div class="list-group collapse list-item" id="treatment">
-                <%-disease[id]["treatment"]%>
+                <%-disease["treatment"]%>
             </div>
 
             <!-- HISTORY -->
@@ -175,7 +171,7 @@
                 <img id="down-arrow" src="resource/down-arrow.png">
             </a>
             <div class="list-group collapse" id="history">
-                <%-disease[id]["history"]%>
+                <%-disease["history"]%>
             </div>
         </div>
 
