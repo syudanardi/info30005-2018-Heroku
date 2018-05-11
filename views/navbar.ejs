@@ -13,71 +13,192 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 
     <link href="/css/navbar.css" rel="stylesheet" type="text/css">
+
+
     <!--<link rel="icon" href="/resource/logo_bg.png" type="image/ico" />-->
     <!--<link rel="SHORTCUT ICON" href="favicon.ico" />-->
 </head>
 
 <body>
 
-    <nav class="navbar navbar-light" id="main-navbar">
-        <!-- <button class="navbar-toggler" type="button" data-toggle="collapse"
-                data-target="#menuDetails" aria-controls="menuDetails"
-                aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button> -->
+    <!--<nav class="navbar navbar-light" id="main-navbar">-->
+        <!--&lt;!&ndash;<button class="navbar-toggler" type="button" data-toggle="collapse"&ndash;&gt;-->
+                <!--&lt;!&ndash;data-target="#menuDetails" aria-controls="menuDetails"&ndash;&gt;-->
+                <!--&lt;!&ndash;aria-expanded="false" aria-label="Toggle navigation">&ndash;&gt;-->
+            <!--&lt;!&ndash;<span class="navbar-toggler-icon"></span>&ndash;&gt;-->
+        <!--&lt;!&ndash;</button>&ndash;&gt;-->
 
-        <!-- Logo -->
-        <a class="navbar-brand" id="navbar-logo" href="/home">
-            Quick
-            <img src="/resource/logo_bg.png" width="55" height="55" class="d-inline-block align-top" alt="">
-            Health
+        <!--&lt;!&ndash; Logo &ndash;&gt;-->
+        <!--<a class="navbar-brand" id="navbar-logo" href="/home">-->
+            <!--Quick-->
+            <!--<img src="/resource/logo_bg.png" width="55" height="55" class="d-inline-block align-top" alt="">-->
+            <!--Health-->
+        <!--</a>-->
+
+        <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b></a>-->
+
+        <!--<ul id="login-dp" class="dropdown-menu dropdown-menu-right">-->
+            <!--<li id="toggleText">-->
+                <!--<div class="row">-->
+                    <!--<div class="col-md-12">-->
+                        <!--<div id="login-text">-->
+                            <!--<h5>Login</h5>-->
+                        <!--</div>-->
+                        <!--<form class="form" role="form" method="POST" action="/profile" accept-charset="UTF-8" id="login-nav">-->
+                            <!--<div class="form-group">-->
+                                <!--<label class="sr-only" for="exampleInputEmail2">Email address</label>-->
+                                <!--<input type="email" name="email" class="form-control" id="exampleInputEmail2" placeholder="Email address" required>-->
+                            <!--</div>-->
+                            <!--<div class="form-group">-->
+                                <!--<label class="sr-only" for="exampleInputPassword2">Password</label>-->
+                                <!--<input type="password" name="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>-->
+                                <!--<div class="help-block text-right"><a href="">Forget the password ?</a></div>-->
+                            <!--</div>-->
+                            <!--<div class="form-group">-->
+                                <!--&lt;!&ndash;<input type="submit">&ndash;&gt;-->
+                                <!--<input type="submit" value="Sign In" class="btn btn-primary btn-block">-->
+                            <!--</div>-->
+                        <!--</form>-->
+                    <!--</div>-->
+                    <!--<div id="register-here">-->
+                        <!--<div class="bottom text-center">-->
+                            <!--New to us ? <a href="/registration_form"><b>Register Here</b></a>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</li>-->
+        <!--</ul>-->
+
+        <!--<div class="collapse navbar-collapse" id="navbarSupportedContent">-->
+            <!--<ul class="navbar-nav ml-auto">-->
+                <!--<li class="nav-item active">-->
+                    <!--<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                    <!--<a class="nav-link" href="#">About</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                    <!--<a class="nav-link" href="#">Services</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                    <!--<a class="nav-link" href="#">Team</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                    <!--<a class="nav-link" href="#">Prices</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                    <!--<a class="nav-link" href="#">FAQ's</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                    <!--<a class="nav-link" href="#">Contact</a>-->
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</div>-->
+
+
+        <!--<div class="collapse navbar-collapse" id="menuDetails">-->
+            <!--<div class="navbar-nav">-->
+                <!--<a class="nav-item nav-link" href="/">Home</a>-->
+                <!--<a class="nav-item nav-link" href="/currProfile">Profile</a>-->
+                <!--<a class="nav-item nav-link" href="/diseases">Disease Wiki</a>-->
+                <!--<a class="nav-item nav-link disabled" href="">Disease Map</a>-->
+                <!--&lt;!&ndash;<a class="nav-item nav-link" href="/disease_map">Disease Map</a>&ndash;&gt;-->
+            <!--</div>-->
+        <!--</div>-->
+
+    <!--</nav>-->
+
+
+    <nav id="topNav" class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+            Quick Health
+            *img*
+            <!--<img src="/resource/logo_bg.png" width="55" height="55" alt="">-->
         </a>
 
-        <!-- <a id="login-dropdown" href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b></a> -->
-        <a id="login-dropdown" href="#" data-toggle="dropdown"><b>Login</b></a>
 
-        <ul id="login-dp" class="dropdown-menu dropdown-menu-right">
-            <li id="toggleText">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div id="login-text">
-                            <h5>Login</h5>
+        <div id="adminForm">
+
+
+
+            <!--<span id="loginText" class="navbar-text text-right">-->
+                <!--Login-->
+            <!--</span>-->
+
+            <span href="/registration_form" id="registrationText" class="navbar-text text-right">
+                Register
+            </span>
+
+
+            <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b></a>-->
+
+            <span id="loginText" class="navbar-text text-right dropdown-toggle" data-toggle="dropdown">
+                Login
+            </span>
+
+
+            <ul id="login-dp" class="dropdown-menu dropdown-menu-right">
+                <li id="toggleText">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div id="login-text">
+                                <h5>Login</h5>
+                            </div>
+                            <form class="form" role="form" method="POST" action="/profile" accept-charset="UTF-8" id="login-nav">
+                                <div class="form-group">
+                                    <label class="sr-only" for="exampleInputEmail2">Email address</label>
+                                    <input type="email" name="email" class="form-control" id="exampleInputEmail2" placeholder="Email address" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="exampleInputPassword2">Password</label>
+                                    <input type="password" name="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
+                                    <div class="help-block text-right"><a href="">Forget the password ?</a></div>
+                                </div>
+                                <div class="form-group">
+
+                                    <input type="submit" value="Sign In" class="btn btn-primary btn-block">
+                                </div>
+                            </form>
                         </div>
-                        <form class="form" role="form" method="POST" action="/profile" accept-charset="UTF-8" id="login-nav">
-                            <div class="form-group">
-                                <label class="sr-only" for="exampleInputEmail2">Email address</label>
-                                <input type="email" name="email" class="form-control" id="exampleInputEmail2" placeholder="Email address" required>
+                        <div id="register-here">
+                            <div class="bottom text-center">
+                                New to us ? <a href="/registration_form"><b>Register Here</b></a>
                             </div>
-                            <div class="form-group">
-                                <label class="sr-only" for="exampleInputPassword2">Password</label>
-                                <input type="password" name="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
-                                <div class="help-block text-right"><a href="">Forget the password ?</a></div>
-                            </div>
-                            <div class="form-group">
-                                <!--<input type="submit">-->
-                                <input type="submit" value="Sign In" class="btn btn-primary btn-block">
-                            </div>
-                        </form>
-                    </div>
-                    <div id="register-here">
-                        <div class="bottom text-center">
-                            New to us ? <a href="/registration_form"><b>Register Here</b></a>
                         </div>
                     </div>
-                </div>
-            </li>
-        </ul>
-
-
-        <div class="collapse navbar-collapse" id="menuDetails">
-            <div class="navbar-nav">
-                <a class="nav-item nav-link" href="/">Home</a>
-                <a class="nav-item nav-link" href="/currProfile">Profile</a>
-                <a class="nav-item nav-link" href="/diseases">Disease Wiki</a>
-                <a class="nav-item nav-link disabled" href="">Disease Map</a>
-                <!--<a class="nav-item nav-link" href="/disease_map">Disease Map</a>-->
-            </div>
+                </li>
+            </ul>
         </div>
     </nav>
+
+
+    <nav id="bottomNav" class="navbar navbar-expand navbar-light bg-light">
+        <!--<a class="navbar-brand" href="#">Quick Health</a>-->
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/profile">Profile</a>
+
+
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/diseases">Disease Wiki</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Disease Map</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
 </body>
 </html>

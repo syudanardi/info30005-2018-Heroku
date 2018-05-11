@@ -1,36 +1,33 @@
-
-/*.navbar {border: medium none; float: left; margin-bottom: 0px; width: 100%;  border-radius: 0}*/
-
-/*.top-nav{background: #fff; padding: 0; border-bottom: 1px solid #dbdbdb}*/
-/*.top-nav .nav-link {padding-bottom: 0.7rem; padding-top: 0.7rem;}*/
-/*.top-nav .navbar-nav .nav-item + .nav-item{margin-left:0}*/
-/*.top-nav li a{color: #141517; text-transform: uppercase; font-size: 14px; font-weight: 700; padding: 0 10px; border-bottom: 2px solid #fff}*/
-/*.top-nav li a:hover, .top-nav li a:focus, .top-nav li.active a{color: #141517; border-bottom: 2px solid #FD3A13 }*/
-/*.top-nav .form-control{border-color: #fff}*/
-/*.navbar-toggle{background: #fff;}*/
-/*.navbar-toggle .icon-bar{background:#0A2E61; }*/
-/*.navbar-brand{display: none;}*/
-
-body{
-    font-size: 2rem;
-}
-
-#navbar-logo {
-    margin: 0 auto;
-    font-size: 32px;
-    font-weight: bold;
-    color: #666666;
-}
-
-#main-navbar {
-    /*min-height: 90px;*/
+#bottomNav {
     margin-bottom: 50px;
-    font-size: 18px;
-    background-color: #e3f2fd;
 }
+
+#topNav {
+    background-color: #4FA9DC;
+    color: #4FA9DC;
+}
+
+#loginText {
+
+    padding-left: 8px;
+    border-left: 0.5px solid grey;
+
+}
+
+#registrationText {
+    padding-right: 4px;
+}
+
+.nav-link {
+    margin-left: 10px;
+}
+
+
+
 
 #login-pop-up {
     text-align: center;
+    color: #2E3338
 }
 
 #login-text {
@@ -41,7 +38,7 @@ body{
     min-width: 250px;
     padding: 14px 14px 0;
     overflow:hidden;
-    background-color: #DFF0FD;
+    background-color: #F7F8F9;
 }
 
 #login-dp .help-block{
@@ -79,64 +76,131 @@ body{
     background-size: cover;
 }
 
-/* Social Button */
-.btn-fb{
-    color: #fff;
-    background-color:#3b5998;
-}
-.btn-fb:hover{
-    color: #fff;
-    background-color:#496ebc
-}
-.btn-tw{
-    color: #fff;
-    background-color:#55acee;
-}
-.btn-tw:hover{
-    color: #fff;
-    background-color:#59b5fa;
-    /*background-color:#4FA9DC*/
-}
 
-@media(max-width:768px){
-    #login-dp{
-        background-color: inherit;
-        color: #fff;
-    }
-    #login-dp .bottom{
-        background-color: inherit;
-        border-top:0 none;
-    }
-}
 
-.navbar-collapse.collapse{
-    display:block!important;
-    height:0px !important;
-    padding-bottom:0;
-    overflow:visible!important;
-    visibility:hidden!important;
-}
-@media (min-width: 768px) {
-    .navbar-collapse.collapse {
-        display: block !important;
-        /* height: auto!important; */
-        padding-bottom: 0;
-        overflow: visible !important;
-        /* visibility: visible!important; */
-    }
-}
 
-.collapse.show {
-    display: block;
-    height: auto!important;
-    visibility: visible!important;
-}
 
-.dropdown-menu.show {
-    display: block!important;
-}
 
-.open>.dropdown-menu{display:none}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*.navbar {border: medium none; float: left; margin-bottom: 0px; width: 100%;  border-radius: 0}*/
+
+/*.top-nav{background: #fff; padding: 0; border-bottom: 1px solid #dbdbdb}*/
+/*.top-nav .nav-link {padding-bottom: 0.7rem; padding-top: 0.7rem;}*/
+/*.top-nav .navbar-nav .nav-item + .nav-item{margin-left:0}*/
+/*.top-nav li a{color: #141517; text-transform: uppercase; font-size: 14px; font-weight: 700; padding: 0 10px; border-bottom: 2px solid #fff}*/
+/*.top-nav li a:hover, .top-nav li a:focus, .top-nav li.active a{color: #141517; border-bottom: 2px solid #FD3A13 }*/
+/*.top-nav .form-control{border-color: #fff}*/
+/*.navbar-toggle{background: #fff;}*/
+/*.navbar-toggle .icon-bar{background:#0A2E61; }*/
+/*.navbar-brand{display: none;}*/
+
+
+
+
+
+
+
+
+/*body{*/
+    /*font-size: 2rem;*/
+/*}*/
+
+/*#navbar-logo {*/
+    /*margin: 0 auto;*/
+    /*font-size: 32px;*/
+    /*font-weight: bold;*/
+    /*color: #666666;*/
+/*}*/
+
+/*#main-navbar {*/
+    /*!*min-height: 90px;*!*/
+    /*margin-bottom: 50px;*/
+    /*font-size: 18px;*/
+    /*background-color: #e3f2fd;*/
+/*}*/
+
+/*#login-pop-up {*/
+    /*text-align: center;*/
+/*}*/
+
+/*#login-text {*/
+    /*margin-bottom: 10px;*/
+/*}*/
+
+/*#login-dp{*/
+    /*min-width: 250px;*/
+    /*padding: 14px 14px 0;*/
+    /*overflow:hidden;*/
+    /*background-color: #DFF0FD;*/
+/*}*/
+
+/*#login-dp .help-block{*/
+    /*font-size:14px;*/
+/*}*/
+
+/*#login-dp .bottom{*/
+    /*clear:both;*/
+    /*padding:14px;*/
+/*}*/
+/*#login-dp .social-buttons{*/
+    /*margin:12px 0*/
+/*}*/
+/*#login-dp .social-buttons a{*/
+    /*width: 49%;*/
+/*}*/
+/*#login-dp .form-group {*/
+    /*margin-bottom: 10px;*/
+    /*align-items: right;*/
+/*}*/
+
+/*#toggleText {*/
+    /*color: #5B5B5B;*/
+/*}*/
+
+/*#register-here {*/
+    /*margin: auto;*/
+    /*background-size: cover;*/
+/*}*/
+
+
+
+
+
+
+
+
+
+/*!* Social Button *!*/
+/*.btn-fb{*/
+    /*color: #fff;*/
+    /*background-color:#3b5998;*/
+/*}*/
+/*.btn-fb:hover{*/
+    /*color: #fff;*/
+    /*background-color:#496ebc*/
+/*}*/
+/*.btn-tw{*/
+    /*color: #fff;*/
+    /*background-color:#55acee;*/
+/*}*/
+/*.btn-tw:hover{*/
+    /*color: #fff;*/
+    /*background-color:#59b5fa;*/
+    /*!*background-color:#4FA9DC*!*/
+/*}*/
 
 /*@media(max-width:768px){*/
     /*#login-dp{*/
@@ -148,6 +212,46 @@ body{
         /*border-top:0 none;*/
     /*}*/
 /*}*/
+
+/*.navbar-collapse.collapse{*/
+    /*display:block!important;*/
+    /*height:0px !important;*/
+    /*padding-bottom:0;*/
+    /*overflow:visible!important;*/
+    /*visibility:hidden!important;*/
+/*}*/
+/*@media (min-width: 768px) {*/
+    /*.navbar-collapse.collapse {*/
+        /*display: block !important;*/
+        /*!* height: auto!important; *!*/
+        /*padding-bottom: 0;*/
+        /*overflow: visible !important;*/
+        /*!* visibility: visible!important; *!*/
+    /*}*/
+/*}*/
+
+/*.collapse.show {*/
+    /*display: block;*/
+    /*height: auto!important;*/
+    /*visibility: visible!important;*/
+/*}*/
+
+/*.dropdown-menu.show {*/
+    /*display: block!important;*/
+/*}*/
+
+/*.open>.dropdown-menu{display:none}*/
+
+/*!*@media(max-width:768px){*!*/
+    /*!*#login-dp{*!*/
+        /*!*background-color: inherit;*!*/
+        /*!*color: #fff;*!*/
+    /*!*}*!*/
+    /*!*#login-dp .bottom{*!*/
+        /*!*background-color: inherit;*!*/
+        /*!*border-top:0 none;*!*/
+    /*!*}*!*/
+/*!*}*!*/
 
 
 

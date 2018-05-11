@@ -19,6 +19,16 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
 
+    <!-- <script>
+        function togglerequire(id){
+            $(id).children("textarea").each(function(){
+                var re = $(this).prop('readonly');
+                $(this).prop('readonly', !re);
+            });
+        }
+    </script>
+ -->
+
     <title>Specific Disease</title>
 </head>
 
@@ -28,6 +38,24 @@
         <div id="nav-placeholder">
             <% include navbar.ejs %>
         </div>
+
+
+        <!-- <form>
+            <fieldset id="F1">
+                <textarea id="T1" rows="5" cols="50" readonly required></textarea><br>
+                <textarea id="T2" rows="5" cols="50" readonly required></textarea><br>
+                <textarea id="T3" rows="5" cols="50" readonly required></textarea><br>
+            </fieldset>
+            <button type="button" id="button" onclick="togglerequire('#F1')">
+                Click Me
+            </button>
+        </form> -->
+
+
+
+
+
+
 
         <div class="container">
             <div class="row" id="disease-header">
@@ -105,7 +133,17 @@
                 <img id="down-arrow" src="resource/down-arrow.png">
             </a>
             <div class="list-group collapse" id="causes">
-                <%-disease["causes"]%>
+                <%=disease["causes"]%>
+
+
+                <!-- <fieldset id="F1">
+                    <textarea id="T1" rows="5" cols="50" readonly required><%=disease["causes"]%></textarea><br>
+                 </fieldset>
+
+                <button type="button" id="button" onclick="togglerequire('#F1')">
+                    Edit
+                </button> -->
+
             </div>
 
 
