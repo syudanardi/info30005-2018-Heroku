@@ -55,7 +55,7 @@
 
             <% for(var z = 0; z<diseases.length; z++) { %>
                 <% if(diseases[z][0].toUpperCase() == alphabet[y].toUpperCase()) { %>
-                    <li id="disease"><a id="link-disease" href="/disease_specific/<%=z%>"><%= diseases[z] %></a></li>
+                    <li id="<%=diseases[z] %>" class="disease"><a id="link-disease" href="/disease_specific/<%=diseases[z]%>"><%= diseases[z] %></a></li>
                 <% }
             } %>
 
@@ -77,7 +77,7 @@
                     </div>
             <% } %>
                     <div id="list-alpha-disease" class="col-md-3 col-sm-3 col-xs-6">
-                        <p><a id="link-disease" href="/disease_specific/<%=y%>"><%= diseases[y] %></a></p>
+                        <p><a id="link-disease" href="/disease_specific/<%=diseases[y]%>"><%= diseases[y] %></a></p>
                     </div>
             <% a = 1;
             found = 1;

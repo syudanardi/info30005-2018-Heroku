@@ -11,13 +11,6 @@
 /*.navbar-toggle .icon-bar{background:#0A2E61; }*/
 /*.navbar-brand{display: none;}*/
 
-
-
-
-
-
-
-
 body{
     font-size: 2rem;
 }
@@ -59,15 +52,22 @@ body{
     clear:both;
     padding:14px;
 }
+
 #login-dp .social-buttons{
     margin:12px 0
 }
+
 #login-dp .social-buttons a{
     width: 49%;
 }
+
 #login-dp .form-group {
     margin-bottom: 10px;
     align-items: right;
+}
+
+#login-dropdown, #login-dropdown:hover {
+    color: #666;
 }
 
 #toggleText {

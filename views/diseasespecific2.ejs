@@ -34,18 +34,18 @@
 
                 <div class="col-sm-6 col-md-4">
                     <div class="info-card">
-                        <img id="disease-img" src="<%=disease[id]["img"]%>" />
+                        <img id="disease-img" src="<%=disease["img"]%>" />
                         <div class="info-card-details animate">
                             <div class="info-card-header">
-                                <h1> <%=disease[id]["name"]%> </h1>
-                                <%if (disease[id]["bioname"] != '-') {%>
-                                    <h3>(Also called: <%=disease[id]["bioname"]%>)</h3>
+                                <h1> <%=disease["name"]%> </h1>
+                                <%if (disease["bioname"] != '-') {%>
+                                    <h3>(Also called: <%=disease["bioname"]%>)</h3>
                                 <%}%>
                             </div>
                             <div class="info-card-detail">
                                 <!-- Description -->
                                 <p>
-                                    <%=disease[id]["fact"]%>
+                                    <%=disease["fact"]%>
                                 </p>
 
                             </div>
@@ -61,28 +61,28 @@
                             <th scope="row">
                                 <img id="spec-img" src="/resource/treatable.png">
                             </th>
-                            <td><%=disease[id]["treat"]%></td>
+                            <td><%=disease["treat"]%></td>
                         </tr>
 
                         <tr>
                             <th scope="row">
                                 <img id="spec-img" src="/resource/diagnosis.png">
                             </th>
-                            <td><%=disease[id]["diagnosis"]%></td>
+                            <td><%=disease["diagnosis"]%></td>
                         </tr>
 
                         <tr>
                             <th scope="row">
                                 <img id="spec-img" src="/resource/lab_test.png">
                             </th>
-                            <td><%=disease[id]["lab"]%></td>
+                            <td><%=disease["lab"]%></td>
                         </tr>
 
                         <tr>
                             <th scope="row">
                                 <img id="spec-img" src="/resource/chronic.png">
                             </th>
-                            <td><%=disease[id]["time"]%></td>
+                            <td><%=disease["time"]%></td>
                         </tr>
                     </table>
                 </div>
@@ -97,7 +97,7 @@
                 <img id="down-arrow" src="resource/down-arrow.png">
             </a>
             <div class="list-group collapse" id="causes">
-                <%-disease[id]["causes"]%>
+                <%-disease["causes"]%>
             </div>
 
 
@@ -107,7 +107,7 @@
                 <img id="down-arrow" src="resource/down-arrow.png">
             </a>
             <div class="list-group collapse" id="symptoms">
-                <%-disease[id]["symptoms"]%>
+                <%-disease["symptoms"]%>
             </div>
 
             <!-- TREATMENT -->
@@ -116,7 +116,7 @@
                 <img id="down-arrow" src="resource/down-arrow.png">
             </a>
             <div class="list-group collapse list-item" id="treatment">
-                <%-disease[id]["treatment"]%>
+                <%-disease["treatment"]%>
             </div>
 
             <!-- HISTORY -->
@@ -125,7 +125,7 @@
                 <img id="down-arrow" src="resource/down-arrow.png">
             </a>
             <div class="list-group collapse" id="history">
-                <%-disease[id]["history"]%>
+                <%-disease["history"]%>
             </div>
         </div>
 
