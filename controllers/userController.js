@@ -72,12 +72,15 @@ module.exports.home = function(req, res) {
 };
 
 module.exports.diseaseSpecific = function(req, res) {
-    let id = req.params.id;
+    let diseasename = req.params.id;
     DiseaseWikis.find(function(err,diseasewikis) {
         if(!err){
-            res.render("diseasespecific2", {
-                disease:diseasewikis,
-                id:id
+            diseasewikis.forEach(function(diseasespec) {
+                if (diseasespec.name == diseasename) {
+                    res.render("diseasespecific2", {
+                        disease:diseasespec,
+                    });
+                }
             });
         } else {
             res.sendStatus(400);
@@ -128,6 +131,7 @@ module.exports.diseaseWiki = function(req, res) {
                 indexListDiseases++;
             });
 
+            listDiseases.sort();
             res.render("diseasewiki", {alphabet: alphabets,
                 diseases: listDiseases
             });
@@ -153,6 +157,7 @@ module.exports.disease = function(req, res) {
                 indexListDiseases++;
             });
 
+            listDiseases.sort();
             res.render("disease", {alphabet: alphabets,
                 chooseAlphabet: alphabets[index],
                 diseases: listDiseases
