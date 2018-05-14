@@ -4,6 +4,8 @@ const control = require('../controllers/userController');
 
 router.get('/about', control.aboutPage);
 
+router.get('/profilePage', control.profilePage);
+
 router.get('/homepage', control.realHome);
 
 router.get('/oldhome', control.home);
