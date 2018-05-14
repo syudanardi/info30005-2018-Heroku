@@ -3,12 +3,68 @@
     <head>
         <meta charset="UTF-8">
         <title>Profile Page</title>
+        <link rel="stylesheet" href="/css/profilePage.css" type="text/css">
+
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     </head>
 
+    <header>
+        <div id="nav-placeholder">
+            <% include navbar.ejs %>
+        </div>
+    </header>
 
 
 
     <body>
 
+        <div class="banner">
+            <div class="container">
+                <div class="profile-pic">
+                    <div class="avatar"></div>
+                    <a href="#" class="button button-primary mt-20">Edit</a>
+                </div>
+                <div class="bio">
+                    <h1 class="heading-medium"><strong>First Name</strong></h1>
+                    <h1 class="heading-medium"><strong>Last Name</strong></h1>
+                    <h4 class="body-small">Member Since: (Joined Date)</h4>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="row">
+            <div class="col-xs-12 ">
+                <nav>
+                    <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Home</a>
+                        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
+                    </div>
+                </nav>
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                       Home
+                    </div>
+                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                        Profile
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+
+
     </body>
+
+
+    <footer>
+        <% include footer.ejs %>
+    </footer>
+
 </html>
