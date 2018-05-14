@@ -1,10 +1,16 @@
-#bottomNav {
-    margin-bottom: 50px;
+
+a {
+    color: #515151;
 }
 
+#bottomNav {
+    margin-bottom: 60px;
+
+}
+
+
 #topNav {
-    background-color: #4FA9DC;
-    color: #4FA9DC;
+    background-color: #e3f2fd;
 }
 
 #loginText {
@@ -13,6 +19,11 @@
     border-left: 0.5px solid grey;
 
 }
+
+#brandName {
+    font-size: 30px;
+}
+
 
 #registrationText {
     padding-right: 4px;
@@ -88,7 +99,7 @@
 
 
 
-
+/* Old Version */
 
 
 
