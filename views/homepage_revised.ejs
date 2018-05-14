@@ -25,45 +25,49 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-3">
-                        <div class="card"> <img class="img-fluid" src="/resource/hep_A.jpg" alt="">
-                            <div class="card-img-overlay"> <span class="badge badge-pill badge-danger">USA</span> </div>
+
+
+                        <div class="card"> <img class="img-fluid" src="<%=locnews[0].img%>" alt="">
+                            <div class="card-img-overlay"> <span class="badge badge-pill badge-danger"><%=locnews[0].country%></span> </div>
                             <div class="card-body">
                                 <div class="news-title">
-                                    <h2 class=" title-small"><a href="http://www.foodsafetynews.com/2018/05/hepatitis-a-outbreak-definitely-involves-mainstream-population/#.WvF2BNOFP_Q">
-                                            Hepatitis A outbreak definitely involves mainstream population
+                                    <h2 class=" title-small"><a href="<%=locnews[0].link%>">
+                                            <%=locnews[0].content%>
                                         </a></h2>
                                 </div>
-                                <!--<p class="card-text"><small class="text-time"><em>3 mins ago</em></small></p>-->
                             </div>
                         </div>
-                        <div class="card"> <img class="img-fluid" src="/resource/HTLV1.jpg" alt="">
-                            <div class="card-img-overlay"> <span class="badge badge-pill badge-danger">Australia</span> </div>
+
+
+
+                        <div class="card"> <img class="img-fluid" src="<%=locnews[1].img%>" alt="">
+                            <div class="card-img-overlay"> <span class="badge badge-pill badge-danger"><%=locnews[1].country%></span> </div>
                             <div class="card-body">
                                 <div class="news-title">
-                                    <h2 class=" title-small"><a href="https://edition.cnn.com/2018/05/07/health/htlv-1-virus-australia-explainer/index.html">
-                                            An ancient virus HTLV-1, infecting residents across Australia's Northern Territory is leaving death and despair in its path, and doctors are now calling for greater efforts to stop the spread of infections.</a></h2>
+                                    <h2 class=" title-small"><a href="<%=locnews[1].link%>">
+                                            <%=locnews[1].content%></a></h2>
                                 </div>
-                                <!--<p class="card-text"><small class="text-time"><em>3 mins ago</em></small></p>-->
+
                             </div>
                         </div>
                     </div>
                     <div class="col-md-3">
-                        <div class="card"> <img class="img-fluid" src="/resource/lis_outbreak.jpg" alt="">
-                            <div class="card-img-overlay"> <span class="badge badge-pill badge-danger">South Africa</span> </div>
+                        <div class="card"> <img class="img-fluid" src="<%=locnews[2].img%>" alt="">
+                            <div class="card-img-overlay"> <span class="badge badge-pill badge-danger"><%=locnews[2].country%></span> </div>
                             <div class="card-body">
                                 <div class="news-title">
-                                    <h2 class=" title-small"><a href="http://www.abc.net.au/news/2018-03-06/south-africa-listeria-outbreak-is-largest-on-record/9518202">South Africa is currently in the middle of the biggest listeria outbreak ever seen,
-                                            according to the UN World Health Organisation (WHO).</a></h2>
+                                    <h2 class=" title-small"><a href="<%=locnews[2].link%>">South Africa is currently in the middle of the biggest listeria outbreak ever seen,
+                                        <%=locnews[2].content%></a></h2>
                                 </div>
                                 <!--<p class="card-text"><small class="text-time"><em>3 mins ago</em></small></p>-->
                             </div>
                         </div>
-                        <div class="card"> <img class="img-fluid" src="/resource/indo_diphtheria.jpg" alt="">
-                            <div class="card-img-overlay"> <span class="badge badge-pill badge-danger">Indonesia</span> </div>
+                        <div class="card"> <img class="img-fluid" src="<%=locnews[3].img%>" alt="">
+                            <div class="card-img-overlay"> <span class="badge badge-pill badge-danger"><%=locnews[3].country%></span> </div>
                             <div class="card-body">
                                 <div class="news-title">
-                                    <h2 class=" title-small"><a href="http://theconversation.com/indonesias-diphtheria-outbreak-problems-in-vaccination-and-antibiotics-efficacy-89036">
-                                            Indonesia’s diphtheria outbreak: problems in vaccination and antibiotics efficacy</a></h2>
+                                    <h2 class=" title-small"><a href="<%=locnews[3].link%>">
+                                        <%=locnews[3].content%></a></h2>
                                 </div>
                                 <!--<p class="card-text"><small class="text-time"><em>3 mins ago</em></small></p>-->
                             </div>
@@ -152,19 +156,13 @@
                     <div class="col-lg-8 col-md-12">
                         <h3 class="heading-large">Trending Topic</h3>
                             <div class="col-lg-6 card">
-                                <div class="card"> <img class="img-fluid" src="/resource/topic_flu.jpeg" alt="Flu">
+                                <div class="card"> <img class="img-fluid" src="<%=trendnews[0].img%>" alt="Flu">
                                     <div class="card-body">
-                                        <div class="news-title"><a target="_blank" href="https://www.livescience.com/61623-flu-twice-in-one-season.html">
-                                                <h2 class=" title-small"><strong>Can You Get the Flu Twice in One Season?</strong></h2>
+                                        <div class="news-title"><a target="_blank" href="<%=trendnews[0].link%>">
+                                                <h2 class=" title-small"><strong><%=trendnews[0].title%></strong></h2>
                                             </a></div>
                                         <p class="card-text">
-                                            Unfortunately, no. Experts say it is possible to catch
-                                            the flu twice in one season. That's because there are
-                                            multiple strains of flu viruses circulating at any one time,
-                                            said Dr. William Schaffner, an infectious-disease specialist at
-                                            Vanderbilt University Medical Center in Nashville.
-                                            So getting sick with one strain of flu won't necessarily protect
-                                            you from a different strain.
+                                            <%=trendnews[0].content%>
                                         </p>
                                         <!--<p class="card-text"><small class="text-time"><em>3 mins ago</em></small></p>-->
                                     </div>
@@ -172,19 +170,13 @@
                             </div>
 
                             <div class="col-lg-6 card">
-                                <div class="card"> <img class="img-fluid" src="/resource/hawaii_sunscreen.jpeg" alt="">
+                                <div class="card"> <img class="img-fluid" src="<%=trendnews[1].img%>" alt="">
                                     <div class="card-body">
-                                        <div class="news-title"><a target="_blank"  href="https://www.livescience.com/62494-sunscreen-kills-coral-reefs.html">
-                                                <h2 class=" title-small"><strong>Hawaii Is Banning Sunscreen to Protect Corals. But What About Your Skin?</strong></h2>
+                                        <div class="news-title"><a target="_blank"  href="<%=trendnews[1].link%>">
+                                                <h2 class=" title-small"><strong><%=trendnews[1].title%></strong></h2>
                                             </a></div>
                                         <p class="card-text">
-                                            he ban follows research suggesting that sunscreen drifting
-                                            off the skin of tourists can damage coral. But only chemical
-                                            sunscreens are affected — mineral sunscreens that use zinc
-                                            oxide or titanium dioxide to physically block the sun's rays
-                                            are still allowed. These sunscreens have fallen out of favor
-                                            because they often leave a white sheen on the skin, but marine
-                                            biologists say it's worth looking a little goofy to save reefs.
+                                            <%=trendnews[1].content%>
                                         </p>
                                         <!--<p class="card-text"><small class="text-time"><em>3 mins ago</em></small></p>-->
                                     </div>
@@ -192,36 +184,26 @@
                             </div>
 
                             <div class="col-lg-6 card">
-                                <div class="card"> <img class="img-fluid" src="/resource/lassa_fever.jpg" alt="">
+                                <div class="card"> <img class="img-fluid" src="<%=trendnews[2].img%>" alt="">
                                     <div class="card-body">
-                                        <div class="news-title"><a target="_blank" href="https://www.livescience.com/61792-lassa-fever-outbreak-nigeria.html">
-                                                <h2 class=" title-small"><strong>Death Toll Rises in Nigerian Outbreak: What Is Lassa Fever?</strong></h2>
+                                        <div class="news-title"><a target="_blank" href="<%=trendnews[2].link%>">
+                                                <h2 class=" title-small"><strong>D<%=trendnews[2].title%></strong></h2>
                                             </a></div>
                                         <p class="card-text">
-                                            Like the Ebola virus, the Lassa virus causes a viral hemorrhagic fever,
-                                            according to the U.S. National Library of Medicine (NLM).
-                                            Two other types of viruses — the Marburg virus and
-                                            the yellow fever virus — also cause this type of disease.
-                                            All viral hemorrhagic fevers have common features,
-                                            including blood vessel damage and harm to many organs
-                                            in the body, the NLM says.
+                                            <%=trendnews[2].content%>
                                         </p>
                                         <!--<p class="card-text"><small class="text-time"><em>3 mins ago</em></small></p>-->
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-6 card">
-                                <div class="card"> <img class="img-fluid" src="/resource/fastfood_pregnancy.jpeg" alt="">
+                                <div class="card"> <img class="img-fluid" src="<%=trendnews[3].img%>" alt="">
                                     <div class="card-body">
-                                        <div class="news-title"><a target="_blank" href="https://www.livescience.com/62476-fast-food-diet-infertility.html">
-                                                <h2 class=" title-small"><strong>How Eating Fast Food May Make It Harder to Get Pregnant</strong></h2>
+                                        <div class="news-title"><a target="_blank" href="<%=trendnews[3].link%>">
+                                                <h2 class=" title-small"><strong><%=trendnews[3].title%></strong></h2>
                                             </a></div>
                                         <p class="card-text">
-                                            Researchers found that eating fast food regularly was linked to a
-                                            twofold increase in the risk of infertility in women of childbearing age.
-                                            What's more, not eating enough fruit was tied to a 50 percent increase
-                                            in infertility risk, and eating fruit several times a day appeared to
-                                            reduce the amount of time it took to conceive.
+                                            <%=trendnews[3].content%>
                                         </p>
                                         <!--<p class="card-text"><small class="text-time"><em>3 mins ago</em></small></p>-->
                                     </div>
@@ -321,16 +303,23 @@
                         <div class="video-sec">
                             <h4 class="heading-small">Featured Video</h4>
                             <div class="video-block">
-                                Everything You Need To Know: <br><strong><em>Zika Virus</em></strong>
+                                Everything You Need To Know: <br><strong><em><%= vid[0].title %></em></strong>
                                 <div class="embed-responsive embed-responsive-4by3">
 
-                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/2BxdNA6uxeA?rel=0&amp;showinfo=0" allowfullscreen></iframe>
+                                    <iframe class="embed-responsive-item" src="<%= vid[0].link %>" allowfullscreen></iframe>
                                 </div>
                             </div>
-                            <div class="video-block">
+                            <!-- <div class="video-block">
                                 Everything You Need To Know: <br><strong><em>Ebola Virus</em></strong>
                                 <div class="embed-responsive embed-responsive-4by3">
                                     <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/nfIJy5Ov52c?rel=0&amp;showinfo=0" allowfullscreen></iframe>
+                                </div>
+                            </div> -->
+
+                            <div class="video-block">
+                                Everything You Need To Know: <br><strong><em><%= vid[1].title %></em></strong>
+                                <div class="embed-responsive embed-responsive-4by3">
+                                    <iframe class="embed-responsive-item" src="<%= vid[1].link %>" allowfullscreen></iframe>
                                 </div>
                             </div>
                         </div>

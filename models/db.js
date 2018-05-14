@@ -15,3 +15,7 @@ require('./profile.js');
 require('./mydiseasewiki.js');
 require('./healthquiz.js');
 require('./diseasewikis.js');
+require('./locationnews.js');
+require('./outbreaknews.js');
+require('./trendingnews.js');
+require('./featuredvideos.js');
