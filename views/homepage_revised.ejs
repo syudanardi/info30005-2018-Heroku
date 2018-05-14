@@ -59,7 +59,6 @@
                                     <h2 class=" title-small"><a href="<%=locnews[2].link%>">South Africa is currently in the middle of the biggest listeria outbreak ever seen,
                                         <%=locnews[2].content%></a></h2>
                                 </div>
-                                <!--<p class="card-text"><small class="text-time"><em>3 mins ago</em></small></p>-->
                             </div>
                         </div>
                         <div class="card"> <img class="img-fluid" src="<%=locnews[3].img%>" alt="">
@@ -69,7 +68,6 @@
                                     <h2 class=" title-small"><a href="<%=locnews[3].link%>">
                                         <%=locnews[3].content%></a></h2>
                                 </div>
-                                <!--<p class="card-text"><small class="text-time"><em>3 mins ago</em></small></p>-->
                             </div>
                         </div>
                     </div>
@@ -86,57 +84,43 @@
                             <div class="carousel-inner" role="listbox">
                                 <div class="carousel-item active">
                                     <div class="news-block">
-                                        <div class="news-media"><img class="img-fluid" src="/resource/kenya_havoc.jpg" alt=""></div>
+                                        <div class="news-media"><img class="img-fluid" src="<%=outbreaknews[0].img%>" alt=""></div>
                                         <div class="news-title">
-                                            <h2 class="title-large"><a href="http://www.xinhuanet.com/english/2018-05/08/c_137162220.htm">Kenya Health Crisis</a></h2>
+                                            <h2 class="title-large"><a href="%=outbreaknews[0].link%>"><%=outbreaknews[0].title%></a></h2>
                                         </div>
                                         <div class="news-des">
-                                            Kenya could be staring at a health crisis
-                                            as raging floods that have wreaked havoc in many parts of
-                                            the country threaten to unleash a wave of communicable diseases
-                                            like cholera, typhoid, malaria and flus.
+                                            <%=outbreaknews[0].content%>
                                         </div>
                                         <br><br>
-                                        <!--<div class="time-text"><strong>2h ago</strong></div>-->
                                         <div></div>
                                     </div>
                                 </div>
                                 <div class="carousel-item">
                                     <div class="news-block">
-                                        <div class="news-media"><img class="img-fluid" src="/resource/okinawa_measles.jpg" alt=""></div>
+                                        <div class="news-media"><img class="img-fluid" src="<%=outbreaknews[1].img%>" alt=""></div>
                                         <div class="news-title">
                                             <h2 class=" title-large">
-                                                <a href="https://www.japantimes.co.jp/news/2018/05/07/reference/caution-urged-okinawa-measles-outbreak-spreads/#.WvFxkNOFP_Q">
-                                                    Caution urged as Okinawa measles outbreak spreads
+                                                <a href="<%=outbreaknews[1].link%>">
+                                                    <%=outbreaknews[1].title%>
                                                 </a></h2>
                                         </div>
-                                        <div class="news-des">Measles cases are spreading in Okinawa, with the reported
-                                            number of patients exceeding 90 in just over a month, prompting the
-                                            prefecture last month to warn that visiting the resort islands may be not
-                                            advisable for infants and pregnant women.</div>
-                                        <!--<div class="time-text"><strong>2h ago</strong></div>-->
+                                        <div class="news-des">
+                                            <%=outbreaknews[1].content%>
+                                        </div>
                                         <br><br>
                                         <div></div>
                                     </div>
                                 </div>
                                 <div class="carousel-item">
                                     <div class="news-block">
-                                        <div class="news-media"><img class="img-fluid" src="/resource/salad.jpg" alt=""></div>
+                                        <div class="news-media"><img class="img-fluid" src="<%=outbreaknews[2].img%>" alt=""></div>
                                         <div class="news-title">
-                                            <h2 class=" title-large"><a href="https://www.nytimes.com/2018/04/19/well/eat/romaine-lettuce-
-                                            salad-food-poisoning-e-coli.html?action=click&
-                                            contentCollection=Health&module=RelatedCoverage&
-                                            region=Marginalia&pgtype=article">When Is It Safe to Eat Salad Again?</a></h2>
+                                            <h2 class=" title-large"><a href="<%=outbreaknews[2].link%>"><%=outbreaknews[2].title%></a></h2>
                                         </div>
                                         <div class="news-des">
-                                            Based on new information, the C.D.C. is
-                                            expanding its warning to consumers to cover all types of
-                                            romaine lettuce from the Yuma, Ariz. growing region.
-                                            This warning now includes whole heads and hearts of
-                                            romaine lettuce, in addition to chopped romaine and
-                                            salads and salad mixes containing romaine.</div>
+                                            <%=outbreaknews[2].content%>
+                                        </div>
                                         <br><br>
-                                        <!--<div class="time-text"><strong>2h ago</strong></div>-->
                                         <div></div>
                                     </div>
                                 </div>
@@ -178,7 +162,6 @@
                                         <p class="card-text">
                                             <%=trendnews[1].content%>
                                         </p>
-                                        <!--<p class="card-text"><small class="text-time"><em>3 mins ago</em></small></p>-->
                                     </div>
                                 </div>
                             </div>
@@ -192,7 +175,6 @@
                                         <p class="card-text">
                                             <%=trendnews[2].content%>
                                         </p>
-                                        <!--<p class="card-text"><small class="text-time"><em>3 mins ago</em></small></p>-->
                                     </div>
                                 </div>
                             </div>
@@ -205,7 +187,6 @@
                                         <p class="card-text">
                                             <%=trendnews[3].content%>
                                         </p>
-                                        <!--<p class="card-text"><small class="text-time"><em>3 mins ago</em></small></p>-->
                                     </div>
                                 </div>
                             </div>
@@ -214,41 +195,10 @@
                         <ul class="nav nav-tabs" role="tablist" id="myTab">
                             <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#home" role="tab">Quick Fact</a> </li>
                             <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#profile" role="tab">Quick Quiz</a> </li>
-                            <!--<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#messages" role="tab">Strange News</a> </li>-->
                         </ul>
 
                         <!-- Tab panes -->
                         <div class="tab-content sidebar-tabing" id="nav-tabContent">
-
-                        <!--Featured-->
-                            <!--<div class="tab-pane" id="messages" role="tabpanel">-->
-                                <!--<div class="media"> <a href="#"> <img class="d-flex mr-3" src="http://grafreez.com/wp-content/temp_demos/river/img/food.jpg" alt="Generic placeholder image"></a>-->
-                                    <!--<div class="media-body">-->
-                                        <!--<div class="news-title">-->
-                                            <!--<h2 class="title-small"><a href="#">I DON'T</a></h2>-->
-                                        <!--</div>-->
-                                        <!--&lt;!&ndash;<div class="news-auther"><span class="time">1h ago</span></div>&ndash;&gt;-->
-                                    <!--</div>-->
-                                <!--</div>-->
-                                <!--<div class="media"> <a href="#"> <img class="d-flex mr-3" src="http://grafreez.com/wp-content/temp_demos/river/img/business.jpg" alt="Generic placeholder image"></a>-->
-                                    <!--<div class="media-body">-->
-                                        <!--<div class="news-title">-->
-                                            <!--<h2 class="title-small"><a href="#">HAVE ENOUGH</a></h2>-->
-                                        <!--</div>-->
-                                        <!--&lt;!&ndash;<div class="news-auther"><span class="time">1h ago</span></div>&ndash;&gt;-->
-                                    <!--</div>-->
-                                <!--</div>-->
-                                <!--<div class="media"> <a href="#"> <img class="d-flex mr-3" src="http://grafreez.com/wp-content/temp_demos/river/img/sport1.jpg" alt="Generic placeholder image"></a>-->
-                                    <!--<div class="media-body">-->
-                                        <!--<div class="news-title">-->
-                                            <!--<h2 class="title-small"><a href="#">CLUE FOR THIS</a></h2>-->
-                                        <!--</div>-->
-                                        <!--&lt;!&ndash;<div class="news-auther"><span class="time">1h ago</span></div>&ndash;&gt;-->
-                                    <!--</div>-->
-                                <!--</div>-->
-                            <!--</div>-->
-
-
                             <!--Fact-->
                             <div class="tab-pane active" id="home" role="tabpanel">
                                 <div class="media"> <a href="#"> <img class="d-flex mr-3" src="/resource/laugh.jpg" alt="Generic placeholder image"></a>
@@ -309,12 +259,6 @@
                                     <iframe class="embed-responsive-item" src="<%= vid[0].link %>" allowfullscreen></iframe>
                                 </div>
                             </div>
-                            <!-- <div class="video-block">
-                                Everything You Need To Know: <br><strong><em>Ebola Virus</em></strong>
-                                <div class="embed-responsive embed-responsive-4by3">
-                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/nfIJy5Ov52c?rel=0&amp;showinfo=0" allowfullscreen></iframe>
-                                </div>
-                            </div> -->
 
                             <div class="video-block">
                                 Everything You Need To Know: <br><strong><em><%= vid[1].title %></em></strong>

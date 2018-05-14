@@ -67,14 +67,18 @@ module.exports.homerevised = function(req, res) {
                                 if (!err) {
                                     TrendNews.find(function(err, trendnews) {
                                         if (!err) {
-                                            res.render("homepage_revised", {
-                                                qfdb:quickfacts,
-                                                qqdb:quickquiz,
-                                                vid: video,
-                                                locnews: locnews,
-                                                trendnews: trendnews
-
+                                            OutbreakNews.find(function(err, outbreaknews) {
+                                                res.render("homepage_revised", {
+                                                    qfdb:quickfacts,
+                                                    qqdb:quickquiz,
+                                                    vid: video,
+                                                    locnews: locnews,
+                                                    trendnews: trendnews,
+                                                    outbreaknews: outbreaknews
+                                                });
                                             });
+                                        } else {
+                                            res.sendStatus(400);
                                         }
                                     });
                                 } else {
