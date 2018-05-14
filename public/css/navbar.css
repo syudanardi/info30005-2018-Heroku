@@ -17,11 +17,14 @@ a {
 
     padding-left: 8px;
     border-left: 0.5px solid grey;
+    color: #666;
+
 
 }
 
-#brandName {
+#brandName, #brandName:hover {
     font-size: 30px;
+    color: #666;
 }
 
 
@@ -29,12 +32,13 @@ a {
     padding-right: 4px;
 }
 
+#register-title, #register-title:hover {
+    color: #666;
+}
+
 .nav-link {
     margin-left: 10px;
 }
-
-
-
 
 #login-pop-up {
     text-align: center;
@@ -87,8 +91,9 @@ a {
     background-size: cover;
 }
 
-
-
+#home-title, #home-title:hover, #wiki-title, #wiki-title:hover, #profile-title, #profile-title:hover, #about-title, #about-title:hover {
+    color: #666;
+}
 
 
 

@@ -8,6 +8,11 @@ const Profile = mongoose.model('profiles');
 const DiseaseWikis = mongoose.model('diseasewikis');
 const bcrypt = require('bcrypt');
 
+const LocationNews = mongoose.model('locationnews');
+const OutbreakNews = mongoose.model('outbreaknews');
+const TrendNews = mongoose.model('trendingnews');
+const FeaturedVideos = mongoose.model('featuredvideos')
+
 // temporary replacement for session pls don't judge
 let buffer;
 
@@ -34,14 +39,57 @@ module.exports.sayHello = function(req, res) {
 };
 
 module.exports.homerevised = function(req, res) {
+    // QF.find(function(err,quickfacts) {
+    //     if(!err) {
+    //         QQ.find(function(err,quickquiz) {
+    //             if(!err) {
+    //                 res.render("homepage_revised", {
+    //                     qfdb:quickfacts,
+    //                     qqdb:quickquiz
+    //                 });
+    //             } else {
+    //                 res.sendStatus(400);
+    //             }
+    //         });
+    //     } else {
+    //         res.sendStatus(400);
+    //     }
+    // });
+
     QF.find(function(err,quickfacts) {
         if(!err) {
             QQ.find(function(err,quickquiz) {
                 if(!err) {
-                    res.render("homepage_revised", {
-                        qfdb:quickfacts,
-                        qqdb:quickquiz
+                    FeaturedVideos.find(function(err, video){
+                        
+                        if (!err) {
+                            LocationNews.find(function(err, locnews) {
+                                if (!err) {
+                                    TrendNews.find(function(err, trendnews) {
+                                        if (!err) {
+                                            OutbreakNews.find(function(err, outbreaknews) {
+                                                res.render("homepage_revised", {
+                                                    qfdb:quickfacts,
+                                                    qqdb:quickquiz,
+                                                    vid: video,
+                                                    locnews: locnews,
+                                                    trendnews: trendnews,
+                                                    outbreaknews: outbreaknews
+                                                });
+                                            });
+                                        } else {
+                                            res.sendStatus(400);
+                                        }
+                                    });
+                                } else {
+                                    res.sendStatus(400);
+                                }
+                            });
+                        } else {
+                            res.sendStatus(400);
+                        }
                     });
+
                 } else {
                     res.sendStatus(400);
                 }
