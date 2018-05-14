@@ -241,6 +241,10 @@ module.exports.aboutPage = function(req,res) {
     res.render('aboutUs');
 };
 
+module.exports.profilePage = function(req,res) {
+    res.render('profilePage');
+};
+
 module.exports.emailSetting = function(req,res) {
     res.render('settings');
 };
