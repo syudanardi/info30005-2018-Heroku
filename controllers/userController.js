@@ -231,6 +231,11 @@ module.exports.emailSubmit = function(req,res) {
         joinDate:joined
     });
 };
+
+module.exports.aboutPage = function(req,res) {
+    res.render('aboutUs');
+};
+
 module.exports.emailSetting = function(req,res) {
     res.render('settings');
 };
