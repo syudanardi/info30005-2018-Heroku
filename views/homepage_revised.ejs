@@ -76,29 +76,11 @@
             <% include navbar.ejs %>
         </div>
 
-
-        <!-- Checking Country -->
-        <div id="checkLocation">
-
-            <div id="currLocation"> </div>
-
-            <button id="option1" value="" type="button" class="btn btn-primary" onclick="checkCountry()"></button>
-
-            <%var currCountry = load.checkCountry() %>
-
-
-            <br>
-            <%=locnews[0].country%>
-            <br>
-            <%=locnews[1].country%>
-            <br>
-            <%=locnews[2].country%>
-            <br>
-            <%=locnews[3].country%>
-            <br>
-        </div>
-
-
+        <%if (!user) { %>
+            <h1>Welcome Stranger</h1>
+        <% } else { %>
+            <h1>Welcome <%=user.firstName + ' ' + user.lastName%></h1>
+        <% } %>
 
 
         <section class="banner-sec">
