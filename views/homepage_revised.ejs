@@ -13,6 +13,48 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+
+        <script>
+            var requestUrl = "http://ip-api.com/json";
+
+            $.ajax({
+                url: requestUrl,
+                type: 'GET',
+                success: function(json)
+                {
+                    console.log("My country is: " + json.country);
+
+                },
+                error: function(err)
+                {
+                    console.log("Request failed, error= " + err);
+                }
+            });
+
+            // Check the Quiz Answer
+            function checkAnswer(option) {
+                var chooseAnswer;
+                var correctAnswer
+                correctAnswer = document.getElementById('answer').className;
+                if(option == 1) {
+                    chooseAnswer = document.getElementById('option1').value;
+                }
+
+                else if (option == 2) {
+                    chooseAnswer = document.getElementById('option2').value;
+                }
+
+                if (chooseAnswer == correctAnswer) {
+                    document.getElementById("option-answer").innerHTML = "<strong><font color='green' size='5px'>You are correct!</font></strong><br>The answer is " + correctAnswer;
+                }
+                else {
+                    document.getElementById("option-answer").innerHTML = "<strong><font color='red' size='5px'>You are wrong!</font></strong><br>The answer is " + correctAnswer; 
+                }
+            }
+
+        </script>
+
     </head>
 
     <body>
@@ -239,15 +281,14 @@
                                     <div class="media-body">
                                         <div class="news-title">
                                             <p class="text-center" id="#question"><%=qqdb[0]['question']%></p>
-                                            <p class="text-center">
-                                                <button type="button" class="btn btn-primary"><%=qqdb[0]['option'][0]%></button>
+                                            <span id="answer" class="<%=qqdb[0]['answer']%>" hidden></span>
+                                            <div id="option-answer" class="text-center">
+                                                <button id="option1" value="<%=qqdb[0]['option'][0]%>" type="button" class="btn btn-primary" onclick="checkAnswer(1)"><%=qqdb[0]['option'][0]%></button>
                                                 <br>
                                                 <br>
-                                                <button type="button" class="btn btn-primary"><%=qqdb[0]['option'][1]%></button>
+                                                <button id="option2" value="<%=qqdb[0]['option'][1]%>" type="button" class="btn btn-primary" onclick="checkAnswer(2)"><%=qqdb[0]['option'][1]%></button>
                                                 <br>
-                                                <!--IF there is any 3rd option-->
-                                                <!--<button type="button" class="btn btn-primary"><%=qqdb[0]['option'][2]%></button>-->
-                                            </p>
+                                            </div>
 
                                         </div>
                                     </div>
