@@ -67,9 +67,9 @@ module.exports.homerevised = function(req, res) {
         type: 'GET',
         success: function(json)
             {   
-                
-                console.log("My country is: " + json.country);
                 country = json.country;
+                console.log("My country is: " + country);
+                
             },
         error: function(err)
             {
@@ -409,7 +409,7 @@ module.exports.createProfile = function(req, res) {
     });
     newProfile.save(function(err, newProfile){
         if(!err) {
-            
+
             var requestUrl = "http://ip-api.com/json";
             var country;
             $.ajax({
