@@ -1,6 +1,4 @@
-
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <!-- Required meta tags -->
@@ -19,7 +17,6 @@
 
         <title>Quick Health - Registration</title>
         <link rel="shortcut icon" href="/resource/logo_bg.png"/>
-
     </head>
 
     <body>
@@ -173,18 +170,11 @@
                                     </div>
 
                                 </div>
-                                <!--<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">-->
-                                    <!--<div class="form-group service-form-group">-->
-                                        <!--<label class="control-label sr-only" for="retype-password"></label>-->
-                                        <!--<input type="password" class="form-control" id="retype-password"  name="retype-password" placeholder="Re-Type Password" required>-->
-                                        <!--<div class="form-icon"><i class="fa fa-key" aria-hidden="true"></i></div>-->
-                                    <!--</div>-->
-                                <!--</div>-->
 
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
-                                    <div class="form-group">
+                                    <table class="form-group">
                                         <label><strong><em>Country of Residence*</em></strong></label>
-                                        <select class="form-control" name="country">
+                                        <select id="country" class="form-control" name="country" onchange="setCountry()">
                                             <option name="country" value="Afghanistan" title="Afghanistan">Afghanistan</option>
                                             <option name="country" value="Åland Islands" title="Åland Islands">Åland Islands</option>
                                             <option name="country" value="Albania" title="Albania">Albania</option>
@@ -435,13 +425,13 @@
                                             <option name="country" value="Zambia" title="Zambia">Zambia</option>
                                             <option name="country" value="Zimbabwe" title="Zimbabwe">Zimbabwe</option>
                                         </select>
-                                    </div>
+                                    </table>
                                 </div>
 
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
                                     <div class="form-group">
                                         <label class="control-label sr-only" for="textarea"></label>
-                                        <textarea class="form-control" id="textarea" name="textarea" rows="3" placeholder="Address"></textarea>
+                                        <textarea class="form-control" id="textarea" name="address" rows="3" placeholder="Address"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
