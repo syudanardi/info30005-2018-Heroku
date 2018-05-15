@@ -36,7 +36,7 @@
             function checkAnswer(option) {
                 var chooseAnswer;
                 var correctAnswer
-                correctAnswer = document.getElementById('answer').value;
+                correctAnswer = document.getElementById('answer').className;
                 if(option == 1) {
                     chooseAnswer = document.getElementById('option1').value;
                 }
@@ -44,7 +44,13 @@
                 else if (option == 2) {
                     chooseAnswer = document.getElementById('option2').value;
                 }
-                console.log(correctAnswer);
+
+                if (chooseAnswer == correctAnswer) {
+                    console.log("Correct");
+                }
+                else {
+                    console.log("Incorrect");
+                }
             }
 
         </script>
@@ -273,7 +279,7 @@
                                     <div class="media-body">
                                         <div class="news-title">
                                             <p class="text-center" id="#question"><%=qqdb[0]['question']%></p>
-                                            <span id="answer" value="<%=qqdb[0]['answer']%>"%></span>
+                                            <span id="answer" class="<%=qqdb[0]['answer']%>" hidden></span>
                                             <p class="text-center">
                                                 <button id="option1" value="<%=qqdb[0]['option'][0]%>" type="button" class="btn btn-primary" onclick="checkAnswer(1)"><%=qqdb[0]['option'][0]%></button>
                                                 <br>
