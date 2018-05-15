@@ -67,6 +67,7 @@ module.exports.homerevised = function(req, res) {
         type: 'GET',
         success: function(json)
             {   
+                country = json.country;
                 console.log("My country is: " + country);
                 
             },
