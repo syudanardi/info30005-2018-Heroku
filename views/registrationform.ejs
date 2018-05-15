@@ -1,6 +1,4 @@
-
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <!-- Required meta tags -->
@@ -20,6 +18,13 @@
         <title>Quick Health - Registration</title>
         <link rel="shortcut icon" href="/resource/logo_bg.png"/>
 
+        <script>
+            var country
+            function setCountry() {
+                country = document.getElementById('country').value;
+                console.log(country);
+            }
+        </script>
     </head>
 
     <body>
@@ -184,7 +189,7 @@
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
                                     <div class="form-group">
                                         <label><strong><em>Country of Residence*</em></strong></label>
-                                        <select class="form-control" name="country">
+                                        <select id="country" class="form-control" name="country" onchange="setCountry()">
                                             <option name="country" value="Afghanistan" title="Afghanistan">Afghanistan</option>
                                             <option name="country" value="Åland Islands" title="Åland Islands">Åland Islands</option>
                                             <option name="country" value="Albania" title="Albania">Albania</option>
