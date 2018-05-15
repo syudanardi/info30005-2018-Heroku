@@ -1,5 +1,5 @@
 // Create Database
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
 mongoose.connect('mongodb://quickhealthdb:12345678@ds161539.mlab.com:61539/quick-health', function(err){
     if(!err) {
