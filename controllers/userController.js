@@ -68,14 +68,18 @@ module.exports.homerevised = function(req, res) {
                                     TrendNews.find(function(err, trendnews) {
                                         if (!err) {
                                             OutbreakNews.find(function(err, outbreaknews) {
-                                                res.render("homepage_revised", {
-                                                    qfdb:quickfacts,
-                                                    qqdb:quickquiz,
-                                                    vid: video,
-                                                    locnews: locnews,
-                                                    trendnews: trendnews,
-                                                    outbreaknews: outbreaknews
-                                                });
+                                                if (!err) {
+                                                    res.render("homepage_revised", {
+                                                        qfdb:quickfacts,
+                                                        qqdb:quickquiz,
+                                                        vid: video,
+                                                        locnews: locnews,
+                                                        trendnews: trendnews,
+                                                        outbreaknews: outbreaknews
+                                                    });
+                                                } else {
+                                                    res.sendStatus(400);
+                                                }
                                             });
                                         } else {
                                             res.sendStatus(400);
@@ -375,22 +379,25 @@ module.exports.createProfile = function(req, res) {
                 if(!err) {
                     QQ.find(function(err,quickquiz) {
                         if(!err) {
-                            FeaturedVideos.find(function(err, video){
-                                
+                            FeaturedVideos.find(function(err, video){  
                                 if (!err) {
                                     LocationNews.find(function(err, locnews) {
                                         if (!err) {
                                             TrendNews.find(function(err, trendnews) {
                                                 if (!err) {
                                                     OutbreakNews.find(function(err, outbreaknews) {
-                                                        res.render("homepage_revised", {
-                                                            qfdb:quickfacts,
-                                                            qqdb:quickquiz,
-                                                            vid: video,
-                                                            locnews: locnews,
-                                                            trendnews: trendnews,
-                                                            outbreaknews: outbreaknews
-                                                        });
+                                                        if (!err) {
+                                                            res.render("homepage_revised", {
+                                                                qfdb:quickfacts,
+                                                                qqdb:quickquiz,
+                                                                vid: video,
+                                                                locnews: locnews,
+                                                                trendnews: trendnews,
+                                                                outbreaknews: outbreaknews
+                                                            });
+                                                        } else {
+                                                            res.sendStatus(400);
+                                                        }
                                                     });
                                                 } else {
                                                     res.sendStatus(400);
