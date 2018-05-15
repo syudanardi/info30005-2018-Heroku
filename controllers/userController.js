@@ -13,6 +13,9 @@ const OutbreakNews = mongoose.model('outbreaknews');
 const TrendNews = mongoose.model('trendingnews');
 const FeaturedVideos = mongoose.model('featuredvideos')
 
+var jsdom = require('jsdom');
+$ = require('jquery')(new jsdom.JSDOM().window);
+
 // temporary replacement for session pls don't judge
 let buffer;
 
@@ -56,6 +59,21 @@ module.exports.homerevised = function(req, res) {
     //     }
     // });
 
+    var requestUrl = "http://ip-api.com/json";
+    $.ajax({
+        url: requestUrl,
+        type: 'GET',
+        success: function(json)
+            {   
+                console.log("My country is: " + json.country);
+
+            },
+        error: function(err)
+            {
+                console.log("Request failed, error= " + err);
+            }
+    });
+
     QF.find(function(err,quickfacts) {
         if(!err) {
             QQ.find(function(err,quickquiz) {
@@ -63,11 +81,11 @@ module.exports.homerevised = function(req, res) {
                     FeaturedVideos.find(function(err, video){
                         
                         if (!err) {
-                            LocationNews.find(function(err, locnews) {
+                            OutbreakNews.find(function(err, outbreaknews) {
                                 if (!err) {
                                     TrendNews.find(function(err, trendnews) {
                                         if (!err) {
-                                            OutbreakNews.find(function(err, outbreaknews) {
+                                            LocationNews.find(function(err, locnews) {
                                                 if (!err) {
                                                     res.render("homepage_revised", {
                                                         qfdb:quickfacts,
@@ -364,7 +382,8 @@ module.exports.createDisease = function(req, res) {
 };
 
 module.exports.createProfile = function(req, res) {
-    const newProfile = new Profile({
+
+        const newProfile = new Profile({
         name: req.body.firstname + ' ' + req.body.lastname,
         email: req.body.email,
         phone: req.body.phone,

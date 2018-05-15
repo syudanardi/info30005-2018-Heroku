@@ -16,21 +16,8 @@
 
 
         <script>
-            var requestUrl = "http://ip-api.com/json";
-
-            $.ajax({
-                url: requestUrl,
-                type: 'GET',
-                success: function(json)
-                {
-                    console.log("My country is: " + json.country);
-
-                },
-                error: function(err)
-                {
-                    console.log("Request failed, error= " + err);
-                }
-            });
+            
+            
 
             // Check the Quiz Answer
             function checkAnswer(option) {
@@ -62,10 +49,6 @@
         <div id="nav-placeholder">
             <% include navbar.ejs %>
         </div>
-
-
-
-
 
         <section class="banner-sec">
             <div class="container">
