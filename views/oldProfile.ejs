@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/profile.css" />
+    <script type="text/javascript" src="/profile.js"></script>
+</head>
+
+<header>
+    <div id="nav-placeholder">
+        <% include navbar.ejs %>
+    </div>
+</header>
+<body>
+    <div class="container">
+        <div class="row">
+
+            <!-- Profile information -->
+            <div class="col-md-6 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="col-12">
+                        <h1 id="title">Profile</h1>
+                    </div>
+                    <div id="image-container" class="col-12">
+                        <img id="profile-image"src="imgs/sampleprofile.jpeg" alt="Avatar">
+                    </div>
+                    <div class="col-12">
+                        <h2 id="full-name"><%=name%></h2>
+                    </div>
+                </div>
+            </div>
+
+            <div id="personal-info" class="col-md-6 col-sm-12 col-xs-12">
+                <h3 id="profile-data">Joined Since: <%=joinDate%></h3>
+                <h3 id="profile-data">Occupation: Student</h3>
+                <h3 id="profile-data">From: Sydney</h3>
+                <h3 id="profile-data">Lives in: Melbourne</h3>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Personal Activities -->
+    <div id="container-personal-activities" class="container">
+        <div class="row">
+            <div class="col-12 forum-activities">
+                <h3 id="title-forum-actv">Recent Forum Activities</h3>
+                <div class="list-forum-activities">
+                    <h5 id="topic-forum">Herbal Tea Benefits?</h5>
+                    <h5 id="topic-forum">Flu Prevention Tips</h5>
+                    <h5 id="topic-forum">First Aid Competition</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="container-basic-allergies-info" class="container">
+        <div class="row">
+            <div class="col-md-6 col-xs-12">
+                <h4 class="basic-allergies-info"><font color="white">Basic Info</font></h4>
+                
+                <h5 id="contact-info-title">Contact Information</h5>
+                <h5 id="mobile-phone">Mobile Phones: <%=phone%></h5>
+                <h5 id="address">Address: 800 Swanston Street</h5>
+
+
+                <h5 id="email">Email Address: <%=email%></h5>
+
+
+
+                <button id ="editName" onclick="window.location.href='/emailSetting'" class="btn btn-primary btn-block">
+                    Change Email</button>
+
+            </div>
+
+            <div class="col-md-6 col-xs-12">
+                <h4 class="basic-allergies-info"><font color="white">Allergies</font></h4>
+                <ul class="list-allergies">
+                    <li><h5 class="list-allergies">Doxycycline</h5></li>
+                    <li><h5 class="list-allergies">Stemetil prochlorperazine</h5></li>
+                    <li><h5 class="list-allergies">Amoxycillin</h5></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+<footer>
+    <% include footer.ejs %>
+</footer>
+</html>

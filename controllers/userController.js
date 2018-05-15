@@ -310,7 +310,7 @@ module.exports.emailSetting = function(req,res) {
                 let year = curr["joinDate"].getFullYear();
                 let month = curr["joinDate"].getMonth();
                 let joined = '' + day + '/' + month + '/' + year;
-                res.render("profile.ejs", {
+                res.render("oldProfile.ejs", {
                     profile:curr,
                     name:curr["name"],
                     phone:curr["phone"],
