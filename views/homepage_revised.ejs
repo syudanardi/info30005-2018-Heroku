@@ -23,6 +23,7 @@
                 type: 'GET',
                 success: function(json)
                 {
+                    $("#currLocation").append(json.country);
                     console.log("My country is: " + json.country);
 
                 },
@@ -31,6 +32,10 @@
                     console.log("Request failed, error= " + err);
                 }
             });
+
+
+
+
 
             // Check the Quiz Answer
             function checkAnswer(option) {
@@ -64,6 +69,26 @@
         </div>
 
 
+        <!-- Checking Country -->
+        <div id="checkLocation">
+
+            <div id="currLocation"></div>
+
+
+            <%=locnews.find({country: "Australia"}) %>
+
+
+            <br>
+            <%=locnews[0].country%>
+            <br>
+            <%=locnews[1].country%>
+            <br>
+            <%=locnews[2].country%>
+            <br>
+            <%=locnews[3].country%>
+            <br>
+        </div>
+
 
 
 
@@ -71,7 +96,6 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-3">
-
 
                         <div class="card"> <img class="img-fluid" src="<%=locnews[0].img%>" alt="">
                             <div class="card-img-overlay"> <span class="badge badge-pill badge-danger"><%=locnews[0].country%></span> </div>
@@ -236,6 +260,21 @@
                                     </div>
                                 </div>
                             </div>
+
+                        <!--Testing collapse window-->
+                        <div class="col-lg-6 card">
+                            <div class="card"> <img class="img-fluid" src="<%=trendnews[3].img%>" alt="">
+                                <div class="card-body collapse">
+                                    <div class="news-title"><a target="_blank" href="<%=trendnews[3].link%>">
+                                            <h2 class=" title-small"><strong><%=trendnews[3].title%></strong></h2>
+                                        </a></div>
+                                    <p class="card-text">
+                                        <%=trendnews[3].content%>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                     <aside class="col-lg-4 side-bar col-md-12">
                         <ul class="nav nav-tabs" role="tablist" id="myTab">
