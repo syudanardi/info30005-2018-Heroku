@@ -1,5 +1,6 @@
 const db = require('../models/db');
 const mongoose = require('mongoose');
+const passport = require('passport');
 const Disease = mongoose.model('diseases');
 const QF = mongoose.model('healthfacts');
 const QQ = mongoose.model('healthquizzes');
@@ -11,7 +12,7 @@ const bcrypt = require('bcrypt');
 const LocationNews = mongoose.model('locationnews');
 const OutbreakNews = mongoose.model('outbreaknews');
 const TrendNews = mongoose.model('trendingnews');
-const FeaturedVideos = mongoose.model('featuredvideos')
+const FeaturedVideos = mongoose.model('featuredvideos');
 
 var jsdom = require('jsdom');
 $ = require('jquery')(new jsdom.JSDOM().window);
@@ -60,19 +61,25 @@ module.exports.homerevised = function(req, res) {
     // });
 
     var requestUrl = "http://ip-api.com/json";
+    var country;
     $.ajax({
         url: requestUrl,
         type: 'GET',
         success: function(json)
             {   
+                
                 console.log("My country is: " + json.country);
-
+                country = json.country;
             },
         error: function(err)
             {
                 console.log("Request failed, error= " + err);
             }
     });
+
+    var count = 4;
+    var index = 0;
+    var locationNews = new Array();
 
     QF.find(function(err,quickfacts) {
         if(!err) {
@@ -87,13 +94,21 @@ module.exports.homerevised = function(req, res) {
                                         if (!err) {
                                             LocationNews.find(function(err, locnews) {
                                                 if (!err) {
+                                                    locnews.forEach(function(currlocnews) {
+                                                        if(currlocnews.country == country) {
+                                                            locationNews[index] = currlocnews;
+                                                            index++;
+                                                        }
+                                                    });
+
                                                     res.render("homepage_revised", {
                                                         qfdb:quickfacts,
                                                         qqdb:quickquiz,
                                                         vid: video,
-                                                        locnews: locnews,
+                                                        locnews: locationNews,
                                                         trendnews: trendnews,
-                                                        outbreaknews: outbreaknews
+                                                        outbreaknews: outbreaknews,
+                                                        user: req.user
                                                     });
                                                 } else {
                                                     res.sendStatus(400);
@@ -121,7 +136,7 @@ module.exports.homerevised = function(req, res) {
         }
     });
 };
-
+/*
 module.exports.home = function(req, res) {
     QF.find(function(err,quickfacts) {
         if(!err) {
@@ -139,7 +154,7 @@ module.exports.home = function(req, res) {
             res.sendStatus(400);
         }
     });
-};
+};*/
 
 module.exports.diseaseSpecific = function(req, res) {
     let diseasename = req.params.id;
@@ -394,25 +409,56 @@ module.exports.createProfile = function(req, res) {
     });
     newProfile.save(function(err, newProfile){
         if(!err) {
+            
+            var requestUrl = "http://ip-api.com/json";
+            var country;
+            $.ajax({
+                url: requestUrl,
+                type: 'GET',
+                success: function(json)
+                    {   
+                        
+                        console.log("My country is: " + json.country);
+                        country = json.country;
+                    },
+                error: function(err)
+                    {
+                        console.log("Request failed, error= " + err);
+                    }
+            });
+        
+            var count = 4;
+            var index = 0;
+            var locationNews = new Array();
+        
             QF.find(function(err,quickfacts) {
                 if(!err) {
                     QQ.find(function(err,quickquiz) {
                         if(!err) {
-                            FeaturedVideos.find(function(err, video){  
+                            FeaturedVideos.find(function(err, video){
+                                
                                 if (!err) {
-                                    LocationNews.find(function(err, locnews) {
+                                    OutbreakNews.find(function(err, outbreaknews) {
                                         if (!err) {
                                             TrendNews.find(function(err, trendnews) {
                                                 if (!err) {
-                                                    OutbreakNews.find(function(err, outbreaknews) {
+                                                    LocationNews.find(function(err, locnews) {
                                                         if (!err) {
+                                                            locnews.forEach(function(currlocnews) {
+                                                                if(currlocnews.country == country) {
+                                                                    locationNews[index] = currlocnews;
+                                                                    index++;
+                                                                }
+                                                            });
+        
                                                             res.render("homepage_revised", {
                                                                 qfdb:quickfacts,
                                                                 qqdb:quickquiz,
                                                                 vid: video,
-                                                                locnews: locnews,
+                                                                locnews: locationNews,
                                                                 trendnews: trendnews,
-                                                                outbreaknews: outbreaknews
+                                                                outbreaknews: outbreaknews,
+                                                                user: req.user
                                                             });
                                                         } else {
                                                             res.sendStatus(400);
@@ -531,8 +577,8 @@ module.exports.saveDisease = function(req, res) {
 
 module.exports.countDisease = function(req, res) {
 
-    var indexListDiseases = 0;
-    var listDiseases = new Array();
+    let indexListDiseases = 0;
+    let listDiseases = new Array();
     DiseaseWikis.find(function(err,listdisease){
         if(!err) {
             listdisease.forEach(function(member) {
@@ -546,6 +592,48 @@ module.exports.countDisease = function(req, res) {
             res.sendStatus(404);
         }
     });
-}
+};
+
+// Restrict access to root page
+
+module.exports.home = function(req, res) {
+    res.render('home', { user : req.user });
+};
+
+// Go to registration page
+module.exports.register = function(req, res) {
+    res.render('registrationform');
+};
+
+// Post registration
+module.exports.doRegister = function(req, res) {
+    Profile.register(new Profile({ username : req.body.email, firstName: req.body.firstName, lastName: req.body.lastName, email: req.body.email, country: req.body.country }), req.body.password, function(err, user) {
+        if (err) {
+            return res.sendStatus(404);
+        }
+
+        passport.authenticate('local')(req, res, function () {
+            res.redirect('/');
+        });
+    });
+};
+
+// Go to login page
+module.exports.login = function(req, res) {
+    res.render('signin');
+};
+
+// Post login
+module.exports.doLogin = function(req, res) {
+    passport.authenticate('local')(req, res, function () {
+        res.redirect('/');
+    });
+};
+
+// logout
+module.exports.logout = function(req, res) {
+    req.logout();
+    res.redirect('/');
+};
 
 
