@@ -31,6 +31,22 @@
                     console.log("Request failed, error= " + err);
                 }
             });
+
+            // Check the Quiz Answer
+            function checkAnswer(option) {
+                var chooseAnswer;
+                var correctAnswer
+                correctAnswer = document.getElementById('answer').value;
+                if(option == 1) {
+                    chooseAnswer = document.getElementById('option1').value;
+                }
+
+                else if (option == 2) {
+                    chooseAnswer = document.getElementById('option2').value;
+                }
+                console.log(correctAnswer);
+            }
+
         </script>
 
     </head>
@@ -257,14 +273,13 @@
                                     <div class="media-body">
                                         <div class="news-title">
                                             <p class="text-center" id="#question"><%=qqdb[0]['question']%></p>
+                                            <span id="answer" value="<%=qqdb[0]['answer']%>"%></span>
                                             <p class="text-center">
-                                                <button type="button" class="btn btn-primary"><%=qqdb[0]['option'][0]%></button>
+                                                <button id="option1" value="<%=qqdb[0]['option'][0]%>" type="button" class="btn btn-primary" onclick="checkAnswer(1)"><%=qqdb[0]['option'][0]%></button>
                                                 <br>
                                                 <br>
-                                                <button type="button" class="btn btn-primary"><%=qqdb[0]['option'][1]%></button>
+                                                <button id="option2" value="<%=qqdb[0]['option'][1]%>" type="button" class="btn btn-primary" onclick="checkAnswer(2)"><%=qqdb[0]['option'][1]%></button>
                                                 <br>
-                                                <!--IF there is any 3rd option-->
-                                                <!--<button type="button" class="btn btn-primary"><%=qqdb[0]['option'][2]%></button>-->
                                             </p>
 
                                         </div>

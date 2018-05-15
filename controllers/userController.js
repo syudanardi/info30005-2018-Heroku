@@ -265,6 +265,8 @@ module.exports.currProfile = function(req,res) {
         name:curr["name"],
         phone:curr["phone"],
         email:curr["email"],
+        address:curr["address"],
+        country:curr["country"],
         joinDate:joined
     });
 };
@@ -281,6 +283,8 @@ module.exports.emailSubmit = function(req,res) {
         name:curr["name"],
         phone:curr["phone"],
         email:curr["email"],
+        address:curr["address"],
+        country:curr["country"],
         joinDate:joined
     });
 };
@@ -360,6 +364,8 @@ module.exports.createProfile = function(req, res) {
         name: req.body.firstname + ' ' + req.body.lastname,
         email: req.body.email,
         phone: req.body.phone,
+        address: req.body.address,
+        country: req.body.country,
         joinDate: Date.now(),
         password: req.body.password
     });
@@ -369,10 +375,36 @@ module.exports.createProfile = function(req, res) {
                 if(!err) {
                     QQ.find(function(err,quickquiz) {
                         if(!err) {
-                            res.render("homepage_revised", {
-                                qfdb:quickfacts,
-                                qqdb:quickquiz
+                            FeaturedVideos.find(function(err, video){
+                                
+                                if (!err) {
+                                    LocationNews.find(function(err, locnews) {
+                                        if (!err) {
+                                            TrendNews.find(function(err, trendnews) {
+                                                if (!err) {
+                                                    OutbreakNews.find(function(err, outbreaknews) {
+                                                        res.render("homepage_revised", {
+                                                            qfdb:quickfacts,
+                                                            qqdb:quickquiz,
+                                                            vid: video,
+                                                            locnews: locnews,
+                                                            trendnews: trendnews,
+                                                            outbreaknews: outbreaknews
+                                                        });
+                                                    });
+                                                } else {
+                                                    res.sendStatus(400);
+                                                }
+                                            });
+                                        } else {
+                                            res.sendStatus(400);
+                                        }
+                                    });
+                                } else {
+                                    res.sendStatus(400);
+                                }
                             });
+        
                         } else {
                             res.sendStatus(400);
                         }
@@ -479,7 +511,7 @@ module.exports.countDisease = function(req, res) {
         if(!err) {
             listdisease.forEach(function(member) {
                 listDiseases[indexListDiseases] = member.name;
-                index++;
+                indexListDiseases++;
             });
             listDiseases.sort();
             res.send(listDiseases);
