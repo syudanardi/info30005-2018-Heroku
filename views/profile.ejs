@@ -1,91 +1,111 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Profile</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" media="screen" href="/css/profile.css" />
-    <script type="text/javascript" src="/profile.js"></script>
-</head>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Profile Page</title>
+        <link rel="stylesheet" href="/css/profilePage.css" type="text/css">
 
-<header>
-    <div id="nav-placeholder">
-        <% include navbar.ejs %>
-    </div>
-</header>
-<body>
-    <div class="container">
-        <div class="row">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
-            <!-- Profile information -->
-            <div class="col-md-6 col-sm-12 col-xs-12">
-                <div class="row">
-                    <div class="col-12">
-                        <h1 id="title">Profile</h1>
-                    </div>
-                    <div id="image-container" class="col-12">
-                        <img id="profile-image"src="imgs/sampleprofile.jpeg" alt="Avatar">
-                    </div>
-                    <div class="col-12">
-                        <h2 id="full-name"><%=name%></h2>
+        <script>
+            var requestUrl = "http://ip-api.com/json";
+
+            $.ajax({
+                url: requestUrl,
+                type: 'GET',
+                success: function(json)
+                {
+                    //console.log("My country is: " + json.country);
+                    $("#currLocation").append(json.country);
+                },
+                error: function(err)
+                {
+                    console.log("Failed to Detect Location, errcode = " + err);
+                }
+            });
+
+
+        </script>
+
+    </head>
+
+    <header>
+        <div id="nav-placeholder">
+            <% include navbar.ejs %>
+        </div>
+    </header>
+
+
+
+    <body>
+
+        <div class="banner">
+            <div class="container">
+                <div class="profile-pic">
+                    <div class="avatar"></div>
+                    <a href="#" class="button button-primary mt-20">Change</a>
+                </div>
+                <div class="bio">
+                    <h1 class="heading-medium"><strong><%=name%></strong></h1>
+                    <h4 class="body-small">Member Since: <%=joinDate%></h4>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+        <div class="container">
+            <div class="col-md-6 col-xs-12">
+                <div id="accordion" role="tablist" aria-multiselectable="true">
+
+
+                    <div class="card card-top">
+                        <div class="card-header" role="tab" id="headingTwo">
+                            <h5 class="mb-0">
+                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Personal Information
+                                </a>
+                            </h5>
+                        </div>
+                        <div id="collapseTwo" class="collapse show" role="tabpanel" aria-labelledby="headingTwo">
+                            <div class="card-block">
+
+                                <strong>Display Name:</strong>
+                                <br>
+                                <%=name%>
+                                <br><br>
+
+                                <strong>E-mail Address:</strong>
+                                <br>
+                                <%=email%>
+                                <br><br>
+
+                                <strong>Country of Origin:</strong>
+                                <br>
+                                (Not Completed)
+
+                                <br><br>
+                                <strong>Current Location:</strong>
+                                <br>
+                                <div id="currLocation"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <div id="personal-info" class="col-md-6 col-sm-12 col-xs-12">
-                <h3 id="profile-data">Joined Since: <%=joinDate%></h3>
-                <h3 id="profile-data">Occupation: Student</h3>
-                <h3 id="profile-data">From: Sydney</h3>
-                <h3 id="profile-data">Lives in: Melbourne</h3>
-            </div>
         </div>
-    </div>
-    
-    <!-- Personal Activities -->
-    <div id="container-personal-activities" class="container">
-        <div class="row">
-            <div class="col-12 forum-activities">
-                <h3 id="title-forum-actv">Recent Forum Activities</h3>
-                <div class="list-forum-activities">
-                    <h5 id="topic-forum">Herbal Tea Benefits?</h5>
-                    <h5 id="topic-forum">Flu Prevention Tips</h5>
-                    <h5 id="topic-forum">First Aid Competition</h5>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <div id="container-basic-allergies-info" class="container">
-        <div class="row">
-            <div class="col-md-6 col-xs-12">
-                <h4 class="basic-allergies-info"><font color="white">Basic Info</font></h4>
-                
-                <h5 id="contact-info-title">Contact Information</h5>
-                <h5 id="mobile-phone">Mobile Phones: <%=phone%></h5>
-                <h5 id="address">Address: 800 Swanston Street</h5>
 
 
-                <h5 id="email">Email Address: <%=email%></h5>
+    </body>
 
 
+    <footer>
+        <% include footer.ejs %>
+    </footer>
 
-                <button id ="editName" onclick="window.location.href='/emailSetting'" class="btn btn-primary btn-block">
-                    Change Email</button>
-
-            </div>
-
-            <div class="col-md-6 col-xs-12">
-                <h4 class="basic-allergies-info"><font color="white">Allergies</font></h4>
-                <ul class="list-allergies">
-                    <li><h5 class="list-allergies">Doxycycline</h5></li>
-                    <li><h5 class="list-allergies">Stemetil prochlorperazine</h5></li>
-                    <li><h5 class="list-allergies">Amoxycillin</h5></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</body>
-
-<footer>
-    <% include footer.ejs %>
-</footer>
 </html>
