@@ -1,5 +1,6 @@
 const db = require('../models/db');
 const mongoose = require('mongoose');
+const passport = require('passport');
 const Disease = mongoose.model('diseases');
 const QF = mongoose.model('healthfacts');
 const QQ = mongoose.model('healthquizzes');
@@ -11,7 +12,7 @@ const bcrypt = require('bcrypt');
 const LocationNews = mongoose.model('locationnews');
 const OutbreakNews = mongoose.model('outbreaknews');
 const TrendNews = mongoose.model('trendingnews');
-const FeaturedVideos = mongoose.model('featuredvideos')
+const FeaturedVideos = mongoose.model('featuredvideos');
 
 // temporary replacement for session pls don't judge
 let buffer;
@@ -74,7 +75,8 @@ module.exports.homerevised = function(req, res) {
                                                     vid: video,
                                                     locnews: locnews,
                                                     trendnews: trendnews,
-                                                    outbreaknews: outbreaknews
+                                                    outbreaknews: outbreaknews,
+                                                    user: req.user
                                                 });
                                             });
                                         } else {
@@ -99,7 +101,7 @@ module.exports.homerevised = function(req, res) {
         }
     });
 };
-
+/*
 module.exports.home = function(req, res) {
     QF.find(function(err,quickfacts) {
         if(!err) {
@@ -117,7 +119,7 @@ module.exports.home = function(req, res) {
             res.sendStatus(400);
         }
     });
-};
+};*/
 
 module.exports.diseaseSpecific = function(req, res) {
     let diseasename = req.params.id;
@@ -505,8 +507,8 @@ module.exports.saveDisease = function(req, res) {
 
 module.exports.countDisease = function(req, res) {
 
-    var indexListDiseases = 0;
-    var listDiseases = new Array();
+    let indexListDiseases = 0;
+    let listDiseases = new Array();
     DiseaseWikis.find(function(err,listdisease){
         if(!err) {
             listdisease.forEach(function(member) {
@@ -520,6 +522,48 @@ module.exports.countDisease = function(req, res) {
             res.sendStatus(404);
         }
     });
-}
+};
+
+// Restrict access to root page
+
+module.exports.home = function(req, res) {
+    res.render('home', { user : req.user });
+};
+
+// Go to registration page
+module.exports.register = function(req, res) {
+    res.render('registrationform');
+};
+
+// Post registration
+module.exports.doRegister = function(req, res) {
+    Profile.register(new Profile({ username : req.body.email, firstName: req.body.firstName, lastName: req.body.lastName, email: req.body.email, country: req.body.country }), req.body.password, function(err, user) {
+        if (err) {
+            return res.sendStatus(404);
+        }
+
+        passport.authenticate('local')(req, res, function () {
+            res.redirect('/');
+        });
+    });
+};
+
+// Go to login page
+module.exports.login = function(req, res) {
+    res.render('signin');
+};
+
+// Post login
+module.exports.doLogin = function(req, res) {
+    passport.authenticate('local')(req, res, function () {
+        res.redirect('/');
+    });
+};
+
+// logout
+module.exports.logout = function(req, res) {
+    req.logout();
+    res.redirect('/');
+};
 
 
