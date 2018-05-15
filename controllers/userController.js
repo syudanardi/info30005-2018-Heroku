@@ -511,7 +511,7 @@ module.exports.countDisease = function(req, res) {
         if(!err) {
             listdisease.forEach(function(member) {
                 listDiseases[indexListDiseases] = member.name;
-                index++;
+                indexListDiseases++;
             });
             listDiseases.sort();
             res.send(listDiseases);
