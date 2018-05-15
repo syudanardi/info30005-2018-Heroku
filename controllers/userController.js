@@ -265,6 +265,8 @@ module.exports.currProfile = function(req,res) {
         name:curr["name"],
         phone:curr["phone"],
         email:curr["email"],
+        address:curr["address"],
+        country:curr["country"],
         joinDate:joined
     });
 };
@@ -281,6 +283,8 @@ module.exports.emailSubmit = function(req,res) {
         name:curr["name"],
         phone:curr["phone"],
         email:curr["email"],
+        address:curr["address"],
+        country:curr["country"],
         joinDate:joined
     });
 };
@@ -360,6 +364,8 @@ module.exports.createProfile = function(req, res) {
         name: req.body.firstname + ' ' + req.body.lastname,
         email: req.body.email,
         phone: req.body.phone,
+        address: req.body.address,
+        country: req.body.country,
         joinDate: Date.now(),
         password: req.body.password
     });

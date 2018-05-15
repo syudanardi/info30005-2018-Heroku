@@ -5,6 +5,8 @@ var profileSchema = mongoose.Schema(
         name: String,
         email: String,
         phone: String,
+        address: String,
+        country: String,
         password: String,
         joinDate: Date
     }
