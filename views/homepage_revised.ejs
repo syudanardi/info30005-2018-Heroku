@@ -46,10 +46,10 @@
                 }
 
                 if (chooseAnswer == correctAnswer) {
-                    console.log("Correct");
+                    document.getElementById("option-answer").innerHTML = "<strong><font color='green' size='5px'>You are correct!</font></strong><br>The answer is " + correctAnswer;
                 }
                 else {
-                    console.log("Incorrect");
+                    document.getElementById("option-answer").innerHTML = "<strong><font color='red' size='5px'>You are wrong!</font></strong><br>The answer is " + correctAnswer; 
                 }
             }
 
@@ -280,13 +280,13 @@
                                         <div class="news-title">
                                             <p class="text-center" id="#question"><%=qqdb[0]['question']%></p>
                                             <span id="answer" class="<%=qqdb[0]['answer']%>" hidden></span>
-                                            <p class="text-center">
+                                            <div id="option-answer" class="text-center">
                                                 <button id="option1" value="<%=qqdb[0]['option'][0]%>" type="button" class="btn btn-primary" onclick="checkAnswer(1)"><%=qqdb[0]['option'][0]%></button>
                                                 <br>
                                                 <br>
                                                 <button id="option2" value="<%=qqdb[0]['option'][1]%>" type="button" class="btn btn-primary" onclick="checkAnswer(2)"><%=qqdb[0]['option'][1]%></button>
                                                 <br>
-                                            </p>
+                                            </div>
 
                                         </div>
                                     </div>
