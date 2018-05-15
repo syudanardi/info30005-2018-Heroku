@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
+
     <head>
         <meta charset="UTF-8">
         <title>Quick Health</title>
@@ -16,26 +18,29 @@
 
 
         <script>
-            var requestUrl = "http://ip-api.com/json";
 
-            $.ajax({
-                url: requestUrl,
-                type: 'GET',
-                success: function(json)
-                {
-                    $("#currLocation").append(json.country);
-                    console.log("My country is: " + json.country);
+            function checkCountry(){
+                var requestUrl = "http://ip-api.com/json";
+                var result;
 
-                },
-                error: function(err)
-                {
-                    console.log("Request failed, error= " + err);
-                }
-            });
+                $.ajax({
+                    url: requestUrl,
+                    type: 'POST',
+                    success: function(json)
+                    {
+                        $("#currLocation").append(json.country);
+                        console.log("My country is: " + json.country);
+                        result = json.country;
+                    },
+                    error: function(err)
+                    {
+                        console.log("Request failed, error= " + err);
+                    }
+                });
 
+                return result;
 
-
-
+            }
 
             // Check the Quiz Answer
             function checkAnswer(option) {
@@ -54,9 +59,12 @@
                     document.getElementById("option-answer").innerHTML = "<strong><font color='green' size='5px'>You are correct!</font></strong><br>The answer is " + correctAnswer;
                 }
                 else {
-                    document.getElementById("option-answer").innerHTML = "<strong><font color='red' size='5px'>You are wrong!</font></strong><br>The answer is " + correctAnswer; 
+                    document.getElementById("option-answer").innerHTML = "<strong><font color='red' size='5px'>You are wrong!</font></strong><br>The answer is " + correctAnswer;
                 }
             }
+
+
+
 
         </script>
 
@@ -72,10 +80,11 @@
         <!-- Checking Country -->
         <div id="checkLocation">
 
-            <div id="currLocation"></div>
+            <div id="currLocation"> </div>
 
+            <button id="option1" value="" type="button" class="btn btn-primary" onclick="checkCountry()"></button>
 
-            <%=locnews.find({country: "Australia"}) %>
+            <%var currCountry = load.checkCountry() %>
 
 
             <br>
