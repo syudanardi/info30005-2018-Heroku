@@ -76,17 +76,22 @@
             <% include navbar.ejs %>
         </div>
 
-        <%if (!user) { %>
-            <h1>Welcome Stranger</h1>
-        <% } else { %>
-            <h1>Welcome <%=user.firstName + ' ' + user.lastName%></h1>
-        <% } %>
+
 
 
         <section class="banner-sec">
             <div class="container">
+
+                <%if (user) { %>
+                <h2 id="welcome-note">Welcome Back, <%=user.firstName + ' ' + user.lastName%></h2>
+                <% } %>
+                <br>
+                <br>
+
                 <div class="row">
                     <div class="col-md-3">
+
+
 
                         <div class="card"> <img class="img-fluid" src="<%=locnews[0].img%>" alt="">
                             <div class="card-img-overlay"> <span class="badge badge-pill badge-danger"><%=locnews[0].country%></span> </div>
