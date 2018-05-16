@@ -135,10 +135,6 @@ module.exports.registrationForm = function(req, res) {
     });
 };
 
-module.exports.diseasemap = function(req, res) {
-    res.render("epiMap");
-};
-
 module.exports.diseaseWiki = function(req, res) {
     res.locals.query = req.query;
     var alphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
@@ -212,14 +208,6 @@ module.exports.aboutPage = function(req,res) {
     res.render('aboutUs');
 };
 
-module.exports.profilePage = function(req,res) {
-    res.render('profilePage');
-};
-
-module.exports.emailSetting = function(req,res) {
-    res.render('settings');
-};
-
 module.exports.createDisease = function(req, res) {
     const disease = new Disease({
         name: req.body.name,
@@ -257,7 +245,6 @@ module.exports.createProfile = function(req, res) {
         })
     });
 };
-
 
 
 module.exports.findAllDisease = function(req, res) {
