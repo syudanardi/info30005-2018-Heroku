@@ -218,18 +218,6 @@ module.exports.emailSetting = function(req,res) {
     res.render('settings');
 };
 
-module.exports.realHome = function(req, res) {
-    QF.find(function(err,quickfacts) {
-        if(!err) {
-            res.render("newHome", {
-                db:quickfacts
-            });
-        } else {
-            res.sendStatus(400);
-        }
-    });
-};
-
 module.exports.createDisease = function(req, res) {
     const disease = new Disease({
         name: req.body.name,
@@ -348,7 +336,6 @@ module.exports.saveDisease = function(req, res) {
 };
 
 module.exports.countDisease = function(req, res) {
-
     let indexListDiseases = 0;
     let listDiseases = new Array();
     DiseaseWikis.find(function(err,listdisease){
@@ -364,12 +351,6 @@ module.exports.countDisease = function(req, res) {
             res.sendStatus(404);
         }
     });
-};
-
-// Restrict access to root page
-
-module.exports.home = function(req, res) {
-    res.render('home', { user : req.user });
 };
 
 // Go to registration page

@@ -6,10 +6,6 @@ router.get('/about', control.aboutPage);
 
 router.get('/profilePage', control.profilePage);
 
-router.get('/homepage', control.realHome);
-
-router.get('/oldhome', control.home);
-
 router.get('/diseases', control.diseaseWiki);
 
 router.get('/disease/:id', control.disease);
