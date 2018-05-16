@@ -119,12 +119,8 @@ module.exports.diseaseSpecific = function(req, res) {
             diseasewikis.forEach(function(diseasespec) {
                 if (diseasespec.name == diseasename) {
                     res.render("diseasespecific2", {
-<<<<<<< HEAD
                         disease:diseasespec,
                         user: req.user
-=======
-                        disease:diseasespec, user: req.user
->>>>>>> a19aa0227fd50c81adf7a2c7725ac8a07af0637a
                     });
                 }
             });
@@ -153,12 +149,8 @@ module.exports.diseaseWiki = function(req, res) {
 
             listDiseases.sort();
             res.render("diseasewiki", {alphabet: alphabets,
-<<<<<<< HEAD
-                diseases: listDiseases, user: req.user
-=======
                 diseases: listDiseases, 
                 user: req.user
->>>>>>> a19aa0227fd50c81adf7a2c7725ac8a07af0637a
             });
 
         } else {
@@ -260,7 +252,7 @@ module.exports.saveHealthFact = function(req, res) {
 
 // Saving the disease wiki to the database
 module.exports.addDiseasePage = function(req, res) {
-    res.render("adddisease");
+    res.render("adddisease", {user: req.user});
 };
 
 module.exports.saveDisease = function(req, res) {
@@ -282,7 +274,7 @@ module.exports.saveDisease = function(req, res) {
 
     newDisease.save(function (err, newDisease){
         if (!err) {
-            res.render('savedisease');
+            res.render('savedisease', {user: req.user});
         } else {
             res.sendStatus(400);
         }
