@@ -4,10 +4,8 @@ const passport = require('passport');
 const Disease = mongoose.model('diseases');
 const QF = mongoose.model('healthfacts');
 const QQ = mongoose.model('healthquizzes');
-const Wiki = mongoose.model('mydiseasewikidatas');
 const Profile = mongoose.model('profiles');
 const DiseaseWikis = mongoose.model('diseasewikis');
-const bcrypt = require('bcrypt');
 
 const LocationNews = mongoose.model('locationnews');
 const OutbreakNews = mongoose.model('outbreaknews');
@@ -20,45 +18,11 @@ $ = require('jquery')(new jsdom.JSDOM().window);
 // temporary replacement for session pls don't judge
 let buffer;
 
-/*
-let qfact;
-let qquiz;
-
-
-QF.find(function(err,quickfacts) {
-    if(!err) {
-        qfact = quickfacts;
-    }
-});
-
-QQ.find(function(err,quickquiz) {
-    if(!err) {
-        qquiz = quickquiz;
-    }
-});
-*/
-
 module.exports.sayHello = function(req, res) {
     res.render("home");
 };
 
 module.exports.homerevised = function(req, res) {
-    // QF.find(function(err,quickfacts) {
-    //     if(!err) {
-    //         QQ.find(function(err,quickquiz) {
-    //             if(!err) {
-    //                 res.render("homepage_revised", {
-    //                     qfdb:quickfacts,
-    //                     qqdb:quickquiz
-    //                 });
-    //             } else {
-    //                 res.sendStatus(400);
-    //             }
-    //         });
-    //     } else {
-    //         res.sendStatus(400);
-    //     }
-    // });
 
     var now = new Date();
     var nowDate = now.getDate();
