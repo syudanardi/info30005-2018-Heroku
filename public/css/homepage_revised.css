@@ -1,5 +1,13 @@
 /*@import url("//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");*/
 
+#welcome-note {
+    color: #5a5a5a;
+}
+
+#non-user-alert{
+
+}
+
 .badge-danger{
     /*background-color: #DFF0FD;*/
     /*color: #FF0000;*/
