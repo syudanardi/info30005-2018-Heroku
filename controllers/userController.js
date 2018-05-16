@@ -137,20 +137,6 @@ module.exports.diseasemap = function(req, res) {
     res.render("epiMap");
 };
 
-module.exports.printAll = function(req, res) {
-    res.render("all",{
-        db:db.dataBase,
-        length:db.length
-    })
-};
-
-module.exports.printUser = function(req, res) {
-    res.render("user",{
-        name:db.dataBase[req.params.id].name,
-        job:db.dataBase[req.params.id].job
-    });
-};
-
 module.exports.diseaseWiki = function(req, res) {
     res.locals.query = req.query;
     var alphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");

@@ -10,10 +10,6 @@ router.get('/homepage', control.realHome);
 
 router.get('/oldhome', control.home);
 
-router.get('/users', control.printAll);
-
-router.get('/users/:id', control.printUser);
-
 router.get('/diseases', control.diseaseWiki);
 
 router.get('/disease/:id', control.disease);
