@@ -119,7 +119,7 @@ module.exports.diseaseSpecific = function(req, res) {
             diseasewikis.forEach(function(diseasespec) {
                 if (diseasespec.name == diseasename) {
                     res.render("diseasespecific2", {
-                        disease:diseasespec,
+                        disease:diseasespec, user: req.user
                     });
                 }
             });
@@ -130,9 +130,7 @@ module.exports.diseaseSpecific = function(req, res) {
 };
 
 module.exports.registrationForm = function(req, res) {
-    res.render("registrationform", {
-        user: req.user
-    });
+    res.render("registrationform",  {user: req.user});
 };
 
 module.exports.diseaseWiki = function(req, res) {
@@ -150,7 +148,8 @@ module.exports.diseaseWiki = function(req, res) {
 
             listDiseases.sort();
             res.render("diseasewiki", {alphabet: alphabets,
-                diseases: listDiseases
+                diseases: listDiseases, 
+                user: req.user
             });
 
         } else {
@@ -177,7 +176,7 @@ module.exports.disease = function(req, res) {
             listDiseases.sort();
             res.render("disease", {alphabet: alphabets,
                 chooseAlphabet: alphabets[index],
-                diseases: listDiseases
+                diseases: listDiseases, user: req.user
             });
 
         } else {
@@ -205,7 +204,7 @@ module.exports.currProfile = function(req,res) {
 };
 
 module.exports.aboutPage = function(req,res) {
-    res.render('aboutUs');
+    res.render('aboutUs',{user: req.user} );
 };
 
 module.exports.createDisease = function(req, res) {
@@ -226,60 +225,13 @@ module.exports.createDisease = function(req, res) {
     });
 };
 
-module.exports.createProfile = function(req, res) {
-
-        const newProfile = new Profile({
-        name: req.body.firstname + ' ' + req.body.lastname,
-        email: req.body.email,
-        phone: req.body.phone,
-        address: req.body.address,
-        country: req.body.country,
-        joinDate: Date.now(),
-        password: req.body.password
-    });
-
-
-    newProfile.save(function(err, newProfile){
-        res.render('/', {
-            user: req.user
-        })
-    });
-};
-
-
-module.exports.findAllDisease = function(req, res) {
-    let buffer = "";
-    Disease.find(function(err,diseases){
-        if(!err) {
-            diseases.forEach(function(member) {
-                buffer = buffer + member + '</br>';
-            });
-            res.send(buffer);
-
-        } else {
-            res.sendStatus(404);
-        }
-    });
-};
-
 module.exports.createForm = function(req, res){
     res.render("dbPractice");
 };
 
-module.exports.displayData = function(req,res){
-    let id = req.params.id;
-    Disease.find(function(err,diseases){
-        if(!err) {
-            res.send(diseases[id]["symptoms"]);
-        } else {
-            res.sendStatus(404);
-        }
-    });
-};
-
 // Saving the health fact to the database
 module.exports.addHealthFactPage = function(req, res) {
-    res.render("addhealthfact");
+    res.render("addhealthfact", {user: req.user});
 };
 
 module.exports.saveHealthFact = function(req, res) {
@@ -290,7 +242,7 @@ module.exports.saveHealthFact = function(req, res) {
     
     newHealthFact.save(function (err, newHealthFact){
         if (!err) {
-            res.render('savehealthfact');
+            res.render('savehealthfact', {user: req.user});
         } else {
             res.sendStatus(400);
         }
@@ -324,24 +276,6 @@ module.exports.saveDisease = function(req, res) {
             res.render('savedisease');
         } else {
             res.sendStatus(400);
-        }
-    });
-};
-
-module.exports.countDisease = function(req, res) {
-    let indexListDiseases = 0;
-    let listDiseases = new Array();
-    DiseaseWikis.find(function(err,listdisease){
-        if(!err) {
-            listdisease.forEach(function(member) {
-                listDiseases[indexListDiseases] = member.name;
-                indexListDiseases++;
-            });
-            listDiseases.sort();
-            res.send(listDiseases);
-
-        } else {
-            res.sendStatus(404);
         }
     });
 };
@@ -383,7 +317,5 @@ module.exports.logout = function(req, res) {
 };
 
 module.exports.logoutScreen = function(req, res){
-    res.render('loggedOut', {
-        user: req.user
-    })
+    res.render('loggedOut', {user: req.user})
 };

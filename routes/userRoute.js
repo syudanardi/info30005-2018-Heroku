@@ -36,8 +36,6 @@ router.get('/adddisease', control.addDiseasePage);
 // Save Disease (Admin Page)
 router.post('/adddisease/submit', control.saveDisease);
 
-router.get('/listdisease', control.countDisease);
-
 router.post('/profile', control.profile);
 
 router.get('/currProfile', control.currProfile);
