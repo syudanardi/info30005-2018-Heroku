@@ -84,4 +84,6 @@ router.post('/login', control.doLogin);
 // route for logout action
 router.get('/logout', control.logout);
 
+router.get('/notlogged', control.logoutScreen);
+
 module.exports = router;

@@ -269,6 +269,10 @@ module.exports.disease = function(req, res) {
 };
 
 module.exports.profile = function(req, res) {
+    if (!req.user){
+        res.redirect('/notlogged');
+        return
+    }
 
     var name = req.user.firstName + " " + req.user.lastName;
     res.render('profile', { 
@@ -547,7 +551,9 @@ module.exports.doLogin = function(req, res) {
 // logout
 module.exports.logout = function(req, res) {
     req.logout();
-    res.redirect('/');
+    res.redirect('/notlogged');
 };
 
-
+module.exports.logoutScreen = function(req, res){
+    res.render('loggedOut')
+};
