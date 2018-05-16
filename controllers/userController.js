@@ -406,7 +406,7 @@ module.exports.createProfile = function(req, res) {
         password: req.body.password
     });
     newProfile.save(function(err, newProfile){
-        res.render('/')
+        res.redirect('/');
     });
 };
 
