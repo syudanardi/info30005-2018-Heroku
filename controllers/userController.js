@@ -273,6 +273,10 @@ module.exports.disease = function(req, res) {
 };
 
 module.exports.profile = function(req, res) {
+    if (!req.user){
+        res.redirect('/notlogged');
+        return
+    }
 
     var name = req.user.firstName + " " + req.user.lastName;
     res.render('profile', { 
@@ -529,7 +533,7 @@ module.exports.doRegister = function(req, res) {
         if (err) {
             return res.sendStatus(404);
         }
-
+        req.body.username = user.username;
         passport.authenticate('local')(req, res, function () {
             res.redirect('/');
         });
@@ -551,7 +555,9 @@ module.exports.doLogin = function(req, res) {
 // logout
 module.exports.logout = function(req, res) {
     req.logout();
-    res.redirect('/');
+    res.redirect('/notlogged');
 };
 
-
+module.exports.logoutScreen = function(req, res){
+    res.render('loggedOut')
+};
