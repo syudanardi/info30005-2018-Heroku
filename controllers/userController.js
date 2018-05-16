@@ -133,10 +133,6 @@ module.exports.registrationForm = function(req, res) {
     res.render("registrationform");
 };
 
-module.exports.diseasemap = function(req, res) {
-    res.render("epiMap");
-};
-
 module.exports.diseaseWiki = function(req, res) {
     res.locals.query = req.query;
     var alphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
@@ -210,14 +206,6 @@ module.exports.aboutPage = function(req,res) {
     res.render('aboutUs');
 };
 
-module.exports.profilePage = function(req,res) {
-    res.render('profilePage');
-};
-
-module.exports.emailSetting = function(req,res) {
-    res.render('settings');
-};
-
 module.exports.createDisease = function(req, res) {
     const disease = new Disease({
         name: req.body.name,
@@ -235,24 +223,6 @@ module.exports.createDisease = function(req, res) {
         }
     });
 };
-
-module.exports.createProfile = function(req, res) {
-
-        const newProfile = new Profile({
-        name: req.body.firstname + ' ' + req.body.lastname,
-        email: req.body.email,
-        phone: req.body.phone,
-        address: req.body.address,
-        country: req.body.country,
-        joinDate: Date.now(),
-        password: req.body.password
-    });
-    newProfile.save(function(err, newProfile){
-        res.render('/')
-    });
-};
-
-
 
 module.exports.findAllDisease = function(req, res) {
     let buffer = "";
@@ -386,7 +356,7 @@ module.exports.doLogin = function(req, res) {
 // logout
 module.exports.logout = function(req, res) {
     req.logout();
-    res.redirect('/notlogged');
+    res.redirect('/');
 };
 
 module.exports.logoutScreen = function(req, res){
