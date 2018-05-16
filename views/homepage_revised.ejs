@@ -19,29 +19,6 @@
 
         <script>
 
-            function checkCountry(){
-                var requestUrl = "http://ip-api.com/json";
-                var result;
-
-                $.ajax({
-                    url: requestUrl,
-                    type: 'POST',
-                    success: function(json)
-                    {
-                        $("#currLocation").append(json.country);
-                        console.log("My country is: " + json.country);
-                        result = json.country;
-                    },
-                    error: function(err)
-                    {
-                        console.log("Request failed, error= " + err);
-                    }
-                });
-
-                return result;
-
-            }
-
             // Check the Quiz Answer
             function checkAnswer(option) {
                 var chooseAnswer;
@@ -62,9 +39,6 @@
                     document.getElementById("option-answer").innerHTML = "<strong><font color='red' size='5px'>You are wrong!</font></strong><br>The answer is " + correctAnswer;
                 }
             }
-
-
-
 
         </script>
 
@@ -97,7 +71,7 @@
                             <div class="card-img-overlay"> <span class="badge badge-pill badge-danger"><%=locnews[0].country%></span> </div>
                             <div class="card-body">
                                 <div class="news-title">
-                                    <h2 class=" title-small"><a href="<%=locnews[0].link%>">
+                                    <h2 class="title-small"><a href="<%=locnews[0].link%>">
                                             <%=locnews[0].content%>
                                         </a></h2>
                                 </div>
@@ -110,7 +84,7 @@
                             <div class="card-img-overlay"> <span class="badge badge-pill badge-danger"><%=locnews[1].country%></span> </div>
                             <div class="card-body">
                                 <div class="news-title">
-                                    <h2 class=" title-small"><a href="<%=locnews[1].link%>">
+                                    <h2 class="title-small"><a href="<%=locnews[1].link%>">
                                             <%=locnews[1].content%></a></h2>
                                 </div>
 
@@ -131,7 +105,7 @@
                             <div class="card-img-overlay"> <span class="badge badge-pill badge-danger"><%=locnews[3].country%></span> </div>
                             <div class="card-body">
                                 <div class="news-title">
-                                    <h2 class=" title-small"><a href="<%=locnews[3].link%>">
+                                    <h2 class="title-small"><a href="<%=locnews[3].link%>">
                                         <%=locnews[3].content%></a></h2>
                                 </div>
                             </div>

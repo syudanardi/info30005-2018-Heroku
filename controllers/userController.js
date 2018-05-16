@@ -14,6 +14,9 @@ const OutbreakNews = mongoose.model('outbreaknews');
 const TrendNews = mongoose.model('trendingnews');
 const FeaturedVideos = mongoose.model('featuredvideos');
 
+var jsdom = require('jsdom');
+$ = require('jquery')(new jsdom.JSDOM().window);
+
 // temporary replacement for session pls don't judge
 let buffer;
 
@@ -57,6 +60,27 @@ module.exports.homerevised = function(req, res) {
     //     }
     // });
 
+    var requestUrl = "http://ip-api.com/json";
+    var country;
+    $.ajax({
+        url: requestUrl,
+        type: 'GET',
+        success: function(json)
+            {   
+                country = json.country;
+                console.log("My country is: " + country);
+                
+            },
+        error: function(err)
+            {
+                console.log("Request failed, error= " + err);
+            }
+    });
+
+    var count = 4;
+    var index = 0;
+    var locationNews = new Array();
+
     QF.find(function(err,quickfacts) {
         if(!err) {
             QQ.find(function(err,quickquiz) {
@@ -64,20 +88,31 @@ module.exports.homerevised = function(req, res) {
                     FeaturedVideos.find(function(err, video){
                         
                         if (!err) {
-                            LocationNews.find(function(err, locnews) {
+                            OutbreakNews.find(function(err, outbreaknews) {
                                 if (!err) {
                                     TrendNews.find(function(err, trendnews) {
                                         if (!err) {
-                                            OutbreakNews.find(function(err, outbreaknews) {
-                                                res.render("homepage_revised", {
-                                                    qfdb:quickfacts,
-                                                    qqdb:quickquiz,
-                                                    vid: video,
-                                                    locnews: locnews,
-                                                    trendnews: trendnews,
-                                                    outbreaknews: outbreaknews,
-                                                    user: req.user
-                                                });
+                                            LocationNews.find(function(err, locnews) {
+                                                if (!err) {
+                                                    locnews.forEach(function(currlocnews) {
+                                                        if(currlocnews.country == country) {
+                                                            locationNews[index] = currlocnews;
+                                                            index++;
+                                                        }
+                                                    });
+
+                                                    res.render("homepage_revised", {
+                                                        qfdb:quickfacts,
+                                                        qqdb:quickquiz,
+                                                        vid: video,
+                                                        locnews: locationNews,
+                                                        trendnews: trendnews,
+                                                        outbreaknews: outbreaknews,
+                                                        user: req.user
+                                                    });
+                                                } else {
+                                                    res.sendStatus(400);
+                                                }
                                             });
                                         } else {
                                             res.sendStatus(400);
@@ -362,7 +397,8 @@ module.exports.createDisease = function(req, res) {
 };
 
 module.exports.createProfile = function(req, res) {
-    const newProfile = new Profile({
+
+        const newProfile = new Profile({
         name: req.body.firstname + ' ' + req.body.lastname,
         email: req.body.email,
         phone: req.body.phone,
@@ -373,6 +409,28 @@ module.exports.createProfile = function(req, res) {
     });
     newProfile.save(function(err, newProfile){
         if(!err) {
+
+            var requestUrl = "http://ip-api.com/json";
+            var country;
+            $.ajax({
+                url: requestUrl,
+                type: 'GET',
+                success: function(json)
+                    {   
+                        
+                        console.log("My country is: " + json.country);
+                        country = json.country;
+                    },
+                error: function(err)
+                    {
+                        console.log("Request failed, error= " + err);
+                    }
+            });
+        
+            var count = 4;
+            var index = 0;
+            var locationNews = new Array();
+        
             QF.find(function(err,quickfacts) {
                 if(!err) {
                     QQ.find(function(err,quickquiz) {
@@ -380,19 +438,31 @@ module.exports.createProfile = function(req, res) {
                             FeaturedVideos.find(function(err, video){
                                 
                                 if (!err) {
-                                    LocationNews.find(function(err, locnews) {
+                                    OutbreakNews.find(function(err, outbreaknews) {
                                         if (!err) {
                                             TrendNews.find(function(err, trendnews) {
                                                 if (!err) {
-                                                    OutbreakNews.find(function(err, outbreaknews) {
-                                                        res.render("homepage_revised", {
-                                                            qfdb:quickfacts,
-                                                            qqdb:quickquiz,
-                                                            vid: video,
-                                                            locnews: locnews,
-                                                            trendnews: trendnews,
-                                                            outbreaknews: outbreaknews
-                                                        });
+                                                    LocationNews.find(function(err, locnews) {
+                                                        if (!err) {
+                                                            locnews.forEach(function(currlocnews) {
+                                                                if(currlocnews.country == country) {
+                                                                    locationNews[index] = currlocnews;
+                                                                    index++;
+                                                                }
+                                                            });
+        
+                                                            res.render("homepage_revised", {
+                                                                qfdb:quickfacts,
+                                                                qqdb:quickquiz,
+                                                                vid: video,
+                                                                locnews: locationNews,
+                                                                trendnews: trendnews,
+                                                                outbreaknews: outbreaknews,
+                                                                user: req.user
+                                                            });
+                                                        } else {
+                                                            res.sendStatus(400);
+                                                        }
                                                     });
                                                 } else {
                                                     res.sendStatus(400);
