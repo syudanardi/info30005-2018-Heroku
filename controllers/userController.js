@@ -412,20 +412,20 @@ module.exports.createProfile = function(req, res) {
 
 
 
-module.exports.findAllDisease = function(req, res) {
-    let buffer = "";
-    Disease.find(function(err,diseases){
-        if(!err) {
-            diseases.forEach(function(member) {
-                buffer = buffer + member + '</br>';
-            });
-            res.send(buffer);
+// module.exports.findAllDisease = function(req, res) {
+//     let buffer = "";
+//     Disease.find(function(err,diseases){
+//         if(!err) {
+//             diseases.forEach(function(member) {
+//                 buffer = buffer + member + '</br>';
+//             });
+//             res.send(buffer);
 
-        } else {
-            res.sendStatus(404);
-        }
-    });
-};
+//         } else {
+//             res.sendStatus(404);
+//         }
+//     });
+// };
 
 module.exports.createForm = function(req, res){
     res.render("dbPractice");
