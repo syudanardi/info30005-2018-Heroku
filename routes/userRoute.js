@@ -73,15 +73,17 @@ router.get('/', control.homerevised);
 router.get('/register', control.register);
 
 // route for register action
-router.post('/register', control.doRegister);
+router.post('/registerSubmit', control.doRegister);
 
 // route to login page
 router.get('/login', control.login);
 
 // route for login action
-router.post('/login', control.doLogin);
+router.post('/loginSubmit', control.doLogin);
 
 // route for logout action
 router.get('/logout', control.logout);
+
+router.get('/notlogged', control.logoutScreen);
 
 module.exports = router;
