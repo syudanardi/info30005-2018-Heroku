@@ -256,56 +256,36 @@ module.exports.disease = function(req, res) {
 
 module.exports.profile = function(req, res) {
 
-    Profile.findOne({"email":req.body.email}).exec(function (err, profile) {
-        if (err) {
-            res.sendStatus(404);
-        } else if (!profile) {
-            let err = new Error('User not found.');
-            err.status = 401;
-            res.sendStatus(401);
-        }
-        bcrypt.compare(req.body.password, profile.password, function (err, result) {
-            if (result === true) {
-                let curr = profile;
-                buffer = curr;
-                let day = curr["joinDate"].getDate();
-                let year = curr["joinDate"].getFullYear();
-                let month = curr["joinDate"].getMonth();
-                let joined = '' + day + '/' + month + '/' + year;
-                res.render("profile.ejs", {
-                    profile:curr,
-                    name:curr["name"],
-                    phone:curr["phone"],
-                    email:curr["email"],
-                    joinDate:joined
-                });
-            } else {
-                res.sendStatus(401);
-            }
-        })
+    var name = req.user.firstName + " " + req.user.lastName;
+    res.render('profile', { 
+        user: req.user,
+        name: name
     });
 };
 
 module.exports.currProfile = function(req,res) {
-    if (!buffer){
-        res.send(404);
-        return;
-    }
-    let curr = buffer;
-    console.log(curr);
-    let day = curr["joinDate"].getDate();
-    let year = curr["joinDate"].getFullYear();
-    let month = curr["joinDate"].getMonth();
-    let joined = '' + day + '/' + month + '/' + year;
-    res.render("profile.ejs", {
-        profile:curr,
-        name:curr["name"],
-        phone:curr["phone"],
-        email:curr["email"],
-        address:curr["address"],
-        country:curr["country"],
-        joinDate:joined
-    });
+    // if (!buffer){
+    //     res.send(404);
+    //     return;
+    // }
+    // let curr = buffer;
+    // console.log(curr);
+    // let day = curr["joinDate"].getDate();
+    // let year = curr["joinDate"].getFullYear();
+    // let month = curr["joinDate"].getMonth();
+    // let joined = '' + day + '/' + month + '/' + year;
+    // res.render("profile.ejs", {
+    //     profile:curr,
+    //     name:curr["name"],
+    //     phone:curr["phone"],
+    //     email:curr["email"],
+    //     address:curr["address"],
+    //     country:curr["country"],
+    //     joinDate:joined
+    // });
+
+    var name = req.user.firstName + " " + req.user.lastName;
+    res.render('profile', { user: req.user, name: name});
 };
 
 module.exports.emailSubmit = function(req,res) {
