@@ -60,6 +60,9 @@ module.exports.homerevised = function(req, res) {
     //     }
     // });
 
+    var now = new Date();
+    var nowDate = now.getDate();
+
     var requestUrl = "http://ip-api.com/json";
     var country;
     $.ajax({
@@ -122,7 +125,8 @@ module.exports.homerevised = function(req, res) {
                                                         locnews: locationNews,
                                                         trendnews: trendnews,
                                                         outbreaknews: outbreaknews,
-                                                        user: req.user
+                                                        user: req.user,
+                                                        date: nowDate
                                                     });
                                                 } else {
                                                     res.sendStatus(400);
