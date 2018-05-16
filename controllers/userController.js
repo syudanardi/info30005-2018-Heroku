@@ -77,7 +77,21 @@ module.exports.homerevised = function(req, res) {
             }
     });
 
-    var count = 4;
+    var addRandomNews = function(index, locnews, locationNews){
+        if (locnews.length < 4 ){
+            return
+        }
+        if (index < 3) {
+            locnews.forEach(function (currlocnews) {
+                if (!locationNews.includes(currlocnews)){
+                    locationNews[index] = currlocnews;
+                    index ++;
+                }
+            });
+        }
+        return locationNews;
+    };
+
     var index = 0;
     var locationNews = new Array();
 
@@ -99,8 +113,8 @@ module.exports.homerevised = function(req, res) {
                                                             locationNews[index] = currlocnews;
                                                             index++;
                                                         }
+                                                        locationNews = addRandomNews(index,locnews, locationNews);
                                                     });
-
                                                     res.render("homepage_revised", {
                                                         qfdb:quickfacts,
                                                         qqdb:quickquiz,
@@ -256,56 +270,36 @@ module.exports.disease = function(req, res) {
 
 module.exports.profile = function(req, res) {
 
-    Profile.findOne({"email":req.body.email}).exec(function (err, profile) {
-        if (err) {
-            res.sendStatus(404);
-        } else if (!profile) {
-            let err = new Error('User not found.');
-            err.status = 401;
-            res.sendStatus(401);
-        }
-        bcrypt.compare(req.body.password, profile.password, function (err, result) {
-            if (result === true) {
-                let curr = profile;
-                buffer = curr;
-                let day = curr["joinDate"].getDate();
-                let year = curr["joinDate"].getFullYear();
-                let month = curr["joinDate"].getMonth();
-                let joined = '' + day + '/' + month + '/' + year;
-                res.render("profile.ejs", {
-                    profile:curr,
-                    name:curr["name"],
-                    phone:curr["phone"],
-                    email:curr["email"],
-                    joinDate:joined
-                });
-            } else {
-                res.sendStatus(401);
-            }
-        })
+    var name = req.user.firstName + " " + req.user.lastName;
+    res.render('profile', { 
+        user: req.user,
+        name: name
     });
 };
 
 module.exports.currProfile = function(req,res) {
-    if (!buffer){
-        res.send(404);
-        return;
-    }
-    let curr = buffer;
-    console.log(curr);
-    let day = curr["joinDate"].getDate();
-    let year = curr["joinDate"].getFullYear();
-    let month = curr["joinDate"].getMonth();
-    let joined = '' + day + '/' + month + '/' + year;
-    res.render("profile.ejs", {
-        profile:curr,
-        name:curr["name"],
-        phone:curr["phone"],
-        email:curr["email"],
-        address:curr["address"],
-        country:curr["country"],
-        joinDate:joined
-    });
+    // if (!buffer){
+    //     res.send(404);
+    //     return;
+    // }
+    // let curr = buffer;
+    // console.log(curr);
+    // let day = curr["joinDate"].getDate();
+    // let year = curr["joinDate"].getFullYear();
+    // let month = curr["joinDate"].getMonth();
+    // let joined = '' + day + '/' + month + '/' + year;
+    // res.render("profile.ejs", {
+    //     profile:curr,
+    //     name:curr["name"],
+    //     phone:curr["phone"],
+    //     email:curr["email"],
+    //     address:curr["address"],
+    //     country:curr["country"],
+    //     joinDate:joined
+    // });
+
+    var name = req.user.firstName + " " + req.user.lastName;
+    res.render('profile', { user: req.user, name: name});
 };
 
 module.exports.emailSubmit = function(req,res) {
@@ -408,87 +402,7 @@ module.exports.createProfile = function(req, res) {
         password: req.body.password
     });
     newProfile.save(function(err, newProfile){
-        if(!err) {
-
-            var requestUrl = "http://ip-api.com/json";
-            var country;
-            $.ajax({
-                url: requestUrl,
-                type: 'GET',
-                success: function(json)
-                    {   
-                        
-                        console.log("My country is: " + json.country);
-                        country = json.country;
-                    },
-                error: function(err)
-                    {
-                        console.log("Request failed, error= " + err);
-                    }
-            });
-        
-            var count = 4;
-            var index = 0;
-            var locationNews = new Array();
-        
-            QF.find(function(err,quickfacts) {
-                if(!err) {
-                    QQ.find(function(err,quickquiz) {
-                        if(!err) {
-                            FeaturedVideos.find(function(err, video){
-                                
-                                if (!err) {
-                                    OutbreakNews.find(function(err, outbreaknews) {
-                                        if (!err) {
-                                            TrendNews.find(function(err, trendnews) {
-                                                if (!err) {
-                                                    LocationNews.find(function(err, locnews) {
-                                                        if (!err) {
-                                                            locnews.forEach(function(currlocnews) {
-                                                                if(currlocnews.country == country) {
-                                                                    locationNews[index] = currlocnews;
-                                                                    index++;
-                                                                }
-                                                            });
-        
-                                                            res.render("homepage_revised", {
-                                                                qfdb:quickfacts,
-                                                                qqdb:quickquiz,
-                                                                vid: video,
-                                                                locnews: locationNews,
-                                                                trendnews: trendnews,
-                                                                outbreaknews: outbreaknews,
-                                                                user: req.user
-                                                            });
-                                                        } else {
-                                                            res.sendStatus(400);
-                                                        }
-                                                    });
-                                                } else {
-                                                    res.sendStatus(400);
-                                                }
-                                            });
-                                        } else {
-                                            res.sendStatus(400);
-                                        }
-                                    });
-                                } else {
-                                    res.sendStatus(400);
-                                }
-                            });
-        
-                        } else {
-                            res.sendStatus(400);
-                        }
-                    });
-                } else {
-                    res.sendStatus(400);
-                }
-            });
-            console.log("New Profile Created\n");
-        } else {
-            res.sendStatus(400);
-        }
+        res.render('/')
     });
 };
 
