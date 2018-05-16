@@ -50,7 +50,11 @@
             <% include navbar.ejs %>
         </div>
 
-
+        <%if (!user) { %>
+            <h1>Welcome Stranger</h1>
+        <% } else { %>
+            <h1>Welcome <%=user.firstName + ' ' + user.lastName%></h1>
+        <% } %>
 
 
         <section class="banner-sec">
@@ -259,25 +263,22 @@
                                 <div class="media"> <a href="#"> <img class="d-flex mr-3" src="/resource/laugh.jpg" alt="Generic placeholder image"></a>
                                     <div class="media-body">
                                         <div class="news-title">
-                                            <h2 class="title-small"><p><%=qfdb[0]["fact"]%>.. <a href="<%=qfdb[0]["link"]%>" target="_blank">Read More</a></p></h2>
+                                            <h2 class="title-small"><p><%=qfdb[(date%qfdb.length) + 3]["fact"]%>.. <a href="<%=qfdb[(date%qfdb.length) + 3]["link"]%>" target="_blank">Read More</a></p></h2>
                                         </div>
-                                        <!--<div class="news-auther"><span class="time">1h ago</span></div>-->
                                     </div>
                                 </div>
                                 <div class="media"> <a href="#"> <img class="d-flex mr-3" src="/resource/standing.jpg" alt="Generic placeholder image"></a>
                                     <div class="media-body">
                                         <div class="news-title">
-                                            <h2 class="title-small"><p><%=qfdb[1]["fact"]%>.. <a href="<%=qfdb[1]["link"]%>" target="_blank">Read More</a></p></h2>
+                                            <h2 class="title-small"><p><%=qfdb[((date+1)%qfdb.length) + 3]["fact"]%>.. <a href="<%=qfdb[((date+1)%qfdb.length) + 3]["link"]%>" target="_blank">Read More</a></p></h2>
                                         </div>
-                                        <!--<div class="news-auther"><span class="time">1h ago</span></div>-->
                                     </div>
                                 </div>
                                 <div class="media"> <a href="#"> <img class="d-flex mr-3" src="/resource/balanced_diet.jpg" alt="Generic placeholder image"></a>
                                     <div class="media-body">
                                         <div class="news-title">
-                                            <h2 class="title-small"><p><%=qfdb[2]["fact"]%>.. <a href="<%=qfdb[2]["link"]%>" target="_blank">Read More</a></p></h2>
+                                            <h2 class="title-small"><p><%=qfdb[((date+2)%qfdb.length) + 3]["fact"]%>.. <a href="<%=qfdb[((date+2)%qfdb.length) + 3]["link"]%>" target="_blank">Read More</a></p></h2>
                                         </div>
-                                        <!--<div class="news-auther"><span class="time">1h ago</span></div>-->
                                     </div>
                                 </div>
                             </div>
@@ -287,13 +288,13 @@
                                 <div class="media">
                                     <div class="media-body">
                                         <div class="news-title">
-                                            <p class="text-center" id="#question"><%=qqdb[0]['question']%></p>
-                                            <span id="answer" class="<%=qqdb[0]['answer']%>" hidden></span>
+                                            <p class="text-center" id="#question"><%=qqdb[date%qqdb.length]['question']%></p>
+                                            <span id="answer" class="<%=qqdb[date%qqdb.length]['answer']%>" hidden></span>
                                             <div id="option-answer" class="text-center">
-                                                <button id="option1" value="<%=qqdb[0]['option'][0]%>" type="button" class="btn btn-primary" onclick="checkAnswer(1)"><%=qqdb[0]['option'][0]%></button>
+                                                <button id="option1" value="<%=qqdb[date%qqdb.length]['option'][0]%>" type="button" class="btn btn-primary" onclick="checkAnswer(1)"><%=qqdb[date%qqdb.length]['option'][0]%></button>
                                                 <br>
                                                 <br>
-                                                <button id="option2" value="<%=qqdb[0]['option'][1]%>" type="button" class="btn btn-primary" onclick="checkAnswer(2)"><%=qqdb[0]['option'][1]%></button>
+                                                <button id="option2" value="<%=qqdb[date%qqdb.length]['option'][1]%>" type="button" class="btn btn-primary" onclick="checkAnswer(2)"><%=qqdb[date%qqdb.length]['option'][1]%></button>
                                                 <br>
                                             </div>
 
