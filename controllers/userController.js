@@ -130,7 +130,9 @@ module.exports.diseaseSpecific = function(req, res) {
 };
 
 module.exports.registrationForm = function(req, res) {
-    res.render("registrationform");
+    res.render("registrationform", {
+        user: req.user
+    });
 };
 
 module.exports.diseasemap = function(req, res) {
@@ -247,8 +249,12 @@ module.exports.createProfile = function(req, res) {
         joinDate: Date.now(),
         password: req.body.password
     });
+
+
     newProfile.save(function(err, newProfile){
-        res.render('/')
+        res.render('/', {
+            user: req.user
+        })
     });
 };
 
@@ -386,9 +392,11 @@ module.exports.doLogin = function(req, res) {
 // logout
 module.exports.logout = function(req, res) {
     req.logout();
-    res.redirect('/notlogged');
+    res.redirect('/');
 };
 
 module.exports.logoutScreen = function(req, res){
-    res.render('loggedOut')
+    res.render('loggedOut', {
+        user: req.user
+    })
 };
