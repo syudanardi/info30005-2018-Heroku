@@ -529,7 +529,7 @@ module.exports.doRegister = function(req, res) {
         if (err) {
             return res.sendStatus(404);
         }
-
+        req.body.username = user.username;
         passport.authenticate('local')(req, res, function () {
             res.redirect('/');
         });
