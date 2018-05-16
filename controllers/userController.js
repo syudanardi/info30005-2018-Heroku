@@ -210,14 +210,6 @@ module.exports.aboutPage = function(req,res) {
     res.render('aboutUs');
 };
 
-module.exports.profilePage = function(req,res) {
-    res.render('profilePage');
-};
-
-module.exports.emailSetting = function(req,res) {
-    res.render('settings');
-};
-
 module.exports.createDisease = function(req, res) {
     const disease = new Disease({
         name: req.body.name,
@@ -235,24 +227,6 @@ module.exports.createDisease = function(req, res) {
         }
     });
 };
-
-module.exports.createProfile = function(req, res) {
-
-        const newProfile = new Profile({
-        name: req.body.firstname + ' ' + req.body.lastname,
-        email: req.body.email,
-        phone: req.body.phone,
-        address: req.body.address,
-        country: req.body.country,
-        joinDate: Date.now(),
-        password: req.body.password
-    });
-    newProfile.save(function(err, newProfile){
-        res.render('/')
-    });
-};
-
-
 
 module.exports.findAllDisease = function(req, res) {
     let buffer = "";
