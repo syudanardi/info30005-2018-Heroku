@@ -120,6 +120,7 @@ module.exports.diseaseSpecific = function(req, res) {
                 if (diseasespec.name == diseasename) {
                     res.render("diseasespecific2", {
                         disease:diseasespec,
+                        user: req.user
                     });
                 }
             });
@@ -150,7 +151,7 @@ module.exports.diseaseWiki = function(req, res) {
 
             listDiseases.sort();
             res.render("diseasewiki", {alphabet: alphabets,
-                diseases: listDiseases
+                diseases: listDiseases, user: req.user
             });
 
         } else {
@@ -177,7 +178,7 @@ module.exports.disease = function(req, res) {
             listDiseases.sort();
             res.render("disease", {alphabet: alphabets,
                 chooseAlphabet: alphabets[index],
-                diseases: listDiseases
+                diseases: listDiseases, user: req.user
             });
 
         } else {
@@ -205,7 +206,7 @@ module.exports.currProfile = function(req,res) {
 };
 
 module.exports.aboutPage = function(req,res) {
-    res.render('aboutUs');
+    res.render('aboutUs', {user: req.user});
 };
 
 module.exports.createDisease = function(req, res) {
@@ -243,22 +244,6 @@ module.exports.createProfile = function(req, res) {
         res.render('/', {
             user: req.user
         })
-    });
-};
-
-
-module.exports.findAllDisease = function(req, res) {
-    let buffer = "";
-    Disease.find(function(err,diseases){
-        if(!err) {
-            diseases.forEach(function(member) {
-                buffer = buffer + member + '</br>';
-            });
-            res.send(buffer);
-
-        } else {
-            res.sendStatus(404);
-        }
     });
 };
 
@@ -328,27 +313,9 @@ module.exports.saveDisease = function(req, res) {
     });
 };
 
-module.exports.countDisease = function(req, res) {
-    let indexListDiseases = 0;
-    let listDiseases = new Array();
-    DiseaseWikis.find(function(err,listdisease){
-        if(!err) {
-            listdisease.forEach(function(member) {
-                listDiseases[indexListDiseases] = member.name;
-                indexListDiseases++;
-            });
-            listDiseases.sort();
-            res.send(listDiseases);
-
-        } else {
-            res.sendStatus(404);
-        }
-    });
-};
-
 // Go to registration page
 module.exports.register = function(req, res) {
-    res.render('registrationform');
+    res.render('registrationform', {user: req.user});
 };
 
 // Post registration
