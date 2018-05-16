@@ -118,25 +118,6 @@ module.exports.homerevised = function(req, res) {
         }
     });
 };
-/*
-module.exports.home = function(req, res) {
-    QF.find(function(err,quickfacts) {
-        if(!err) {
-            QQ.find(function(err,quickquiz) {
-                if(!err) {
-                    res.render("homepage", {
-                        qfdb:quickfacts,
-                        qqdb:quickquiz
-                    });
-                } else {
-                    res.sendStatus(400);
-                }
-            });
-        } else {
-            res.sendStatus(400);
-        }
-    });
-};*/
 
 module.exports.diseaseSpecific = function(req, res) {
     let diseasename = req.params.id;
@@ -250,26 +231,6 @@ module.exports.profile = function(req, res) {
 };
 
 module.exports.currProfile = function(req,res) {
-    // if (!buffer){
-    //     res.send(404);
-    //     return;
-    // }
-    // let curr = buffer;
-    // console.log(curr);
-    // let day = curr["joinDate"].getDate();
-    // let year = curr["joinDate"].getFullYear();
-    // let month = curr["joinDate"].getMonth();
-    // let joined = '' + day + '/' + month + '/' + year;
-    // res.render("profile.ejs", {
-    //     profile:curr,
-    //     name:curr["name"],
-    //     phone:curr["phone"],
-    //     email:curr["email"],
-    //     address:curr["address"],
-    //     country:curr["country"],
-    //     joinDate:joined
-    // });
-
     var name = req.user.firstName + " " + req.user.lastName;
     res.render('profile', { user: req.user, name: name});
 };
@@ -303,34 +264,6 @@ module.exports.profilePage = function(req,res) {
 module.exports.emailSetting = function(req,res) {
     res.render('settings');
 };
-/*
-    };
-    Profile.find({"email":req.body.email, "password":req.body.password}, function(err,profiles){
-        if(!err){
-            if (profiles.length > 0){
-                let curr = profiles[0];
-                let day = curr["joinDate"].getDate();
-                let year = curr["joinDate"].getFullYear();
-                let month = curr["joinDate"].getMonth();
-                let joined = '' + day + '/' + month + '/' + year;
-                res.render("oldProfile.ejs", {
-                    profile:curr,
-                    name:curr["name"],
-                    phone:curr["phone"],
-                    email:curr["email"],
-                    joinDate:joined
-                })}
-            else
-            {
-                res.render("registrationform");
-                // res.send("profile doesn't exist with the email/password combination");
-            }
-        } else {
-            res.sendStatus(400);
-        }
-    });
-};
-*/
 
 module.exports.realHome = function(req, res) {
     QF.find(function(err,quickfacts) {
