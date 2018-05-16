@@ -68,6 +68,7 @@ module.exports.homerevised = function(req, res) {
         success: function(json)
             {   
                 country = json.country;
+                country = 'Indonesia';
                 console.log("My country is: " + country);
                 
             },
@@ -77,7 +78,21 @@ module.exports.homerevised = function(req, res) {
             }
     });
 
-    var count = 4;
+    var addRandomNews = function(index, locnews, locationNews){
+        if (locnews.length < 4 ){
+            return
+        }
+        if (index < 3) {
+            locnews.forEach(function (currlocnews) {
+                if (!locationNews.includes(currlocnews)){
+                    locationNews[index] = currlocnews;
+                    index ++;
+                }
+            });
+        }
+        return locationNews;
+    };
+
     var index = 0;
     var locationNews = new Array();
 
@@ -99,8 +114,8 @@ module.exports.homerevised = function(req, res) {
                                                             locationNews[index] = currlocnews;
                                                             index++;
                                                         }
+                                                        locationNews = addRandomNews(index,locnews, locationNews);
                                                     });
-
                                                     res.render("homepage_revised", {
                                                         qfdb:quickfacts,
                                                         qqdb:quickquiz,
@@ -408,87 +423,7 @@ module.exports.createProfile = function(req, res) {
         password: req.body.password
     });
     newProfile.save(function(err, newProfile){
-        if(!err) {
-
-            var requestUrl = "http://ip-api.com/json";
-            var country;
-            $.ajax({
-                url: requestUrl,
-                type: 'GET',
-                success: function(json)
-                    {   
-                        
-                        console.log("My country is: " + json.country);
-                        country = json.country;
-                    },
-                error: function(err)
-                    {
-                        console.log("Request failed, error= " + err);
-                    }
-            });
-        
-            var count = 4;
-            var index = 0;
-            var locationNews = new Array();
-        
-            QF.find(function(err,quickfacts) {
-                if(!err) {
-                    QQ.find(function(err,quickquiz) {
-                        if(!err) {
-                            FeaturedVideos.find(function(err, video){
-                                
-                                if (!err) {
-                                    OutbreakNews.find(function(err, outbreaknews) {
-                                        if (!err) {
-                                            TrendNews.find(function(err, trendnews) {
-                                                if (!err) {
-                                                    LocationNews.find(function(err, locnews) {
-                                                        if (!err) {
-                                                            locnews.forEach(function(currlocnews) {
-                                                                if(currlocnews.country == country) {
-                                                                    locationNews[index] = currlocnews;
-                                                                    index++;
-                                                                }
-                                                            });
-        
-                                                            res.render("homepage_revised", {
-                                                                qfdb:quickfacts,
-                                                                qqdb:quickquiz,
-                                                                vid: video,
-                                                                locnews: locationNews,
-                                                                trendnews: trendnews,
-                                                                outbreaknews: outbreaknews,
-                                                                user: req.user
-                                                            });
-                                                        } else {
-                                                            res.sendStatus(400);
-                                                        }
-                                                    });
-                                                } else {
-                                                    res.sendStatus(400);
-                                                }
-                                            });
-                                        } else {
-                                            res.sendStatus(400);
-                                        }
-                                    });
-                                } else {
-                                    res.sendStatus(400);
-                                }
-                            });
-        
-                        } else {
-                            res.sendStatus(400);
-                        }
-                    });
-                } else {
-                    res.sendStatus(400);
-                }
-            });
-            console.log("New Profile Created\n");
-        } else {
-            res.sendStatus(400);
-        }
+        res.render('/')
     });
 };
 
