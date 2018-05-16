@@ -4,10 +4,8 @@ const passport = require('passport');
 const Disease = mongoose.model('diseases');
 const QF = mongoose.model('healthfacts');
 const QQ = mongoose.model('healthquizzes');
-const Wiki = mongoose.model('mydiseasewikidatas');
 const Profile = mongoose.model('profiles');
 const DiseaseWikis = mongoose.model('diseasewikis');
-const bcrypt = require('bcrypt');
 
 const LocationNews = mongoose.model('locationnews');
 const OutbreakNews = mongoose.model('outbreaknews');
@@ -17,48 +15,7 @@ const FeaturedVideos = mongoose.model('featuredvideos');
 var jsdom = require('jsdom');
 $ = require('jquery')(new jsdom.JSDOM().window);
 
-// temporary replacement for session pls don't judge
-let buffer;
-
-/*
-let qfact;
-let qquiz;
-
-
-QF.find(function(err,quickfacts) {
-    if(!err) {
-        qfact = quickfacts;
-    }
-});
-
-QQ.find(function(err,quickquiz) {
-    if(!err) {
-        qquiz = quickquiz;
-    }
-});
-*/
-
-module.exports.sayHello = function(req, res) {
-    res.render("home");
-};
-
 module.exports.homerevised = function(req, res) {
-    // QF.find(function(err,quickfacts) {
-    //     if(!err) {
-    //         QQ.find(function(err,quickquiz) {
-    //             if(!err) {
-    //                 res.render("homepage_revised", {
-    //                     qfdb:quickfacts,
-    //                     qqdb:quickquiz
-    //                 });
-    //             } else {
-    //                 res.sendStatus(400);
-    //             }
-    //         });
-    //     } else {
-    //         res.sendStatus(400);
-    //     }
-    // });
 
     var now = new Date();
     var nowDate = now.getDate();
@@ -154,25 +111,6 @@ module.exports.homerevised = function(req, res) {
         }
     });
 };
-/*
-module.exports.home = function(req, res) {
-    QF.find(function(err,quickfacts) {
-        if(!err) {
-            QQ.find(function(err,quickquiz) {
-                if(!err) {
-                    res.render("homepage", {
-                        qfdb:quickfacts,
-                        qqdb:quickquiz
-                    });
-                } else {
-                    res.sendStatus(400);
-                }
-            });
-        } else {
-            res.sendStatus(400);
-        }
-    });
-};*/
 
 module.exports.diseaseSpecific = function(req, res) {
     let diseasename = req.params.id;
@@ -195,30 +133,8 @@ module.exports.registrationForm = function(req, res) {
     res.render("registrationform");
 };
 
-module.exports.navbar = function(req, res) {
-    res.render("navbar");
-};
-
 module.exports.diseasemap = function(req, res) {
     res.render("epiMap");
-};
-
-module.exports.footer = function(req, res) {
-    res.render("footer");
-};
-
-module.exports.printAll = function(req, res) {
-    res.render("all",{
-        db:db.dataBase,
-        length:db.length
-    })
-};
-
-module.exports.printUser = function(req, res) {
-    res.render("user",{
-        name:db.dataBase[req.params.id].name,
-        job:db.dataBase[req.params.id].job
-    });
 };
 
 module.exports.diseaseWiki = function(req, res) {
@@ -286,46 +202,8 @@ module.exports.profile = function(req, res) {
 };
 
 module.exports.currProfile = function(req,res) {
-    // if (!buffer){
-    //     res.send(404);
-    //     return;
-    // }
-    // let curr = buffer;
-    // console.log(curr);
-    // let day = curr["joinDate"].getDate();
-    // let year = curr["joinDate"].getFullYear();
-    // let month = curr["joinDate"].getMonth();
-    // let joined = '' + day + '/' + month + '/' + year;
-    // res.render("profile.ejs", {
-    //     profile:curr,
-    //     name:curr["name"],
-    //     phone:curr["phone"],
-    //     email:curr["email"],
-    //     address:curr["address"],
-    //     country:curr["country"],
-    //     joinDate:joined
-    // });
-
     var name = req.user.firstName + " " + req.user.lastName;
     res.render('profile', { user: req.user, name: name});
-};
-
-module.exports.emailSubmit = function(req,res) {
-    buffer["email"] = req.body.email;
-    let curr = buffer;
-    let day = curr["joinDate"].getDate();
-    let year = curr["joinDate"].getFullYear();
-    let month = curr["joinDate"].getMonth();
-    let joined = '' + day + '/' + month + '/' + year;
-    res.render("profile.ejs", {
-        profile:curr,
-        name:curr["name"],
-        phone:curr["phone"],
-        email:curr["email"],
-        address:curr["address"],
-        country:curr["country"],
-        joinDate:joined
-    });
 };
 
 module.exports.aboutPage = function(req,res) {
@@ -338,46 +216,6 @@ module.exports.profilePage = function(req,res) {
 
 module.exports.emailSetting = function(req,res) {
     res.render('settings');
-};
-/*
-    };
-    Profile.find({"email":req.body.email, "password":req.body.password}, function(err,profiles){
-        if(!err){
-            if (profiles.length > 0){
-                let curr = profiles[0];
-                let day = curr["joinDate"].getDate();
-                let year = curr["joinDate"].getFullYear();
-                let month = curr["joinDate"].getMonth();
-                let joined = '' + day + '/' + month + '/' + year;
-                res.render("oldProfile.ejs", {
-                    profile:curr,
-                    name:curr["name"],
-                    phone:curr["phone"],
-                    email:curr["email"],
-                    joinDate:joined
-                })}
-            else
-            {
-                res.render("registrationform");
-                // res.send("profile doesn't exist with the email/password combination");
-            }
-        } else {
-            res.sendStatus(400);
-        }
-    });
-};
-*/
-
-module.exports.realHome = function(req, res) {
-    QF.find(function(err,quickfacts) {
-        if(!err) {
-            res.render("newHome", {
-                db:quickfacts
-            });
-        } else {
-            res.sendStatus(400);
-        }
-    });
 };
 
 module.exports.createDisease = function(req, res) {
@@ -498,7 +336,6 @@ module.exports.saveDisease = function(req, res) {
 };
 
 module.exports.countDisease = function(req, res) {
-
     let indexListDiseases = 0;
     let listDiseases = new Array();
     DiseaseWikis.find(function(err,listdisease){
@@ -514,12 +351,6 @@ module.exports.countDisease = function(req, res) {
             res.sendStatus(404);
         }
     });
-};
-
-// Restrict access to root page
-
-module.exports.home = function(req, res) {
-    res.render('home', { user : req.user });
 };
 
 // Go to registration page

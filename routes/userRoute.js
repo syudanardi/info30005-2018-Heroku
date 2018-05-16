@@ -6,14 +6,6 @@ router.get('/about', control.aboutPage);
 
 router.get('/profilePage', control.profilePage);
 
-router.get('/homepage', control.realHome);
-
-router.get('/oldhome', control.home);
-
-router.get('/users', control.printAll);
-
-router.get('/users/:id', control.printUser);
-
 router.get('/diseases', control.diseaseWiki);
 
 router.get('/disease/:id', control.disease);
@@ -22,15 +14,9 @@ router.get('/profile', control.profile);
 
 router.get('/disease_specific/:id', control.diseaseSpecific);
 
-//router.get('/', control.homerevised);
-
 router.get('/home', control.homerevised);
 
 router.get('/registration_form', control.registrationForm);
-
-router.get('/navbar', control.navbar);
-
-router.get('/footer', control.footer);
 
 router.get('/disease_map', control.diseasemap);
 
@@ -63,8 +49,6 @@ router.post('/profile', control.profile);
 router.get('/currProfile', control.currProfile);
 
 router.get('/emailSetting', control.emailSetting);
-
-router.post('/emailSubmit', control.emailSubmit);
 
 // restrict index for logged in user only
 router.get('/', control.homerevised);
