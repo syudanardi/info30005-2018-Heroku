@@ -356,7 +356,7 @@ module.exports.doLogin = function(req, res) {
 // logout
 module.exports.logout = function(req, res) {
     req.logout();
-    res.redirect('/notlogged');
+    res.redirect('/');
 };
 
 module.exports.logoutScreen = function(req, res){
