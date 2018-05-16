@@ -15,13 +15,6 @@ const FeaturedVideos = mongoose.model('featuredvideos');
 var jsdom = require('jsdom');
 $ = require('jquery')(new jsdom.JSDOM().window);
 
-// temporary replacement for session pls don't judge
-let buffer;
-
-module.exports.sayHello = function(req, res) {
-    res.render("home");
-};
-
 module.exports.homerevised = function(req, res) {
 
     var now = new Date();
@@ -233,24 +226,6 @@ module.exports.profile = function(req, res) {
 module.exports.currProfile = function(req,res) {
     var name = req.user.firstName + " " + req.user.lastName;
     res.render('profile', { user: req.user, name: name});
-};
-
-module.exports.emailSubmit = function(req,res) {
-    buffer["email"] = req.body.email;
-    let curr = buffer;
-    let day = curr["joinDate"].getDate();
-    let year = curr["joinDate"].getFullYear();
-    let month = curr["joinDate"].getMonth();
-    let joined = '' + day + '/' + month + '/' + year;
-    res.render("profile.ejs", {
-        profile:curr,
-        name:curr["name"],
-        phone:curr["phone"],
-        email:curr["email"],
-        address:curr["address"],
-        country:curr["country"],
-        joinDate:joined
-    });
 };
 
 module.exports.aboutPage = function(req,res) {
