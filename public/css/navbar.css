@@ -13,12 +13,15 @@ a {
     background-color: #e3f2fd;
 }
 
-#loginText {
+#logoutText {
+    color: #666;
+}
+
+#loginText{
 
     padding-left: 8px;
     border-left: 0.5px solid grey;
     color: #666;
-
 
 }
 

@@ -130,7 +130,9 @@ module.exports.diseaseSpecific = function(req, res) {
 };
 
 module.exports.registrationForm = function(req, res) {
-    res.render("registrationform");
+    res.render("registrationform", {
+        user: req.user
+    });
 };
 
 module.exports.diseaseWiki = function(req, res) {
@@ -223,6 +225,27 @@ module.exports.createDisease = function(req, res) {
         }
     });
 };
+
+module.exports.createProfile = function(req, res) {
+
+        const newProfile = new Profile({
+        name: req.body.firstname + ' ' + req.body.lastname,
+        email: req.body.email,
+        phone: req.body.phone,
+        address: req.body.address,
+        country: req.body.country,
+        joinDate: Date.now(),
+        password: req.body.password
+    });
+
+
+    newProfile.save(function(err, newProfile){
+        res.render('/', {
+            user: req.user
+        })
+    });
+};
+
 
 module.exports.findAllDisease = function(req, res) {
     let buffer = "";
@@ -360,5 +383,7 @@ module.exports.logout = function(req, res) {
 };
 
 module.exports.logoutScreen = function(req, res){
-    res.render('loggedOut')
+    res.render('loggedOut', {
+        user: req.user
+    })
 };

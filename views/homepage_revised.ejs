@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
+
     <head>
         <meta charset="UTF-8">
         <title>Quick Health</title>
@@ -16,6 +18,7 @@
 
 
         <script>
+
             // Check the Quiz Answer
             function checkAnswer(option) {
                 var chooseAnswer;
@@ -33,9 +36,10 @@
                     document.getElementById("option-answer").innerHTML = "<strong><font color='green' size='5px'>You are correct!</font></strong><br>The answer is " + correctAnswer;
                 }
                 else {
-                    document.getElementById("option-answer").innerHTML = "<strong><font color='red' size='5px'>You are wrong!</font></strong><br>The answer is " + correctAnswer; 
+                    document.getElementById("option-answer").innerHTML = "<strong><font color='red' size='5px'>You are wrong!</font></strong><br>The answer is " + correctAnswer;
                 }
             }
+
         </script>
 
     </head>
@@ -46,18 +50,21 @@
             <% include navbar.ejs %>
         </div>
 
-        <%if (!user) { %>
-            <h1>Welcome Stranger</h1>
-        <% } else { %>
-            <h1>Welcome <%=user.firstName + ' ' + user.lastName%></h1>
-        <% } %>
-        
+
         <section class="banner-sec">
             <div class="container">
+
+                <%if (user) { %>
+                <h2 id="welcome-note">Welcome Back, <%=user.firstName + ' ' + user.lastName%></h2>
+                <% } %>
+                <br>
+                <br>
+
                 <div class="row">
+
+
+
                     <div class="col-md-3">
-
-
                         <div class="card"> <img class="img-fluid" src="<%=locnews[0].img%>" alt="">
                             <div class="card-img-overlay"> <span class="badge badge-pill badge-danger"><%=locnews[0].country%></span> </div>
                             <div class="card-body">
@@ -73,25 +80,26 @@
 
                         <div class="card"> <img class="img-fluid" src="<%=locnews[1].img%>" alt="">
                             <div class="card-img-overlay"> <span class="badge badge-pill badge-danger"><%=locnews[1].country%></span> </div>
-                            <div class="card-body">
-                                <div class="news-title">
-                                    <h2 class="title-small"><a href="<%=locnews[1].link%>">
+                                <div class="card-body">
+                                    <div class="news-title">
+                                        <h2 class="title-small"><a href="<%=locnews[1].link%>">
                                             <%=locnews[1].content%></a></h2>
-                                </div>
+                                    </div>
 
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card"> <img class="img-fluid" src="<%=locnews[2].img%>" alt="">
-                            <div class="card-img-overlay"> <span class="badge badge-pill badge-danger"><%=locnews[2].country%></span> </div>
-                            <div class="card-body">
-                                <div class="news-title">
-                                    <h2 class=" title-small"><a href="<%=locnews[2].link%>">South Africa is currently in the middle of the biggest listeria outbreak ever seen,
-                                        <%=locnews[2].content%></a></h2>
                                 </div>
                             </div>
                         </div>
+
+                        <div class="col-md-3">
+                            <div class="card"> <img class="img-fluid" src="<%=locnews[2].img%>" alt="">
+                                <div class="card-img-overlay"> <span class="badge badge-pill badge-danger"><%=locnews[2].country%></span> </div>
+                                    <div class="card-body">
+                                        <div class="news-title">
+                                            <h2 class=" title-small"><a href="<%=locnews[2].link%>">South Africa is currently in the middle of the biggest listeria outbreak ever seen,
+                                        <%=locnews[2].content%></a></h2>
+                                        </div>
+                                    </div>
+                                </div>
                         <div class="card"> <img class="img-fluid" src="<%=locnews[3].img%>" alt="">
                             <div class="card-img-overlay"> <span class="badge badge-pill badge-danger"><%=locnews[3].country%></span> </div>
                             <div class="card-body">
@@ -221,6 +229,7 @@
                                     </div>
                                 </div>
                             </div>
+
                     </div>
                     <aside class="col-lg-4 side-bar col-md-12">
                         <ul class="nav nav-tabs" role="tablist" id="myTab">
@@ -232,21 +241,21 @@
                         <div class="tab-content sidebar-tabing" id="nav-tabContent">
                             <!--Fact-->
                             <div class="tab-pane active" id="home" role="tabpanel">
-                                <div class="media"> <a href="#"> <img class="d-flex mr-3" src="/resource/laugh.jpg" alt="Generic placeholder image"></a>
+                                <div class="media"> <a href="#"> <img class="d-flex mr-3" src="/resource/num1.png" alt="Generic placeholder image"></a>
                                     <div class="media-body">
                                         <div class="news-title">
                                             <h2 class="title-small"><p><%=qfdb[(date%qfdb.length) + 3]["fact"]%>.. <a href="<%=qfdb[(date%qfdb.length) + 3]["link"]%>" target="_blank">Read More</a></p></h2>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="media"> <a href="#"> <img class="d-flex mr-3" src="/resource/standing.jpg" alt="Generic placeholder image"></a>
+                                <div class="media"> <a href="#"> <img class="d-flex mr-3" src="/resource/num2.png" alt="Generic placeholder image"></a>
                                     <div class="media-body">
                                         <div class="news-title">
                                             <h2 class="title-small"><p><%=qfdb[((date+1)%qfdb.length) + 3]["fact"]%>.. <a href="<%=qfdb[((date+1)%qfdb.length) + 3]["link"]%>" target="_blank">Read More</a></p></h2>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="media"> <a href="#"> <img class="d-flex mr-3" src="/resource/balanced_diet.jpg" alt="Generic placeholder image"></a>
+                                <div class="media"> <a href="#"> <img class="d-flex mr-3" src="/resource/num3.png" alt="Generic placeholder image"></a>
                                     <div class="media-body">
                                         <div class="news-title">
                                             <h2 class="title-small"><p><%=qfdb[((date+2)%qfdb.length) + 3]["fact"]%>.. <a href="<%=qfdb[((date+2)%qfdb.length) + 3]["link"]%>" target="_blank">Read More</a></p></h2>

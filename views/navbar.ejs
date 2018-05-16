@@ -22,9 +22,6 @@
 <body>
 
 
-
-
-
     <nav id="topNav" class="navbar navbar-default">
 
         <a class= "navbar-brand" href="/">
@@ -36,21 +33,16 @@
         <div id="adminForm">
 
 
-
-            <!--<span id="loginText" class="navbar-text text-right">-->
-                <!--Login-->
-            <!--</span>-->
-
-            <span id="registrationText" class="navbar-text text-right">
-                <a href="/registration_form" id="register-title"> Register </a>
-            </span>
-
-
-            <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b></a>-->
-
-            <span id="loginText" class="navbar-text text-right dropdown-toggle" data-toggle="dropdown">
-                Login
-            </span>
+            <%if (!user) { %>
+                <span id="registrationText" class="navbar-text text-right">
+                    <a href="/registration_form" id="register-title"> Register </a>
+                </span>
+                <span id="loginText" class="navbar-text text-right dropdown-toggle" data-toggle="dropdown">
+                    Login
+                </span>
+            <% } else { %>
+                <a href="/logout" id="logoutText">Logout</a>
+            <% } %>
 
 
             <ul id="login-dp" class="dropdown-menu dropdown-menu-right">
