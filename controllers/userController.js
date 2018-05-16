@@ -133,10 +133,6 @@ module.exports.registrationForm = function(req, res) {
     res.render("registrationform");
 };
 
-module.exports.diseasemap = function(req, res) {
-    res.render("epiMap");
-};
-
 module.exports.diseaseWiki = function(req, res) {
     res.locals.query = req.query;
     var alphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");

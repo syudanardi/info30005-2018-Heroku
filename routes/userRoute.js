@@ -4,8 +4,6 @@ const control = require('../controllers/userController');
 
 router.get('/about', control.aboutPage);
 
-router.get('/profilePage', control.profilePage);
-
 router.get('/diseases', control.diseaseWiki);
 
 router.get('/disease/:id', control.disease);
@@ -17,8 +15,6 @@ router.get('/disease_specific/:id', control.diseaseSpecific);
 router.get('/home', control.homerevised);
 
 router.get('/registration_form', control.registrationForm);
-
-router.get('/disease_map', control.diseasemap);
 
 router.post('/api/submit', control.createDisease);
 
@@ -42,13 +38,9 @@ router.post('/adddisease/submit', control.saveDisease);
 
 router.get('/listdisease', control.countDisease);
 
-router.post('/registration_form/submit', control.createProfile);
-
 router.post('/profile', control.profile);
 
 router.get('/currProfile', control.currProfile);
-
-router.get('/emailSetting', control.emailSetting);
 
 // restrict index for logged in user only
 router.get('/', control.homerevised);
