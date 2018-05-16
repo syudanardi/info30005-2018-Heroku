@@ -133,16 +133,8 @@ module.exports.registrationForm = function(req, res) {
     res.render("registrationform");
 };
 
-module.exports.navbar = function(req, res) {
-    res.render("navbar");
-};
-
 module.exports.diseasemap = function(req, res) {
     res.render("epiMap");
-};
-
-module.exports.footer = function(req, res) {
-    res.render("footer");
 };
 
 module.exports.printAll = function(req, res) {
