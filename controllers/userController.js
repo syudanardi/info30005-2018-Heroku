@@ -188,8 +188,8 @@ module.exports.disease = function(req, res) {
 
 module.exports.profile = function(req, res) {
     if (!req.user){
-        res.redirect('/notlogged');
-        return
+        res.redirect('/register');
+        return;
     }
 
     var name = req.user.firstName + " " + req.user.lastName;
