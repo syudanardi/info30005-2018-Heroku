@@ -29,17 +29,21 @@ a:focus
     outline:none;
 }
 
-.collapsed {
+.collapsed 
+{
     padding-left: 50px !important;
 }
 
-.button-edit {
-
-}
-
-#edit-profile {
+#edit-profile 
+{
     visibility: hidden;
     display: none;
+}
+
+#submit-button, #edit-button
+{
+    background-color: #59B2E0;
+    border-color: #59B2E0;
 }
 
 
