@@ -15,7 +15,7 @@
     padding-left: 5px;
     background-color: #DFF0FD !important;
 }
-.card-header a
+.card-header a, .card-header a:hover
 {
     color: #515151;
 }
@@ -28,7 +28,6 @@ a:focus
 {
     outline:none;
 }
-
 
 .collapsed {
     padding-left: 50px !important;

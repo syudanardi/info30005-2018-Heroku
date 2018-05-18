@@ -8,6 +8,13 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </head>
+
+<header>
+    <div id="nav-placeholder">
+        <% include navbar.ejs %>
+    </div>
+</header>
+
 <body>
     <h1>Add Disease to Database</h1>
     </br>
@@ -89,4 +96,8 @@
         <input type="submit" value="Add Data">
     </form>
 </body>
+
+<footer>
+    <% include footer.ejs %>
+</footer>
 </html>
