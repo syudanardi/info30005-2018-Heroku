@@ -14,6 +14,9 @@ const LocalStrategy = require('passport-local').Strategy;
 app.use(bodyParser.urlencoded({ extended: true }));
 require('./models/db.js');
 
+var mail = require('./nodeMailerWithTemp');
+mail.sendReminder('surviantoro%40gmail.com', 'syudanardi','Ilham');
+
 // Set the app to be able to use ejs.
 app.set('view engine','ejs');
 //app.set('view engine', 'jade');
