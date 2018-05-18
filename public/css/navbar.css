@@ -1,3 +1,7 @@
+#admin_menu_text {
+    border-right: 2px solid #515151;
+    color: #515151;
+}
 
 a {
     color: #515151;
@@ -14,7 +18,7 @@ a {
 }
 
 #logoutText {
-    color: #666;
+    color:#515151;
 }
 
 #loginText{
