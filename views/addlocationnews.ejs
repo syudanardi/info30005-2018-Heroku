@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+  <title>Add Location-Based News to Database</title>
+</head>
+
+<header>
+    <div id="nav-placeholder">
+        <% include navbar.ejs %>
+    </div>
+</header>
+
+<body>
+    <h1>Add Location-Based News to Database</h1>
+    </br>
+    <form method="post" action="/addlocationnews/submit">
+      <div class="country">
+        <label for="country">Enter Country Location</label>
+          <input id="country" type="text" name="country" placeholder="Enter Country Location..." required>
+      </div>
+
+      <div class="img">
+        <label for="img">Enter Image URL</label>
+          <input id="img" type="text" name="img" placeholder="Enter Image URL..." required>
+      </div>
+
+      <div class="content">
+        <label for="content">Enter Content</label>
+          <input id="content" type="text" name="content" placeholder="Enter Content..." required>
+      </div>
+
+      <div class="link">
+        <label for="link">Enter Source Link</label>
+          <input id="link" type="text" name="link" placeholder="Enter Source Link..." required>
+      </div>
+
+      <!-- Submit -->
+      <input type="submit" value="Add Data">
+    </form>
+</body>
+
+<footer>
+    <% include footer.ejs %>
+</footer>
+</html>
