@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+  <title>Add Health Fact to Database</title>
+</head>
+
+<header>
+    <div id="nav-placeholder">
+        <% include navbar.ejs %>
+    </div>
+</header>
+
+<body>
+    <h1>Add Quick Quiz to Database</h1>
+    </br>
+    <form method="post" action="/addquickquiz/submit">
+
+      <div class="health-question">
+        <label for="question">Enter Health Question</label>
+          <input id="question" type="text" name="question" placeholder="Enter Question..." required>
+      </div>
+
+      <div class="health-option-1">
+        <label for="option1">Enter Option 1</label>
+          <input id="option1" type="text" name="option1" placeholder="Enter Option 1..." required>
+      </div>
+
+      <div class="health-option-2">
+        <label for="option2">Enter Option 2</label>
+          <input id="option2" type="text" name="option2" placeholder="Enter Option 2..." required>
+      </div>
+
+      <div class="answer">
+        <label for="answer">Enter Answer Key</label>
+          <input id="answer" type="text" name="answer" placeholder="Enter Answer Key..." required>
+      </div>
+
+      <!-- Submit -->
+      <input type="submit" value="Add Data">
+    </form>
+</body>
+
+<footer>
+    <% include footer.ejs %>
+</footer>
+</html>

@@ -48,16 +48,49 @@ router.post('/api/submit', control.createDisease);
 
 router.get('/api', control.createForm);
 
-// Show add health fact page (Admin Page)
+// Show add Health Fact page (Admin Page)
 router.get('/addhealthfact', control.addHealthFactPage);
 
 // Save Health Fact (Admin Page)
 router.post("/addhealthfact/submit", control.saveHealthFact);
+
+// Show add Quick Quiz page (Admin Page)
+router.get('/addquickquiz', control.addQuickQuizPage);
+
+// Save Quick Quiz (Admin Page)
+router.post("/addquickquiz/submit", control.saveQuickQuiz);
 
 // Show add disease page (Admin Page)
 router.get('/adddisease', control.addDiseasePage);
 
 // Save Disease (Admin Page)
 router.post('/adddisease/submit', control.saveDisease);
+
+// Show add Location News page (Admin Page)
+router.get('/addlocationnews', control.addLocationNewsPage);
+
+// Save Location News (Admin Page)
+router.post('/addlocationnews/submit', control.saveLocationNews);
+
+// Show add Trending News page (Admin Page)
+router.get('/addtrendingnews', control.addTrendingNewsPage);
+
+// Save Trending News (Admin Page)
+router.post('/addtrendingnews/submit', control.saveTrendingNews);
+
+// Show add Outbreak News page (Admin Page)
+router.get('/addoutbreaknews', control.addOutbreakNewsPage);
+
+// Save Outbreak News (Admin Page)
+router.post('/addoutbreaknews/submit', control.saveOutbreakNews);
+
+// Show add Featured Videos page (Admin Page)
+router.get('/addfeaturedvideo', control.addFeaturedVideoPage);
+
+// Save Featured Videos(Admin Page)
+router.post('/addfeaturedvideo/submit', control.saveFeaturedVideo);
+
+
+
 
 module.exports = router;

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+  <title>Add Location News to Database</title>
+</head>
+
+<header>
+    <div id="nav-placeholder">
+        <% include navbar.ejs %>
+    </div>
+</header>
+
+<body>
+    <h1>Add Featured Video to Database</h1>
+    </br>
+    <form method="post" action="/addfeaturedvideo/submit">
+      <div class="title">
+        <label for="title">Enter Video Title</label>
+          <input id="title" type="text" name="title" placeholder="Enter Video Title..." required>
+      </div>
+
+      <div class="link">
+        <label for="link">Enter Source Link</label>
+          <input id="link" type="text" name="link" placeholder="Enter Source Link..." required>
+      </div>
+
+      <!-- Submit -->
+      <input type="submit" value="Add Data">
+    </form>
+</body>
+
+<footer>
+    <% include footer.ejs %>
+</footer>
+</html>

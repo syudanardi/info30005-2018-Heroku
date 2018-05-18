@@ -243,11 +243,35 @@ module.exports.saveHealthFact = function(req, res) {
     
     newHealthFact.save(function (err, newHealthFact){
         if (!err) {
-            res.render('savehealthfact', {user: req.user});
+            res.redirect('/');
+            // res.render('savehealthfact', {user: req.user});
         } else {
             res.sendStatus(400);
         }
     });
+};
+
+// Saving the health fact to the database
+module.exports.addQuickQuizPage = function(req, res) {
+    res.render("addquickquiz", {user: req.user});
+};
+
+module.exports.saveQuickQuiz = function(req, res) {
+    
+     var option = [req.body.option1, req.body.option2];
+     var newQuickQuiz = new QQ({
+         "question": req.body.question,
+         "option": option,
+         "answer": req.body.answer
+     });
+    
+     newQuickQuiz.save(function (err, newQuickQuiz){
+          if (!err) {
+             res.redirect('/');
+         } else {
+             res.sendStatus(400);
+         }
+     });
 };
 
 // Saving the disease wiki to the database
@@ -274,11 +298,102 @@ module.exports.saveDisease = function(req, res) {
 
     newDisease.save(function (err, newDisease){
         if (!err) {
-            res.render('savedisease', {user: req.user});
+            res.redirect('/');
+            // res.render('savedisease', {user: req.user});
         } else {
             res.sendStatus(400);
         }
     });
+};
+
+// Saving the location news  to the database
+module.exports.addLocationNewsPage = function(req, res) {
+    res.render("addlocationnews", {user: req.user});
+};
+
+module.exports.saveLocationNews = function(req, res) {
+    
+     var newLocationNews = new LocationNews({
+         "country": req.body.country,
+         "img": req.body.img,
+         "content": req.body.content,
+         "link": req.body.link
+     });
+    
+     newLocationNews.save(function (err, newLocationNews){
+          if (!err) {
+             res.redirect('/');
+         } else {
+             res.sendStatus(400);
+         }
+     });
+};
+
+// Saving the trending news to the database
+module.exports.addTrendingNewsPage = function(req, res) {
+    res.render("addtrendingnews", {user: req.user});
+};
+
+module.exports.saveTrendingNews = function(req, res) {
+    
+     var newTrendingNews = new TrendNews({
+         "title": req.body.title,
+         "content": req.body.content,
+         "img": req.body.img,
+         "link": req.body.link
+     });
+    
+     newTrendingNews.save(function (err, newTrendingNews){
+          if (!err) {
+             res.redirect('/');
+         } else {
+             res.sendStatus(400);
+         }
+     });
+};
+
+// Saving the outbreak news to the database
+module.exports.addOutbreakNewsPage = function(req, res) {
+    res.render("addoutbreaknews", {user: req.user});
+};
+
+module.exports.saveOutbreakNews = function(req, res) {
+    
+     var newOutbreakNews = new OutbreakNews({
+         "title": req.body.title,
+         "content": req.body.content,
+         "img": req.body.img,
+         "link": req.body.link
+     });
+    
+     newOutbreakNews.save(function (err, newOutbreakNews){
+          if (!err) {
+            res.redirect('/');
+         } else {
+             res.sendStatus(400);
+         }
+     });
+};
+
+// Saving the outbreak news to the database
+module.exports.addFeaturedVideoPage = function(req, res) {
+    res.render("addfeaturedvideo", {user: req.user});
+};
+
+module.exports.saveFeaturedVideo = function(req, res) {
+    
+     var newFeaturedVideo = new FeaturedVideos({
+         "title": req.body.title,
+         "link": req.body.link
+     });
+    
+     newFeaturedVideo.save(function (err, newFeaturedVideo){
+          if (!err) {
+            res.redirect('/');
+         } else {
+             res.sendStatus(400);
+         }
+     });
 };
 
 // Go to registration page
