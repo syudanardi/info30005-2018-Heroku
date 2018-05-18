@@ -22,7 +22,8 @@
 <body>
 
 
-    <nav id="topNav" class="navbar navbar-default">
+
+<nav id="topNav" class="navbar navbar-default">
 
         <a class= "navbar-brand" href="/">
             <img src="/resource/logo_bg.png" width="55" height="55" alt="">
@@ -95,6 +96,36 @@
 
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
+
+
+                <!-- Check if admin account, then display this -->
+                <li class="nav-item dropdown">
+                    <span class="nav-link dropdown-toggle" href="#" id="admin_menu_text" data-toggle="dropdown">
+                        ADMIN MENU
+                    </span>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-header">Home Page (News)</div>
+                        <a class="dropdown-item" href="/addlocationnews">Add Location-Based News</a>
+                        <a class="dropdown-item" href="/addtrendingnews">Add trending Topic News</a>
+                        <a class="dropdown-item" href="/addoutbreaknews">Add Outbreak News</a>
+
+                        <div class="dropdown-divider"></div>
+
+                        <div class="dropdown-header">Home Page (Sides)</div>
+                        <a class="dropdown-item" href="/addhealthfact">Add Quick Fact</a>
+                        <a class="dropdown-item" href="/addquickquiz">Add Quick Quiz</a>
+                        <a class="dropdown-item" href="/addvideos">Add Featured Videos</a>
+
+                        <div class="dropdown-divider"></div>
+
+                        <div class="dropdown-header">Disease Wiki</div>
+                        <a class="dropdown-item" href="#">Add Disease</a>
+
+                    </div>
+                </li>
+
+
+
                 <li class="nav-item active">
                     <a id="home-title" class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
@@ -110,9 +141,13 @@
                 <li class="nav-item">
                     <a id="about-title" class="nav-link" href="/about">About Us</a>
                 </li>
+
+
             </ul>
         </div>
     </nav>
+
+
 
 
 </body>
