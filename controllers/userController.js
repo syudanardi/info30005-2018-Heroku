@@ -98,7 +98,8 @@ module.exports.homerevised = function(req, res) {
                                                         trendnews: trendnews,
                                                         outbreaknews: outbreaknews,
                                                         user: req.user,
-                                                        date: nowDate
+                                                        date: nowDate,
+                                                        country: country
                                                     });
                                                 } else {
                                                     res.sendStatus(400);
