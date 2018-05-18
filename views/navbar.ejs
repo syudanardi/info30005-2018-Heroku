@@ -42,7 +42,8 @@
                     Login
                 </span>
             <% } else { %>
-                <a href="/logout" id="logoutText">Logout</a>
+            <a href="/profile" id="profileName"> <%=user.firstName + ' ' + user.lastName%></a>
+            <a href="/logout" id="logoutText">Logout</a>
             <% } %>
 
 
