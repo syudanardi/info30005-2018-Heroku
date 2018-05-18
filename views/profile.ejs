@@ -74,12 +74,9 @@
                             </h5>
                         </div>
                         <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingTwo">
+
+
                             <div id="profile-details" class="card-block">
-
-
-
-
-
                                 <strong>Display Name:</strong>
                                 <br>
                                 <%=name%>
@@ -98,23 +95,33 @@
                                 <strong>Current Location:</strong>
                                 <br>
                                 <div id="currLocation"></div>
+
+                                <br>
+
+                                <input class="test btn btn-primary" id="button" type="button" onclick="showEditProfile()" value="Edit Profile"><br>
+
                             </div>
-                            <div id="edit-profile">
+
+
+                            <div id="edit-profile" class="card-block">
                                 <form method="post" action="/profile/submit">
                                     <div class="profile-name">
                                         <label for="name"><strong>Display Name:</strong></label><br>
-                                            <input id="firstname" value="<%=user.firstName%>" type="text" name="firstName" required>
-                                            <input id="lastname" value="<%=user.lastName%>" type="text" name="lastName" required>
+                                            <input id="firstname" value="<%=user.firstName%>" type="text" name="firstName" class="form-control" placeholder="First Name" required>
+                                            <input id="lastname" value="<%=user.lastName%>" type="text" name="lastName" class="form-control" placeholder="Last Name" required>
                                     </div>
-                                    <input id"username" value="<%=user.username%>" type="text" name="username" hidden>
+                                    <input id="username" value="<%=user.username%>" type="text" name="username" hidden>
 
+                                    <br>
                                     <div class="profile-email">
                                         <label for="email"><strong>E-mail Address:</strong></label><br>
-                                            <input id="email" value="<%=user.email%>" type="text" name="email" required>
+                                            <input id="email" value="<%=user.email%>" type="text" name="email" class="form-control" placeholder="E-mail Address" required>
                                     </div>
+
+                                    <br>
                                     <div class="profile-country">
                                         <table class="form-group">
-                                            <label><strong><em>Country of Origin:</em></strong></label>                                     
+                                            <label><strong><em>Country of Origin:</em></strong></label>
                                             <select id="country" class="form-control" name="country" onchange="setCountry()">
                                                 <optgroup label="---------------------------------------- Current Country ----------------------------------------"></optgroup>
                                                 <option name="country" value="<%=user.country%>" title="<%=user.country%>"><%=user.country%></option>
@@ -378,10 +385,13 @@
                                     </div>
 
                                     <!-- Submit -->
-                                    <input type="submit" value="Add Data">
+                                    <br>
+
+                                    <input type="submit" value="Save Changes" class="btn btn-primary">
+
                                 </form>
                             </div>
-                            <input class="test" id="button" type="button" onclick="showEditProfile()" value="Click"><br>
+
                         </div>
                     </div>
                 </div>
