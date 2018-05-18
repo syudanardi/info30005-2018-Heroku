@@ -7,6 +7,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="/css/admin_edit.css" type="text/css">
 </head>
 
 <header>
@@ -16,85 +18,174 @@
 </header>
 
 <body>
-    <h1>Add Disease to Database</h1>
+
+<div class="col-lg-8">
+
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 style="color:#5B5B5B">Add Disease to Database</h1>
+
+            <p class="lead">
+                This page is used to add new disease to the database. This new disease will then be updated
+                to the disease wiki database.
+            </p>
+            <p class="lead">
+            <h3>Component <em>(12)</em></h3>
+            <br>
+            <em><strong>Disease Name</strong></em>
+            <em>(The general name for the disease)</em>
+            <br>
+            <em><strong>Biological Name</strong></em>
+            <em>(The biological name for the disease)</em>
+            <br>
+            <em><strong>Disease Short Fact</strong></em>
+            <em>(Brief description of the disease, this is the text appeared when the disease card is being hovered)
+            </em>
+            <br>
+            <em><strong>Disease Image URL</strong></em>
+            <em>(The URL Link for the disease image)</em>
+
+            <br>
+            <em><strong>Disease Treatable</strong></em>
+            <em>(Short description of the disease treatment, keep it below 10 words. Placed on the first bar beside
+                the disease image card)</em>
+            <br>
+            <em><strong>Disease Diagnosis</strong></em>
+            <em>(Short description of the disease diagnosis, keep it below 10 words. Placed on the second bar beside
+                the disease image card)</em>
+            <br>
+            <em><strong>Disease Lab Test</strong></em>
+            <em>(Short description of the disease lab test, keep it below 10 words. Placed on the third bar beside
+                the disease image card)</em>
+            <br>
+            <em><strong>Disease Time</strong></em>
+            <em>(Short description of the disease time, keep it below 10 words ~ the measurement of how long will the sufferer suffered from
+                this disease. Placed on the fourth bar beside the disease image card)</em>
+            <br>
+            <em><strong>Disease Cause</strong></em>
+            <em>(The cause of the disease, HTML-enabled format)</em>
+            <br>
+            <em><strong>Disease Symptoms</strong></em>
+            <em>(The symptoms of the disease, HTML-enabled format)</em>
+            <br>
+            <em><strong>Disease Treatment</strong></em>
+            <em>(The treatment for the disease, HTML-enabled format)</em>
+            <br>
+            <em><strong>Disease History</strong></em>
+            <em>(The history of the disease, HTML-enabled format)</em>
+
+
+            </p>
+        </div>
+    </div>
+
     </br>
     <form method="post" action="/adddisease/submit">
 
         <!-- Disease Name -->
         <div class="disease-data">
-            <label for="name">Enter Disease Name</label>
-                <input id="name" type="text" name="name" placeholder="Enter Disease Name..." required>
+            <label for="name" id="admin-description">Enter Disease Name</label>
+            <textarea class="form-control" placeholder="Enter Disease Name" rows="1" name="name" id="name" required></textarea>
         </div>
+
+        <br>
 
         <!-- Disease Biological Name -->
         <div class="disease-data">
-            <label for="bioname">Enter Biological Name</label>
-                <input id="bioname" type="text" name="bioname" placeholder="Enter Biological Name..." required>
+            <label for="bioname" id="admin-description">Enter Biological Name</label>
+            <textarea class="form-control" placeholder="Enter Biological Name" rows="1" name="bioname" id="bioname" required></textarea>
         </div>
+
+        <br>
 
         <!-- Disease Short Fact -->
         <div class="disease-data">
-            <label for="fact">Enter Disease Short Fact</label>
-                <input id="fact" type="text" name="fact" placeholder="Enter Disease Short Fact..." required>
+            <label for="fact" id="admin-description">Enter Disease Short Fact</label>
+            <textarea class="form-control" placeholder="Enter Disease Short Fact" rows="2" name="fact" id="fact" required></textarea>
         </div>
+
+        <br>
 
         <!-- Disease Image -->
         <div class="disease-data">
-            <label for="image">Enter Disease Image URL</label>
-                <input id="image" type="text" name="image" placeholder="Enter Disease Image URL..." required>
+            <label for="image" id="admin-description">Enter Disease Image URL</label>
+            <textarea class="form-control" placeholder="Enter Disease Image URL" rows="1" name="image" id="image" required></textarea>
         </div>
+
+        <br>
 
         <!-- Disease Treatable -->
         <div class="disease-data">
-            <label for="treatable">Enter Disease Treatable</label>
-                <input id="treatable" type="text" name="treatable" placeholder="Enter Disease Treatable..." required>
-        </div>
+            <label for="treatable" id="admin-description">Enter Disease Treatable</label>
+            <textarea class="form-control" placeholder="Enter Disease Treatable" rows="1" name="treatable" id="treatable" required></textarea>
+       </div>
+
+        <br>
 
         <!-- Disease Diagnosis -->
         <div class="disease-data">
-            <label for="diagnosis">Enter Disease Diagnosis</label>
-                <input id="diagnosist" type="text" name="diagnosis" placeholder="Enter Disease Diagnosis..." required>
+            <label for="diagnosis" id="admin-description">Enter Disease Diagnosis</label>
+            <textarea class="form-control" placeholder="Enter Disease Diagnosis" rows="1" name="diagnosis" id="diagnosis" required></textarea>
         </div>
+
+
+        <br>
 
         <!-- Disease Lab Test -->
         <div class="disease-data">
-            <label for="lab">Enter Disease Lab Test</label>
-                <input id="lab" type="text" name="lab" placeholder="Enter Disease Lab Test..." required>
+            <label for="lab" id="admin-description">Enter Disease Lab Test</label>
+            <textarea class="form-control" placeholder="Enter Disease Lab Test" rows="1" name="lab" id="lab" required></textarea>
         </div>
+
+        <br>
 
         <!-- Disease Time -->
         <div class="disease-data">
-            <label for="time">Enter Disease Time</label>
-                <input id="time" type="text" name="time" placeholder="Enter Disease Time..." required>
+            <label for="time" id="admin-description">Enter Disease Time</label>
+            <textarea class="form-control" placeholder="Enter Disease Time" rows="1" name="time" id="time" required></textarea>
         </div>
+
+        <br>
 
         <!-- Disease Causes -->
         <div class="disease-data">
-            <label for="causes">Enter Disease Causes</label>
-                <input id="causes" type="text" name="causes" placeholder="Enter Disease Causes..." required>
+            <label for="causes" id="admin-description">Enter Disease Causes</label>
+            <textarea class="form-control" placeholder="Enter Disease Causes" rows="3" name="causes" id="causes" required></textarea>
         </div>
+
+        <br>
 
         <!-- Disease Symptoms -->
         <div class="disease-data">
-            <label for="symptoms">Enter Disease Symptoms</label>
-                <input id="symptoms" type="text" name="symptoms" placeholder="Enter Disease Symptoms..." required>
+            <label for="symptoms" id="admin-description">Enter Disease Symptoms</label>
+            <textarea class="form-control" placeholder="Enter Disease Symptoms" rows="3" name="symptoms" id="symptoms" required></textarea>
         </div>
+
+        <br>
 
         <!-- Diseaes Treatment -->
         <div class="disease-data">
-            <label for="treatment">Enter Disease Treatment</label>
-                <input id="treatment" type="text" name="treatment" placeholder="Enter Disease Treatment..." required>
+            <label for="treatment" id="admin-description">Enter Disease Treatment</label>
+            <textarea class="form-control" placeholder="Enter Disease Treatment" rows="3" name="treatment" id="treatment" required></textarea>
         </div>
+
+        <br>
 
         <!-- Disease History -->
         <div class="disease-data">
-            <label for="history">Enter Disease History</label>
-                <input id="history" type="text" name="history" placeholder="Enter Disease History..." required>
+            <label for="history" id="admin-description">Enter Disease History</label>
+            <textarea class="form-control" placeholder="Enter Disease History" rows="3" name="history" id="history" required></textarea>
         </div>
+
+        <br>
+        <br>
+        <br>
 
         <!-- Submit -->
         <input type="submit" value="Add Data">
     </form>
+</div>
 </body>
 
 <footer>
