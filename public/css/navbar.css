@@ -1,3 +1,8 @@
+#profileName{
+    color:#515151;
+}
+
+
 #admin_menu_text {
     border-right: 2px solid #515151;
     color: #515151;
@@ -12,13 +17,15 @@ a {
 
 }
 
-
 #topNav {
     background-color: #e3f2fd;
 }
 
 #logoutText {
     color:#515151;
+    padding-left: 8px;
+    margin-left:5px;
+    border-left: 2px solid #515151;
 }
 
 #loginText{

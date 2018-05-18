@@ -14,6 +14,21 @@ const FeaturedVideos = mongoose.model('featuredvideos');
 
 var jsdom = require('jsdom');
 $ = require('jquery')(new jsdom.JSDOM().window);
+let country;
+$.ajax({
+    url: "http://ip-api.com/json",
+    type: 'GET',
+    success: function(json)
+    {
+        country = json.country;
+        console.log("My country is: " + country);
+
+    },
+    error: function(err)
+    {
+        console.log("Request failed, error= " + err);
+    }
+});
 
 module.exports.homerevised = function(req, res) {
 
@@ -422,7 +437,7 @@ module.exports.register = function(req, res) {
 
 // Post registration
 module.exports.doRegister = function(req, res) {
-    Profile.register(new Profile({ username : req.body.email, firstName: req.body.firstName, lastName: req.body.lastName, email: req.body.email, country: req.body.country }), req.body.password, function(err, user) {
+    Profile.register(new Profile({ username : req.body.email, firstName: req.body.firstName, lastName: req.body.lastName, email: req.body.email, country: req.body.country, joined: Date.now(), newsLocation: country, admin: Boolean(req.body.admin)}), req.body.password, function(err, user) {
         if (err) {
             return res.sendStatus(404);
         }
@@ -454,34 +469,3 @@ module.exports.logout = function(req, res) {
 module.exports.logoutScreen = function(req, res){
     res.render('loggedOut', {user: req.user})
 };
-
-module.exports.testProfile = function(req, res) {
-
-    Profile.find(function(err,myprofile) {
-        if(!err) {
-            myprofile.forEach(function(william) {
-                
-                if(william.username == "williamliandri@gmail.com")
-                    res.render('testProfile', {myprofile: william});
-            });
-        } else {
-            res.sendStatus(404);
-        }
-
-    // 
-    });
-};
-
-module.exports.savetestProfile = function(req, res) {
-    
-    // NEED TO GET THE EMAIL HERE SOMEHOW;
-    console.log(req.body.newname);
-    console.log(req.body.username);
-
-    var query = { username: req.body.username };
-
-    Profile.findOneAndUpdate(query, {firstName: req.body.newname }, function(err, profile){
-        res.redirect('/');
-    });
-
-}
