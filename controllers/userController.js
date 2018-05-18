@@ -214,6 +214,25 @@ module.exports.profile = function(req, res) {
     });
 };
 
+module.exports.updateProfile = function(req, res) {
+    var query = { username: req.body.username };
+
+    Profile.findOneAndUpdate(query, {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        username: req.body.email,
+        country: req.body.country
+    }, function(err, profile){
+        
+        if (!err) {
+            res.redirect('/');
+        } else {
+            res.sendStatus(404);
+        }  
+    });
+}
+
 module.exports.currProfile = function(req,res) {
     var name = req.user.firstName + " " + req.user.lastName;
     res.render('profile', { user: req.user, name: name});
