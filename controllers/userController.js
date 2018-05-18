@@ -199,6 +199,25 @@ module.exports.profile = function(req, res) {
     });
 };
 
+module.exports.updateProfile = function(req, res) {
+    var query = { username: req.body.username };
+
+    Profile.findOneAndUpdate(query, {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        username: req.body.email,
+        country: req.body.country
+    }, function(err, profile){
+        
+        if (!err) {
+            res.redirect('/');
+        } else {
+            res.sendStatus(404);
+        }  
+    });
+}
+
 module.exports.currProfile = function(req,res) {
     var name = req.user.firstName + " " + req.user.lastName;
     res.render('profile', { user: req.user, name: name});
@@ -435,3 +454,34 @@ module.exports.logout = function(req, res) {
 module.exports.logoutScreen = function(req, res){
     res.render('loggedOut', {user: req.user})
 };
+
+module.exports.testProfile = function(req, res) {
+
+    Profile.find(function(err,myprofile) {
+        if(!err) {
+            myprofile.forEach(function(william) {
+                
+                if(william.username == "williamliandri@gmail.com")
+                    res.render('testProfile', {myprofile: william});
+            });
+        } else {
+            res.sendStatus(404);
+        }
+
+    // 
+    });
+};
+
+module.exports.savetestProfile = function(req, res) {
+    
+    // NEED TO GET THE EMAIL HERE SOMEHOW;
+    console.log(req.body.newname);
+    console.log(req.body.username);
+
+    var query = { username: req.body.username };
+
+    Profile.findOneAndUpdate(query, {firstName: req.body.newname }, function(err, profile){
+        res.redirect('/');
+    });
+
+}

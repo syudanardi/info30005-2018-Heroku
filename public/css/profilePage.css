@@ -37,6 +37,11 @@ a:focus
 
 }
 
+#edit-profile {
+    visibility: hidden;
+    display: none;
+}
+
 
 
 
