@@ -247,6 +247,11 @@ module.exports.disease = function(req, res) {
 
 module.exports.profile = function(req, res) {
     
+    if(!req.user) {
+        res.redirect('/register');
+        return;
+    }
+
     // Get the Client IP address
     var clientip = getClientIP(req);
 
