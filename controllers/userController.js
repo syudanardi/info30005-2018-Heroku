@@ -84,7 +84,7 @@ module.exports.homerevised = function(req, res) {
     // Get the current location
     // var country = getCountry(clientip);
     var country;
-    where.is(ipaddress, function(err, result) {
+    where.is(clientip, function(err, result) {
         if (result) {
             country = result.get("country");
             console.log("Line 90 " + country);
@@ -268,7 +268,7 @@ module.exports.profile = function(req, res) {
     // Get the current location
     // var country = getCountry(clientip);
     var country;
-    where.is(ipaddress, function(err, result) {
+    where.is(clientip, function(err, result) {
         if (result) {
             country = result.get("country");
         }
