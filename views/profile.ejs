@@ -17,13 +17,14 @@
                 type: 'GET',
                 success: function(json)
                 {
-                    //console.log("My country is: " + json.country);
+                    console.log("Current Location is: " + json.country);
                     $("#currLocation").append(json.country);
                     $("#currentLocation").append(json.country);
                 },
                 error: function(err)
                 {
                     console.log("Failed to Detect Location, errcode = " + err);
+                    console.log("error in profile.ejs")
                 }
             });
 

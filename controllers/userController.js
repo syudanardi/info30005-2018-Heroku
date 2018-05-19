@@ -27,7 +27,6 @@ $.ajax({
     error: function(err)
     {
         console.log("Request failed, error= " + err);
-        country = "Australia"
     }
 });
 
