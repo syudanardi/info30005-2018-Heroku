@@ -219,6 +219,17 @@ module.exports.disease = function(req, res) {
 };
 
 module.exports.profile = function(req, res) {
+    
+    var ip2 = req.headers["x-forwarded-for"];
+
+    if (ip2) {
+        var list = ip2.split(",");
+        ip2 = list[list.length-1];
+    } else {
+        ip2 = req.connection.remoteAddress;
+    }
+    
+    console.log(ip2);
     if (!req.user){
         res.redirect('/register');
         return;
@@ -229,7 +240,8 @@ module.exports.profile = function(req, res) {
         user: req.user,
         name: name,
         country: country,
-        ipaddress: ipaddress
+        ipaddress: ipaddress,
+        ipclient: ip2
     });
 };
 
