@@ -273,16 +273,14 @@ module.exports.profile = function(req, res) {
     where.is(clientip, function(err, result) {
         if (result) {
             country = result.get("country");
+            var name = req.user.firstName + " " + req.user.lastName;
+            res.render('profile', { 
+            user: req.user,
+            name: name,
+            country: country,
+            clientip: clientip
+            });
         }
-    });
-    console.log("the user country is" + country);
-
-    var name = req.user.firstName + " " + req.user.lastName;
-    res.render('profile', { 
-        user: req.user,
-        name: name,
-        country: country,
-        clientip: clientip
     });
 };
 
