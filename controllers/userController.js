@@ -12,46 +12,46 @@ const OutbreakNews = mongoose.model('outbreaknews');
 const TrendNews = mongoose.model('trendingnews');
 const FeaturedVideos = mongoose.model('featuredvideos');
 
-var jsdom = require('jsdom');
-$ = require('jquery')(new jsdom.JSDOM().window);
-let country;
-$.ajax({
-    url: "http://ip-api.com/json",
-    type: 'GET',
-    success: function(json)
-    {
-        country = json.country;
-        console.log("My country is: " + country);
+const where = require('node-where');
 
-    },
-    error: function(err)
-    {
-        console.log("Request failed, error= " + err);
+function getClientIP(req){
+    var clientip = req.headers["x-forwarded-for"];
+
+    if (clientip) {
+        var list = clientip.split(",");
+        clientip = list[list.length-1];
+    } else {
+        clientip = req.connection.remoteAddress;
     }
-});
+    return clientip;
+};
+
+function getCountry(ipaddress){
+    console.log("Line 30 " + ipaddress);
+    where.is(ipaddress, function(err, result) {
+        if (result) {
+            var country = result.get("country");
+            console.log("Line 33 " + country);
+            return country;
+        }
+    });
+
+    return null;
+}
 
 module.exports.homerevised = function(req, res) {
-
     var now = new Date();
     var nowDate = now.getDate();
 
-    var requestUrl = "http://ip-api.com/json";
-    var country;
-    $.ajax({
-        url: requestUrl,
-        type: 'GET',
-        success: function(json)
-            {   
-                country = json.country;
-                console.log("My country is: " + country);
-                
-            },
-        error: function(err)
-            {
-                console.log("Request failed, error= " + err);
-            }
-    });
+    // var requestUrl = "http://ip-api.com/json";
+    
 
+    // Get the Client IP address
+    var clientip = getClientIP(req);
+
+    // Get the current location
+    var country;
+   
     var addRandomNews = function(index, locnews, locationNews){
         if (locnews.length < 4 ){
             return
@@ -83,23 +83,33 @@ module.exports.homerevised = function(req, res) {
                                         if (!err) {
                                             LocationNews.find(function(err, locnews) {
                                                 if (!err) {
-                                                    locnews.forEach(function(currlocnews) {
-                                                        if(currlocnews.country == country) {
-                                                            locationNews[index] = currlocnews;
-                                                            index++;
+                                                    
+                                                    // Get the user's country location.
+                                                    where.is(clientip, function(err, result) {
+                                                        if (result) {
+                                                            country = result.get("country");
                                                         }
-                                                        locationNews = addRandomNews(index,locnews, locationNews);
-                                                    });
-                                                    res.render("homepage_revised", {
-                                                        qfdb:quickfacts,
-                                                        qqdb:quickquiz,
-                                                        vid: video,
-                                                        locnews: locationNews,
-                                                        trendnews: trendnews,
-                                                        outbreaknews: outbreaknews,
-                                                        user: req.user,
-                                                        date: nowDate,
-                                                        country: country
+
+                                                        // Show news based on the user's location.
+                                                        locnews.forEach(function(currlocnews) {
+                                                            if(currlocnews.country == country) {
+                                                                locationNews[index] = currlocnews;
+                                                                index++;
+                                                            }
+
+                                                            // If the news are less than 4, it will add some random news.
+                                                            locationNews = addRandomNews(index,locnews, locationNews);
+                                                        });
+                                                        res.render("homepage_revised", {
+                                                            qfdb:quickfacts,
+                                                            qqdb:quickquiz,
+                                                            vid: video,
+                                                            locnews: locationNews,
+                                                            trendnews: trendnews,
+                                                            outbreaknews: outbreaknews,
+                                                            user: req.user,
+                                                            date: nowDate,
+                                                        });
                                                     });
                                                 } else {
                                                     res.sendStatus(400);
@@ -203,15 +213,27 @@ module.exports.disease = function(req, res) {
 };
 
 module.exports.profile = function(req, res) {
-    if (!req.user){
+    
+    if(!req.user) {
         res.redirect('/register');
         return;
     }
 
-    var name = req.user.firstName + " " + req.user.lastName;
-    res.render('profile', { 
-        user: req.user,
-        name: name
+    // Get the Client IP address
+    var clientip = getClientIP(req);
+
+    var country;
+    where.is(clientip, function(err, result) {
+        if (result) {
+            country = result.get("country");
+            var name = req.user.firstName + " " + req.user.lastName;
+            res.render('profile', { 
+            user: req.user,
+            name: name,
+            country: country,
+            clientip: clientip
+            });
+        }
     });
 };
 
