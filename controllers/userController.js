@@ -82,7 +82,14 @@ module.exports.homerevised = function(req, res) {
     var clientip = getClientIP(req);
 
     // Get the current location
-    var country = getCountry(clientip);
+    // var country = getCountry(clientip);
+    var country;
+    where.is(ipaddress, function(err, result) {
+        if (result) {
+            country = result.get("country");
+            console.log("Line 90 " + country);
+        }
+    });
 
     // $.ajax({
     //     url: requestUrl,
@@ -259,7 +266,13 @@ module.exports.profile = function(req, res) {
     var clientip = getClientIP(req);
 
     // Get the current location
-    var country = getCountry(clientip);
+    // var country = getCountry(clientip);
+    var country;
+    where.is(ipaddress, function(err, result) {
+        if (result) {
+            country = result.get("country");
+        }
+    });
     console.log("the user country is" + country);
 
     var name = req.user.firstName + " " + req.user.lastName;
