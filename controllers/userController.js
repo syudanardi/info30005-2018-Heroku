@@ -461,7 +461,7 @@ module.exports.register = function(req, res) {
 // Post registration
 module.exports.doRegister = function(req, res) {
     var country;
-    where.is(clientip, function(err, result) {
+    where.is(getClientIP(req), function(err, result) {
         if (result) {
             country = result.get("country");
             Profile.register(new Profile({ username : req.body.email, firstName: req.body.firstName, lastName: req.body.lastName, email: req.body.email, country: req.body.country, joined: Date.now(), newsLocation: country, admin: Boolean(req.body.admin)}), req.body.password, function(err, user) {
