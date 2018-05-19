@@ -249,11 +249,6 @@ module.exports.updateProfile = function(req, res) {
     });
 }
 
-module.exports.currProfile = function(req,res) {
-    var name = req.user.firstName + " " + req.user.lastName;
-    res.render('profile', { user: req.user, name: name});
-};
-
 module.exports.aboutPage = function(req,res) {
     res.render('aboutUs', {user: req.user});
 };

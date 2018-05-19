@@ -21,8 +21,6 @@ router.post('/profile', control.profile);
 
 router.post('/profile/submit', control.updateProfile);
 
-router.get('/currProfile', control.currProfile);
-
 // Route to about us page
 router.get('/about', control.aboutPage);
 
