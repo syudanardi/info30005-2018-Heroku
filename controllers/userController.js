@@ -6,7 +6,6 @@ const QF = mongoose.model('healthfacts');
 const QQ = mongoose.model('healthquizzes');
 const Profile = mongoose.model('profiles');
 const DiseaseWikis = mongoose.model('diseasewikis');
-
 const LocationNews = mongoose.model('locationnews');
 const OutbreakNews = mongoose.model('outbreaknews');
 const TrendNews = mongoose.model('trendingnews');
@@ -85,6 +84,16 @@ module.exports.home = function(req, res) {
                                                     where.is(clientip, function(err, result) {
                                                         if (result) {
                                                             country = result.get("country");
+                                                            // Show news based on the user's location.
+                                                            locnews.forEach(function(currlocnews) {
+                                                                if(currlocnews.country == country) {
+                                                                    locationNews[index] = currlocnews;
+                                                                    index++;
+                                                                }
+
+                                                                // If the news are less than 4, it will add some random news.
+                                                                locationNews = addRandomNews(index,locnews, locationNews);
+                                                            });
                                                         }
                                                         
                                                         // Show news based on the user's location.
@@ -105,9 +114,9 @@ module.exports.home = function(req, res) {
                                                             trendnews: trendnews,
                                                             outbreaknews: outbreaknews,
                                                             user: req.user,
-                                                            date: nowDate,
+                                                            date: nowDate
                                                         });
-                                                    });                                            
+                                                    });
                                                 } else {
                                                     res.sendStatus(400);
                                                 }
@@ -457,14 +466,20 @@ module.exports.register = function(req, res) {
 
 // Post registration
 module.exports.doRegister = function(req, res) {
-    Profile.register(new Profile({ username : req.body.email, firstName: req.body.firstName, lastName: req.body.lastName, email: req.body.email, country: req.body.country, joined: Date.now(), newsLocation: country, admin: Boolean(req.body.admin)}), req.body.password, function(err, user) {
-        if (err) {
-            return res.sendStatus(404);
+    var country;
+    where.is(getClientIP(req), function(err, result) {
+        if (result) {
+            country = result.get("country");
+            Profile.register(new Profile({ username : req.body.email, firstName: req.body.firstName, lastName: req.body.lastName, email: req.body.email, country: req.body.country, joined: Date.now(), newsLocation: country, admin: Boolean(req.body.admin)}), req.body.password, function(err, user) {
+                if (err) {
+                    return res.sendStatus(404);
+                }
+                req.body.username = user.username;
+                passport.authenticate('local')(req, res, function () {
+                    res.redirect('/');
+                });
+            });
         }
-        req.body.username = user.username;
-        passport.authenticate('local')(req, res, function () {
-            res.redirect('/');
-        });
     });
 };
 
