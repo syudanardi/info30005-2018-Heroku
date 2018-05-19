@@ -10,23 +10,6 @@
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
         <script>
-            var requestUrl = "http://ip-api.com/json";
-
-            $.ajax({
-                url: requestUrl,
-                type: 'GET',
-                success: function(json)
-                {
-                    //console.log("My country is: " + json.country);
-                    $("#currLocation").append(json.country);
-                    $("#currentLocation").append(json.country);
-                },
-                error: function(err)
-                {
-                    console.log("Failed to Detect Location, errcode = " + err);
-                }
-            });
-
             function showEditProfile() {
                 var profileDetails = document.getElementById('profile-details');
                 profileDetails.style.display = "none";
@@ -90,18 +73,12 @@
                                 <strong>Country of Origin:</strong>
                                 <br>
                                 <%=user.country%>
-
                                 <br><br>
+
                                 <strong>Current Location:</strong>
+                                <br>
                                 <%=country%>
-                                <br>
-                                <!-- <div id="currLocation"></div> -->
-                                
-                                <br>
-                                <strong>CLIENT IP Address</strong>
-                                <br>
-                                <%=clientip%>
-                                <br>
+                                <br><br>
 
                                 <input id="edit-button" class="test btn btn-primary" id="button" type="button" onclick="showEditProfile()" value="Edit Profile"><br>
 
@@ -387,7 +364,6 @@
                                         <strong>Current Location:</strong>
                                         <br>
                                         <%=country%>
-                                        <!-- <div id="currentLocation"></div> -->
                                     </div>
 
                                     <!-- Submit -->

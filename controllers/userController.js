@@ -38,38 +38,6 @@ function getCountry(ipaddress){
 
     return null;
 }
-// const jsdom = require('jsdom');
-// $ = require('jquery')(new jsdom.JSDOM().window);
-
-// $.ajax({
-//     url: "http://ip-api.com/json",
-//     type: 'GET',
-//     success: function(json)
-//     {
-//         country = json.country;
-//         ipaddress = json.query;
-//         console.log("My country is: " + country);
-//         console.log("IP Address: " + ipaddress);
-
-//         where.is(ipaddress, function(err, result) {
-//             if (result) {
-//               console.log('City: ' + result.get('city'));
-//               console.log('State / Region: ' + result.get('region'));
-//               console.log('State / Region Code: ' + result.get('regionCode'));
-//               console.log('Zip: ' + result.get('postalCode'));
-//               console.log('Country: ' + result.get('country'));
-//               console.log('Country Code: ' + result.get('countryCode'));
-//               console.log('Lat: ' + result.get('lat'));
-//               console.log('Lng: ' + result.get('lng'));
-//             }
-//           });
-
-//     },
-//     error: function(err)
-//     {
-//         console.log("Request failed, error= " + err);
-//     }
-// });
 
 module.exports.homerevised = function(req, res) {
     var now = new Date();
@@ -82,32 +50,8 @@ module.exports.homerevised = function(req, res) {
     var clientip = getClientIP(req);
 
     // Get the current location
-    // var country = getCountry(clientip);
     var country;
-    where.is(clientip, function(err, result) {
-        if (result) {
-            country = result.get("country");
-            console.log("Line 90 " + country);
-        }
-    });
-
-    console.log("Line 94 " + country);
-
-    // $.ajax({
-    //     url: requestUrl,
-    //     type: 'GET',
-    //     success: function(json)
-    //         {   
-    //             country = json.country;
-    //             console.log("My country is: " + country);
-                
-    //         },
-    //     error: function(err)
-    //         {
-    //             console.log("Request failed, error= " + err);
-    //         }
-    // });
-
+   
     var addRandomNews = function(index, locnews, locationNews){
         if (locnews.length < 4 ){
             return
@@ -139,23 +83,30 @@ module.exports.homerevised = function(req, res) {
                                         if (!err) {
                                             LocationNews.find(function(err, locnews) {
                                                 if (!err) {
-                                                    locnews.forEach(function(currlocnews) {
-                                                        if(currlocnews.country == country) {
-                                                            locationNews[index] = currlocnews;
-                                                            index++;
+
+                                                    where.is(clientip, function(err, result) {
+                                                        if (result) {
+                                                            country = result.get("country");
                                                         }
-                                                        locationNews = addRandomNews(index,locnews, locationNews);
-                                                    });
-                                                    res.render("homepage_revised", {
-                                                        qfdb:quickfacts,
-                                                        qqdb:quickquiz,
-                                                        vid: video,
-                                                        locnews: locationNews,
-                                                        trendnews: trendnews,
-                                                        outbreaknews: outbreaknews,
-                                                        user: req.user,
-                                                        date: nowDate,
-                                                    });
+
+                                                        locnews.forEach(function(currlocnews) {
+                                                            if(currlocnews.country == country) {
+                                                                locationNews[index] = currlocnews;
+                                                                index++;
+                                                            }
+                                                            locationNews = addRandomNews(index,locnews, locationNews);
+                                                        });
+                                                        res.render("homepage_revised", {
+                                                            qfdb:quickfacts,
+                                                            qqdb:quickquiz,
+                                                            vid: video,
+                                                            locnews: locationNews,
+                                                            trendnews: trendnews,
+                                                            outbreaknews: outbreaknews,
+                                                            user: req.user,
+                                                            date: nowDate,
+                                                        });
+                                                    });                                            
                                                 } else {
                                                     res.sendStatus(400);
                                                 }
@@ -267,8 +218,6 @@ module.exports.profile = function(req, res) {
     // Get the Client IP address
     var clientip = getClientIP(req);
 
-    // Get the current location
-    // var country = getCountry(clientip);
     var country;
     where.is(clientip, function(err, result) {
         if (result) {
