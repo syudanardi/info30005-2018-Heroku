@@ -91,6 +91,8 @@ module.exports.homerevised = function(req, res) {
         }
     });
 
+    console.log("Line 94 " + country);
+
     // $.ajax({
     //     url: requestUrl,
     //     type: 'GET',
