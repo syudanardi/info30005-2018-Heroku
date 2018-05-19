@@ -144,7 +144,7 @@ module.exports.diseaseSpecific = function(req, res) {
         if(!err){
             diseasewikis.forEach(function(diseasespec) {
                 if (diseasespec.name == diseasename) {
-                    res.render("diseasespecific2", {
+                    res.render("diseasespecific", {
                         disease:diseasespec,
                         user: req.user
                     });
