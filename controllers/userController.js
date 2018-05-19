@@ -258,6 +258,7 @@ module.exports.profile = function(req, res) {
 
     // Get the current location
     var country = getCountry(clientip);
+    console.log("the user country is" + country);
 
     var name = req.user.firstName + " " + req.user.lastName;
     res.render('profile', { 
