@@ -500,7 +500,3 @@ module.exports.logout = function(req, res) {
     req.logout();
     res.redirect('/');
 };
-
-module.exports.logoutScreen = function(req, res){
-    res.render('loggedOut', {user: req.user})
-};
