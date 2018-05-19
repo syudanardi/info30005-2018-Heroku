@@ -29,8 +29,9 @@ function getClientIP(req){
 function getCountry(ipaddress){
     where.is(ipaddress, function(err, result) {
         if (result) {
-            console.log(result.get("country"));
-            return result.get("country");
+            var country = result.get("country");
+            console.log("Line 33 " + country);
+            return country;
         }
     });
 
