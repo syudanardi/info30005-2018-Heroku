@@ -50,6 +50,7 @@ module.exports.homerevised = function(req, res) {
         error: function(err)
             {
                 console.log("Request failed, error= " + err);
+                country = "Australia"
             }
     });
 
