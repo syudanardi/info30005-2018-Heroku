@@ -12,62 +12,89 @@ const OutbreakNews = mongoose.model('outbreaknews');
 const TrendNews = mongoose.model('trendingnews');
 const FeaturedVideos = mongoose.model('featuredvideos');
 
-var where = require('node-where');
+const where = require('node-where');
 
-var jsdom = require('jsdom');
-$ = require('jquery')(new jsdom.JSDOM().window);
-let country;
-let ipaddress;
-$.ajax({
-    url: "http://ip-api.com/json",
-    type: 'GET',
-    success: function(json)
-    {
-        country = json.country;
-        ipaddress = json.query;
-        console.log("My country is: " + country);
-        console.log("IP Address: " + ipaddress);
+function getClientIP(req){
+    var clientip = req.headers["x-forwarded-for"];
 
-        where.is(ipaddress, function(err, result) {
-            if (result) {
-              console.log('City: ' + result.get('city'));
-              console.log('State / Region: ' + result.get('region'));
-              console.log('State / Region Code: ' + result.get('regionCode'));
-              console.log('Zip: ' + result.get('postalCode'));
-              console.log('Country: ' + result.get('country'));
-              console.log('Country Code: ' + result.get('countryCode'));
-              console.log('Lat: ' + result.get('lat'));
-              console.log('Lng: ' + result.get('lng'));
-            }
-          });
-
-    },
-    error: function(err)
-    {
-        console.log("Request failed, error= " + err);
+    if (clientip) {
+        var list = clientip.split(",");
+        clientip = list[list.length-1];
+    } else {
+        clientip = req.connection.remoteAddress;
     }
-});
+    return clientip;
+};
+
+function getCountry(ipaddress){
+    where.is(ipaddress, function(err, result) {
+        if (result) {
+            return result.get("country");
+        }
+    });
+
+    return null;
+}
+// const jsdom = require('jsdom');
+// $ = require('jquery')(new jsdom.JSDOM().window);
+
+// $.ajax({
+//     url: "http://ip-api.com/json",
+//     type: 'GET',
+//     success: function(json)
+//     {
+//         country = json.country;
+//         ipaddress = json.query;
+//         console.log("My country is: " + country);
+//         console.log("IP Address: " + ipaddress);
+
+//         where.is(ipaddress, function(err, result) {
+//             if (result) {
+//               console.log('City: ' + result.get('city'));
+//               console.log('State / Region: ' + result.get('region'));
+//               console.log('State / Region Code: ' + result.get('regionCode'));
+//               console.log('Zip: ' + result.get('postalCode'));
+//               console.log('Country: ' + result.get('country'));
+//               console.log('Country Code: ' + result.get('countryCode'));
+//               console.log('Lat: ' + result.get('lat'));
+//               console.log('Lng: ' + result.get('lng'));
+//             }
+//           });
+
+//     },
+//     error: function(err)
+//     {
+//         console.log("Request failed, error= " + err);
+//     }
+// });
 
 module.exports.homerevised = function(req, res) {
     var now = new Date();
     var nowDate = now.getDate();
 
-    var requestUrl = "http://ip-api.com/json";
-    var country;
-    $.ajax({
-        url: requestUrl,
-        type: 'GET',
-        success: function(json)
-            {   
-                country = json.country;
-                console.log("My country is: " + country);
+    // var requestUrl = "http://ip-api.com/json";
+    
+
+    // Get the Client IP address
+    var clientip = getClientIP(req);
+
+    // Get the current location
+    var country = getCountry(clientip);
+
+    // $.ajax({
+    //     url: requestUrl,
+    //     type: 'GET',
+    //     success: function(json)
+    //         {   
+    //             country = json.country;
+    //             console.log("My country is: " + country);
                 
-            },
-        error: function(err)
-            {
-                console.log("Request failed, error= " + err);
-            }
-    });
+    //         },
+    //     error: function(err)
+    //         {
+    //             console.log("Request failed, error= " + err);
+    //         }
+    // });
 
     var addRandomNews = function(index, locnews, locationNews){
         if (locnews.length < 4 ){
@@ -220,28 +247,18 @@ module.exports.disease = function(req, res) {
 
 module.exports.profile = function(req, res) {
     
-    var ip2 = req.headers["x-forwarded-for"];
+    // Get the Client IP address
+    var clientip = getClientIP(req);
 
-    if (ip2) {
-        var list = ip2.split(",");
-        ip2 = list[list.length-1];
-    } else {
-        ip2 = req.connection.remoteAddress;
-    }
-    
-    console.log(ip2);
-    if (!req.user){
-        res.redirect('/register');
-        return;
-    }
+    // Get the current location
+    var country = getCountry(clientip);
 
     var name = req.user.firstName + " " + req.user.lastName;
     res.render('profile', { 
         user: req.user,
         name: name,
         country: country,
-        ipaddress: ipaddress,
-        ipclient: ip2
+        clientip: clientip
     });
 };
 
