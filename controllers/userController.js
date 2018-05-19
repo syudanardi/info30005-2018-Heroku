@@ -88,18 +88,17 @@ module.exports.homerevised = function(req, res) {
                                                     where.is(clientip, function(err, result) {
                                                         if (result) {
                                                             country = result.get("country");
+                                                            // Show news based on the user's location.
+                                                            locnews.forEach(function(currlocnews) {
+                                                                if(currlocnews.country == country) {
+                                                                    locationNews[index] = currlocnews;
+                                                                    index++;
+                                                                }
+
+                                                                // If the news are less than 4, it will add some random news.
+                                                                locationNews = addRandomNews(index,locnews, locationNews);
+                                                            });
                                                         }
-
-                                                        // Show news based on the user's location.
-                                                        locnews.forEach(function(currlocnews) {
-                                                            if(currlocnews.country == country) {
-                                                                locationNews[index] = currlocnews;
-                                                                index++;
-                                                            }
-
-                                                            // If the news are less than 4, it will add some random news.
-                                                            locationNews = addRandomNews(index,locnews, locationNews);
-                                                        });
                                                         res.render("homepage_revised", {
                                                             qfdb:quickfacts,
                                                             qqdb:quickquiz,
@@ -108,7 +107,7 @@ module.exports.homerevised = function(req, res) {
                                                             trendnews: trendnews,
                                                             outbreaknews: outbreaknews,
                                                             user: req.user,
-                                                            date: nowDate,
+                                                            date: nowDate
                                                         });
                                                     });
                                                 } else {
