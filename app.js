@@ -10,13 +10,11 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 
 //Data Base
-//app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 require('./models/db.js');
 
 // Set the app to be able to use ejs.
 app.set('view engine','ejs');
-//app.set('view engine', 'jade');
 
 app.use(express.static('public'));
 
@@ -28,6 +26,7 @@ app.use(require('express-session')({
     saveUninitialized: false
 }));
 
+// Set the app to be able to use passport. 
 app.use(passport.initialize());
 app.use(passport.session());
 
