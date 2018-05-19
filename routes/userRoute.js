@@ -3,10 +3,10 @@ const router = express.Router();
 const control = require('../controllers/userController');
 
 // Restrict index for logged in user only
-router.get('/', control.homerevised);
+router.get('/', control.home);
 
 // Route to home page
-router.get('/home', control.homerevised);
+router.get('/home', control.home);
 
 router.get('/diseases', control.diseaseWiki);
 

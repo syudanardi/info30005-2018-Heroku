@@ -39,12 +39,9 @@ function getCountry(ipaddress){
     return null;
 }
 
-module.exports.homerevised = function(req, res) {
+module.exports.home = function(req, res) {
     var now = new Date();
     var nowDate = now.getDate();
-
-    // var requestUrl = "http://ip-api.com/json";
-    
 
     // Get the Client IP address
     var clientip = getClientIP(req);
@@ -100,7 +97,7 @@ module.exports.homerevised = function(req, res) {
                                                             // If the news are less than 4, it will add some random news.
                                                             locationNews = addRandomNews(index,locnews, locationNews);
                                                         });
-                                                        res.render("homepage_revised", {
+                                                        res.render("home", {
                                                             qfdb:quickfacts,
                                                             qqdb:quickquiz,
                                                             vid: video,
