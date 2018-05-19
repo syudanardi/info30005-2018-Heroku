@@ -83,17 +83,21 @@ module.exports.homerevised = function(req, res) {
                                         if (!err) {
                                             LocationNews.find(function(err, locnews) {
                                                 if (!err) {
-
+                                                    
+                                                    // Get the user's country location.
                                                     where.is(clientip, function(err, result) {
                                                         if (result) {
                                                             country = result.get("country");
                                                         }
-
+                                                        
+                                                        // Show news based on the user's location.
                                                         locnews.forEach(function(currlocnews) {
                                                             if(currlocnews.country == country) {
                                                                 locationNews[index] = currlocnews;
                                                                 index++;
                                                             }
+
+                                                            // If the news are less than 4, it will add some random news.
                                                             locationNews = addRandomNews(index,locnews, locationNews);
                                                         });
                                                         res.render("homepage_revised", {
