@@ -25,19 +25,6 @@ function getClientIP(req){
     return clientip;
 };
 
-function getCountry(ipaddress){
-    console.log("Line 30 " + ipaddress);
-    where.is(ipaddress, function(err, result) {
-        if (result) {
-            var country = result.get("country");
-            console.log("Line 33 " + country);
-            return country;
-        }
-    });
-
-    return null;
-}
-
 module.exports.home = function(req, res) {
     var now = new Date();
     var nowDate = now.getDate();
