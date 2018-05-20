@@ -75,9 +75,9 @@
                                 <%=user.country%>
                                 <br><br>
 
-                                <strong>Current Location:</strong>
+                                <strong>Location of News:</strong>
                                 <br>
-                                <%=country%>
+                                <%=user.newsLocation%>
                                 <br><br>
 
                                 <input id="edit-button" class="test btn btn-primary" id="button" type="button" onclick="showEditProfile()" value="Edit Profile"><br>
@@ -101,6 +101,7 @@
                                     </div>
 
                                     <br>
+
                                     <div class="profile-country">
                                         <table class="form-group">
                                             <label><strong><em>Country of Origin:</em></strong></label>
@@ -360,10 +361,270 @@
                                             </select>
                                         </table>
                                     </div>
+
+                                    <div class="profile-newsLocation">
+                                        <table class="form-group">
+                                            <label><strong><em>Select new News Location</em></strong></label>
+                                            <select id="newsLocation" class="form-control" name="newsLocation" onchange="setCountry()">
+                                                <optgroup label="---------------------------------------- Current Country ----------------------------------------"></optgroup>
+                                                <option name="newsLocation" value="<%=user.newsLocation%>" title="<%=user.newsLocation%>"><%=user.newsLocation%></option>
+                                                <optgroup label="-------------------------------------------------------------------------------------------------"></optgroup>
+                                                <option name="newsLocation" value="Afghanistan" title="Afghanistan">Afghanistan</option>
+                                                <option name="newsLocation" value="Åland Islands" title="Åland Islands">Åland Islands</option>
+                                                <option name="newsLocation" value="Albania" title="Albania">Albania</option>
+                                                <option name="newsLocation" value="Algeria" title="Algeria">Algeria</option>
+                                                <option name="newsLocation" value="American Samoa" title="American Samoa">American Samoa</option>
+                                                <option name="newsLocation" value="Andorra" title="Andorra">Andorra</option>
+                                                <option name="newsLocation" value="Angola" title="Angola">Angola</option>
+                                                <option name="newsLocation" value="Anguilla" title="Anguilla">Anguilla</option>
+                                                <option name="newsLocation" value="Antarctica" title="Antarctica">Antarctica</option>
+                                                <option name="newsLocation" value="Antigua and Barbuda" title="Antigua and Barbuda">Antigua and Barbuda</option>
+                                                <option name="newsLocation" value="Argentina" title="Argentina">Argentina</option>
+                                                <option name="newsLocation" value="Armenia" title="Armenia">Armenia</option>
+                                                <option name="newsLocation" value="Aruba" title="Aruba">Aruba</option>
+                                                <option name="newsLocation" value="Australia" title="Australia">Australia</option>
+                                                <option name="newsLocation" value="Austria" title="Austria">Austria</option>
+                                                <option name="newsLocation" value="Azerbaijan" title="Azerbaijan">Azerbaijan</option>
+                                                <option name="newsLocation" value="Bahamas" title="Bahamas">Bahamas</option>
+                                                <option name="newsLocation" value="Bahrain" title="Bahrain">Bahrain</option>
+                                                <option name="newsLocation" value="Bangladesh" title="Bangladesh">Bangladesh</option>
+                                                <option name="newsLocation" value="Barbados" title="Barbados">Barbados</option>
+                                                <option name="newsLocation" value="Belarus" title="Belarus">Belarus</option>
+                                                <option name="newsLocation" value="Belgium" title="Belgium">Belgium</option>
+                                                <option name="newsLocation" value="Belize" title="Belize">Belize</option>
+                                                <option name="newsLocation" value="Benin" title="Benin">Benin</option>
+                                                <option name="newsLocation" value="Bermuda" title="Bermuda">Bermuda</option>
+                                                <option name="newsLocation" value="Bhutan" title="Bhutan">Bhutan</option>
+                                                <option name="newsLocation" value="Bolivia, Plurinational State of" title="Bolivia, Plurinational State of">Bolivia, Plurinational State of</option>
+                                                <option name="newsLocation" value="Bonaire, Sint Eustatius and Saba" title="Bonaire, Sint Eustatius and Saba">Bonaire, Sint Eustatius and Saba</option>
+                                                <option name="newsLocation" value="Bosnia and Herzegovina" title="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                                                <option name="newsLocation" value="Botswana" title="Botswana">Botswana</option>
+                                                <option name="newsLocation" value="Bouvet Island" title="Bouvet Island">Bouvet Island</option>
+                                                <option name="newsLocation" value="Brazil" title="Brazil">Brazil</option>
+                                                <option name="newsLocation" value="British Indian Ocean Territory" title="British Indian Ocean Territory">British Indian Ocean Territory</option>
+                                                <option name="newsLocation" value="Brunei Darussalam" title="Brunei Darussalam">Brunei Darussalam</option>
+                                                <option name="newsLocation" value="Bulgaria" title="Bulgaria">Bulgaria</option>
+                                                <option name="newsLocation" value="Burkina Faso" title="Burkina Faso">Burkina Faso</option>
+                                                <option name="newsLocation" value="Burundi" title="Burundi">Burundi</option>
+                                                <option name="newsLocation" value="Cambodia" title="Cambodia">Cambodia</option>
+                                                <option name="newsLocation" value="Cameroon" title="Cameroon">Cameroon</option>
+                                                <option name="newsLocation" value="Canada" title="Canada">Canada</option>
+                                                <option name="newsLocation" value="Cape Verde" title="Cape Verde">Cape Verde</option>
+                                                <option name="newsLocation" value="Cayman Islands" title="Cayman Islands">Cayman Islands</option>
+                                                <option name="newsLocation" value="Central African Republic" title="Central African Republic">Central African Republic</option>
+                                                <option name="newsLocation" value="Chad" title="Chad">Chad</option>
+                                                <option name="newsLocation" value="Chile" title="Chile">Chile</option>
+                                                <option name="newsLocation" value="China" title="China">China</option>
+                                                <option name="newsLocation" value="Christmas Island" title="Christmas Island">Christmas Island</option>
+                                                <option name="newsLocation" value="Cocos (Keeling) Islands" title="Cocos (Keeling) Islands">Cocos (Keeling) Islands</option>
+                                                <option name="newsLocation" value="Colombia" title="Colombia">Colombia</option>
+                                                <option name="newsLocation" value="Comoros" title="Comoros">Comoros</option>
+                                                <option name="newsLocation" value="Congo" title="Congo">Congo</option>
+                                                <option name="newsLocation" value="Congo, the Democratic Republic of the" title="Congo, the Democratic Republic of the">Congo, the Democratic Republic of the</option>
+                                                <option name="newsLocation" value="Cook Islands" title="Cook Islands">Cook Islands</option>
+                                                <option name="newsLocation" value="Costa Rica" title="Costa Rica">Costa Rica</option>
+                                                <option name="newsLocation" value="Côte d'Ivoire" title="Côte d'Ivoire">Côte d'Ivoire</option>
+                                                <option name="newsLocation" value="Croatia" title="Croatia">Croatia</option>
+                                                <option name="newsLocation" value="Cuba" title="Cuba">Cuba</option>
+                                                <option name="newsLocation" value="Curaçao" title="Curaçao">Curaçao</option>
+                                                <option name="newsLocation" value="Cyprus" title="Cyprus">Cyprus</option>
+                                                <option name="newsLocation" value="Czech Republic" title="Czech Republic">Czech Republic</option>
+                                                <option name="newsLocation" value="Denmark" title="Denmark">Denmark</option>
+                                                <option name="newsLocation" value="Djibouti" title="Djibouti">Djibouti</option>
+                                                <option name="newsLocation" value="Dominica" title="Dominica">Dominica</option>
+                                                <option name="newsLocation" value="Dominican Republic" title="Dominican Republic">Dominican Republic</option>
+                                                <option name="newsLocation" value="Ecuador" title="Ecuador">Ecuador</option>
+                                                <option name="newsLocation" value="Egypt" title="Egypt">Egypt</option>
+                                                <option name="newsLocation" value="El Salvador" title="El Salvador">El Salvador</option>
+                                                <option name="newsLocation" value="Equatorial Guinea" title="Equatorial Guinea">Equatorial Guinea</option>
+                                                <option name="newsLocation" value="Eritrea" title="Eritrea">Eritrea</option>
+                                                <option name="newsLocation" value="Estonia" title="Estonia">Estonia</option>
+                                                <option name="newsLocation" value="Ethiopia" title="Ethiopia">Ethiopia</option>
+                                                <option name="newsLocation" value="Falkland Islands (Malvinas)" title="Falkland Islands (Malvinas)">Falkland Islands (Malvinas)</option>
+                                                <option name="newsLocation" value="Faroe Islands" title="Faroe Islands">Faroe Islands</option>
+                                                <option name="newsLocation" value="Fiji" title="Fiji">Fiji</option>
+                                                <option name="newsLocation" value="Finland" title="Finland">Finland</option>
+                                                <option name="newsLocation" value="France" title="France">France</option>
+                                                <option name="newsLocation" value="French Guiana" title="French Guiana">French Guiana</option>
+                                                <option name="newsLocation" value="French Polynesia" title="French Polynesia">French Polynesia</option>
+                                                <option name="newsLocation" value="French Southern Territories" title="French Southern Territories">French Southern Territories</option>
+                                                <option name="newsLocation" value="Gabon" title="Gabon">Gabon</option>
+                                                <option name="newsLocation" value="Gambia" title="Gambia">Gambia</option>
+                                                <option name="newsLocation" value="Georgia" title="Georgia">Georgia</option>
+                                                <option name="newsLocation" value="Germany" title="Germany">Germany</option>
+                                                <option name="newsLocation" value="Ghana" title="Ghana">Ghana</option>
+                                                <option name="newsLocation" value="Gibraltar" title="Gibraltar">Gibraltar</option>
+                                                <option name="newsLocation" value="Greece" title="Greece">Greece</option>
+                                                <option name="newsLocation" value="Greenland" title="Greenland">Greenland</option>
+                                                <option name="newsLocation" value="Grenada" title="Grenada">Grenada</option>
+                                                <option name="newsLocation" value="Guadeloupe" title="Guadeloupe">Guadeloupe</option>
+                                                <option name="newsLocation" value="Guam" title="Guam">Guam</option>
+                                                <option name="newsLocation" value="Guatemala" title="Guatemala">Guatemala</option>
+                                                <option name="newsLocation" value="Guernsey" title="Guernsey">Guernsey</option>
+                                                <option name="newsLocation" value="Guinea" title="Guinea">Guinea</option>
+                                                <option name="newsLocation" value="Guinea-Bissau" title="Guinea-Bissau">Guinea-Bissau</option>
+                                                <option name="newsLocation" value="Guyana" title="Guyana">Guyana</option>
+                                                <option name="newsLocation" value="Haiti" title="Haiti">Haiti</option>
+                                                <option name="newsLocation" value="Heard Island and McDonald Islands" title="Heard Island and McDonald Islands">Heard Island and McDonald Islands</option>
+                                                <option name="newsLocation" value="Holy See (Vatican City State)" title="Holy See (Vatican City State)">Holy See (Vatican City State)</option>
+                                                <option name="newsLocation" value="Honduras" title="Honduras">Honduras</option>
+                                                <option name="newsLocation" value="Hong Kong" title="Hong Kong">Hong Kong</option>
+                                                <option name="newsLocation" value="Hungary" title="Hungary">Hungary</option>
+                                                <option name="newsLocation" value="Iceland" title="Iceland">Iceland</option>
+                                                <option name="newsLocation" value="India" title="India">India</option>
+                                                <option name="newsLocation" value="Indonesia" title="Indonesia">Indonesia</option>
+                                                <option name="newsLocation" value="Iran, Islamic Republic of" title="Iran, Islamic Republic of">Iran, Islamic Republic of</option>
+                                                <option name="newsLocation" value="Iraq" title="Iraq">Iraq</option>
+                                                <option name="newsLocation" value="Ireland" title="Ireland">Ireland</option>
+                                                <option name="newsLocation" value="Isle of Man" title="Isle of Man">Isle of Man</option>
+                                                <option name="newsLocation" value="Israel" title="Israel">Israel</option>
+                                                <option name="newsLocation" value="Italy" title="Italy">Italy</option>
+                                                <option name="newsLocation" value="Jamaica" title="Jamaica">Jamaica</option>
+                                                <option name="newsLocation" value="Japan" title="Japan">Japan</option>
+                                                <option name="newsLocation" value="Jersey" title="Jersey">Jersey</option>
+                                                <option name="newsLocation" value="Jordan" title="Jordan">Jordan</option>
+                                                <option name="newsLocation" value="Kazakhstan" title="Kazakhstan">Kazakhstan</option>
+                                                <option name="newsLocation" value="Kenya" title="Kenya">Kenya</option>
+                                                <option name="newsLocation" value="Kiribati" title="Kiribati">Kiribati</option>
+                                                <option name="newsLocation" value="Korea, Democratic People's Republic of" title="Korea, Democratic People's Republic of">Korea, Democratic People's Republic of</option>
+                                                <option name="newsLocation" value="Korea, Republic of" title="Korea, Republic of">Korea, Republic of</option>
+                                                <option name="newsLocation" value="Kuwait" title="Kuwait">Kuwait</option>
+                                                <option name="newsLocation" value="Kyrgyzstan" title="Kyrgyzstan">Kyrgyzstan</option>
+                                                <option name="newsLocation" value="Lao People's Democratic Republic" title="Lao People's Democratic Republic">Lao People's Democratic Republic</option>
+                                                <option name="newsLocation" value="Latvia" title="Latvia">Latvia</option>
+                                                <option name="newsLocation" value="Lebanon" title="Lebanon">Lebanon</option>
+                                                <option name="newsLocation" value="Lesotho" title="Lesotho">Lesotho</option>
+                                                <option name="newsLocation" value="Liberia" title="Liberia">Liberia</option>
+                                                <option name="newsLocation" value="Libya" title="Libya">Libya</option>
+                                                <option name="newsLocation" value="Liechtenstein" title="Liechtenstein">Liechtenstein</option>
+                                                <option name="newsLocation" value="Lithuania" title="Lithuania">Lithuania</option>
+                                                <option name="newsLocation" value="Luxembourg" title="Luxembourg">Luxembourg</option>
+                                                <option name="newsLocation" value="Macao" title="Macao">Macao</option>
+                                                <option name="newsLocation" value="Macedonia, the former Yugoslav Republic of" title="Macedonia, the former Yugoslav Republic of">Macedonia, the former Yugoslav Republic of</option>
+                                                <option name="newsLocation" value="Madagascar" title="Madagascar">Madagascar</option>
+                                                <option name="newsLocation" value="Malawi" title="Malawi">Malawi</option>
+                                                <option name="newsLocation" value="Malaysia" title="Malaysia">Malaysia</option>
+                                                <option name="newsLocation" value="Maldives" title="Maldives">Maldives</option>
+                                                <option name="newsLocation" value="Mali" title="Mali">Mali</option>
+                                                <option name="newsLocation" value="Malta" title="Malta">Malta</option>
+                                                <option name="newsLocation" value="Marshall Islands" title="Marshall Islands">Marshall Islands</option>
+                                                <option name="newsLocation" value="Martinique" title="Martinique">Martinique</option>
+                                                <option name="newsLocation" value="Mauritania" title="Mauritania">Mauritania</option>
+                                                <option name="newsLocation" value="Mauritius" title="Mauritius">Mauritius</option>
+                                                <option name="newsLocation" value="Mayotte" title="Mayotte">Mayotte</option>
+                                                <option name="newsLocation" value="Mexico" title="Mexico">Mexico</option>
+                                                <option name="newsLocation" value="Micronesia, Federated States of" title="Micronesia, Federated States of">Micronesia, Federated States of</option>
+                                                <option name="newsLocation" value="Moldova, Republic of" title="Moldova, Republic of">Moldova, Republic of</option>
+                                                <option name="newsLocation" value="Monaco" title="Monaco">Monaco</option>
+                                                <option name="newsLocation" value="Mongolia" title="Mongolia">Mongolia</option>
+                                                <option name="newsLocation" value="Montenegro" title="Montenegro">Montenegro</option>
+                                                <option name="newsLocation" value="Montserrat" title="Montserrat">Montserrat</option>
+                                                <option name="newsLocation" value="Morocco" title="Morocco">Morocco</option>
+                                                <option name="newsLocation" value="Mozambique" title="Mozambique">Mozambique</option>
+                                                <option name="newsLocation" value="Myanmar" title="Myanmar">Myanmar</option>
+                                                <option name="newsLocation" value="Namibia" title="Namibia">Namibia</option>
+                                                <option name="newsLocation" value="Nauru" title="Nauru">Nauru</option>
+                                                <option name="newsLocation" value="Nepal" title="Nepal">Nepal</option>
+                                                <option name="newsLocation" value="Netherlands" title="Netherlands">Netherlands</option>
+                                                <option name="newsLocation" value="New Caledonia" title="New Caledonia">New Caledonia</option>
+                                                <option name="newsLocation" value="New Zealand" title="New Zealand">New Zealand</option>
+                                                <option name="newsLocation" value="Nicaragua" title="Nicaragua">Nicaragua</option>
+                                                <option name="newsLocation" value="Niger" title="Niger">Niger</option>
+                                                <option name="newsLocation" value="Nigeria" title="Nigeria">Nigeria</option>
+                                                <option name="newsLocation" value="Niue" title="Niue">Niue</option>
+                                                <option name="newsLocation" value="Norfolk Island" title="Norfolk Island">Norfolk Island</option>
+                                                <option name="newsLocation" value="Northern Mariana Islands" title="Northern Mariana Islands">Northern Mariana Islands</option>
+                                                <option name="newsLocation" value="Norway" title="Norway">Norway</option>
+                                                <option name="newsLocation" value="Oman" title="Oman">Oman</option>
+                                                <option name="newsLocation" value="Pakistan" title="Pakistan">Pakistan</option>
+                                                <option name="newsLocation" value="Palau" title="Palau">Palau</option>
+                                                <option name="newsLocation" value="Palestinian Territory, Occupied" title="Palestinian Territory, Occupied">Palestinian Territory, Occupied</option>
+                                                <option name="newsLocation" value="Panama" title="Panama">Panama</option>
+                                                <option name="newsLocation" value="Papua New Guinea" title="Papua New Guinea">Papua New Guinea</option>
+                                                <option name="newsLocation" value="Paraguay" title="Paraguay">Paraguay</option>
+                                                <option name="newsLocation" value="Peru" title="Peru">Peru</option>
+                                                <option name="newsLocation" value="Philippines" title="Philippines">Philippines</option>
+                                                <option name="newsLocation" value="Pitcairn" title="Pitcairn">Pitcairn</option>
+                                                <option name="newsLocation" value="Poland" title="Poland">Poland</option>
+                                                <option name="newsLocation" value="Portugal" title="Portugal">Portugal</option>
+                                                <option name="newsLocation" value="Puerto Rico" title="Puerto Rico">Puerto Rico</option>
+                                                <option name="newsLocation" value="Qatar" title="Qatar">Qatar</option>
+                                                <option name="newsLocation" value="Réunion" title="Réunion">Réunion</option>
+                                                <option name="newsLocation" value="Romania" title="Romania">Romania</option>
+                                                <option name="newsLocation" value="Russian Federation" title="Russian Federation">Russian Federation</option>
+                                                <option name="newsLocation" value="Rwanda" title="Rwanda">Rwanda</option>
+                                                <option name="newsLocation" value="Saint Barthélemy" title="Saint Barthélemy">Saint Barthélemy</option>
+                                                <option name="newsLocation" value="Saint Helena, Ascension and Tristan da Cunha" title="Saint Helena, Ascension and Tristan da Cunha">Saint Helena, Ascension and Tristan da Cunha</option>
+                                                <option name="newsLocation" value="Saint Kitts and Nevis" title="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
+                                                <option name="newsLocation" value="Saint Lucia" title="Saint Lucia">Saint Lucia</option>
+                                                <option name="newsLocation" value="Saint Martin (French part)" title="Saint Martin (French part)">Saint Martin (French part)</option>
+                                                <option name="newsLocation" value="Saint Pierre and Miquelon" title="Saint Pierre and Miquelon">Saint Pierre and Miquelon</option>
+                                                <option name="newsLocation" value="Saint Vincent and the Grenadines" title="Saint Vincent and the Grenadines">Saint Vincent and the Grenadines</option>
+                                                <option name="newsLocation" value="Samoa" title="Samoa">Samoa</option>
+                                                <option name="newsLocation" value="San Marino" title="San Marino">San Marino</option>
+                                                <option name="newsLocation" value="Sao Tome and Principe" title="Sao Tome and Principe">Sao Tome and Principe</option>
+                                                <option name="newsLocation" value="Saudi Arabia" title="Saudi Arabia">Saudi Arabia</option>
+                                                <option name="newsLocation" value="Senegal" title="Senegal">Senegal</option>
+                                                <option name="newsLocation" value="Serbia" title="Serbia">Serbia</option>
+                                                <option name="newsLocation" value="Seychelles" title="Seychelles">Seychelles</option>
+                                                <option name="newsLocation" value="Sierra Leone" title="Sierra Leone">Sierra Leone</option>
+                                                <option name="newsLocation" value="Singapore" title="Singapore">Singapore</option>
+                                                <option name="newsLocation" value="Sint Maarten (Dutch part)" title="Sint Maarten (Dutch part)">Sint Maarten (Dutch part)</option>
+                                                <option name="newsLocation" value="Slovakia" title="Slovakia">Slovakia</option>
+                                                <option name="newsLocation" value="Slovenia" title="Slovenia">Slovenia</option>
+                                                <option name="newsLocation" value="Solomon Islands" title="Solomon Islands">Solomon Islands</option>
+                                                <option name="newsLocation" value="Somalia" title="Somalia">Somalia</option>
+                                                <option name="newsLocation" value="South Africa" title="South Africa">South Africa</option>
+                                                <option name="newsLocation" value="South Georgia and the South Sandwich Islands" title="South Georgia and the South Sandwich Islands">South Georgia and the South Sandwich Islands</option>
+                                                <option name="newsLocation" value="South Sudan" title="South Sudan">South Sudan</option>
+                                                <option name="newsLocation" value="Spain" title="Spain">Spain</option>
+                                                <option name="newsLocation" value="Sri Lanka" title="Sri Lanka">Sri Lanka</option>
+                                                <option name="newsLocation" value="Sudan" title="Sudan">Sudan</option>
+                                                <option name="newsLocation" value="Suriname" title="Suriname">Suriname</option>
+                                                <option name="newsLocation" value="Svalbard and Jan Mayen" title="Svalbard and Jan Mayen">Svalbard and Jan Mayen</option>
+                                                <option name="newsLocation" value="Swaziland" title="Swaziland">Swaziland</option>
+                                                <option name="newsLocation" value="Sweden" title="Sweden">Sweden</option>
+                                                <option name="newsLocation" value="Switzerland" title="Switzerland">Switzerland</option>
+                                                <option name="newsLocation" value="Syrian Arab Republic" title="Syrian Arab Republic">Syrian Arab Republic</option>
+                                                <option name="newsLocation" value="Taiwan, Province of China" title="Taiwan, Province of China">Taiwan, Province of China</option>
+                                                <option name="newsLocation" value="Tajikistan" title="Tajikistan">Tajikistan</option>
+                                                <option name="newsLocation" value="Tanzania, United Republic of" title="Tanzania, United Republic of">Tanzania, United Republic of</option>
+                                                <option name="newsLocation" value="Thailand" title="Thailand">Thailand</option>
+                                                <option name="newsLocation" value="Timor-Leste" title="Timor-Leste">Timor-Leste</option>
+                                                <option name="newsLocation" value="Togo" title="Togo">Togo</option>
+                                                <option name="newsLocation" value="Tokelau" title="Tokelau">Tokelau</option>
+                                                <option name="newsLocation" value="Tonga" title="Tonga">Tonga</option>
+                                                <option name="newsLocation" value="Trinidad and Tobago" title="Trinidad and Tobago">Trinidad and Tobago</option>
+                                                <option name="newsLocation" value="Tunisia" title="Tunisia">Tunisia</option>
+                                                <option name="newsLocation" value="Turkey" title="Turkey">Turkey</option>
+                                                <option name="newsLocation" value="Turkmenistan" title="Turkmenistan">Turkmenistan</option>
+                                                <option name="newsLocation" value="Turks and Caicos Islands" title="Turks and Caicos Islands">Turks and Caicos Islands</option>
+                                                <option name="newsLocation" value="Tuvalu" title="Tuvalu">Tuvalu</option>
+                                                <option name="newsLocation" value="Uganda" title="Uganda">Uganda</option>
+                                                <option name="newsLocation" value="Ukraine" title="Ukraine">Ukraine</option>
+                                                <option name="newsLocation" value="United Arab Emirates" title="United Arab Emirates">United Arab Emirates</option>
+                                                <option name="newsLocation" value="United Kingdom" title="United Kingdom">United Kingdom</option>
+                                                <option name="newsLocation" value="United States" title="United States">United States</option>
+                                                <option name="newsLocation" value="United States Minor Outlying Islands" title="United States Minor Outlying Islands">United States Minor Outlying Islands</option>
+                                                <option name="newsLocation" value="Uruguay" title="Uruguay">Uruguay</option>
+                                                <option name="newsLocation" value="Uzbekistan" title="Uzbekistan">Uzbekistan</option>
+                                                <option name="newsLocation" value="Vanuatu" title="Vanuatu">Vanuatu</option>
+                                                <option name="newsLocation" value="Venezuela, Bolivarian Republic of" title="Venezuela, Bolivarian Republic of">Venezuela, Bolivarian Republic of</option>
+                                                <option name="newsLocation" value="Viet Nam" title="Viet Nam">Viet Nam</option>
+                                                <option name="newsLocation" value="Virgin Islands, British" title="Virgin Islands, British">Virgin Islands, British</option>
+                                                <option name="newsLocation" value="Virgin Islands, U.S." title="Virgin Islands, U.S.">Virgin Islands, U.S.</option>
+                                                <option name="newsLocation" value="Wallis and Futuna" title="Wallis and Futuna">Wallis and Futuna</option>
+                                                <option name="newsLocation" value="Western Sahara" title="Western Sahara">Western Sahara</option>
+                                                <option name="newsLocation" value="Yemen" title="Yemen">Yemen</option>
+                                                <option name="newsLocation" value="Zambia" title="Zambia">Zambia</option>
+                                                <option name="newsLocation" value="Zimbabwe" title="Zimbabwe">Zimbabwe</option>
+                                            </select>
+                                        </table>
+                                    </div>
                                     <div class="profile-current-location">
-                                        <strong>Current Location:</strong>
+                                        <strong>Currently Displayed News Location:</strong>
                                         <br>
-                                        <%=country%>
+                                        <%=user.newsLocation%>
                                     </div>
 
                                     <!-- Submit -->
