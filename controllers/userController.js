@@ -65,7 +65,6 @@ module.exports.homerevised = function(req, res) {
     };
 
     var index = 0;
-    var locationNews = new Array();
 
     QF.find(function(err,quickfacts) {
         if(!err) {
@@ -80,25 +79,49 @@ module.exports.homerevised = function(req, res) {
                                         if (!err) {
                                             LocationNews.find(function(err, locnews) {
                                                 if (!err) {
-                                                    
-                                                    // Get the user's country location.
-                                                    where.is(clientip, function(err, result) {
-                                                        if (result) {
-                                                            country = result.get("country");
-                                                            // Show news based on the user's location.
-                                                            locnews.forEach(function(currlocnews) {
-                                                                if(currlocnews.country == country) {
-                                                                    locationNews[index] = currlocnews;
-                                                                    index++;
-                                                                }
+                                                    let locationNews = new Array();
+                                                    if (!req.user) {
+                                                        // Get the user's country location.
+                                                        where.is(clientip, function (err, result) {
+                                                            if (result) {
+                                                                country = result.get("country");
+                                                                // Show news based on the user's location.
+                                                                locnews.forEach(function (currlocnews) {
+                                                                    if (currlocnews.country == country) {
+                                                                        locationNews[index] = currlocnews;
+                                                                        index++;
+                                                                    }
 
-                                                                // If the news are less than 4, it will add some random news.
-                                                                locationNews = addRandomNews(index,locnews, locationNews);
+                                                                    // If the news are less than 4, it will add some random news.
+                                                                    locationNews = addRandomNews(index, locnews, locationNews);
+                                                                });
+                                                            }
+                                                            res.render("homepage_revised", {
+                                                                qfdb: quickfacts,
+                                                                qqdb: quickquiz,
+                                                                vid: video,
+                                                                locnews: locationNews,
+                                                                trendnews: trendnews,
+                                                                outbreaknews: outbreaknews,
+                                                                user: req.user,
+                                                                date: nowDate
                                                             });
-                                                        }
+                                                        });
+                                                    }
+                                                    else {
+                                                        // uh user is loggedIn
+                                                        locnews.forEach(function (currlocnews) {
+                                                            if (currlocnews.country == req.user.newsLocation) {
+                                                                locationNews[index] = currlocnews;
+                                                                index++;
+                                                            }
+
+                                                            // If the news are less than 4, it will add some random news.
+                                                            locationNews = addRandomNews(index, locnews, locationNews);
+                                                        });
                                                         res.render("homepage_revised", {
-                                                            qfdb:quickfacts,
-                                                            qqdb:quickquiz,
+                                                            qfdb: quickfacts,
+                                                            qqdb: quickquiz,
                                                             vid: video,
                                                             locnews: locationNews,
                                                             trendnews: trendnews,
@@ -106,7 +129,7 @@ module.exports.homerevised = function(req, res) {
                                                             user: req.user,
                                                             date: nowDate
                                                         });
-                                                    });
+                                                    }
                                                 } else {
                                                     res.sendStatus(400);
                                                 }
@@ -241,7 +264,8 @@ module.exports.updateProfile = function(req, res) {
         lastName: req.body.lastName,
         email: req.body.email,
         username: req.body.email,
-        country: req.body.country
+        country: req.body.country,
+        newsLocation: req.body.newsLocation
     }, function(err, profile){
         
         if (!err) {
@@ -460,11 +484,13 @@ module.exports.doRegister = function(req, res) {
     where.is(getClientIP(req), function(err, result) {
         if (result) {
             country = result.get("country");
-            Profile.register(new Profile({ username : req.body.email, firstName: req.body.firstName, lastName: req.body.lastName, email: req.body.email, country: req.body.country, joined: Date.now(), newsLocation: country, admin: Boolean(req.body.admin)}), req.body.password, function(err, user) {
+            Profile.register(new Profile({ username : req.body.email, firstName: req.body.firstName, lastName: req.body.lastName, email: req.body.email, country: req.body.country, joined: Date.now(), newsLocation: req.body.country, admin: Boolean(req.body.admin)}), req.body.password, function(err, user) {
                 if (err) {
                     return res.sendStatus(404);
                 }
                 req.body.username = user.username;
+                console.log("request data: "+req.body.country);
+                console.log("submitted data: "+user.country);
                 passport.authenticate('local')(req, res, function () {
                     res.redirect('/');
                 });
