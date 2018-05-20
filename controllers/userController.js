@@ -6,7 +6,6 @@ const QF = mongoose.model('healthfacts');
 const QQ = mongoose.model('healthquizzes');
 const Profile = mongoose.model('profiles');
 const DiseaseWikis = mongoose.model('diseasewikis');
-
 const LocationNews = mongoose.model('locationnews');
 const OutbreakNews = mongoose.model('outbreaknews');
 const TrendNews = mongoose.model('trendingnews');
@@ -26,20 +25,7 @@ function getClientIP(req){
     return clientip;
 };
 
-function getCountry(ipaddress){
-    console.log("Line 30 " + ipaddress);
-    where.is(ipaddress, function(err, result) {
-        if (result) {
-            var country = result.get("country");
-            console.log("Line 33 " + country);
-            return country;
-        }
-    });
-
-    return null;
-}
-
-module.exports.homerevised = function(req, res) {
+module.exports.home = function(req, res) {
     var now = new Date();
     var nowDate = now.getDate();
 
@@ -96,7 +82,7 @@ module.exports.homerevised = function(req, res) {
                                                                     locationNews = addRandomNews(index, locnews, locationNews);
                                                                 });
                                                             }
-                                                            res.render("homepage_revised", {
+                                                            res.render("home", {
                                                                 qfdb: quickfacts,
                                                                 qqdb: quickquiz,
                                                                 vid: video,
@@ -119,7 +105,7 @@ module.exports.homerevised = function(req, res) {
                                                             // If the news are less than 4, it will add some random news.
                                                             locationNews = addRandomNews(index, locnews, locationNews);
                                                         });
-                                                        res.render("homepage_revised", {
+                                                        res.render("home", {
                                                             qfdb: quickfacts,
                                                             qqdb: quickquiz,
                                                             vid: video,
@@ -163,7 +149,7 @@ module.exports.diseaseSpecific = function(req, res) {
         if(!err){
             diseasewikis.forEach(function(diseasespec) {
                 if (diseasespec.name == diseasename) {
-                    res.render("diseasespecific2", {
+                    res.render("diseasespecific", {
                         disease:diseasespec,
                         user: req.user
                     });
@@ -173,10 +159,6 @@ module.exports.diseaseSpecific = function(req, res) {
             res.sendStatus(400);
         }
     });
-};
-
-module.exports.registrationForm = function(req, res) {
-    res.render("registrationform",  {user: req.user});
 };
 
 module.exports.diseaseWiki = function(req, res) {
@@ -275,11 +257,6 @@ module.exports.updateProfile = function(req, res) {
         }  
     });
 }
-
-module.exports.currProfile = function(req,res) {
-    var name = req.user.firstName + " " + req.user.lastName;
-    res.render('profile', { user: req.user, name: name});
-};
 
 module.exports.aboutPage = function(req,res) {
     res.render('aboutUs', {user: req.user});
@@ -515,8 +492,4 @@ module.exports.doLogin = function(req, res) {
 module.exports.logout = function(req, res) {
     req.logout();
     res.redirect('/');
-};
-
-module.exports.logoutScreen = function(req, res){
-    res.render('loggedOut', {user: req.user})
 };

@@ -12,59 +12,53 @@
     </div>
 </header>
 
-
-
 <body>
+    <div class="col-lg-8" style="margin: 0 auto">
 
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 style="color:#5B5B5B">Add Health Fact to Database</h1>
+                <p class="lead">
+                    This page is used to add quick fact to the database.
+                    Quick Fact is the fact that is being updated daily, and being located in the home page beside the
+                    trending topic
+                </p>
+                <p class="lead">
+                <h3>Component <em>(2)</em></h3>
+                <br>
+                <em><strong>Health Fact</strong></em>
+                <em>(Quick fact content, keep it short)</em>
+                <br>
+                <em><strong>Link Health Fact</strong></em>
+                <em>(The source for the quick fact)</em>
 
-
-
-<div class="col-lg-8" style="margin: 0 auto">
-
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-            <h1 style="color:#5B5B5B">Add Health Fact to Database</h1>
-            <p class="lead">
-                This page is used to add quick fact to the database.
-                Quick Fact is the fact that is being updated daily, and being located in the home page beside the
-                trending topic
-            </p>
-            <p class="lead">
-            <h3>Component <em>(2)</em></h3>
-            <br>
-            <em><strong>Health Fact</strong></em>
-            <em>(Quick fact content, keep it short)</em>
-            <br>
-            <em><strong>Link Health Fact</strong></em>
-            <em>(The source for the quick fact)</em>
-
-            </p>
+                </p>
+            </div>
         </div>
+
+        </br>
+        <form method="post" action="/addhealthfact/submit">
+
+        <div class="health-fact">
+            <label for="fact" id="admin-description">Enter Health Fact</label>
+            <textarea class="form-control" placeholder="Enter Health Fact" rows="3" name="fact" id="fact" required></textarea>
+        </div>
+
+            <br>
+
+        <div class="health-fact">
+            <label for="link" id="admin-description">Enter Link Health Fact</label>
+            <textarea class="form-control" placeholder="Enter Link Health Fact" rows="1" name="link" id="link" required></textarea>
+        </div>
+
+            <br>
+            <br>
+            <br>
+
+        <!-- Submit -->
+        <input type="submit" value="Add Data">
+        </form>
     </div>
-
-    </br>
-    <form method="post" action="/addhealthfact/submit">
-
-      <div class="health-fact">
-        <label for="fact" id="admin-description">Enter Health Fact</label>
-          <textarea class="form-control" placeholder="Enter Health Fact" rows="3" name="fact" id="fact" required></textarea>
-      </div>
-
-        <br>
-
-      <div class="health-fact">
-        <label for="link" id="admin-description">Enter Link Health Fact</label>
-          <textarea class="form-control" placeholder="Enter Link Health Fact" rows="1" name="link" id="link" required></textarea>
-    </div>
-
-        <br>
-        <br>
-        <br>
-
-      <!-- Submit -->
-      <input type="submit" value="Add Data">
-    </form>
-</div>
 </body>
 
 <footer>

@@ -3,10 +3,10 @@ const router = express.Router();
 const control = require('../controllers/userController');
 
 // Restrict index for logged in user only
-router.get('/', control.homerevised);
+router.get('/', control.home);
 
 // Route to home page
-router.get('/home', control.homerevised);
+router.get('/home', control.home);
 
 router.get('/diseases', control.diseaseWiki);
 
@@ -21,13 +21,8 @@ router.post('/profile', control.profile);
 
 router.post('/profile/submit', control.updateProfile);
 
-router.get('/currProfile', control.currProfile);
-
 // Route to about us page
 router.get('/about', control.aboutPage);
-
-// Route to registration page
-router.get('/registration_form', control.registrationForm);
 
 // Route to register page
 router.get('/register', control.register);
@@ -43,8 +38,6 @@ router.post('/loginSubmit', control.doLogin);
 
 // Route for logout action
 router.get('/logout', control.logout);
-
-router.get('/notlogged', control.logoutScreen);
 
 router.post('/api/submit', control.createDisease);
 

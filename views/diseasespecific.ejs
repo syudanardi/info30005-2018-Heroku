@@ -6,37 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/disease_styles.css" type="text/css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 
-    <!-- Optional JavaScript (ATTACHED IN BODY FOR NOW)  -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
-    <!-- Use this packet for using bootstrap and navbar-->
+    <link rel="stylesheet" media="screen" href="/css/disease_styles.css">
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
-    <script type="text/javascript" src="/diseasewiki.js"></script>
-
     <title>Specific Disease</title>
-
-    <script>
-        function togglerequire(myClass){
-            document.getElementsByClassName(myClass).children("textarea").each(function(){
-                var re = $(this).prop('readonly');
-                $(this).prop('readonly', !re);
-            })
-        }
-
-        // Working function
-        function togglerequire(id){
-            $(id).children("textarea").each(function(){
-                var re = $(this).prop('readonly');
-                $(this).prop('readonly', !re);
-            });
-        }
-    </script>
 </head>
 
     <body>
@@ -45,58 +23,25 @@
         <div id="nav-placeholder">
             <% include navbar.ejs %>
         </div>
-
-        <!-- Testing editable disease specific -->
-        <form>
-            <fieldset id="F1">
-                <textarea id="T1" rows="5" cols="50" readonly required>Surviantoro
-                </textarea>
-                <br>
-            </fieldset>
-            <button type="button" id="button" onclick="togglerequire('#F1')">
-                Click Me
-            </button>
-        </form>
-
-        <!-- Wolfram Alpha API Testing Ground-->
-        <!--<a href="http://api.wolframalpha.com/v1/query?input=asthmas&appid=QXW2KE-2JX8G2RKUA">Disease Check</a>-->
-        <!--<br>-->
-
-        <!--<a href="https://api.wolframalpha.com/v1/result?i=what is penis?%3F&appid=QXW2KE-2JX8G2RKUA">-->
-        <!--&lt;!&ndash;<a href="http://www.wolframalpha.com/summaryboxes/v1/query?appid=QXW2KE-2JX8G2RKUA&path=countries/e/l5/vw/el">&ndash;&gt;-->
-            <!--TEST DISEASE-->
-        <!--</a>-->
-        <!--<br>-->
-        <!--<br>-->
-
-        <!--<br>-->
-        <!--<a href="http://api.wolframalpha.com/v1/simple?appid=QXW2KE-2JX8G2RKUA&i=asthma">ASTHMA</a>-->
-        <!--<br>-->
-        <!--<a href="http://api.wolframalpha.com/v1/simple?appid=QXW2KE-2JX8G2RKUA&i=gonnorhea">GONNORHEA</a>-->
-        <!--<br>-->
-        <!--<a href="http://api.wolframalpha.com/v1/simple?appid=QXW2KE-2JX8G2RKUA&i=zika">ZIKA</a>-->
-        <!--<br>-->
-        <!--<a href="http://api.wolframalpha.com/v1/simple?appid=QXW2KE-2JX8G2RKUA&i=flu">FLU</a>-->
-        <!--Interpreter["Disease"]["broken finger"]-->
-
-
         <div class="container">
             <div class="row" id="disease-header">
 
                 <div class="col-sm-6 col-md-4">
                     <div class="info-card">
-                        <img id="disease-img" src="/resource/asthma.jpg" />
+                        <img id="disease-img" src="<%=disease["img"]%>" />
                         <div class="info-card-details animate">
                             <div class="info-card-header">
-                                <h1> Asthma </h1>
-                                <h3> (Also called: Bronchial Asthma) </h3>
+                                <h1> <%=disease["name"]%> </h1>
+                                <%if (disease["bioname"] != '-') {%>
+                                    <h3>(Also called: <%=disease["bioname"]%>)</h3>
+                                <%}%>
                             </div>
                             <div class="info-card-detail">
                                 <!-- Description -->
                                 <p>
-                                    A condition in which a person's airways become inflamed, narrow and swell and
-                                    produce extra mucus, which makes it difficult to breathe.
+                                    <%=disease["fact"]%>
                                 </p>
+
                             </div>
                         </div>
                     </div>
@@ -106,141 +51,88 @@
 
                     <table class="table">
 
-                        <tr>
-                            <th scope="row">
-                                <img id="spec-img" src="/resource/treatable.png">
-                            </th>
-                            <td>Treatable by a medical professional</td>
-                        </tr>
+                        <%if (disease["treat"] != '-') {%>
+                            <tr>
+                                <th scope="row">
+                                    <img id="spec-img" src="/resource/treatable.png">
+                                </th>
+                                <td><%=disease["treat"]%></td>
+                            </tr>
+                        <% } %>
 
-                        <tr>
-                            <th scope="row">
-                                <img id="spec-img" src="/resource/diagnosis.png">
-                            </th>
-                            <td>Requires a medical diagnosis</td>
-                        </tr>
+                        <%if (disease["diagnosis"] != '-') {%>
+                            <tr>
+                                <th scope="row">
+                                    <img id="spec-img" src="/resource/diagnosis.png">
+                                </th>
+                                <td><%=disease["diagnosis"]%></td>
+                            </tr>
+                        <% } %>
+                        
+                        <%if (disease["lab"] != '-') {%>
+                            <tr>
+                                <th scope="row">
+                                    <img id="spec-img" src="/resource/lab_test.png">
+                                </th>
+                                <td><%=disease["lab"]%></td>
+                            </tr>
+                        <% } %>
 
-                        <tr>
-                            <th scope="row">
-                                <img id="spec-img" src="/resource/lab_test.png">
-                            </th>
-                            <td>Lab tests or imaging often required</td>
-                        </tr>
-
-                        <tr>
-                            <th scope="row">
-                                <img id="spec-img" src="/resource/chronic.png">
-                            </th>
-                            <td>Chronic: can last for years or be lifelong</td>
-                        </tr>
-
-
-
+                        <%if (disease["time"] != '-') {%>
+                            <tr>
+                                <th scope="row">
+                                    <img id="spec-img" src="/resource/chronic.png">
+                                </th>
+                                <td><%=disease["time"]%></td>
+                            </tr>
+                        <% } %>
                     </table>
                 </div>
-
             </div>
         </div>
-
-
-
-
-
-
-
-
-
 
         <div class="details">
 
             <!-- CAUSES -->
             <a href="#causes" class="list-group-item" data-toggle="collapse">
-                <i class="glyphicon glyphicon-chevron-right"></i>Causes
+                <span id="causes-title">Causes</span>
                 <img id="down-arrow" src="resource/down-arrow.png">
             </a>
-
-
-            <div class="list-group collapse" id="causes">
-                <form>
-                    <fieldset id="F1">
-                        <textarea id="T1" rows="5" cols="50" readonly required>Surviantoro</textarea>
-                    </fieldset>
-
-                    <br>
-                </form>
-                <!--Asthma triggers frequently include:-->
-                <!--<li>Allergens such as pollen, dust mites, cockroaches, molds and animal danders</li>-->
-                <!--<li>Irritants in the air, such as smoke, air pollution, chemical fumes and strong odors</li>-->
-                <!--<li>Medications, such as aspirin and acetaminophen</li>-->
-                <!--<li>Extreme weather conditions</li>-->
-                <!--<li>Exercise</li>-->
-                <!--<li>Stress</li>-->
+            <div  class="list-group collapse" id="causes">
+                <%-disease["causes"]%>
             </div>
-
 
             <!-- SYMPTOMS -->
             <a href="#symptoms" class="list-group-item" data-toggle="collapse">
-                <i class="glyphicon glyphicon-chevron-right"></i>Symptoms
+                <span id="symptoms-title">Symptoms</span>
                 <img id="down-arrow" src="resource/down-arrow.png">
             </a>
             <div class="list-group collapse" id="symptoms">
-                <form>
-                    <fieldset id="F1" class="editable">
-                        <textarea id="1" rows="5" cols="50" readonly required>Gavin
-                        </textarea>
-                    </fieldset>
-                    <br>
-                </form>
-                <!--<li>Breathlessness</li>-->
-                <!--<li>Wheezing</li>-->
-                <!--<li>Tight feeling in the chest, and/or</li>-->
-                <!--<li>Continuing cough</li>-->
-                <!--If you  have all of these symptoms or only a few, and they may come and go, then you may have asthma.-->
+                <%-disease["symptoms"]%>
             </div>
 
             <!-- TREATMENT -->
             <a href="#treatment" class="list-group-item" data-toggle="collapse">
-                <i class="glyphicon glyphicon-chevron-right"></i>Treatment
+                <span id="treatment-title">Treatment</span>
                 <img id="down-arrow" src="resource/down-arrow.png">
             </a>
             <div class="list-group collapse list-item" id="treatment">
-                <textarea id="T1" rows="5" cols="50" readonly required>William</textarea>
-
-                <br>
-                <!--Quick-relief medicines are taken at the first sign of symptoms for immediate relief:-->
-                <!--<li>Short-acting inhaled beta2-agonists</li>-->
-                <!--<li>Anticholinergics</li>-->
-                <!--<br>-->
-                <!--Both types of drugs are bronchodilators, meaning that they expand the passageways into the lungs (the bronchi), allowing more air in and out and improving breathing. They also help to clear mucus from the lungs by enabling the mucus to move more freely and get coughed out more easily.-->
-
-                <!--If you have exercise-induced bronchoconstriction (EIB), also known as exercise-induced asthma, your allergist may recommend that you use these medicines before exercise or other strenuous physical activity.-->
-
-                <!--Quick-relief medicines can stop asthma symptoms, but they do not control the airway inflammation that causes the symptoms. If you find that you need your quick-relief medicine to treat asthma symptoms more than twice a week, or two or more nights a month, then your asthma is not well controlled.-->
+                <%-disease["treatment"]%>
             </div>
 
             <!-- HISTORY -->
             <a href="#history" class="list-group-item" data-toggle="collapse">
-                <i class="glyphicon glyphicon-chevron-right"></i>History
+                <span id="history-title">History</span>
                 <img id="down-arrow" src="resource/down-arrow.png">
             </a>
             <div class="list-group collapse" id="history">
-                Asthma was recognized in ancient Egypt and was treated by drinking an incense mixture known as kyphi.
-                 It was officially named as a specific respiratory problem by Hippocrates circa 450 BC, with the Greek
-                word for "panting" forming the basis of our modern name. In 200 BC it was believed to be at least partly
-                related to the emotions. In the 12th century the Jewish physician-philosopher Maimonides wrote a treatise
-                on asthma in Arabic, based partly on Arabic sources, in which he discussed the symptoms,
-                proposed various dietary and other means of treatment, and emphasized the importance of climate and clean air.
+                <%-disease["history"]%>
             </div>
         </div>
-
-        <button type="button" id="button" onclick="togglerequire('editable')">
-            Click Me
-        </button>
 
         <!-- Footer-->
         <div id="footer-placeholder">
             <% include footer.ejs %>
         </div>
-
     </body>
 </html>
