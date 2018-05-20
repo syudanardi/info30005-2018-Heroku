@@ -149,10 +149,6 @@ module.exports.diseaseSpecific = function(req, res) {
     });
 };
 
-module.exports.registrationForm = function(req, res) {
-    res.render("registrationform",  {user: req.user});
-};
-
 module.exports.diseaseWiki = function(req, res) {
     res.locals.query = req.query;
     var alphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");

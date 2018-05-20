@@ -24,9 +24,6 @@ router.post('/profile/submit', control.updateProfile);
 // Route to about us page
 router.get('/about', control.aboutPage);
 
-// Route to registration page
-router.get('/registration_form', control.registrationForm);
-
 // Route to register page
 router.get('/register', control.register);
 
