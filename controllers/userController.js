@@ -43,9 +43,6 @@ module.exports.homerevised = function(req, res) {
     var now = new Date();
     var nowDate = now.getDate();
 
-    // var requestUrl = "http://ip-api.com/json";
-    
-
     // Get the Client IP address
     var clientip = getClientIP(req);
 
