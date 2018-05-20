@@ -97,33 +97,35 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
 
+                <%if (user) { %>
+                    <%if (user.admin == true) { %>
+                        <li class="nav-item dropdown">
+                            <span class="nav-link dropdown-toggle" href="#" id="admin_menu_text" data-toggle="dropdown">
+                                ADMIN MENU
+                            </span>
+                            <div class="dropdown-menu">
+                                <div class="dropdown-header">Home Page (News)</div>
+                                <a class="dropdown-item" href="/addlocationnews">Add Location-Based News</a>
+                                <a class="dropdown-item" href="/addtrendingnews">Add Trending Topic News</a>
+                                <a class="dropdown-item" href="/addoutbreaknews">Add Outbreak News</a>
 
-                <!--&lt;!&ndash; check admin implement here &ndash;&gt;-->
-                <!--<li class="nav-item dropdown">-->
-                    <!--<span class="nav-link dropdown-toggle" href="#" id="admin_menu_text" data-toggle="dropdown">-->
-                        <!--ADMIN MENU-->
-                    <!--</span>-->
-                    <!--<div class="dropdown-menu">-->
-                        <!--<div class="dropdown-header">Home Page (News)</div>-->
-                        <!--<a class="dropdown-item" href="/addlocationnews">Add Location-Based News</a>-->
-                        <!--<a class="dropdown-item" href="/addtrendingnews">Add Trending Topic News</a>-->
-                        <!--<a class="dropdown-item" href="/addoutbreaknews">Add Outbreak News</a>-->
+                                <div class="dropdown-divider"></div>
 
-                        <!--<div class="dropdown-divider"></div>-->
+                                <div class="dropdown-header">Home Page (Sides)</div>
+                                <a class="dropdown-item" href="/addhealthfact">Add Quick Fact</a>
+                                <a class="dropdown-item" href="/addquickquiz">Add Quick Quiz</a>
+                                <a class="dropdown-item" href="/addfeaturedvideo">Add Featured Videos</a>
 
-                        <!--<div class="dropdown-header">Home Page (Sides)</div>-->
-                        <!--<a class="dropdown-item" href="/addhealthfact">Add Quick Fact</a>-->
-                        <!--<a class="dropdown-item" href="/addquickquiz">Add Quick Quiz</a>-->
-                        <!--<a class="dropdown-item" href="/addfeaturedvideo">Add Featured Videos</a>-->
+                                <div class="dropdown-divider"></div>
 
-                        <!--<div class="dropdown-divider"></div>-->
+                                <div class="dropdown-header">Disease Wiki</div>
+                                <a class="dropdown-item" href="/adddisease">Add Disease</a>
+>>>>>>> master
 
-                        <!--<div class="dropdown-header">Disease Wiki</div>-->
-                        <!--<a class="dropdown-item" href="/adddisease">Add Disease</a>-->
-
-                    <!--</div>-->
-                <!--</li>-->
-
+                            </div>
+                        </li>
+                    <%}%>
+                <%}%>
 
 
 
