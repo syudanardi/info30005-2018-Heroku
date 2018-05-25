@@ -39,10 +39,6 @@ router.post('/loginSubmit', control.doLogin);
 // Route for logout action
 router.get('/logout', control.logout);
 
-router.post('/api/submit', control.createDisease);
-
-router.get('/api', control.createForm);
-
 // Show add Health Fact page (Admin Page)
 router.get('/addhealthfact', control.addHealthFactPage);
 

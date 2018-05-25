@@ -55,9 +55,6 @@ p:last-child {
     margin: 0px;
 }
 
-ul,
-ol {}
-
 a {
     text-decoration: none;
     color: #50595e;
@@ -85,35 +82,10 @@ sub {
     margin-bottom: 20px;
 }
 
-
-/*.feature-left {*/
-    /*margin-bottom: 40px;*/
-/*}*/
-
-/*.feature-left .feature-icon {*/
-    /*font-size: 50px;*/
-    /*color: #4cbec5;*/
-    /*display: inline-block;*/
-    /*float: left;*/
-    /*padding-right: 40px;*/
-    /*padding-top: 7px;*/
-/*}*/
-
-/*.feature-left .feature-content {*/
-    /*font-size: 20px;*/
-/*}*/
-
-.feature-icon{
+.feature-icon {
     font-size: 35px;
     color: #1E12C8;
 }
-
-/*.feature-left:last-child {}*/
-/*textarea.form-control {*/
-    /*height: 90px;*/
-/*}*/
-
-.required {}
 
 .form-group {
     margin-bottom: 5px;
@@ -320,13 +292,6 @@ select option {
     padding-bottom:80px;
 }
 
-/*.btn-default.focus,*/
-/*.btn-default:focus {*/
-    /*background-color: transparent;*/
-    /*color: #ce0058;*/
-    /*border: 2px solid #ce0058;*/
-    /*box-shadow: 0 0 0 0.2rem rgb(206, 0, 88);*/
-/*}*/
 #mottos {
     margin-bottom: 50px;    
 }
