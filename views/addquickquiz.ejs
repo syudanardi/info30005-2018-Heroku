@@ -1,90 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-  <title>Add Quick Quiz to Database</title>
-    <link rel="stylesheet" href="/css/admin_edit.css" type="text/css">
-</head>
+  <head>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <title>Add Quick Quiz to Database</title>
+      <link rel="stylesheet" href="/css/admin_edit.css" type="text/css">
+  </head>
 
-<header>
-    <div id="nav-placeholder">
-        <% include navbar.ejs %>
-    </div>
-</header>
-
-<body>
-
-  <div class="col-lg-8" style="margin: 0 auto">
-      <div class="jumbotron jumbotron-fluid">
-          <div class="container">
-              <h1 style="color:#5B5B5B">Add Quick Quiz to Database</h1>
-              <p class="lead">
-                  This page is used to add quick quiz to the database.
-                  Quick Quiz is the quiz that is being updated daily, and being located in the home page beside the
-                  trending topic
-              </p>
-              <p class="lead">
-              <h3>Component <em>(4)</em></h3>
-              <br>
-              <em><strong>Health Question</strong></em>
-              <em>(The question for the quick quiz)</em>
-              <br>
-              <em><strong>Option 1</strong></em>
-              <em>(First answer choice)</em>
-              <br>
-              <em><strong>Option 2</strong></em>
-              <em>(Second answer choice)</em>
-              <br>
-              <em><strong>Answer Key</strong></em>
-              <em>(Type in again the corret answer to the question)</em>
-
-              </p>
-          </div>
+  <header>
+      <div id="nav-placeholder">
+          <% include navbar.ejs %>
       </div>
+  </header>
 
+  <body>
+    <div class="col-lg-8" style="margin: 0 auto">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 style="color:#5B5B5B">Add Quick Quiz to Database</h1>
+                <p class="lead">
+                    This page is used to add quick quiz to the database.
+                    Quick Quiz is the quiz that is being updated daily, and being located in the home page beside the
+                    trending topic
+                </p>
+                <p class="lead">
+                <h3>Components <em>(4)</em></h3>
+                <br>
+                <em><strong>Health Question</strong></em>
+                <em>(The question for the quick quiz)</em>
+                <br>
+                <em><strong>Option 1</strong></em>
+                <em>(First answer choice)</em>
+                <br>
+                <em><strong>Option 2</strong></em>
+                <em>(Second answer choice)</em>
+                <br>
+                <em><strong>Answer Key</strong></em>
+                <em>(Type in again the corret answer to the question)</em>
 
-      </br>
-      <form method="post" action="/addquickquiz/submit">
-
-        <div class="health-question">
-          <label for="question" id="admin-description">Enter Health Question</label>
-          <textarea class="form-control" placeholder="Enter Question" rows="2" name="question" id="question" required></textarea>
-
-        </div>
-          <br>
-
-        <div class="health-option-1">
-          <label for="option1" id="admin-description">Enter Option 1</label>
-            <textarea class="form-control" placeholder="Enter Option 1" rows="1" name="option1" id="option1" required></textarea>
-
-        </div>
-          <br>
-
-        <div class="health-option-2">
-          <label for="option2" id="admin-description">Enter Option 2</label>
-            <textarea class="form-control" placeholder="Enter Option 2" rows="1" name="option2" id="option2" required></textarea>
-
-        </div>
-
-          <br>
-
-        <div class="answer">
-          <label for="answer" id="admin-description">Enter Answer Key</label>
-            <textarea class="form-control" placeholder="Enter Answer Key" rows="1" name="answer" id="asnwer" required></textarea>
-
+                </p>
+            </div>
         </div>
 
-          <br>
-          <br>
-          <br>
 
-        <!-- Submit -->
-        <input type="submit" value="Add Data">
-      </form>
-  </div>
-</body>
+        </br>
+        <form method="post" action="/addquickquiz/submit">
 
-<footer>
-    <% include footer.ejs %>
-</footer>
+          <div class="health-question">
+            <label for="question" id="admin-description">Enter Health Question</label>
+            <textarea class="form-control" placeholder="Enter Question" rows="2" name="question" id="question" required></textarea>
+
+          </div>
+            <br>
+
+          <div class="health-option-1">
+            <label for="option1" id="admin-description">Enter Option 1</label>
+              <textarea class="form-control" placeholder="Enter Option 1" rows="1" name="option1" id="option1" required></textarea>
+
+          </div>
+            <br>
+
+          <div class="health-option-2">
+            <label for="option2" id="admin-description">Enter Option 2</label>
+              <textarea class="form-control" placeholder="Enter Option 2" rows="1" name="option2" id="option2" required></textarea>
+
+          </div>
+
+            <br>
+
+          <div class="answer">
+            <label for="answer" id="admin-description">Enter Answer Key</label>
+              <textarea class="form-control" placeholder="Enter Answer Key" rows="1" name="answer" id="asnwer" required></textarea>
+
+          </div>
+
+            <br>
+            <br>
+            <br>
+
+          <!-- Submit -->
+          <input type="submit" value="Add Data">
+        </form>
+    </div>
+  </body>
+
+  <footer>
+      <% include footer.ejs %>
+  </footer>
 </html>
