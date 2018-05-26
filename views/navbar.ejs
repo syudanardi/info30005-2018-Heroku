@@ -1,154 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+    <head>
+        <meta charset="UTF-8">
+        
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+        <link href="/css/navbar.css" rel="stylesheet" type="text/css">
+    </head>
+
+    <body>
+        <nav id="topNav" class="navbar navbar-default">
+
+            <a class= "navbar-brand" href="/">
+                <img src="/resource/logo_bg.png" width="55" height="55" alt="">
+                <strong id="brandName">Quick Health </strong>
+            </a>
+
+            <div id="adminForm">
+                <%if (!user) { %>
+                    <span id="registrationText" class="navbar-text text-right">
+                        <a href="/register" id="register-title"> Register </a>
+                    </span>
+                    <span id="loginText" class="navbar-text text-right dropdown-toggle" data-toggle="dropdown">
+                        Login
+                    </span>
+                <% } else { %>
+                <a href="/profile" id="profileName"> <%=user.firstName + ' ' + user.lastName%></a>
+                <a href="/logout" id="logoutText">Logout</a>
+                <% } %>
 
 
+                <ul id="login-dp" class="dropdown-menu dropdown-menu-right">
+                    <li id="toggleText">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div id="login-text">
+                                    <h5>Login</h5>
+                                </div>
+                                <form class="form" role="form" method="POST" action="/loginSubmit" accept-charset="UTF-8" id="login-nav">
+                                    <div class="form-group">
+                                        <label class="sr-only" for="exampleInputEmail2">Email address</label>
+                                        <input type='text' name='username' id='inputEmail' placeholder='Email' class="form-control" required autofocus>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="sr-only" for="exampleInputPassword2">Password</label>
+                                        <input type="password" name="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
+                                    </div>
+                                    <div class="form-group">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-
-    <link href="/css/navbar.css" rel="stylesheet" type="text/css">
-</head>
-
-<body>
-
-
-
-<nav id="topNav" class="navbar navbar-default">
-
-        <a class= "navbar-brand" href="/">
-            <img src="/resource/logo_bg.png" width="55" height="55" alt="">
-            <strong id="brandName">Quick Health </strong>
-        </a>
-
-
-        <div id="adminForm">
-
-
-            <%if (!user) { %>
-                <span id="registrationText" class="navbar-text text-right">
-                    <a href="/register" id="register-title"> Register </a>
-                </span>
-                <span id="loginText" class="navbar-text text-right dropdown-toggle" data-toggle="dropdown">
-                    Login
-                </span>
-            <% } else { %>
-            <a href="/profile" id="profileName"> <%=user.firstName + ' ' + user.lastName%></a>
-            <a href="/logout" id="logoutText">Logout</a>
-            <% } %>
-
-
-            <ul id="login-dp" class="dropdown-menu dropdown-menu-right">
-                <li id="toggleText">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div id="login-text">
-                                <h5>Login</h5>
+                                        <input type="submit" value="Sign In" class="btn btn-primary btn-block">
+                                    </div>
+                                </form>
                             </div>
-                            <form class="form" role="form" method="POST" action="/loginSubmit" accept-charset="UTF-8" id="login-nav">
-                                <div class="form-group">
-                                    <label class="sr-only" for="exampleInputEmail2">Email address</label>
-                                    <input type='text' name='username' id='inputEmail' placeholder='Email' class="form-control" required autofocus>
+                            <div id="register-here">
+                                <div class="bottom text-center">
+                                    New to us ? <a href="/registration_form"><b>Register Here</b></a>
                                 </div>
-                                <div class="form-group">
-                                    <label class="sr-only" for="exampleInputPassword2">Password</label>
-                                    <input type="password" name="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
-                                </div>
-                                <div class="form-group">
-
-                                    <input type="submit" value="Sign In" class="btn btn-primary btn-block">
-                                </div>
-                            </form>
-                        </div>
-                        <div id="register-here">
-                            <div class="bottom text-center">
-                                New to us ? <a href="/registration_form"><b>Register Here</b></a>
                             </div>
                         </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </nav>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <nav id="bottomNav" class="navbar navbar-expand navbar-default bg-light">
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
 
 
+                    <%if (user) { %>
+                        <%if (user.admin == true) { %>
+                            <li class="nav-item dropdown">
+                                <span class="nav-link dropdown-toggle" href="#" id="admin_menu_text" data-toggle="dropdown">
+                                    ADMIN MENU
+                                </span>
+                                <div class="dropdown-menu">
+                                    <div class="dropdown-header">Home Page (News)</div>
+                                    <a class="dropdown-item" href="/addlocationnews">Add Location-Based News</a>
+                                    <a class="dropdown-item" href="/addtrendingnews">Add Trending Topic News</a>
+                                    <a class="dropdown-item" href="/addoutbreaknews">Add Outbreak News</a>
 
+                                    <div class="dropdown-divider"></div>
 
+                                    <div class="dropdown-header">Home Page (Sides)</div>
+                                    <a class="dropdown-item" href="/addhealthfact">Add Quick Fact</a>
+                                    <a class="dropdown-item" href="/addquickquiz">Add Quick Quiz</a>
+                                    <a class="dropdown-item" href="/addfeaturedvideo">Add Featured Videos</a>
 
+                                    <div class="dropdown-divider"></div>
 
+                                    <div class="dropdown-header">Disease Wiki</div>
+                                    <a class="dropdown-item" href="/adddisease">Add Disease</a>
 
-
-    <nav id="bottomNav" class="navbar navbar-expand navbar-default bg-light">
-        <!--<a class="navbar-brand" href="#">Quick Health</a>-->
-
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-
-
-                <%if (user) { %>
-                    <%if (user.admin == true) { %>
-                        <li class="nav-item dropdown">
-                            <span class="nav-link dropdown-toggle" href="#" id="admin_menu_text" data-toggle="dropdown">
-                                ADMIN MENU
-                            </span>
-                            <div class="dropdown-menu">
-                                <div class="dropdown-header">Home Page (News)</div>
-                                <a class="dropdown-item" href="/addlocationnews">Add Location-Based News</a>
-                                <a class="dropdown-item" href="/addtrendingnews">Add Trending Topic News</a>
-                                <a class="dropdown-item" href="/addoutbreaknews">Add Outbreak News</a>
-
-                                <div class="dropdown-divider"></div>
-
-                                <div class="dropdown-header">Home Page (Sides)</div>
-                                <a class="dropdown-item" href="/addhealthfact">Add Quick Fact</a>
-                                <a class="dropdown-item" href="/addquickquiz">Add Quick Quiz</a>
-                                <a class="dropdown-item" href="/addfeaturedvideo">Add Featured Videos</a>
-
-                                <div class="dropdown-divider"></div>
-
-                                <div class="dropdown-header">Disease Wiki</div>
-                                <a class="dropdown-item" href="/adddisease">Add Disease</a>
-
-                            </div>
-                        </li>
+                                </div>
+                            </li>
+                        <%}%>
                     <%}%>
-                <%}%>
 
+                    <!-- General -->
+                    <li class="nav-item active">
+                        <a id="home-title" class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                    </li>
 
+                    <li class="nav-item">
+                        <a id="wiki-title" class="nav-link" href="/diseases">Disease Wiki</a>
+                    </li>
 
-                <!-- general -->
-                <li class="nav-item active">
-                    <a id="home-title" class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-                </li>
+                    <li class="nav-item">
+                        <a id="profile-title" class="nav-link" href="/profile">Profile</a>
+                    </li>
 
-                <li class="nav-item">
-                    <a id="wiki-title" class="nav-link" href="/diseases">Disease Wiki</a>
-                </li>
-
-                <li class="nav-item">
-                    <a id="profile-title" class="nav-link" href="/profile">Profile</a>
-                </li>
-
-                <li class="nav-item">
-                    <a id="about-title" class="nav-link" href="/about">About Us</a>
-                </li>
-
-
-            </ul>
-        </div>
-    </nav>
-
-
-
-
-</body>
+                    <li class="nav-item">
+                        <a id="about-title" class="nav-link" href="/about">About Us</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </body>
 </html>

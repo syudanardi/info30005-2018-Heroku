@@ -41,8 +41,8 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-// send email every 7am to remind them
-const dailyMail = schedule.scheduleJob('0 7 * * *', function() {
+// send email every 5 minute
+const dailyMail = schedule.scheduleJob('*/5 * * * *', function() {
     Profile.find(function(err, profile) {
         if (!err) {
             profile.forEach(function (client) {
@@ -56,4 +56,3 @@ const dailyMail = schedule.scheduleJob('0 7 * * *', function() {
 app.listen(PORT,function(){
     console.log(`Express listening on port ${PORT}`);
 });
-
