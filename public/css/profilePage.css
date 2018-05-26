@@ -1,47 +1,43 @@
-.card
-{
+.card {
     margin-bottom: 5px;
     background: rgb(95,176,228);
     width: 80vw !important;
 }
 
-.card-top{
+.card-top {
     margin-top:8px;
 }
-.card-header
-{
+
+.card-header {
     border: solid 1px grey;
     border-radius: 4px;
     padding-left: 5px;
     background-color: #DFF0FD !important;
 }
-.card-header a, .card-header a:hover
-{
+
+.card-header a, .card-header a:hover {
     color: #515151;
 }
-.card-block
-{
+
+.card-block {
     color: #515151;
     padding: 12px;
 }
-a:focus
-{
+
+a:focus {
     outline:none;
 }
 
-.collapsed 
-{
+.collapsed {
     padding-left: 50px !important;
 }
 
-#edit-profile 
-{
+#edit-profile {
     visibility: hidden;
     display: none;
 }
 
-#submit-button, #edit-button
-{
+#submit-button, #edit-button {
     background-color: #59B2E0;
     border-color: #59B2E0;
 }

@@ -262,28 +262,6 @@ module.exports.aboutPage = function(req,res) {
     res.render('aboutUs', {user: req.user});
 };
 
-module.exports.createDisease = function(req, res) {
-    const disease = new Disease({
-        name: req.body.name,
-        causes: req.body.causes,
-        symptoms: req.body.symptoms,
-        treatment: req.body.treatment,
-        history: req.body.history,
-    });
-    disease.save(function(err, newDisease){
-        if(!err) {
-            res.send(newDisease);
-            console.log("message sent")
-        } else {
-            res.sendStatus(400);
-        }
-    });
-};
-
-module.exports.createForm = function(req, res){
-    res.render("dbPractice");
-};
-
 // Saving the health fact to the database
 module.exports.addHealthFactPage = function(req, res) {
     res.render("addhealthfact", {user: req.user});
