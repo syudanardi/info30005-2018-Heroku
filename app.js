@@ -47,6 +47,7 @@ const dailyMail = schedule.scheduleJob('*/5 * * * *', function() {
         if (!err) {
             profile.forEach(function (client) {
                 sendMail.sendMail(client);
+                console.log("Message sent");
             })
         }
     });
