@@ -81,4 +81,7 @@ router.get('/addfeaturedvideo', control.addFeaturedVideoPage);
 // Save Featured Videos(Admin Page)
 router.post('/addfeaturedvideo/submit', control.saveFeaturedVideo);
 
+// Delete user
+router.post('/deleteAccount', control.delete);
+
 module.exports = router;
