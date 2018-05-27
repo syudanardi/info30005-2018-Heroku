@@ -480,7 +480,7 @@ module.exports.delete = function(req, res){
             return res.redirect("/user/edit");
         }
 
-        console.log("success", "Your account has been deleted.");
+        console.log("Success", "Your account has been deleted.");
         req.logout();
         res.redirect("/");
     });
