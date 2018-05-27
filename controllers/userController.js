@@ -471,3 +471,17 @@ module.exports.logout = function(req, res) {
     req.logout();
     res.redirect('/');
 };
+
+// post delete profile
+module.exports.delete = function(req, res){
+    Profile.findOneAndRemove({_id: req.user.id}, (err) => {
+        if (err) {
+            req.flash("error", err);
+            return res.redirect("/user/edit");
+        }
+
+        console.log("success", "Your account has been deleted.");
+        req.logout();
+        res.redirect("/");
+    });
+};

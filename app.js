@@ -2,6 +2,10 @@
 const express = require('express');
 const router = require('./routes/userRoute');
 const bodyParser = require('body-parser');
+const sendMail = require('./models/remainderMail');
+const mongoose = require('mongoose');
+const Profile = mongoose.model('profiles');
+const schedule = require('node-schedule');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -37,6 +41,17 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+// send email every 5 minute
+const dailyMail = schedule.scheduleJob('*/5 * * * *', function() {
+    Profile.find(function(err, profile) {
+        if (!err) {
+            profile.forEach(function (client) {
+                sendMail.sendMail(client);
+                console.log("Message sent to subscriber");
+            })
+        }
+    });
+});
 
 // Start the app at the Port point
 app.listen(PORT,function(){
