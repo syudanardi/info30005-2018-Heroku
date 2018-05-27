@@ -32,24 +32,19 @@ a:focus {
     padding-left: 50px !important;
 }
 
+#delete-button {
+    margin-top: 10px;
+}
+
 #edit-profile {
     visibility: hidden;
     display: none;
 }
 
-#submit-button, #edit-button {
+#submit-button, #edit-button, #delete-button {
     background-color: #59B2E0;
     border-color: #59B2E0;
 }
-
-
-
-
-
-
-
-
-
 
 /* Typography */
 h1,
